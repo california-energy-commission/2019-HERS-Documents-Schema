@@ -18,6 +18,7 @@ For example: `refs #321` or `fixes #12`. Using the `fixes` or `closes` keywords 
 Refer to the [Git manual](https://git-scm.com/doc) for more information about Git and download
 [GitHub Desktop](https://desktop.github.com/) to assist in using GitHub.
 
+Refer to the GitHub help article on [Syncing a fork](https://help.github.com/articles/syncing-a-fork/).
 
 ## "Decision Making" Process
 
