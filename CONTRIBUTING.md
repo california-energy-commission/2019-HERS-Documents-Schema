@@ -1,8 +1,14 @@
 # CONTRIBUTING
 
+The [README](README.md) and this contributing guide are both written in 
+[Markdown](https://guides.github.com/features/mastering-markdown/) which is a lightweight and easy-to-use syntax for styling 
+all forms of writing on the GitHub platform.
+
 Discussion about code base improvements happens in GitHub issues and on pull requests.
 
 - [Contributor Workflow](#contributor-workflow)
+- [GitHub Cheat Sheets](#github-cheat-sheets)
+- [More Git Information](#more-git-information)
 - ["Decision Making" Process](#decision-making-process)
 - [Helpful Information](#helpful-information)
 
@@ -19,7 +25,13 @@ To contribute a patch, the workflow is as follows:
 If a commit references an issue, please add the reference. 
 For example: `refs #321` or `fixes #12`. Using the `fixes` or `closes` keywords will cause the applicable issue to be closed when the pull request is merged.
 
-Check out the famous [GitHub Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet).
+## GitHub Cheat Sheets 
+
+- [Awesome](https://github.com/tiimgreen/github-cheat-sheet)
+- [GitHub Git Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+- [Tower](https://www.git-tower.com/blog/git-cheat-sheet)
+
+## More Git Information
 
 Refer to the [Git manual](https://git-scm.com/doc) for more information about Git and download
 [GitHub Desktop](https://desktop.github.com/) to assist in using GitHub from your local computer.
