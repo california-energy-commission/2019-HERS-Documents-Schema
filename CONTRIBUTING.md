@@ -2,6 +2,10 @@
 
 Discussion about code base improvements happens in GitHub issues and on pull requests.
 
+- [Contributor Workflow](#contributor-workflow)
+- ["Decision Making" Process](#decision-making-process)
+- [Helpful Information](#helpful-information)
+
 ## Contributor Workflow
 
 To contribute a patch, the workflow is as follows:
@@ -15,12 +19,14 @@ To contribute a patch, the workflow is as follows:
 If a commit references an issue, please add the reference. 
 For example: `refs #321` or `fixes #12`. Using the `fixes` or `closes` keywords will cause the applicable issue to be closed when the pull request is merged.
 
+Check out the famous [GitHub Cheat Sheet](https://github.com/tiimgreen/github-cheat-sheet).
+
 Refer to the [Git manual](https://git-scm.com/doc) for more information about Git and download
-[GitHub Desktop](https://desktop.github.com/) to assist in using GitHub.
+[GitHub Desktop](https://desktop.github.com/) to assist in using GitHub from your local computer.
 
 Refer to the GitHub help article on [Syncing a fork](https://help.github.com/articles/syncing-a-fork/).
 
-## "Decision Making" Process
+## Decision Making Process
 
 The project merge maintainers and ultimately the project lead are responsible for deciding whether
 a pull request is merged.
@@ -51,8 +57,7 @@ a pull request is merged.
 
 ### Training
 
-- [Introduction to GitHub](https://services.github.com/on-demand/intro-to-github/)
-- [GitHub On Demand Training](https://services.github.com/on-demand/)
+- [GitHub Learning Lab](https://lab.github.com/)
 - [Codewars](https://www.codewars.com/) - Train on kata in the dojo and reach your highest potential
 
 ### Courses
