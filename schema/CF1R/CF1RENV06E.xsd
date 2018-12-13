@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF1RENV06E"
+   xmlns="http://www.lmonte.com/besm/CF1RENV06E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RENV06E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Interior and Exterior Insulation Layers Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF1R" />
+                     <xsd:element ref="cF1RENV06E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV06E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF1RENV06E">
+      <xsd:annotation>
+         <xsd:documentation>Interior and Exterior Insulation Layers Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Mass Wall Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableMassWall" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="A01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A02_MasonryType" type="env:MasonryType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Mass Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A03_PartitionAboveGrade" type="env:PartitionAboveGrade" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Above or Below Grade</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A04_PartitionGrossArea" type="env:PartitionGrossArea" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A05_MassWallThickness" type="env:MassWallThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="SubHeadingA06toA07" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Appendix JA4 Reference</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A06_JAReferenceTableID" type="comp:JAReferenceTableID" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Table</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A07_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Cell</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A08_UFactorLimit" type="com:UFactorLimit" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">U-factor from JA4</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input value from JA4 as DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Interior and Exterior Insulation Layers</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableLayerInsulation" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference  value from A01_PartitionName</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior/ Frame Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Metal, Wood, EIFS</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B03_FurringStripThickness" type="env:FurringStripThickness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">FurringThickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B04_InsulationRValue" type="env:InsulationRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Installed R-value of Insulation</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: nonnegative integer</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="SubHeadingB05toB06" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Appendix JA4 Reference</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B05_JAReferenceTableID" type="comp:JAReferenceTableID" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Table</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B06_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Cell</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B07_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Adjusted Exterior R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B08_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Adjusted Interior R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">U-factor Calculation</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Equation 4-4: U[d:sub]Total[/d:sub] = 1/ (R[d:sub]Outside[/d:sub] + (1/U[d:sub]Mass[/d:sub]) + R[d:sub]Inside[/d:sub] )</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableUFactor" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C01_PartitionName" type="env:PartitionName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference  value from A01_PartitionName</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C02_UFactorLimit" type="com:UFactorLimit" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Mass Wall U-factor [d:line1/] (U[d:sub]Mass[/d:sub])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference  value from A08_UFactorLimit</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C03_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Adjusted Exterior R-value [d:line1/] (R[d:sub]Outside[/d:sub])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference  value from B07_InsulationExteriorRValue</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C04_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Adjusted Interior R-value [d:line1/] (R[d:sub]Inside[/d:sub])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference  value from B08_InsulationInteriorRValue</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C05_UFactorMassWallTotal" type="com:UFactorMassWallTotal" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Total Performance U-factor [d:line1/](U[d:sub]Total[/d:sub])</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: Result = 1/ (C03_InsulationExteriorRValue
+ + (1/C02_UFactorLimit) + C04_InsulationInteriorRValue)</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF1RENV06E" type="CF1RENV06E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RENV06E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
