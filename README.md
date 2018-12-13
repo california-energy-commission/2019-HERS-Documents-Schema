@@ -1,19 +1,11 @@
 # 2019 HERS Documents Schema
 
-The current process uses the `schema` folder as the original set of schema files.
+## Read-Only versus Contribution Access
+If you expect to contribute to the code base in this repository, you must <b>Fork</b> the repository to your own account and then submit a <b>Pull Request</b> for review.  Once changes are reviewed and approved they will be merged into the main branch.  
 
-The `Schema-Deployer.exe` Windows Desktop C# based application is used to deploy the schema to 
-the `deployed` folder.  This application will create a `deployed` folder at your 
-location of choosing.
+<b>IMPORTANT</b> - Modifications and additions to the schema files are to be made solely in the <b>schema folder</b>.
 
-The `schema` folder contains embedded markup in square tags `[ ]`, and `t4ref` links which are  
-processed by the `Schema-Deployer.exe`. 
-
-This application also normalizes, strips whitespace and
-sorts each schema file alphabetically by it's elements `name` attribute which are
-directly below the root xsd:schema element.
-
-The `Schema-Deployer.exe` also updates each schema file's root xsd:schema version attribute.
+After an update is merged, the schema files will be prepared for deployment, as described below.  The processed files are located in the <b>deployed/schema folders</b>.  This is the source that should be used by the HERS Providers for their development
 
 ## Contributing
 
