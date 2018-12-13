@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF2RPVB02E"
+   xmlns="http://www.lmonte.com/besm/CF2RPVB02E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RPVB02E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Battery Storage Systems"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R" />
+                     <xsd:element ref="cF2RPVB02E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPVB02E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF2RPVB02E">
+      <xsd:annotation>
+         <xsd:documentation>Battery Storage Systems</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ProjectCity" type="comp:ProjectCity" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Location (City)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF2R-PVB-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF2R-PVB-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_ClimateZone" type="com:ClimateZone" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF2R-PVB-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_ComplianceMethod" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Method of Compliance:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF2R-PVB-01</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:ComplianceMethod">
+                           <xsd:enumeration value="Performance"/>
+                           <xsd:enumeration value="PrescriptiveNewConstruction"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Design Battery Storage Systems Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01_BatteryCapacity" type="hvac:BatteryCapacity" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Battery Capacity (kWh)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = 7.5 Else reference value from CF1R-PRF</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B02_BatteryControl" type="hvac:BatteryControl" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Control</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = NA stored in NotApplicableMessage Else  reference value from CF1R-PRF</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B02_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Control</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = NA stored in NotApplicableMessage Else  reference value from CF1R-PRF</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B03_ChargingEffiency" type="hvac:ChargingEffiency" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Charging Efficiency (%)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = NA stored in NotApplicableMessage Else  reference value from CF1R-PRF</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Charging Efficiency (%)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = NA stored in NotApplicableMessage Else  reference value from CF1R-PRF</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B04_DischargingEffiency" type="hvac:DischargingEffiency" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Discharging Efficiency (%)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result = NA stored in NotApplicableMessage Else  reference value from CF1R-PRF</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Discharging Efficiency (%)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Battery Storage Systems  Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01_BatteryManufacturer" type="hvac:BatteryManufacturer" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_BatteryModelNumber" type="hvac:BatteryModelNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Model #</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03_BatteryCapacity" type="hvac:BatteryCapacity" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Battery Capacity (kWh)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference B01_BatteryCapacity as default; allow user to override value only if result is GTE B01_BatteryCapacity</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04_BatteryControl" type="hvac:BatteryControl" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Control</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list with options as follows: If parent == CF1R-NCB Or B02_BatteryControl == Basic Or If B02_NotApplicableMessage == N/A, list Basic, TOU and AdvancedDR Else If B02_BatteryControl == TOU list TOU and AdvancedDR Else If B02_BatteryControl ==AdvancedDR list AdvancedDR</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C05_ChargingEffiency" type="hvac:ChargingEffiency" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Charging Efficiency (%)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference B03_ChargingEffiency as default; allow user to override value only if result is GTE B03_ChargingEffiency.  If B03_NotApplicableMessage == N/A,, user input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C06_DischargingEffiency" type="hvac:DischargingEffiency" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Discharging Efficiency (%)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference B04_DischargingEffiency as default; allow user to override value only if result is GTE B04_DischargingEffiency;  If B04_NotApplicableMessage == N/A,, user input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C07_IsBatterySystemCertified" type="comp:IsBatterySystemCertified" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Battery Storage System Certified and listed by CEC</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D01_DoesDwellingComplyWithBatteryRequirements" type="comp:DoesDwellingComplyWithBatteryRequirements" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If C03_BatteryCapacity  GTE B01_BatteryCapacity and C07_IsBatterySystemCertified == true then result = true, Else result = false</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF2RPVB02E" type="CF2RPVB02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RPVB02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
