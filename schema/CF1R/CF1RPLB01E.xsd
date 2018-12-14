@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF1RPLB01E"
+   xmlns="http://www.lmonte.com/besm/CF1RPLB01E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RPLB01E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Hydronic Heating System Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF1R" />
+                     <xsd:element ref="cF1RPLB01E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RPLB01E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF1RPLB01E">
+      <xsd:annotation>
+         <xsd:documentation>Hydronic Heating System Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pipe Heat Loss Worksheet</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TablePipes" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="A01_PipeNominalDiameter" type="hvac:PipeNominalDiameter" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pipe Diameter (inches)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">For choice 0_75In display text: 0.75 inches, for choice 1_0In display text: 1.0 inch and for choice 1_5In display text: 1.5 inches</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A02_PipeHeatLossFactor" type="hvac:PipeHeatLossFactor" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pipe Heat Loss Factor (kBtu/year/ft)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_PipeNominalDiameter == 0_75In result = 66.6; ElseIf A01_PipeNominalDiameter == 1_0In result = 78.8;  Elseif  A01_PipeNominalDiameter == 1_5In  then result = 100.3</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A03_HydronicHeatingPipeLength" type="hvac:HydronicHeatingPipeLength" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pipe Length  (ft)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A04_PipeHeatLoss" type="hvac:PipeHeatLoss" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pipe Heat Loss (kBtu/year)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT (A02_PipeHeatLossFactor,   A03_HydronicHeatingPipeLength)</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="A05_PipesTotalHeatLoss" type="hvac:PipesTotalHeatLoss" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Sum of all pipe heat loss (kBtu/year)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: SUM ALL ( A04_PipeHeatLoss)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_AveragePipeHeatLoss" type="hvac:AveragePipeHeatLoss" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Average Hourly Pipe Heat Loss (Btu/hr)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT ( (A05_PipesTotalHeatLoss / 8760), 1000)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Hydronic System Calculations for Large Storage Gas</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B01_RecoveryEfficiency" type="hvac:RecoveryEfficiency" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Recovery Efficiency/AFUEof the water heater or boiler (unitless)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input;  numeric x.xxx</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B01_BoilerAFUE" type="hvac:BoilerAFUE" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Recovery Efficiency/AFUEof the water heater or boiler (unitless)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input;  numeric x.xxx</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B01_WaterHeaterAFUE" type="hvac:WaterHeaterAFUE" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Recovery Efficiency/AFUEof the water heater or boiler (unitless)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input;  numeric x.xxx</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="B02_AveragePipeHeatLoss" type="hvac:AveragePipeHeatLoss" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Average Hourly Pipe Heat Loss (Btu/hr)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Assign value from A06_ AveragePipeHeatLoss</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Rated Input of the water heater or boiler (Btu/hr)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input;  numeric xxxxxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B04_WaterHeatingStandbyLossPercent" type="hvac:WaterHeatingStandbyLossPercent" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Standby Percent (if known)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input;  numeric; Store value as a fraction less than 1.  If displaying value with units of percent, display term = PRODUCT (WaterHeatingStandbyLossPercent, 100);  If value is not known result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Standby Percent (if known)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input;  numeric; Store value as a fraction less than 1.  If displaying value with units of percent, display term = PRODUCT (WaterHeatingStandbyLossPercent, 100);  If value is not known result = N/A stored in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B05_WaterHeatingStandbyLossApplianceDatabaseValue" type="hvac:WaterHeatingStandbyLossApplianceDatabaseValue" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Standby Loss -Power (from appliance database, if known) (Btu/hr)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B04_NotApplicableMessage == NotApplicable user input value from appliance database;  Else result = PRODUCT ( B03_WaterHeaterGasFiredRatedInput, B04_WaterHeaterStandbyLossFraction)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_StandbyLoss" type="hvac:StandbyLoss" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Standby Loss -Power (from appliance database, if known) (Btu/hr)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B04_NotApplicableMessage == NotApplicable user input value from appliance database;  Else result = PRODUCT ( B03_WaterHeaterGasFiredRatedInput, B04_WaterHeaterStandbyLossFraction)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B06_HydronicHeatingPumpPower" type="hvac:HydronicHeatingPumpPower" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Pump Watts (Watts) (if applicable)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric or result = NotApplicable stored in B06_NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Pump Watts (Watts) (if applicable)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric or result = NotApplicable stored in B06_NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="B07_HydronicHeatingPumpEnergy" type="hvac:HydronicHeatingPumpEnergy" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pump Energy (Btu/hr)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If B06_NotApplicableMessage == NotApplicable result =85 Else result  = PRODUCT ( B06_HydronicHeatingPumpPower, 3.414)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B08_HydronicHeatingEffectiveAFUE" type="hvac:HydronicHeatingEffectiveAFUE" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Effective AFUE</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  B01 - ((B02+B05 +B07) / B03)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF1RPLB01E" type="CF1RPLB01E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RPLB01E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
