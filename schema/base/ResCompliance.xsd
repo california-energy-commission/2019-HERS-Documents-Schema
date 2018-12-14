@@ -1270,8 +1270,8 @@
             <dtyp:displayterm value="CF2RSPV01aE">CF2RSPV01aE</dtyp:displayterm>
             <dtyp:displayterm value="CF2RSPV01bE">CF2RSPV01bE</dtyp:displayterm>
             <dtyp:displayterm value="CF2RSPV01cE">CF2RSPV01cE</dtyp:displayterm>
-            <dtyp:displayterm value="CF2R-SRA-01-E">CF2R-SRA-01-E</dtyp:displayterm>
-            <dtyp:displayterm value="CF2R-SRA-02-E">CF2R-SRA-02-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RSRA01E">CF2RSRA01E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RSRA02E">CF2RSRA02E</dtyp:displayterm>
             <dtyp:displayterm value="CF2RSTH01E">CF2RSTH01E</dtyp:displayterm>
             <dtyp:displayterm value="CF3RENV20aH">CF3RENV20aH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RENV20bH">CF3RENV20bH</dtyp:displayterm>
@@ -1418,8 +1418,8 @@
          <xsd:enumeration value="CF2RSPV01aE"/>
          <xsd:enumeration value="CF2RSPV01bE"/>
          <xsd:enumeration value="CF2RSPV01cE"/>
-         <xsd:enumeration value="CF2R-SRA-01-E"/>
-         <xsd:enumeration value="CF2R-SRA-02-E"/>
+         <xsd:enumeration value="CF2RSRA01E"/>
+         <xsd:enumeration value="CF2RSRA02E"/>
          <xsd:enumeration value="CF2RSTH01E"/>
          <xsd:enumeration value="CF3RENV20aH"/>
          <xsd:enumeration value="CF3RENV20bH"/>
@@ -1519,7 +1519,7 @@
             <dtyp:displayterm value="Project Summary Report">Project Summary Report</dtyp:displayterm>
             <dtyp:displayterm value="Quality Insulation Installation (QII) - Air Infiltration Sealing - Framing Stage for SIP and ICF">Quality Insulation Installation (QII) - Air Infiltration Sealing - Framing Stage for SIP and ICF</dtyp:displayterm>
             <dtyp:displayterm value="Quality Insulation Installation (QII) Air Infiltration Sealing - Ceiling Roof Deck">Quality Insulation Installation (QII) Air Infiltration Sealing - Ceiling Roof Deck</dtyp:displayterm>
-            <dtyp:displayterm value="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage for Batt, Loose Fill, and SPF">Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage for Batt, Loose Fill, and SPF</dtyp:displayterm>
+            <dtyp:displayterm value="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage">Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage</dtyp:displayterm>
             <dtyp:displayterm value="Quality Insulation Installation (QII) Insulation Installation">Quality Insulation Installation (QII) Insulation Installation</dtyp:displayterm>
             <dtyp:displayterm value="Rated Space Conditioning System Equipment Verification">Rated Space Conditioning System Equipment Verification</dtyp:displayterm>
             <dtyp:displayterm value="Refrigerant Charge Verification">Refrigerant Charge Verification</dtyp:displayterm>
@@ -1581,7 +1581,7 @@
          <xsd:enumeration value="Project Summary Report"/>
          <xsd:enumeration value="Quality Insulation Installation (QII) - Air Infiltration Sealing - Framing Stage for SIP and ICF"/>
          <xsd:enumeration value="Quality Insulation Installation (QII) Air Infiltration Sealing - Ceiling Roof Deck"/>
-         <xsd:enumeration value="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage for Batt, Loose Fill, and SPF"/>
+         <xsd:enumeration value="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage"/>
          <xsd:enumeration value="Quality Insulation Installation (QII) Insulation Installation"/>
          <xsd:enumeration value="Rated Space Conditioning System Equipment Verification"/>
          <xsd:enumeration value="Refrigerant Charge Verification"/>
@@ -6693,7 +6693,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    <xsd:simpleType name="SolarReadyAreaComplianceMethod">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="InstalledSolarPV">Permanently installed solar photovoltaic (PV) system</dtyp:displayterm>
             <dtyp:displayterm value="InstalledSolarWaterHeating">Permanently installed solar water heating system</dtyp:displayterm>
             <dtyp:displayterm value="NotApplicableSubdivision">Residence not in an applicable subdivision</dtyp:displayterm>
             <dtyp:displayterm value="SmartThermostatAlternativeEfficiencyMeasure">Smart thermostats and alternative efficiency measure</dtyp:displayterm>
@@ -6702,7 +6701,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="InstalledSolarPV"/>
          <xsd:enumeration value="InstalledSolarWaterHeating"/>
          <xsd:enumeration value="NotApplicableSubdivision"/>
          <xsd:enumeration value="SmartThermostatAlternativeEfficiencyMeasure"/>
