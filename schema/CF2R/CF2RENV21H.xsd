@@ -27,7 +27,7 @@
                <xsd:complexType>
                   <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RENV21H"/>
                   <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage for Batt, Loose Fill, and SPF"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -50,7 +50,7 @@
    </xsd:element>
    <xsd:complexType name="CF2RENV21H">
       <xsd:annotation>
-         <xsd:documentation>Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage for Batt, Loose Fill, and SPF</xsd:documentation>
+         <xsd:documentation>Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
@@ -213,7 +213,7 @@
                   <xsd:element name="D02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All penetrations through the top plate of interior and exerior walls are sealed.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All penetrations through the top plate of interior and exterior walls are sealed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D03" minOccurs="0">
@@ -323,7 +323,7 @@
                   <xsd:element name="F02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Infiltration between the space above the garage and subfloor is prevented by one of the following methods:   [d:l t="*"][d:list] Seal all edges of  garage ceiling (typically drywall) at the perimeter of the garage to create a continuous air tight surface between the garage and adjacent conditioned envelope.  Seal all plumbing, electric and mechanical penetrations between the garage and the adjacent conditioned space. For an open-web truss, airtight blocking is added on four sides of the garage perimeter. Insulation can be placed on the garage ceiling. [/d:list][d:list]  Seal the band joist above the wall at the garage to conditioned space transition.  Seal all subfloor seams and penetrations between the the garage and adjacent conditioned space.  Insulation must be placed in contact with the subfloor below the conditioned space.[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Infiltration between the space above the garage and subfloor is prevented by one of the following methods:   [d:l t="*"][d:list] Seal all edges of  garage ceiling (typically drywall) at the perimeter of the garage to create a continuous air tight surface between the garage and adjacent conditioned envelope.  Seal all plumbing, electric and mechanical penetrations between the garage and the adjacent conditioned space. For an open-web truss, airtight blocking is added on four sides of the garage perimeter. Insulation can be placed on the garage ceiling. [/d:list][d:list]  Seal the band joist above the wall at the garage to conditioned space transition.  Seal all subfloor seams and penetrations between the garage and adjacent conditioned space.  Insulation must be placed in contact with the subfloor below the conditioned space.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="FEndNote1" minOccurs="0">
@@ -371,7 +371,7 @@
          </xsd:element>
          <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Walls For Attached Porch, Attic, Double Wall</xsd:documentation>
+               <xsd:documentation source="FieldText">Walls For Attached Porch, Attic, Double Wall Air Barrier</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -419,7 +419,7 @@
                   <xsd:element name="I03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Elevator penthouse, mechanical penthouse, stairwell doors, roof access hatches, and  plumbing stacks that separate conditioned and unconditioned space are all sealed.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Elevator penthouse, mechanical penthouse, stairwell doors, roof access hatches, and plumbing stacks that separate conditioned and unconditioned space are all sealed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="I04" minOccurs="0">

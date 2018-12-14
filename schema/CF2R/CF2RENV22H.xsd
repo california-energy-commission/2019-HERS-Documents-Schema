@@ -147,13 +147,13 @@
                   <xsd:element name="B03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All structural framing areas shall be insulated in a manner that resists thermal bridging through the assembly separating conditioned from uncondittioned space.  Structural bracing, tie-downs, and framing of steel, or specialized framing used to meet structural requirements of the CBC are allowed and must be insulated.  These areas shall be called out on the building plans with diagrams and/ or specified design drawings indicating the R-value of insulation and fastening method to be used.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All structural framing areas shall be insulated in a manner that resists thermal bridging through the assembly separating conditioned from unconditioned space.  Structural bracing, tie-downs, and framing of steel, or specialized framing used to meet structural requirements of the CBC are allowed and must be insulated.  These areas shall be called out on the building plans with diagrams and/ or specified design drawings indicating the R-value of insulation and fastening method to be used.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All insulation was installed according to the manufacturer's' installation instructions.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All insulation was installed according to the manufacturer's installation instructions.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B05" minOccurs="0">
@@ -193,7 +193,7 @@
                   <xsd:element name="C01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Insulation is in full contact with the sufloor.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Insulation is in full contact with the subfloor.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C02" minOccurs="0">
@@ -211,7 +211,7 @@
                   <xsd:element name="C04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">When daylight basements are adjacent to crawlspaces, if the basement is conditioned the walls adjacent to the crawlspace are insulated to the R-value listed on the Certificate of Compliance.  This includes framed stem walls, and veritcal concrete retaining walls.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">When daylight basements are adjacent to crawlspaces, if the basement is conditioned the walls adjacent to the crawlspace are insulated to the R-value listed on the Certificate of Compliance.  This includes framed stem walls, and vertical concrete retaining walls.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C05" minOccurs="0">
@@ -245,7 +245,7 @@
                   <xsd:element name="D02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Loose-fill and batt insulation is in contact with all six sides of wall cavities (top, bottom, back, left, right, front [to be installed later]) with  no gaps, voids or compression.  Exception: Where framing depth is greater than [d:u]minimum[/d:u] required insulation thickness (e.g., R-19 batts in 2x10 walls).</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Loose-fill and batt insulation is in contact with all six sides of wall cavities (top, bottom, back, left, right, front [to be installed later]) with no gaps, voids or compression.  Exception: Where framing depth is greater than [d:u]minimum[/d:u] required insulation thickness (e.g., R-19 batts in 2x10 walls).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D03" minOccurs="0">
@@ -269,13 +269,13 @@
                   <xsd:element name="D06" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Insulation and interior air barrier are installed behind tub, shower, fireplace enclosures and stairwells to the R-value listed on the Certificate of Complaince when located against exterior walls.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Insulation and interior air barrier are installed behind tub, shower, fireplace enclosures and stairwells to the R-value listed on the Certificate of Compliance when located against exterior walls.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D07" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All single-member window and door headers shall be insulated to a minimum of R-3 for a 2x4 framing, or equivalent width, and a minimum of R-5 for all other assemblies.  if continuous exterior rigid insulation equal to or greater than R-2 is used, an insulated header is not required.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All single-member window and door headers shall be insulated to a minimum of R-3 for a 2x4 framing, or equivalent width, and a minimum of R-5 for all other assemblies.  If continuous exterior rigid insulation equal to or greater than R-2 is used, an insulated header is not required.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D08" minOccurs="0">
@@ -315,7 +315,7 @@
                   <xsd:element name="E03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Chimneys and flues (except zero clearance) have a sheet metal collar at the ceiling level to prevent contact with the insulation.  The collar is at least as tall as the depth of the insulation.  There is a minimum 1" clearance between the collar and the chimney/flue for double wall vent, and 6" for single wall vent, unless manufacturer's instructions require otherwise.  The collar is sealed to the ceiling wiht high temperature sealant to prevent air leakage.  The insulation is in contact with the sheet metal collar.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Chimneys and flues (except zero clearance) have a sheet metal collar at the ceiling level to prevent contact with the insulation.  The collar is at least as tall as the depth of the insulation.  There is a minimum 1" clearance between the collar and the chimney/flue for double wall vent, and 6" for single wall vent, unless manufacturer's instructions require otherwise.  The collar is sealed to the ceiling with high temperature sealant to prevent air leakage.  The insulation is in contact with the sheet metal collar.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E04" minOccurs="0">
@@ -361,7 +361,7 @@
                   <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Attic access is insulated to the same R-value required by the Certificate of Compliance for ceiling insulation and the insulation is permanenetly attached using adhesive or mechanical fasteners.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Attic access is insulated to the same R-value required by the Certificate of Compliance for ceiling insulation and the insulation is permanently attached using adhesive or mechanical fasteners.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F04" minOccurs="0">
@@ -593,7 +593,7 @@
                   <xsd:element name="M04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">If multiple layers are applied, each foam lift (e.g., spray application ) adheres to the substrate and foam interfaces.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If multiple layers are applied, each foam lift (e.g., spray application) adheres to the substrate and foam interfaces.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="M05" minOccurs="0">
@@ -605,13 +605,13 @@
                   <xsd:element name="M06" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Open cell SPF: In area where an air barrier is required the foam is at least 5.5"  thick.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Open cell SPF: In area where an air barrier is required the foam is at least 5.5" thick.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="M07" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Open cell SPF: Depressions in the foam insulation are not greater than 1/2"  of the required thickness provided these depressions do not exceed 10% of the surface area being insulated.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Open cell SPF: Depressions in the foam insulation are not greater than 1/2" of the required thickness provided these depressions do not exceed 10% of the surface area being insulated.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="M08" minOccurs="0">
@@ -623,7 +623,7 @@
                   <xsd:element name="M09" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">SPF insulation is not applied diretly to recessed lighting fixtures unless specifically allowed by manufacturer's instructions.  when not allowed, can lights are: [d:l t="A"][d:list] Covered with a [d:u]minimum of 1.5" [/d:u] of mineral fiber insulation or [/d:list][d:list] Enclosed in a manufacturer's approved box fabricated from an approved material, such as 18 gauge sheet metal or 1/2" gypsum board. [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">SPF insulation is not applied directly to recessed lighting fixtures unless specifically allowed by manufacturer's instructions.  when not allowed, can lights are: [d:l t="A"][d:list] Covered with a [d:u]minimum of 1.5" [/d:u] of mineral fiber insulation or [/d:list][d:list] Enclosed in a manufacturer's approved box fabricated from an approved material, such as 18 gauge sheet metal or 1/2" gypsum board. [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="MEndNote1" minOccurs="0">
