@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run:
           name: Find empty displayterm text
-          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
+          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
