@@ -22,7 +22,7 @@ jobs:
             sudo apt install libxml2-utils
       - run:
           name: Validate XML schema files
-          command |
+          command: |
             find schema -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
             find deployed -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
       - run:
