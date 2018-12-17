@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Validate XML schema files
           command: |
-            find schema -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
+            find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
             # find deployed -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
       - run:
           name: Find empty displayterm text
