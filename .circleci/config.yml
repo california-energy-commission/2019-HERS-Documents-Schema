@@ -16,10 +16,13 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: sudo apt-get install libxml2-utils
+      - run:
           name: Find empty displayterm text
           command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
 
-          
+
 workflows:
   version: 2
   build:
