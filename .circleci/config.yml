@@ -21,6 +21,9 @@ jobs:
             sudo apt update
             sudo apt install libxml2-utils
       - run:
+          name: Validate XML schema files
+          command: find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
+      - run:
           name: Find empty displayterm text
           command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
 
