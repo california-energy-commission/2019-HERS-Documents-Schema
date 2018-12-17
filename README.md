@@ -9,7 +9,7 @@ Get started here [CONTRIBUTING](CONTRIBUTING.md)
 ### Deploy Schema
 
 `deploy-schema.exe` is a command line application executable file which
-deploys the schema (formats, indents, removes whitespace, orders alphabetically)
+deploys the schema (replaces embedded square markup, formats, indents, removes whitespace, orders alphabetically)
 to a `deployed` folder.  There is also a `deploy-schema` script that runs
 on Linux and MacOS.
 

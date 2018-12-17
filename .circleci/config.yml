@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - checkout
+      - run:
+          name: Find empty displayterm text
+          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
