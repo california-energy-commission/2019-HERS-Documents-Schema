@@ -24,7 +24,7 @@ jobs:
           name: Validate XML schema files
           command: |
             find schema -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
-            find deployed -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
+            # find deployed -type f -name "*.xsd" -exec xmllint --noout {} \; && exit 1
       - run:
           name: Find empty displayterm text
           command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
