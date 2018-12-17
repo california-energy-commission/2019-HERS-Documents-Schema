@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RLTG02E" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF2RLTG02E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RLTG02E">
+      <xsd:annotation>
+         <xsd:documentation>Lighting Multi Family Dwellings</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Lighting and Controls</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Select  Yes or No according to whether your work on the project includes each of the following types of lighting and controls.  See sections B through H for applicable requirements.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Boolean  true values in this section  display text: Yes   For Boolean  false values in this section  display text: No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_InteriorHighEfficacyLuminairesInstalled" type="comp:InteriorHighEfficacyLuminairesInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">High Efficacy luminaires installed in any interior rooms. (See Section B.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_InteriorJA8CompliantLuminairesInstalled" type="comp:InteriorJA8CompliantLuminairesInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">JA8 compliant luminaires and controls installed in any interior rooms. (See Section B.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_InteriorRecessedLuminairesInstalled" type="comp:InteriorRecessedLuminairesInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Recessed downlight luminaires in ceilings in any interior room (See Section C).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_LED_Luminaires" type="comp:LED_Luminaires">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Screw-based luminaires installed in any interior rooms (See Section D.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_InteriorEnclosedLuminairesInstalled" type="comp:InteriorEnclosedLuminairesInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Enclosed or recessed luminaires installed in any interior room (See Section D).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_BathroomLightingControlsInstalled" type="comp:BathroomLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lighting and controls in bathrooms (See Section E.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_LaundryRoomLightingControlsInstalled" type="comp:LaundryRoomLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lighting and controls in laundry rooms (See Section E.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_UtilityRoomLightingControlsInstalled" type="comp:UtilityRoomLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lighting and controls in utility rooms (See Section E.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_GarageLightingControlsInstalled" type="comp:GarageLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lighting and controls in garage (See Section E.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A10_OutdoorLightingPrivateMultiFamily" type="comp:OutdoorLightingPrivateMultiFamily">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Outdoor lighting and controls (See Section H and I)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A11_BlankElectricalBoxesInstalled" type="comp:BlankElectricalBoxesInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Blank electrical boxes installed more than 5 feet from finished floor. (See Section F.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A12_AddressSignsInternalLuminationInstalled" type="comp:AddressSignsInternalLuminationInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Internally illuminated address signs. (See Section G.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A13_ParkingGarageLightingControlsInstalled" type="comp:ParkingGarageLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Parking Garages (See Section J.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A14_ParkingLotCarPortLightingControlsInstalled" type="comp:ParkingLotCarPortLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Parking Lots or Carports (See Section H. and I.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A15_CommonAreaLightingControlsInstalled" type="comp:CommonAreaLightingControlsInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Common Areas (See Section K. and L.)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects Yes or No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">High Efficacy Luminaires and Controls</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if  A01_InteriorHighEfficacyLuminairesInstalled == true Or A02_InteriorJA8CompliantLuminairesInstalled== true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">All luminaires installed with High Efficacy source or are JA8 compliant</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1A and Table 150.0-A: All 
+                           <d:b>luminaires</d:b> are installed with:
+                           <d:l t="*">
+                              <d:list> Light sources of one of the lighting technologies specified under the "High Efficacy" column of Table 150.0-A; or  </d:list>
+                              <d:list> JA8 compliant light sources and the light sources are marked with a label reading "JA8-2019" or "JA8-2019-E".</d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2K JA8 Compliant Light Sources</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2J: Dimming control for all luminaires with dimmable JA8 compliant light sources except for those controlled by occupancy or vacancy sensors.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2A Forward phase cut dimmers</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2A: Forward phase cut dimmers used with LED light sources shall comply with NEMA SSL 7A.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="BEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Recessed Downlight Luminaires in Ceilings</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A03_ InteriorRecessedLuminairesInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1Cv No screw based sockets</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Cv: Do not contain scree sockets.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">JA8-2019 label</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The luminaire shall be marked with "JA8-2019".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1Ci Insulation Contact</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Ci: Listed for zero clearance insulation contact (IC)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1Cii Air Tight Label</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Cii: Has label certifying air tight</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1Ciii Sealing Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Ciii: Sealed with a gasket or caulk between the luminaire housing and ceiling, and all air leakage paths between conditioned and unconditioned spaces are sealed with a gasket or caulk.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1Civ Ballast Access for Maintenance</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Civ: Allows ballast maintenance and replacement to be readily accessible to building occupants from below the ceiling without requiring the cutting of holes in the ceiling.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Luminaire Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A04_LED_Luminaires == true Or A05_InteriorEnclosedLuminairesInstalled  == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1G Screw-based luminaires</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1G: 
+                           <d:b>Screw based luminaires</d:b> are installed with all of the following requirements: 
+                           <d:l t="*">
+                              <d:list> The luminaire is not recessed downlight luminaire in ceilings; and </d:list>
+                              <d:list> The luminaires are installed with lamps or light sources marked with "JA8-2019".</d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1H Fixtures enclosed, recessed</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1H: 
+                           <d:b>Enclosed or Recessed Luminaires</d:b> are installed with lamps or other separable light sources marked with "JA8-2019-E".</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1D Ballasts</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1D: Ballasts for fluorescent lamps rated 13 Watts or greater are electronic.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1E Night lights</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1E: 
+                           <d:b>Night lights, step lights and path lights</d:b> are rated to consume no more than 5 Watts of power and emit more than 150 lumens, or in compliance with Table 150.0-A, or controlled, or controlled by vacancy sensor.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)1F Lighting Integral To Exhaust Fans</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1F: 
+                           <d:b>Lighting integral to exhaust fans</d:b> meets the requirements of Table 150.0-A, with exception to the lighting installed by the manufacturer in kitchen exhaust hoods.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Lighting Controls</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A06_BathroomLightingControlsInstalled, A07_LaundryRoomLightingControlsInstalled, A08_UtilityRoomLightingControlsInstalled, or A09_GarageLightingControlsInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2J Vacancy sensor in low use rooms</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2J: In 
+                           <d:b>bathrooms, garages, laundry rooms, and utility rooms</d:b>, at least one luminaire in each of these spaces is controlled by an occupant or vacancy sensor providing automatic-off functionality.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2B Exhaust Fan Switch</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2B: 
+                           <d:b>Exhaust fans</d:b> are controlled separately from lighting systems, or the lighting can be turned OFF on the same control as the fan.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2C Manual On Off Switch</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2C: Lighting has readily accessible wall- mounted controls that allow the lighting to be manually turned ON and OFF.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2D Manufacturer's Installation Instructions</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2D: Lighting controls and equipment are installed in accordance with manufacturer's instructions</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2E No Bypass of Dimmer or Vacancy sensor</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2E: No control bypasses a dimmer, occupancy sensor or vacancy sensor function where that dimmer or  sensor has been installed to comply with Section 150.0(k)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2F Section 110.9 Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2F: Lighting controls comply with the applicable requirements in Section 110.9.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2G Energy Management Control Systems (EMCS) and Dimmers</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2G: 
+                           <d:b>Energy Management Control Systems</d:b> used to comply with control requirements provide the functionality the specific control in accordance with Section 110.9, meet the installation certificate requirements in Section 130.4, meets the EMCS requirements in Section 130.0(e), and complies with all other applicable requirements in Section 150.0(k)2.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E08" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2I Multi-scene Programmable Controller</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2H: A 
+                           <d:b>multi-scene programmable controller</d:b> used to comply with dimmer requirements provides the functionality of a dimmer in accordance with Section 110.9, and complies with all other applicable requirements in Section 150.0(k)2.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E09" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2L Under cabinet lighting</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)2K: 
+                           <d:b>Undercabinet lighting</d:b> is controlled separately from ceiling installed lighting.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="EEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Blank Electrical Boxes</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A11_BlankElectricalBoxesInstalledin == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)2 Number of blank electrical boxes installed</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1B: The number of blank electrical boxes installed more than 5 feet above the finished floor and do not contain a luminaire or other device, are not greater than the number of bedrooms. The blank boxes are served by a dimmer, a vacancy sensor, or fan speed control.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="FEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Address Signs</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A12_AddressSignsInternalLuminationInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)4 Internally illuminated address signs</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)4: Internally illuminated address signs. Internally illuminated address signs shall either: 
+                           <d:l t="a">
+                              <d:list>Comply with Section 140.8. Applicable nonresidential sign lighting compliance forms shall also be submitted, or </d:list>
+                              <d:list> Consume no more than 5 Watts of power.</d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="GEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">For Low-rise Multi-Family Residential Buildings with four or more dwellings units, Outdoor Lighting Private Patios, Entrances, Balconies and Porches, residential parking lots, and carports with less than 8 vehicles per site</xsd:documentation>
+               <xsd:documentation source="AdditionalRequirements">shall comply with requirements in box 01 or box 02 below</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A10_OutdoorLightingPrivateMultiFamily or A14_ParkingLotCarPortLightingControlsInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="H01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)3Bi Manual ON OFF switch</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)3Bi: Outdoor lighting is controlled by a manual ON and OFF switch that permits one of the following automatic actions: 
+                           <d:l t="*">
+                              <d:list> Controlled be a photocell and either a motion sensor or an automatic time switch control;  </d:list>
+                              <d:list> Controlled by an astronomical time clock control. </d:list>
+                           </d:l>
+                           <d:line1/>  Control that override to ON shall not be allowed unless the override automatically returns to automatic control to its normal operation within 6 hours.  
+                           <d:line1/>  An energy management control that provides the specified lighting control functionality and complies with all requirements applicable to the specified controls may be used to meet the above requirements.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)3Bii Outdoor Lighting Applicable Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)9Bii: Outdoor lighting complies with the applicable requirements in Sections 110.9, 130.0, 130.2, 130.4, 140.7, and 141.0. Applicable LTO forms shall also be submitted.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">For Low-rise Multi-family Buildings with Four or More Dwelling Units, Outdoor Lighting for Residential Parking Lots or Carports with Eight or More Vehicles per site</xsd:documentation>
+               <xsd:documentation source="AdditionalRequirements">shall comply with requirements in Box 01 below.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A10_OutdoorLightingPrivateMultiFamily or A14_ParkingLotCarPortLightingControlsInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="I01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)3C Outdoor Lighting  Applicable Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)3C: Outdoor lighting complies with the applicable requirements in Sections 110.9, 130.0, 130.2, 130.4, 140.7, and 141.0. Applicable LTO forms shall be submitted</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="IEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_J" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Lighting for Residential Garages for Eight or More Vehicles</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A13_ParkingGarageLightingControlsInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="J01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)5 Complies With Nonresidential Garages Lighting Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)5: Lighting complies with the applicable requirements for nonresidential garages in Sections 110.9, 130.0, 130.1, 130.4, 140.6, and 141.0. Applicable LTG forms shall also be submitted</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="JEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_K" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Lighting for Interior Common Areas (
+                  <d:lte/> 20%) of Low-rise Multi-Family</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A15_CommonAreaLightingControlsInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="K01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)6A High Efficacy Lighting</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)16A: Installed lighting shall comply with Table 150.1-A and be controlled by an occupancy sensor.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="KEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_L" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Lighting for Interior Common Areas (
+                  <d:gt/> 20%) of Low-rise Multi-Family</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if A15_CommonAreaLightingControlsInstalled == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="L01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)6Bi Applicable Requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)6Bi: Installed lighting shall comply with the applicable requirements in Sections 110.9, 130.0, 130.1, 140.6, and 141.0. Applicable nonresidential lighting compliance (NRCC LTG) forms shall also be submitted.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">150.0(k)6Bii Occupant Sensors in Corridors and Stairwells</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)6Bii: Lighting installed in corridors and stairwells is controlled by occupant sensors that reduce the lighting power by at least 50 % and capable of turning light fully on and off from paths of ingress or egress.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="LEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RLTG02E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Lighting Multi Family Dwellings"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RLTG02E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RLTG02E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RLTG02E" type="CF2RLTG02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RLTG02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

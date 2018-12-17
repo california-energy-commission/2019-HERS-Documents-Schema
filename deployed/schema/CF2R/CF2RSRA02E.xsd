@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RSRA02E" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF2RSRA02E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RSRA02E">
+      <xsd:annotation>
+         <xsd:documentation>Minimum Solar Zone Area Worksheet New Construction</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Before A Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Solar Zone Area (requirements in 
+                           <d:t24ref h="110.10"/> (b)1A Exception 1 or 6, and 
+                           <d:t24ref h="110.10"/> (b)1B Exception 4)  This worksheet applies to: 
+                           <d:l t="*">
+                              <d:list> Single family residences without PV that wish to show compliance with the Solar Ready requirements (Section 110.10(b) by providing a solar zone on the roof of the residence.   Note that Exceptions 1,and 6 to Section 110.10(b)1A exempt a residence from the solar ready requirements and are documented on the Certificate of Compliance document  CF2R-SRA-01-E.  Check the exception being used and fill in the relevant details. </d:list>
+                              <d:list> Low-rise multifamily projects without PV that wish to show compliance with the Solar Ready requirements (Section 110.10(b) by providing a solar zone on the roof of the building. Note that Exceptions 4 and 5 to Section 110.10(b)1B exempt a multifamily building from the solar ready requirements and are documented on the Certificate of Compliance document CF2R-SRA-01-E. Check the exception being used and fill in the relevant details. </d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building  Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list: Single family, Multifamily</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Minimum Required Solar Zone Area for Single Family Residence</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResidentialLowriseBuildingType == SingleFamily</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess" type="comp:IsResidence3StoriesOrMoreAnd2000ft2OrLess">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Does the residence have three stories or more, and a total floor area less than or equal to 2,000 square feet?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input,  Boolean value.  For true value display text: Yes.  For false value display text: No.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF" type="comp:IsResidenceInCZ8_14WildlandUrbanAreaWithWHF">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the residence located in Climate zones 8-14, in a Wildland-Urban Interface Fire Area as defined in Title 24, Part 2, and have a whole house fan?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input, Boolean value.  For true value display text: Yes.  For false value display text: No.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B03_RoofAreaLowSlope70PercentSolarAccess" type="comp:RoofAreaLowSlope70PercentSolarAccess">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
+or allow user to select N/A stored in the NotApplicableMessage element.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
+or allow user to select N/A stored in the NotApplicableMessage element.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B04_RoofAreaSteepSlope70PercentSolarAccess" type="comp:RoofAreaSteepSlope70PercentSolarAccess">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B05_SolarZoneAreaPotential" type="comp:SolarZoneAreaPotential">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft
+                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If B03_NotApplicableMessage  Or  B04_NotApplicableMessage == N/A Then result = N/A stored in the NotApplicableMessage ;  Else result = PRODUCT(  SUM (RoofAreaLowSlope70PercentSolarAccess, RoofAreaSteepSlope70PercentSolarAccess),  0.5)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft
+                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If B03_NotApplicableMessage  Or  B04_NotApplicableMessage == N/A Then result = N/A stored in the NotApplicableMessage ;  Else result = PRODUCT(  SUM (RoofAreaLowSlope70PercentSolarAccess, RoofAreaSteepSlope70PercentSolarAccess),  0.5)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="B06_IsOCST_RequirementSatisfied" type="comp:IsOCST_RequirementSatisfied">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Are all the thermostats Occupant Controlled Smart Thermostats (OCST), certified to the Energy Commission and listed on the Commission's appliances database?</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Alternatively, a networked system of devices may be installed that provides functionality equivalent to an OCST.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input, Boolean value.  For true value display text: Yes.  For false value display text: No.  User input:</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07_SolarZoneAreaRequiredMinimum" type="comp:SolarZoneAreaRequiredMinimum">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum required solar zone area (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess And B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF  And B06_IsOCST_RequirementSatisfied  ==  false Then If B05_NotApplicableMessage == N/A Then result = 250, Else If B05_SolarZoneAreaPotential NotNull result = Smallest( B05_SolarZoneAreaPotential, 250);   Else if B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess    Or   B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF   Or   B06_IsOCST_RequirementSatisfied  = true Then If B05_NotApplicableMessage == N/A  result = 150, Else If B05_SolarZoneAreaPotential NotNull  result = Smallest( B05_SolarZoneAreaPotential, 150).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Minimum Required Solar Zone Area for Multifamily Building</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if A01_ResidentialLowriseBuildingType ==  LowRiseMultiFamily</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01_RoofAreaMultifamilyBuilding" type="comp:RoofAreaMultifamilyBuilding">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">What is the total area of the roof of the building? (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input, number</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_TotalSkylightArea" type="env:TotalSkylightArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">What is the total area of skylights installed in the roof of the building? (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input, number</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C03_RoofAreaLowSlope70PercentSolarAccess" type="comp:RoofAreaLowSlope70PercentSolarAccess">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
+or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
+or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C04_RoofAreaSteepSlope70PercentSolarAccess" type="comp:RoofAreaSteepSlope70PercentSolarAccess">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplipcableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
+                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplipcableMessage.</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="C05_SolarZoneAreaNetRoofAreaMethod" type="comp:SolarZoneAreaNetRoofAreaMethod">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Solar zone area - net roof area method (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT ( (C01_RoofAreaMultifamilyBuilding - C02_TotalSkylightArea),  0.15)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="C06_SolarZoneAreaSolarAccessMethod" type="comp:SolarZoneAreaSolarAccessMethod">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - Solar Access Method (ft
+                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If C03_NotApplicableMessage And C04_NotApplicableMessage == N/A result =  N/A stored in NotApplicableMessage Else result =  PRODUCT ( SUM ( C03_RoofAreaLowSlope70PercentSolarAccess,  C04_RoofAreaSteepSlope70PercentSolarAccess), 0.5)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="C06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - Solar Access Method (ft
+                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If C03_NotApplicableMessage And C04_NotApplicableMessage == N/A result =  N/A stored in NotApplicableMessage Else result =  PRODUCT ( SUM ( C03_RoofAreaLowSlope70PercentSolarAccess,  C04_RoofAreaSteepSlope70PercentSolarAccess), 0.5)</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="C07_SolarZoneAreaRequiredMinimum" type="comp:SolarZoneAreaRequiredMinimum">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum Required Solar Zone Area? (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If C06_NotApplicableMessage == N/A Then result = C05_SolarZoneAreaNetRoofAreaMethod Else result = Smallest (  C05_SolarZoneAreaNetRoofAreaMethod,  C06_SolarZoneAreaSolarAccessMethod)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Schedule of Solar Zone Sub-Areas</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Use table for both single family and low-rise multifamily buildings</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSubAreas">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_SolarZoneSubAreaID" type="comp:SolarZoneSubAreaID">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea ID</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_BuildingPlanName" type="comp:BuildingPlanName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Building Plan Reference</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_RoofSlope" type="env:RoofSlope">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Slope of Roof or Overhang (Note A)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input: select from list: SteepSlope, LowSlope</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant" type="comp:IsSolarZoneSubAreaSteepSlopeAzimuthCompliant">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">If Steep Slope roof or overhang is oriented between 110 and 270 degrees relative to true north</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D03_RoofSlope Not== SteepSlope than result = N/A stored in the NotApplicableMessage; Else user input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">If Steep Slope roof or overhang is oriented between 110 and 270 degrees relative to true north?</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D03_RoofSlope Not== SteepSlope than result = N/A stored in the NotApplicableMessage; Else user input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="D05_IsSolarZoneSubAreaT24Part9Compliant" type="comp:IsSolarZoneSubAreaT24Part9Compliant">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea complies with Part 9 of Title 24  (Note B)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of   Boolean values: For true display text: Yes.  For false display text: No.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D06_IsSolarZoneSubAreaObstructionsFree" type="comp:IsSolarZoneSubAreaObstructionsFree">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Plane containing the solar zone is free of obstructions  (Note C)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D07_IsSolarZoneSubAreaDistantFromObstructions" type="comp:IsSolarZoneSubAreaDistantFromObstructions">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Subarea is located  the appropriate distance from obstructions  (Note D)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D06_IsSolarZoneSubAreaObstructionsFree == true then result = N/A  in the NotApplicableMessage; Else user input: select from list of Boolean values: For true display text: Yes.  For false display text: No.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Subarea is located  the appropriate distance from obstructions  (Note D)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D06_IsSolarZoneSubAreaObstructionsFree == true then result = N/A  in the NotApplicableMessage; Else user input: select from list of Boolean values: For true display text: Yes.  For false display text: No.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="D08_IsSolarZoneSubAreaSmallDimension5ftPlus" type="comp:IsSolarZoneSubAreaSmallDimension5ftPlus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Smallest dimension is 5 feet or greater</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D09_IsSolarZoneSubAreaAdequateSize" type="comp:IsSolarZoneSubAreaAdequateSize">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea is at least 80 ft 
+                                             <d:sup>2</d:sup> (160 ft
+                                             <d:sup>2</d:sup> for a building with roof area greater than 10,000 ft
+                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D10_DoesSolarZoneSubAreaQualify" type="comp:DoesSolarZoneSubAreaQualify">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Subarea Qualifies</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:   If D05_IsSolarZoneSubAreaT24Part9Compliant Or D08_IsSolarZoneSubAreaSmallDimension5ftPlus Or D09_IsSolarZoneSubAreaAdequateSize == false then result = false;  Else If D03_RoofSlope == LowSlope  Then If D06_IsSolarZoneSubAreaObstructionsFree == true Or D07_IsSolarZoneSubAreaDistantFromObstructions == true Then result = true, Else result = false;  Else If D03_RoofSlope == SteepSlope And D04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant == true,  Then If D06_IsSolarZoneSubAreaObstructionsFree == true Or D07_IsSolarZoneSubAreaDistantFromObstructions == true Then result = true, Else result is false.  For Boolean true value display text: Yes;  For Boolean false value, display text:  No</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D11_SolarZoneSubAreaSquareFootage" type="comp:SolarZoneSubAreaSquareFootage">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft
+                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input number</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="D11AfterNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Notes:</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Notes: 
+                           <d:l t="A">
+                              <d:list> A roof is either low-sloped or steep-sloped. "Low-sloped" means a rise-to-run of 2:12 or less (9.5 degrees from horizontal). "Steep-sloped"  means a rise-to-run greater than 2:12 (9.5 degrees from horizontal) </d:list>
+                              <d:list> The solar zone shall comply with access, pathway, smoke ventilation, and spacing requirements as specified in Title 24, Part 9 or other Parts of Title 24 or in any requirements adopted by a local jurisdiction. </d:list>
+                              <d:list> No obstructions, including but not limited to, vents, chimneys, architectural features, and roof mounted equipment, shall be located in the solar zone. </d:list>
+                              <d:list> If there are any obstructions located south of the most northerly point of the solar zone, then the nearest point of the solar zone must be located no closer than twice the distance, measured in the horizontal plane, of the height difference between the highest point of the obstruction and the nearest point of the solar zone, measured in the vertical plane. </d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D12_TotalProposedSolarZoneArea" type="comp:TotalProposedSolarZoneArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total proposed solar zone area (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  SUM ALL ( D11_SolarZoneSubAreaSquareFootage)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D13_IsSolarZoneAreaCompliant" type="comp:IsSolarZoneAreaCompliant">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If A01_ResidentialLowriseBuildingType == SingleFamily and D12_TotalProposedSolarZoneArea GTE B07_SolarZoneAreaRequiredMinimum result = true.  Else If A01_ResidentialLowriseBuildingType == LowRiseMultiFamily   And D12_TotalProposedSolarZoneArea GTE  C07_SolarZoneAreaRequiredMinimum result = true;  Else result is false.  For Boolean true value display term: Building complies.   For Boolean false value, display term: Building does not comply</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Minimum Solar Zone Area Worksheet New Construction"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RSRA02E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RSRA02E" type="CF2RSRA02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RSRA02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

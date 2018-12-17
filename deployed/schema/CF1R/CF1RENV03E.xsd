@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV03E" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF1RENV03E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF1RENV03E">
+      <xsd:annotation>
+         <xsd:documentation>Solar Heat Gain Coefficient (SHGC) Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Product Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableProduct">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="A01_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User entry</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A02_CardinalOrientation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Orientation</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User entry</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="com:CardinalOrientation">
+                                             <xsd:enumeration value="East"/>
+                                             <xsd:enumeration value="North"/>
+                                             <xsd:enumeration value="South"/>
+                                             <xsd:enumeration value="West"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="A03_DoesFenestrationHaveNFRC_Label" type="comp:DoesFenestrationHaveNFRC_Label">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fenestration has a temporary or Site-built NFRC label certificate</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list Yes (Boolean true) or No (Boolean false)</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="A04_SolarHeatGainCoefficientNFRC" type="com:SolarHeatGainCoefficientNFRC">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SHGC value from  NFRC label</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If DoesFenestrationHaveNFRC_Label == true, user enters value; Else enter N/A in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SHGC value from  NFRC label</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If DoesFenestrationHaveNFRC_Label == true, user enters value; Else enter N/A in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="A05_SHGC_SourceNonNFRC" type="comp:SHGC_SourceNonNFRC">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Non-NFRC labeled SHGC information</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If DoesFenestrationHaveNFRC_Label == true,  enter N/A in NotApplicableMessage, Else user selects from list: Table 110.6-B or Calculated Using Equation NA6-2</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Non-NFRC labeled SHGC information</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If DoesFenestrationHaveNFRC_Label == true,  enter N/A in NotApplicableMessage, Else user selects from list: Table 110.6-B or Calculated Using Equation NA6-2</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="A06_ExternalShadingObjectType" type="env:ExternalShadingObjectType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Shading Device Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">ExternalShadingObjectType choices:
+DropArmAwnings, LouveredSunScreen, LowSunAngleLouveredSunScreen,
+NoExternalShadingDevice, OperableAwnings  RetractableAwnings, RollDownBlindsOrSlats  , StandardBugScreen, SunScreen, 
+VerticalRollerOrShades,</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A07_SolarHeatGainCoefficientExteriorShading" type="com:SolarHeatGainCoefficientExteriorShading">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Shading SHGC</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If  A06_ExteriorShadingObjectType ==  NoExternalShadingDevice, result = 1.0; Else If A06_ExteriorShadingObjectType ==  StandardBugScreen, result = 0.76;  Else If A06_ExteriorShadingObjectType == SunScreen, result = 0.30;  Else If A06_ExteriorShadingObjectType ==   LouveredSunScreen  result = 0.27;  Else for all other types, result = 0.13</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Default Solar Heat Gain Coefficient Calculation Using Table 110.6-B</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A05_SHGC_SourceNonNFRC ;== Table110_6B</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSHGC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list provided from all  A01_FenestrationName values where A05_SHGC_SourceNonNFRC ;== Table110_6B</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_CardinalOrientation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Orientation</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from North, South, East, West</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="com:CardinalOrientation">
+                                             <xsd:enumeration value="East"/>
+                                             <xsd:enumeration value="North"/>
+                                             <xsd:enumeration value="South"/>
+                                             <xsd:enumeration value="West"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="B03_FenestrationFraming">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User picks from list: Metal with thermal break; Metal; NonMetal</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FenestrationFraming">
+                                             <xsd:enumeration value="MetalFramingWithThermalBreak"/>
+                                             <xsd:enumeration value="MetalFraming"/>
+                                             <xsd:enumeration value="NonMetalFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="B04_FenestrationProductType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Product</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Operable window, Fixed window</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FenestrationProductType">
+                                             <xsd:enumeration value="FixedWindow"/>
+                                             <xsd:enumeration value="OperableWindow"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="B05_GlazingTint" type="env:GlazingTint">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Glazing</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Clear, Tinted</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B06_FenestrationPanes" type="env:FenestrationPanes">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Number of Panes</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Single pane, Double pane, Glass block</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B07_SolarHeatGainCoefficientCEC" type="com:SolarHeatGainCoefficientCEC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Default f;;Fenestration SHGC</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field from table 110.6-B using values from B04_FenestrationProductType, B03_FenestrationFraming, B05_GlazingTint and B06_FenestrationPanes to determine the Default SHGC value.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Non-Rated Site-built Solar Heat Gain Coefficient Calculation Using Equation NA6-2 from Nonresidential Appendix NA6.3</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A05_SHGC_SourceNonNFRC == NA6_2Calculation</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01_ResidentialBuildingTotalConditionedFloorArea" type="com:ResidentialBuildingTotalConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Conditioned Floor Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User entry</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_ConditionedFloorArea5Percent" type="com:ConditionedFloorArea5Percent">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">5% of Conditioned Floor Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Result = PRODUCT( C01_ResidentialBuildingTotalConditionedFloorArea, .05)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03_FenestrationNonRatedSiteBuiltTotalAreaAllowed" type="env:FenestrationNonRatedSiteBuiltTotalAreaAllowed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Allowed Non-rated site-built Fenestration Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Result = Largest (ResidentialBuildingConditionedFloorArea5Percent, 250)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04_FenestrationNonRatedSiteBuiltTotalAreaProposed" type="env:FenestrationNonRatedSiteBuiltTotalAreaProposed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Proposed Area of site-built Fenestration</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: non negative decimal;  If result GT  C03_FenestrationNonRatedSiteBuiltTotalAreaAllowed, display message Proposed site-built Fenestration exceeds allowable area, Do Not Proceed</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableFenestration">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C05_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list provided from all  A01_FenestrationName where A05_SHGC_SourceNonNFRC  == NA6_2Calculation</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C06_GlazingArea" type="env:GlazingArea">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Glass Area</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C07_SHGC_CenterOfGlass" type="com:SHGC_CenterOfGlass">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Center of Glass (COG) Solar Heat Gain Coefficient</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C08_SiteBuiltFenestrationSHGC" type="comp:SiteBuiltFenestrationSHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Total SHGC of the fenestration</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (C07_SHGC_CenterOfGlass, 0.86) + 0.08</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Combined Solar Heat Gain Coefficient Calculation and Shading Device Calculation</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableCombinedSHGC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_FenestrationName" type="comp:FenestrationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tag/Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list provided from all  A01_FenestrationName values</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_LargestProposedSHGC" type="comp:LargestProposedSHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SHGC
+                                             <d:i>
+                                                <d:sub>max =</d:sub>
+                                             </d:i>
+                                          </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field  Result = Largest of available values ( A04_SolarHeatGainCoefficientNFRC,  A07_ SolarHeatGainCoefficientExteriorShading, B07_SolarHeatGainCoefficientCEC, C08_ SiteBuiltFenestrationSHGC )</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_SmallestProposedSHGC" type="comp:SmallestProposedSHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SHGC
+                                             <d:i>
+                                                <d:sub>min =</d:sub>
+                                             </d:i>
+                                          </xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field  Result = Smallest of available values ( A04_SolarHeatGainCoefficientNFRC,  A07_ SolarHeatGainCoefficientExteriorShading, B07_SolarHeatGainCoefficientCEC, C08_ SiteBuiltFenestrationSHGC )</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D04_ProposedAllFenestrationAdjustedTotalSHGC" type="comp:ProposedAllFenestrationAdjustedTotalSHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">The total combined adjusted SHGC with exterior shading device; (SHGC
+                                             <d:sub>total</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: Result = PRODUCT( PRODUCT(D02_LargestProposedSHGC, 0.2875) + .75), D03_SmallestProposedSHGC</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RENV03E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Solar Heat Gain Coefficient (SHGC) Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF1R"/>
+                     <xsd:element ref="cF1RENV03E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV03E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF1RENV03E" type="CF1RENV03E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RENV03E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
