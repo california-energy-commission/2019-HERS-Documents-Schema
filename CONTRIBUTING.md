@@ -52,7 +52,7 @@ a pull request is merged.
 
 ### Tools
 
-#### Schema Deployer
+#### Schema Deployer - Experimental !!!
 
 ![Schema Deployer](assets/images/sd-1.png)
 

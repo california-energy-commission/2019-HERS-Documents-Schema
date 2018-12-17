@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RSTH01E" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF1RSTH01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF1RSTH02E">
+      <xsd:annotation>
+         <xsd:documentation>OG 100 Solar Water Heating Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General System Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeSubheading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b> Solar Fractions Water Heating Calculation For Built up Equipment </d:b>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference data from the CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ClimateZone" type="com:ClimateZone">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference data from the CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_SolarWaterHeatingPerformanceSoftware" type="hvac:SolarWaterHeatingPerformanceSoftware">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Name of Program used to generate Solar Savings Fraction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_SolarWaterHeatingPerformanceSoftwareVersion" type="hvac:SolarWaterHeatingPerformanceSoftwareVersion">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Version of software used to generate Solar Savings Fraction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_SolarWaterHeatingCollectorManufacturer" type="hvac:SolarWaterHeatingCollectorManufacturer">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Manufacturer</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_SolarWaterHeatingCollectorBrand" type="hvac:SolarWaterHeatingCollectorBrand">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Brand</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_SolarWaterHeatingCollectorModelNumber" type="hvac:SolarWaterHeatingCollectorModelNumber">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Model Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_SolarWaterSystemSRCC_CertificationNumber" type="hvac:SolarWaterSystemSRCC_CertificationNumber">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Certification Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_SolarWaterHeatingCollectorType" type="hvac:SolarWaterHeatingCollectorType" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A10_SolarWaterHeatingCollectorArea" type="hvac:SolarWaterHeatingCollectorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Area (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A11_SolarWaterHeatingCollectorEfficiencyCurveSlope" type="hvac:SolarWaterHeatingCollectorEfficiencyCurveSlope">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Rated Efficiency Curve Slope</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input:  Decimal3Places</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A12_SolarWaterHeatingCollectorEfficiencyCurveIntercept" type="hvac:SolarWaterHeatingCollectorEfficiencyCurveIntercept">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Rated Efficiency Curve Intercept</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input:  Decimal3Place</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A13_SolarWaterHeatingCollectorCount" type="hvac:SolarWaterHeatingCollectorCount">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Collectors</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input:  numeric xx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A14_SolarWaterHeatingCollectorFluid" type="hvac:SolarWaterHeatingCollectorFluid">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Fluid</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A15_StorageCapacity" type="hvac:StorageCapacity">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Water Heater Storage Volume in gallons</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input:  numeric  xx,xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A16_VolumeCapacity" type="hvac:VolumeCapacity">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Secondary Storage Tank Volume in gallons (If used)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input:  numeric xx,xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A17_SolarWaterHeatingCollectorAngleFromNorth">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector angle from true north in degrees</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric allowed range   -180 to 180</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:SolarWaterHeatingCollectorAngleFromNorth">
+                           <xsd:minInclusive value="-180"/>
+                           <xsd:maxInclusive value="180"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A18_SolarWaterHeatingCollectorSlope">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector slope from horizontal in degrees</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric allowed range 0 to 90</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="hvac:SolarWaterHeatingCollectorSlope">
+                           <xsd:minInclusive value="0"/>
+                           <xsd:maxInclusive value="90"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A19_TotalConditionedFloorArea" type="com:TotalConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft
+                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">reference data from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A20_DwellingUnitCount" type="com:DwellingUnitCount">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of identical dwelling units</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A21_SolarWaterHeatingSavingsFraction" type="comp:SolarWaterHeatingSavingsFraction">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Calculated Solar Savings Fraction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input:  numeric x.xx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Solar Savings Fraction Calculator Printout</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The result from the approved solar savings fraction calculator must be attached to this form</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RSTH01E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="OG 100 Solar Water Heating Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF1R"/>
+                     <xsd:element ref="cF1RSTH02E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RSTH01E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF1RSTH02E" type="CF1RSTH02E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RSTH02E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
