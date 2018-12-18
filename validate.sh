@@ -3,7 +3,7 @@ errors=0
 for file in deployed/**/**/*.xsd;
 do
     xmllint --noout "$file"  >> part1-results.txt  2>&1
-    if [[ $(wc -l <part1-results.txt) -ge 1 ]]
+    if (($(wc -l <part1-results.txt) >= 1))
     then
         echo "This has more 1 line or more."
         cat part1-results.txt
