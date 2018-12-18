@@ -21,13 +21,12 @@ jobs:
             sudo apt update
             sudo apt install libxml2-utils
       - run:
+          name: Find empty displayterm text
+          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
+      - run:
           name: Validate XML schema files
           command: |
             sh ./validate.sh
-      - run:
-          name: Find empty displayterm text
-          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
-
 
 workflows:
   version: 2
