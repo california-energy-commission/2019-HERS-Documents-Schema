@@ -12,7 +12,7 @@ do
     > part1-results.txt
 done
 echo $errors
-if  (($errors==1))
+if  [ "$errors" -eq 1 ]
 then
     exit 1
 fi
