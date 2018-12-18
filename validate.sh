@@ -2,17 +2,13 @@
 errors=0
 for file in deployed/**/**/*.xsd;
 do
-    xmllint --noout "$file"  >> part1-results.txt  2>&1
-    if [ $(wc -l <part1-results.txt) -ge 1 ]
+    xmllint --noout "$file" >> validtion.txt  2>&1
+    if [ $(wc -l <validtion.txt) -ge 1 ]
     then
-        echo "This has more 1 line or more."
-        cat part1-results.txt
+        #echo "This has more 1 line or more."
+        cat validtion.txt
         errors=1
     fi
-    > part1-results.txt
+    > validtion.txt
 done
-echo $errors
-if  [ "$errors" -eq 1 ]
-then
-    exit 1
-fi
+[ "$errors" -eq 1 ] && exit 1
