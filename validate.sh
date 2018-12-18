@@ -1,5 +1,6 @@
-#! /bin/sh
+#! /bin/bash
 for file in deployed/**/**/*.xsd;
 do
-    xmllint --noout "$file" 2>&1 >/dev/null || exit 1
+    xmllint --noout "$file"; echo $?
+
 done
