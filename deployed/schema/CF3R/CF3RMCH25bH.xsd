@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH25bH" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF3RMCH25bH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF3RMCH25bH">
+      <xsd:annotation>
+         <xsd:documentation>Refrigerant Charge Verification - MCH25b Subcooling Method</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">System Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HERS Rater to field-verify all system information, discrepancies to be noted by overwriting entry.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_HvacSystemName" type="hvac:HvacSystemName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">System Identification or Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">System Location or Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_CondenserManufacturer" type="comp:CondenserManufacturer">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condenser (or package unit) make or brand</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_CondenserModelNumber" type="comp:CondenserModelNumber">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condenser (or package unit) model number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_CondenserSerialNumber" type="comp:CondenserSerialNumber">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condenser (or package unit) serial number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_RefrigerantType" type="comp:RefrigerantType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Refrigerant Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R.  Possible entries are: R22 display text: R-22; Choice R410A display text: R-410A;  Choice Other display text: Other;  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A08_RefrigerantTypeOther" type="comp:RefrigerantTypeOther">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Other Refrigerant Type (if applicable)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If RefrigerantType in A07 equals Other, Then user input text to identify refrigerant type, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Other Refrigerant Type (if applicable)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If RefrigerantType in A07 equals Other, Then user input text to identify refrigerant type, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="A09_IsLiquidLineFilterDrierInstalledToSpec" type="comp:IsLiquidLineFilterDrierInstalledToSpec">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Liquid Line Filter Drier Installed According to Manufacturers Specifications (if applicable)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are Yes and NA.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A10_ImprovementStatus">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">System Installation Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are New, Replacement, Alteration.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="hvac:ImprovementStatus">
+                           <xsd:enumeration value="Alteration"/>
+                           <xsd:enumeration value="New"/>
+                           <xsd:enumeration value="Replacement"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A11_FaultIndicatorDisplayStatus" type="comp:FaultIndicatorDisplayStatus">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fault Indicator Display (FID) Status (Note: Even systems with a FID must have refrigerant charge verified by installer)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are FactoryInstalledFID display text: This system has a factory installed FID  choice FieldInstalledFID display text: This system has a field installed FID; choice NoInstalledFID display text: This system does not have a FID device installed  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are Yes or No.   If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A13_UseRefrigerantChargeApprovedVerificationProcedure" type="comp:UseRefrigerantChargeApprovedVerificationProcedure">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the system of a type that approved refrigerant charge verification procedures can be used to verify compliance with the refrigerant charge verification requirements when temperatures are 
+                           <d:gte/>  55
+                           <d:deg/>F (RA3.2.2, or RA1)?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are Yes or No.   If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A14_RefrigerantChargeVerificationDate" type="comp:RefrigerantChargeVerificationDate">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Date of Refrigerant Charge Verification for this system</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input: date: use validated date format</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A15_RefrigerantChargeVerificationMethod" type="comp:RefrigerantChargeVerificationMethod">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Refrigerant charge verification method used.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are choice Superheat display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); Subcooling display text: Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn display text:  Weigh-in with Installer independent;  choice WeighInHERS display text:  Weigh-in with HERS Rater observation; choice WinterSetup  display text: Winter setup (applicable when outdoor temperature is less than 55 degF) choice NewFactoryCharge display text: New package unit factory char</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A16_RefrigerantChargeVerifier" type="comp:RefrigerantChargeVerifier">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Person who performed the Refrigerant Charge Verification reported on this Certificate of Installation</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are Choice HERS_Rater display text: HERS Rater;  choice Installer display text: HVAC system installer</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A17_RefrigerantChargeVerificationMessage" type="comp:RefrigerantChargeVerificationMessage">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">HERS Verification Compliance Requirement Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries  System does not qualify for Group Sampling;   or  System qualifies for Group Sampling</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A18_RefrigerantChargeVerificationMethodHERS" type="comp:RefrigerantChargeVerificationMethodHERS">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Refrigerant charge verification method used by HERS Rater.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list.  Possible choices for  RefrigerantChargeVerificationMethodHERS in this field are calculated as follows:  If UseMinimumAirflowApprovedVerificationProcedure equals false Or  UseRefrigerantChargeApprovedVerificationProcedure equals false Then choice is WeighInObservation;      ElseIf FaultIndicatorDisplayStatus equals NoInstalledFID  Then     If RefrigerantChargeVerificationMethod equals Superheat, Then choice is SuperheatHERS;  ElseIf If RefrigerantChargeVerificationMethod equals Subcool  Or WinterSetup  Then choices  are SubcoolHERS and WinterSetupHERS; ElseIf RefrigerantChargeVerificationMethod equals WeighIn Then choices  are SuperheatHERS, SubcoolHERS, and WinterSetupHERS;   ElseIf RefrigerantChargeVerificationMethod equals WeighInHERS Then choice is WeighInObservation;   ElseIf FaultIndicatorDisplayStatus equals FactoryInstalledFID Or FieldInstalledFID Then choice is FID_Verification;  ElseIf RefrigerantChargeVerificationMethod equals NewFactoryCharge  Then do not proceed.  A CF3R-MCH-25 is not required when a CF2R-MCH-25f is used. Display terms in  RefrigerantChargeVerificationMethodHERS schema type defintion provide the text that should be displayed for each choice.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A18After" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Variant MCH25b</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">MCH-25b - Refrigerant Charge Verification - Subcooling Method</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If User selects  Subcooling use the Standard Charge Verification Procedure - MCH25b - Subcooling Method for the remainder of the compliance document</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Metering Device Verification</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HERS Rater is required to visually field verify all information from CF2R.  Subcooling Method can only be used on systems that have a variable metering device.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B01_RefrigerantMeteringDevice" type="comp:RefrigerantMeteringDevice">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Refrigerant metering device</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto filled text referenced from CF2R value should equal ElectronicExpansionValve or  ThermostaticExpansionValve.  If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02_IsSubcoolingMethodApplicable" type="comp:IsSubcoolingMethodApplicable">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Subcooling Method applicability status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If RefrigerantMeteringDevice is ThermostaticExpansionValve or ElectronicExpansionValve result is true.  For Boolean true value, display:  SuperCooling Method is applicable to this system.  Else result is false.  For Boolean false value, display SuperCooling Method is not applicable to this system</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Instrument Calibration</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HERS Raters are required to calibrate their diagnostic tools.  Procedures for instrument calibration are given in Reference Residential Appendix RA3.2.2 and RA3.2.2.2</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C01_DigitalRefrigerantGaugeCalibrationDate" type="comp:DigitalRefrigerantGaugeCalibrationDate">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Date of Digital Refrigerant Gauge Calibration</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_DigitalThermocoupleCalibrationDate" type="comp:DigitalThermocoupleCalibrationDate">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Date of Digital Thermocouple Calibration</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03_IsDigitalRefrigerantGaugeCalibrationCurrent" type="comp:IsDigitalRefrigerantGaugeCalibrationCurrent">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Digital Refrigerant Gauge Calibration Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the difference between RefrigerantChargeVerificationDate in section A and the DigitalRefrigerantGaugeCalibrationDate is greater than one month, or a negative number, the result is false  For Boolean false value, display: Digital Refrigerant Gauge requires Calibration (do not proceed),   Else If the difference is one month or less, result is true  For Boolean true value, display: Digital Refrigerant Gauge Calibration is current.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04_IsDigitalThermocoupleCalibrationCurrent" type="comp:IsDigitalThermocoupleCalibrationCurrent">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Digital Thermocouple Calibration Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the difference between RefrigerantChargeVerificationDate in section A and the DigitalThermocoupleCalibrationDate  is greater than one month, or a negative number, the result is false  For Boolean false value, display: Digital Thermocouple Gauge requires Calibration (do not proceed),   Else if the difference is one month or less, result is true  For Boolean true value, display: Digital Thermocouple Gauge Calibration is current</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Measurement Access Hole (MAH) Verification</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HERS Raters are required to visually field verify MAH.  Procedures for installing MAH are specified in Reference Residential Appendix RA3.2.2.3</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D01_MeasurementAccessHoleMethod">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Method Used to Demonstrate Compliance with the Measurement Access Hole (MAH) Requirement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference value from CF2R as default but allow user to override the default.   For choice MAH_InstalledAsRequired display text:  MAH installed and labeled consistent with Figure 3.2-1  For choice MAH_NotRequired display text: Return side of system is located entirely within conditioned space such that an accurate return air dry-bulb temperature can be taken at the return grille.  For choice MAH_InstalledAlternativeLocation display text:  MAH cannot be installed consistent with Figure 3.2-1.  An alternative location has been provided and clearly labeled.  And for choice  MAH_NotInstalledFailsToComply  display text: MAH is not installed. System does not comply.</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:MeasurementAccessHoleMethod">
+                           <xsd:enumeration value="MAH_InstalledAlternativeLocation"/>
+                           <xsd:enumeration value="MAH_InstalledAsRequired"/>
+                           <xsd:enumeration value="MAH_NotInstalledFailsToComply"/>
+                           <xsd:enumeration value="MAH_NotRequired"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Procedures for verifying minimum system airflow are specified in Reference Residential Appendix RA3.3.3.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E01_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto filled text referenced from CF2R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E02_MinimumAirflowRateVerificationStatus">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  Then If the system has a registered CF3R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  equals system complies using Table 150.0-B or C alternative return duct design criteria;   Else result equals System does not comply.  A registered CF3R-MCH-28 is required (do not allow this MCH-25 to be registered).         ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF3R-MCH-23a or CF3R-MCH-23b that meets the compliance criterion in E01, Then result equals  System complies with minimum airflow rate requirements;        ElseIf  ImprovementStatus in section A equals Alteration:   Then If the system complies with the alternative airflow compliance method on a registered CF3R-MCH23c;  Then result equals system complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for Group Sampling;   Else result equals System does not comply. A registered CF3R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:MinimumAirflowRateVerificationStatus">
+                           <xsd:enumeration value="SystemComplies"/>
+                           <xsd:enumeration value="SystemCompliesUsingAlternativeRemedialActions"/>
+                           <xsd:enumeration value="SystemCompliesUsingTable150BC"/>
+                           <xsd:enumeration value="SystemDoesNotComplyCF3RMCH23Required"/>
+                           <xsd:enumeration value="SystemDoesNotComplyCF3RMCH28Required"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Data Collection and Calculations</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HERS Rater must independently collect all data in this section.  Procedures for determining Refrigerant Charge using the Standard Charge Verification Procedure are given in Reference Residential Appendix RA3.2.2 and RA3.2.2.2</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01_LowestReturnAirDryBulbTemperature" type="comp:LowestReturnAirDryBulbTemperature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Lowest Return Air Dry Bulb Temperature that Occurred During the Refrigerant Charge Verification Procedure (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 130.   In order to have a verification that complies, the return air drybulb temperature must remain above 70F during the verification procedure,</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F02_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-Bulb Temperature (T
+                           <d:sub>condenser, db</d:sub>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 130</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F03_DoesSubcoolingOutdoorTemperatureQualify" type="comp:DoesSubcoolingOutdoorTemperatureQualify">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Outdoor Temperature Qualification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If CondenserEnteringAirDryBulbTemperature is less than 55F, result is false.  For Boolean false display text:  Subcooling refrigerant charge verification methods are not allowed to be used when the outdoor temperature is less than 55F, do not proceed.  Else result is true.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F04_MeasuredLiquidLineTemperature" type="comp:MeasuredLiquidLineTemperature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Liquid Line Temperature (T
+                           <d:sub>liquid</d:sub>) (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F05_MeasuredLiquidLinePressure" type="comp:MeasuredLiquidLinePressure">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Liquid Line Pressure (P
+                           <d:sub>liquid</d:sub>)  (psig)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 800</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F06_CondenserSaturationTemperature" type="comp:CondenserSaturationTemperature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condenser Saturation Temperature (T
+                           <d:sub>condenser, sat</d:sub>) from Digital Gauge or P-T Table using Line F05 (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F07_MeasuredSubcooling" type="comp:MeasuredSubcooling">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Subcooling (Line F06 - Lilne F04 (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Report result of CondenserSaturationTemperature minus   MeasuredLiquidLineTemperature</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F08_TargetSubcooling" type="comp:TargetSubcooling">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Target Subcooling from Manufacturer (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 50</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F09_IsRefrigerantChargeSubcoolingCompliant" type="comp:IsRefrigerantChargeSubcoolingCompliant">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If LowestReturnAirDryBulbTemperature in F01 is greater than or equal to 70 AND absolute value ABS (MeasuredSubcooling minus TargetSubcooling) is less than or equal to 6, AND F07 MeasuredSubcooling is greater than or equal to 2 Then result is true.  For Boolean true display text System Complies with Subcooling Method  and Must also pass Metering Device Verification, next section.  Else result is false.  For Boolean false display text The System does not comply.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Metering Device Verification</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">HERS Rater must independently collect all data in this section.  Procedures for the verification of proper metering device operation are specified in RA3.2.2.6.2</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_MeasuredSuctionLineTemperature" type="comp:MeasuredSuctionLineTemperature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Suction Line Temperature (T
+                           <d:sub>suction</d:sub>) (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02_MeasuredSuctionLinePressure" type="comp:MeasuredSuctionLinePressure">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Suction Line Pressure (P
+                           <d:sub>suction</d:sub>) (psig)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 400</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G03_EvaporatorSaturationTemperature" type="comp:EvaporatorSaturationTemperature">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Evaporator Saturation Temperature (T
+                           <d:sub>evaporator, sat</d:sub>) from Digital Gauge or P-T Table using Line G02 (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G04_MeasuredSuperheat" type="comp:MeasuredSuperheat">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Superheat (Line G01- Line G03) (
+                           <d:deg/>F)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Report result of MeasuredSuctionLineTemperature minus EvaporatorSaturationTemperature</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G05_IsMeasuredSuperheatWithinCEC_Range" type="comp:IsMeasuredSuperheatWithinCEC_Range">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Superheat (Line G04)  is between 3
+                           <d:deg/>F and 26
+                           <d:deg/>F (inclusive)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If MeasuredSuperheat is within the range of 3 deg F minimum inclusive and 26 deg F maximum inclusive then result is true. For Boolean true value display text: Measured Superheat passes CEC requirement.  Else result is false.  For Boolean false value display text: Measured Superheat does not pass CEC requirement</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G06_MeasuredSuperheatWithinManufacturerSpec" type="comp:MeasuredSuperheatWithinManufacturerSpec">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Measured Superheat (Line G04) is within Manufacturer's Specifications ( if known)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G07_IsMeteringDeviceVerificationCompliant" type="comp:IsMeteringDeviceVerificationCompliant">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If IsMeasuredSuperheatWithinCEC_Range is true and MeasuredSuperheatWithinManufacturerSpec value is either WithinManufacturerRange or NotKnown then result is true.  For Boolean true value display text: Metering Device Verification Passes.  Else result is false.  For Boolean false value display text: Metering Device Verification Does Not Pass</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="H_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">If IsDigitalRefrigerantGaugeCalibrationCurrent is true And IsDigitalThermocoupleCalibrationCurrent is true And MeasurementAccessHoleMethod does not equal MAH_NotInstalledFailsToComply And MinimumAirflowRateVerificationStatus does not equal  SystemDoesNotComplyCF3RMCH23Required Or SystemDoesNotComplyCF3RMCH28Required, And IsRefrigerantChargeSubcoolingCompliant is true  And  IsMeteringDeviceVerificationCompliant is true  then result is true.  For Boolean true value display text This System Complies with all requirements.    Else result is false.  For Boolean false value display text;  This   System Does Not Comply.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25bH"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Refrigerant Charge Verification"/>
+                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH25b Subcooling Method"/>
+                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="b"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF3RMCH25bH"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25bH"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF3RMCH25bH" type="CF3RMCH25bH">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH25bH compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

@@ -9,7 +9,7 @@
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
    <xsd:complexType name="CF2RENV22H">
       <xsd:annotation>
-         <xsd:documentation>Quality Insulation Installation (QII) Insulation Installation</xsd:documentation>
+         <xsd:documentation>QII - Insulation Installation</xsd:documentation>
       </xsd:annotation>
       <xsd:sequence>
          <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
@@ -611,7 +611,7 @@
                <xsd:complexType>
                   <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RENV22H"/>
                   <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Quality Insulation Installation (QII) Insulation Installation"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="QII - Insulation Installation"/>
                </xsd:complexType>
             </xsd:element>
             <xsd:element name="Payload" type="comp:Payload"/>
@@ -628,8 +628,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV22H"/>
+         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RENV22H"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF2RENV22H" type="CF2RENV22H">

@@ -255,8 +255,8 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="D04_IsSolarZoneSubAreaSteepSlopeAzimuthCompliant" type="comp:IsSolarZoneSubAreaSteepSlopeAzimuthCompliant">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">If Steep Slope roof or overhang is oriented between 110 and 270 degrees relative to true north</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If D03_RoofSlope Not== SteepSlope than result = N/A stored in the NotApplicableMessage; Else user input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Is Steep Slope roof or overhang oriented between 110 and 270 degrees relative to true north?</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If D03_RoofSlope Not== SteepSlope than result = N/A stored in the NotApplicableMessage; Else user input : select from list of Boolean values: For true display term Yes.  For false display term No.  User input.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="D04_NotApplicableMessage" type="comp:NotApplicableMessage">
@@ -381,8 +381,8 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
+         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RSRA02E"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF2RSRA02E" type="CF2RSRA02E">

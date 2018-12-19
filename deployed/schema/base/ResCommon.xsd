@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/com" version="2019.1.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/com" version="2019.1.000" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="ResHvac.xsd"/>
    <xsd:simpleType name="AdditionTotalConditionedFloorArea">
@@ -648,6 +648,15 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="EnclosedSpace">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
    <xsd:simpleType name="ExteriorSolarAbsorptance">
       <xsd:annotation>
          <xsd:documentation>Represents the fraction of incident solar radiation that is absorbed by the outward facing surface of the overall ConstructionAssembly, with
@@ -882,6 +891,62 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
+   <xsd:simpleType name="KitchenExhaustMinimumAirFlow">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft3 per min</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Minimum Airflow</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenExhaustOperation">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Operation Schedule</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ContinuousOperation">Continuous</dtyp:displayterm>
+            <dtyp:displayterm value="DemandControl">Demand Control</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ContinuousOperation"/>
+         <xsd:enumeration value="DemandControl"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenExhaustSoundRating">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Sound Rating</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="1Sone">1 sone</dtyp:displayterm>
+            <dtyp:displayterm value="3Sone">3 sone</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="1Sone"/>
+         <xsd:enumeration value="3Sone"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="KitchenExhaustSystemType">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Kitchen Exhaust System Type</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Downdraft">Downdraft</dtyp:displayterm>
+            <dtyp:displayterm value="Other">Other</dtyp:displayterm>
+            <dtyp:displayterm value="VentedRangeHood">Vented Range Hood</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Downdraft"/>
+         <xsd:enumeration value="Other"/>
+         <xsd:enumeration value="VentedRangeHood"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="LatentHeatRatePerOccupant">
       <xsd:annotation>
          <xsd:documentation>The rate of latent heat released per person which is a function of activity  Units: Btu per h person</xsd:documentation>
@@ -947,6 +1012,14 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Longitude"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ManufacturerName">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Manufacturer Name</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="MassPerUnitArea">
       <xsd:annotation>
@@ -1220,6 +1293,20 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="MultiFamily"/>
          <xsd:enumeration value="NonDwellingUnit"/>
          <xsd:enumeration value="SingleFamily"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ResidentialBuildingTypeMechExhaust">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="MultiFamily">Multifamily</dtyp:displayterm>
+            <dtyp:displayterm value="SingleFamilyAttached">Single family attached</dtyp:displayterm>
+            <dtyp:displayterm value="SingleFamilyDetached">Single family detached</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="MultiFamily"/>
+         <xsd:enumeration value="SingleFamilyAttached"/>
+         <xsd:enumeration value="SingleFamilyDetached"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialBuildingZoneCount">
@@ -1999,7 +2086,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:annotation>
          <xsd:documentation>The measurement of space or object calculated by multiplying the three dimensions of the space: length, width, and height.  Units: ft3</xsd:documentation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Volume</dtyp:displayterm>
+            <dtyp:displayterm>Space Volume</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
