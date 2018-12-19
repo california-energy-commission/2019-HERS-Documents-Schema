@@ -5,6 +5,7 @@
    xmlns:comp="http://www.lmonte.com/besm/comp"
    xmlns:com="http://www.lmonte.com/besm/com"
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
@@ -181,6 +182,7 @@
             <dtyp:displayterm value="CoolingSystemMethod">Cooling system method</dtyp:displayterm>
             <dtyp:displayterm value="DefaultAirFlowMethod">Default air flow method</dtyp:displayterm>
             <dtyp:displayterm value="HeatingSystemMethod">Heating system method</dtyp:displayterm>
+            <dtyp:displayterm value="IndoorUnitMethod">Indoor unit method</dtyp:displayterm>
             <dtyp:displayterm value="MeasuredAirFlowMethod">Measured air flow method</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -188,6 +190,7 @@
          <xsd:enumeration value="CoolingSystemMethod"/>
          <xsd:enumeration value="DefaultAirFlowMethod"/>
          <xsd:enumeration value="HeatingSystemMethod"/>
+         <xsd:enumeration value="IndoorUnitMethod"/>
          <xsd:enumeration value="MeasuredAirFlowMethod"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -378,6 +381,19 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">The space conditioning space is considered entirely in conditioned space and Duct R-Value less than minimum is allowable.</dtyp:displayterm>
             <dtyp:displayterm value="false">The system does not meet the criteria for ducts entirely in conditioned space.</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="AreDuctsInGarage">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Are there portions of ducts in a garage?</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
@@ -607,6 +623,16 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="CentralFanVentilationCooling">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Central Fan Ventilation Cooling System</dtyp:displayterm>
+            <dtyp:displayterm value="false">Not a CFVCS</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="CertificationNumber">
       <xsd:annotation>
          <xsd:documentation>This value is a string representing the certification  for a person on the project such as a documentation author or responsible person.</xsd:documentation>
@@ -780,7 +806,7 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Fail">Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below</dtyp:displayterm>
-            <dtyp:displayterm value="Pass">Pass - all applicable requirements are met</dtyp:displayterm>
+            <dtyp:displayterm value="Pass">Pass - all applicable requirements are met.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -945,6 +971,12 @@
             <dtyp:displayterm value="CF2R-MCH-28-H">CF2R-MCH-28-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-29-H">CF2R-MCH-29-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-30-E">CF2R-MCH-30-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-31a-H">CF2R-MCH-31a-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-31b-H">CF2R-MCH-31b-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-31c-H">CF2R-MCH-31c-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-31d-H">CF2R-MCH-31d-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-31-H">CF2R-MCH-31-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-32-H">CF2R-MCH-32-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-PLB-01-E">CF2R-PLB-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-PLB-02-E">CF2R-PLB-02-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-PLB-03-E">CF2R-PLB-03-E</dtyp:displayterm>
@@ -973,12 +1005,18 @@
             <dtyp:displayterm value="CF3R-MCH-28-H">CF3R-MCH-28-H</dtyp:displayterm>
             <dtyp:displayterm value="CF3R-MCH-29-H">CF3R-MCH-29-H</dtyp:displayterm>
             <dtyp:displayterm value="CF3R-MCH-30-H">CF3R-MCH-30-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3R-MCH-31a-H">CF3R-MCH-31a-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3R-MCH-31b-H">CF3R-MCH-31b-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3R-MCH-31c-H">CF3R-MCH-31c-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3R-MCH-31d-H">CF3R-MCH-31d-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3R-MCH-31-H">CF3R-MCH-31-H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3R-MCH-32-H">CF3R-MCH-32-H</dtyp:displayterm>
             <dtyp:displayterm value="CF3R-PLB-21-H">CF3R-PLB-21-H</dtyp:displayterm>
             <dtyp:displayterm value="CF3R-PLB-22-H">CF3R-PLB-22-H</dtyp:displayterm>
             <dtyp:displayterm value="NRCV-MCH-04-H">NRCV-MCH-04-H</dtyp:displayterm>
             <dtyp:displayterm value="NRCV-PLB-21-H">NRCV-PLB-21-H</dtyp:displayterm>
             <dtyp:displayterm value="NRCV-PLB-22-H">NRCV-PLB-22-H</dtyp:displayterm>
-            <dtyp:displayterm value="PSR-01-E"></dtyp:displayterm>
+            <dtyp:displayterm value="PSR-01-E">PSR-01-E</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
@@ -1027,6 +1065,12 @@
          <xsd:enumeration value="CF2R-MCH-28-H"/>
          <xsd:enumeration value="CF2R-MCH-29-H"/>
          <xsd:enumeration value="CF2R-MCH-30-E"/>
+         <xsd:enumeration value="CF2R-MCH-31a-H"/>
+         <xsd:enumeration value="CF2R-MCH-31b-H"/>
+         <xsd:enumeration value="CF2R-MCH-31c-H"/>
+         <xsd:enumeration value="CF2R-MCH-31d-H"/>
+         <xsd:enumeration value="CF2R-MCH-31-H"/>
+         <xsd:enumeration value="CF2R-MCH-32-H"/>
          <xsd:enumeration value="CF2R-PLB-01-E"/>
          <xsd:enumeration value="CF2R-PLB-02-E"/>
          <xsd:enumeration value="CF2R-PLB-03-E"/>
@@ -1055,6 +1099,12 @@
          <xsd:enumeration value="CF3R-MCH-28-H"/>
          <xsd:enumeration value="CF3R-MCH-29-H"/>
          <xsd:enumeration value="CF3R-MCH-30-H"/>
+         <xsd:enumeration value="CF3R-MCH-31a-H"/>
+         <xsd:enumeration value="CF3R-MCH-31b-H"/>
+         <xsd:enumeration value="CF3R-MCH-31c-H"/>
+         <xsd:enumeration value="CF3R-MCH-31d-H"/>
+         <xsd:enumeration value="CF3R-MCH-31-H"/>
+         <xsd:enumeration value="CF3R-MCH-32-H"/>
          <xsd:enumeration value="CF3R-PLB-21-H"/>
          <xsd:enumeration value="CF3R-PLB-22-H"/>
          <xsd:enumeration value="NRCV-MCH-04-H"/>
@@ -1227,6 +1277,8 @@
             <dtyp:displayterm value="CF2RMCH21H">CF2RMCH21H</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH22aH">CF2RMCH22aH</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH22bH">CF2RMCH22bH</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH22cH">CF2RMCH22cH</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH22dH">CF2RMCH22dH</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH23aH">CF2RMCH23aH</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH23bH">CF2RMCH23bH</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH23cH">CF2RMCH23cH</dtyp:displayterm>
@@ -1251,7 +1303,11 @@
             <dtyp:displayterm value="CF2RMCH28H">CF2RMCH28H</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH29H">CF2RMCH29H</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH30E">CF2RMCH30E</dtyp:displayterm>
-            <dtyp:displayterm value="CF2RMCH31H">CF2RMCH31H</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH31aH">CF2RMCH31aH</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH31bH">CF2RMCH31bH</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH31cH">CF2RMCH31cH</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH31dH">CF2RMCH31dH</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH32H">CF2RMCH32H</dtyp:displayterm>
             <dtyp:displayterm value="CF2RPLB01aE">CF2RPLB01aE</dtyp:displayterm>
             <dtyp:displayterm value="CF2RPLB01bE">CF2RPLB01bE</dtyp:displayterm>
             <dtyp:displayterm value="CF2RPLB02aE">CF2RPLB02aE</dtyp:displayterm>
@@ -1291,6 +1347,8 @@
             <dtyp:displayterm value="CF3RMCH21H">CF3RMCH21H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH22aH">CF3RMCH22aH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH22bH">CF3RMCH22bH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH22cH">CF3RMCH22cH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH22dH">CF3RMCH22dH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH23aH">CF3RMCH23aH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH23bH">CF3RMCH23bH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH23cH">CF3RMCH23cH</dtyp:displayterm>
@@ -1313,6 +1371,11 @@
             <dtyp:displayterm value="CF3RMCH28H">CF3RMCH28H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH29H">CF3RMCH29H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH30H">CF3RMCH30H</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH31aH">CF3RMCH31aH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH31bH">CF3RMCH31bH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH31cH">CF3RMCH31cH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH31dH">CF3RMCH31dH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH32H">CF3RMCH32H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB21aH">CF3RPLB21aH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB21bH">CF3RPLB21bH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB22aH">CF3RPLB22aH</dtyp:displayterm>
@@ -1375,6 +1438,8 @@
          <xsd:enumeration value="CF2RMCH21H"/>
          <xsd:enumeration value="CF2RMCH22aH"/>
          <xsd:enumeration value="CF2RMCH22bH"/>
+         <xsd:enumeration value="CF2RMCH22cH"/>
+         <xsd:enumeration value="CF2RMCH22dH"/>
          <xsd:enumeration value="CF2RMCH23aH"/>
          <xsd:enumeration value="CF2RMCH23bH"/>
          <xsd:enumeration value="CF2RMCH23cH"/>
@@ -1399,7 +1464,11 @@
          <xsd:enumeration value="CF2RMCH28H"/>
          <xsd:enumeration value="CF2RMCH29H"/>
          <xsd:enumeration value="CF2RMCH30E"/>
-         <xsd:enumeration value="CF2RMCH31H"/>
+         <xsd:enumeration value="CF2RMCH31aH"/>
+         <xsd:enumeration value="CF2RMCH31bH"/>
+         <xsd:enumeration value="CF2RMCH31cH"/>
+         <xsd:enumeration value="CF2RMCH31dH"/>
+         <xsd:enumeration value="CF2RMCH32H"/>
          <xsd:enumeration value="CF2RPLB01aE"/>
          <xsd:enumeration value="CF2RPLB01bE"/>
          <xsd:enumeration value="CF2RPLB02aE"/>
@@ -1439,6 +1508,8 @@
          <xsd:enumeration value="CF3RMCH21H"/>
          <xsd:enumeration value="CF3RMCH22aH"/>
          <xsd:enumeration value="CF3RMCH22bH"/>
+         <xsd:enumeration value="CF3RMCH22cH"/>
+         <xsd:enumeration value="CF3RMCH22dH"/>
          <xsd:enumeration value="CF3RMCH23aH"/>
          <xsd:enumeration value="CF3RMCH23bH"/>
          <xsd:enumeration value="CF3RMCH23cH"/>
@@ -1461,6 +1532,11 @@
          <xsd:enumeration value="CF3RMCH28H"/>
          <xsd:enumeration value="CF3RMCH29H"/>
          <xsd:enumeration value="CF3RMCH30H"/>
+         <xsd:enumeration value="CF3RMCH31aH"/>
+         <xsd:enumeration value="CF3RMCH31bH"/>
+         <xsd:enumeration value="CF3RMCH31cH"/>
+         <xsd:enumeration value="CF3RMCH31dH"/>
+         <xsd:enumeration value="CF3RMCH32H"/>
          <xsd:enumeration value="CF3RPLB21aH"/>
          <xsd:enumeration value="CF3RPLB21bH"/>
          <xsd:enumeration value="CF3RPLB22aH"/>
@@ -1506,6 +1582,7 @@
             <dtyp:displayterm value="Interior and Exterior Insulation Layers Worksheet">Interior and Exterior Insulation Layers Worksheet</dtyp:displayterm>
             <dtyp:displayterm value="Lighting Multi Family Dwellings">Lighting Multi Family Dwellings</dtyp:displayterm>
             <dtyp:displayterm value="Lighting Single Family Dwellings">Lighting Single Family Dwellings</dtyp:displayterm>
+            <dtyp:displayterm value="Local Mechanical Exhaust">Local Mechanical Exhaust</dtyp:displayterm>
             <dtyp:displayterm value="Minimum Solar Zone Area Worksheet New Construction">Minimum Solar Zone Area Worksheet New Construction</dtyp:displayterm>
             <dtyp:displayterm value="Multifamily Central Hot Water System Distribution">Multifamily Central Hot Water System Distribution</dtyp:displayterm>
             <dtyp:displayterm value="OG 100 Solar Water Heating Worksheet">OG 100 Solar Water Heating Worksheet</dtyp:displayterm>
@@ -1519,8 +1596,8 @@
             <dtyp:displayterm value="Project Summary Report">Project Summary Report</dtyp:displayterm>
             <dtyp:displayterm value="Quality Insulation Installation (QII) - Air Infiltration Sealing - Framing Stage for SIP and ICF">Quality Insulation Installation (QII) - Air Infiltration Sealing - Framing Stage for SIP and ICF</dtyp:displayterm>
             <dtyp:displayterm value="Quality Insulation Installation (QII) Air Infiltration Sealing - Ceiling Roof Deck">Quality Insulation Installation (QII) Air Infiltration Sealing - Ceiling Roof Deck</dtyp:displayterm>
-            <dtyp:displayterm value="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage">Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage</dtyp:displayterm>
-            <dtyp:displayterm value="Quality Insulation Installation (QII) Insulation Installation">Quality Insulation Installation (QII) Insulation Installation</dtyp:displayterm>
+            <dtyp:displayterm value="QII - Air Infiltration Sealing - Framing Stage">Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage</dtyp:displayterm>
+            <dtyp:displayterm value="QII - Insulation Installation">Quality Insulation Installation (QII) Insulation Installation</dtyp:displayterm>
             <dtyp:displayterm value="Rated Space Conditioning System Equipment Verification">Rated Space Conditioning System Equipment Verification</dtyp:displayterm>
             <dtyp:displayterm value="Refrigerant Charge Verification">Refrigerant Charge Verification</dtyp:displayterm>
             <dtyp:displayterm value="Residential Alterations">Residential Alterations</dtyp:displayterm>
@@ -1537,6 +1614,7 @@
             <dtyp:displayterm value="Space Conditioning Systems, Ducts, and Fans">Space Conditioning Systems, Ducts, and Fans</dtyp:displayterm>
             <dtyp:displayterm value="Water Heating System General Information">Water Heating System General Information</dtyp:displayterm>
             <dtyp:displayterm value="Whole House Fan">Whole House Fan</dtyp:displayterm>
+            <dtyp:displayterm value="Whole House Fan Airflow and Fan Efficacy">Whole House Fan Airflow and Fan Efficacy</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
@@ -1568,6 +1646,7 @@
          <xsd:enumeration value="Interior and Exterior Insulation Layers Worksheet"/>
          <xsd:enumeration value="Lighting Multi Family Dwellings"/>
          <xsd:enumeration value="Lighting Single Family Dwellings"/>
+         <xsd:enumeration value="Local Mechanical Exhaust"/>
          <xsd:enumeration value="Minimum Solar Zone Area Worksheet New Construction"/>
          <xsd:enumeration value="Multifamily Central Hot Water System Distribution"/>
          <xsd:enumeration value="OG 100 Solar Water Heating Worksheet"/>
@@ -1581,8 +1660,8 @@
          <xsd:enumeration value="Project Summary Report"/>
          <xsd:enumeration value="Quality Insulation Installation (QII) - Air Infiltration Sealing - Framing Stage for SIP and ICF"/>
          <xsd:enumeration value="Quality Insulation Installation (QII) Air Infiltration Sealing - Ceiling Roof Deck"/>
-         <xsd:enumeration value="Quality Insulation Installation (QII) Air Infiltration Sealing - Framing Stage"/>
-         <xsd:enumeration value="Quality Insulation Installation (QII) Insulation Installation"/>
+         <xsd:enumeration value="QII - Air Infiltration Sealing - Framing Stage"/>
+         <xsd:enumeration value="QII - Insulation Installation"/>
          <xsd:enumeration value="Rated Space Conditioning System Equipment Verification"/>
          <xsd:enumeration value="Refrigerant Charge Verification"/>
          <xsd:enumeration value="Residential Alterations"/>
@@ -1599,6 +1678,7 @@
          <xsd:enumeration value="Space Conditioning Systems, Ducts, and Fans"/>
          <xsd:enumeration value="Water Heating System General Information"/>
          <xsd:enumeration value="Whole House Fan"/>
+         <xsd:enumeration value="Whole House Fan Airflow and Fan Efficacy"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ComplianceDocumentType">
@@ -1674,6 +1754,8 @@
             <dtyp:displayterm value="MCH20e Sealing All Accessible Leaks Using Smoke Test">MCH20e Sealing All Accessible Leaks Using Smoke Test</dtyp:displayterm>
             <dtyp:displayterm value="MCH22a Forced Air System Fan Efficacy Measurement - Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor">MCH22a Forced Air System Fan Efficacy Measurement - Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor</dtyp:displayterm>
             <dtyp:displayterm value="MCH22b Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems">MCH22b Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems</dtyp:displayterm>
+            <dtyp:displayterm value="MCH22c Forced Air System Fan Efficacy Measurement - Newly Installed Non-Zoned or Zoned Multi-Speed Compressor Systems with Central Fan Ventilation Cooling">MCH22c Forced Air System Fan Efficacy Measurement - Newly Installed Non-Zoned or Zoned Multi-Speed Compressor Systems with Central Fan Ventilation Cooling</dtyp:displayterm>
+            <dtyp:displayterm value="MCH22d Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems with Central Fan Ventilation Cooling">MCH22d Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems with Central Fan Ventilation Cooling</dtyp:displayterm>
             <dtyp:displayterm value="MCH23a Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor">MCH23a Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor</dtyp:displayterm>
             <dtyp:displayterm value="MCH23b Newly Installed Zoned Single-Speed Compressor Systems">MCH23b Newly Installed Zoned Single-Speed Compressor Systems</dtyp:displayterm>
             <dtyp:displayterm value="MCH23c Alternative to Compliance with Minimum System Airflow Requirements for Altered Systems">MCH23c Alternative to Compliance with Minimum System Airflow Requirements for Altered Systems</dtyp:displayterm>
@@ -1694,6 +1776,10 @@
             <dtyp:displayterm value="MCH27c Intermittent Ventilation Airflow - Fan Ventilation Rate Method">MCH27c Intermittent Ventilation Airflow - Fan Ventilation Rate Method</dtyp:displayterm>
             <dtyp:displayterm value="MCH27d Intermittent Ventilation Airflow - Total Ventilation Rate Method">MCH27d Intermittent Ventilation Airflow - Total Ventilation Rate Method</dtyp:displayterm>
             <dtyp:displayterm value="MCH27e Mechanical Ventilation - Non-dwelling Unit">MCH27e Mechanical Ventilation - Non-dwelling Unit</dtyp:displayterm>
+            <dtyp:displayterm value="MCH31a Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured per whole house fan">MCH31a Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured per whole house fan</dtyp:displayterm>
+            <dtyp:displayterm value="MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value">MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value</dtyp:displayterm>
+            <dtyp:displayterm value="MCH31c Whole House Fan Airflow and Fan Efficacy - Aiflow measured as a total value and watts measured per whole house fan">MCH31c Whole House Fan Airflow and Fan Efficacy - Aiflow measured as a total value and watts measured per whole house fan</dtyp:displayterm>
+            <dtyp:displayterm value="MCH31d Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured as a total values">MCH31d Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured as a total values</dtyp:displayterm>
             <dtyp:displayterm value="NotApplicable">N/A</dtyp:displayterm>
             <dtyp:displayterm value="PLB22b HERS Verified Single Dwelling Unit Hot Water System Distribution Using NEEA Certified Water Heaters">PLB22b HERS Verified Single Dwelling Unit Hot Water System Distribution Using NEEA Certified Water Heaters</dtyp:displayterm>
             <dtyp:displayterm value="SPV01a PV System Compliance Credit">SPV01a PV System Compliance Credit</dtyp:displayterm>
@@ -1722,6 +1808,8 @@
          <xsd:enumeration value="MCH20e Sealing All Accessible Leaks Using Smoke Test"/>
          <xsd:enumeration value="MCH22a Forced Air System Fan Efficacy Measurement - Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor"/>
          <xsd:enumeration value="MCH22b Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems"/>
+         <xsd:enumeration value="MCH22c Forced Air System Fan Efficacy Measurement - Newly Installed Non-Zoned or Zoned Multi-Speed Compressor Systems with Central Fan Ventilation Cooling"/>
+         <xsd:enumeration value="MCH22d Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems with Central Fan Ventilation Cooling"/>
          <xsd:enumeration value="MCH23a Newly Installed Non-Zoned Systems or Zoned Multi-Speed Compressor"/>
          <xsd:enumeration value="MCH23b Newly Installed Zoned Single-Speed Compressor Systems"/>
          <xsd:enumeration value="MCH23c Alternative to Compliance with Minimum System Airflow Requirements for Altered Systems"/>
@@ -1742,6 +1830,10 @@
          <xsd:enumeration value="MCH27c Intermittent Ventilation Airflow - Fan Ventilation Rate Method"/>
          <xsd:enumeration value="MCH27d Intermittent Ventilation Airflow - Total Ventilation Rate Method"/>
          <xsd:enumeration value="MCH27e Mechanical Ventilation - Non-dwelling Unit"/>
+         <xsd:enumeration value="MCH31a Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured per whole house fan"/>
+         <xsd:enumeration value="MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value"/>
+         <xsd:enumeration value="MCH31c Whole House Fan Airflow and Fan Efficacy - Aiflow measured as a total value and watts measured per whole house fan"/>
+         <xsd:enumeration value="MCH31d Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured as a total values"/>
          <xsd:enumeration value="NotApplicable"/>
          <xsd:enumeration value="PLB22b HERS Verified Single Dwelling Unit Hot Water System Distribution Using NEEA Certified Water Heaters"/>
          <xsd:enumeration value="SPV01a PV System Compliance Credit"/>
@@ -2503,6 +2595,16 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="DoesGarageDuctLeakageTestPass">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Ducts in garage passes - overall system leakage complies</dtyp:displayterm>
+            <dtyp:displayterm value="false">Ducts in garage passes using smoke test of an altered HVAC system in an existing building [d:l t="*"] [d:list] No visible smoke exits the accessible portions of the ducts in the garage.[/d:list][/d:l]</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="DoesInsulationHaveAirSpace">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -2518,6 +2620,16 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Building passes intermittent ventilation rate test</dtyp:displayterm>
             <dtyp:displayterm value="false">Building fails intermittent ventilation rate test</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DoesKitchenExhaustSystemComply">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Kitchen Exhaust System Complies</dtyp:displayterm>
+            <dtyp:displayterm value="false">Kitchen Exhaust System Does Not Comply</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
@@ -2628,7 +2740,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Fail">Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below</dtyp:displayterm>
             <dtyp:displayterm value="N/A">This field or section is not applicable</dtyp:displayterm>
-            <dtyp:displayterm value="Pass">Pass - all applicable requirements are met</dtyp:displayterm>
+            <dtyp:displayterm value="Pass">Pass - all applicable requirements are met.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
@@ -2642,6 +2754,19 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">System fan efficacy complies</dtyp:displayterm>
             <dtyp:displayterm value="false">System does not comply with fan efficacy requirement</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DoesWHF_AirFlowEfficacyComply">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Does whole house fan system satisfy verification requirements?</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">System passes whole house fan verification requirement</dtyp:displayterm>
+            <dtyp:displayterm value="false">System fails whole house fan verification requirement</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
@@ -2804,7 +2929,7 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Fail">Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below</dtyp:displayterm>
-            <dtyp:displayterm value="Pass">Pass - all applicable requirements are met</dtyp:displayterm>
+            <dtyp:displayterm value="Pass">Pass - all applicable requirements are met.</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2855,7 +2980,7 @@
             <dtyp:displayterm value="FailUsingSmokeTest">System fails the smoke test of an altered HVAC system in an existing building</dtyp:displayterm>
             <dtyp:displayterm value="PassAllowableDuctLeakageRate">System passes - system complies with allowable duct leakage rate criterion</dtyp:displayterm>
             <dtyp:displayterm value="PassUsingSmokeTestNR">System passes using smoke test of an altered HVAC system in an existing building.</dtyp:displayterm>
-            <dtyp:displayterm value="PassUsingSmokeTestRes">System passes using smoke test of an altered HVAC system in an existing building.    No visible smoke exits the accessible portions of the duct system.  Smoke is only emanating from air-handling unit (AHU) cabinet and non accessible portions of the duct system.  Note - Accessible is defined as having access thereto, but which first may require removal or opening of access panels, doors, or moving similar obstructions.  If access to the ducts requires an object to be demolished or deconstructed then sealing of those ducts is not required</dtyp:displayterm>
+            <dtyp:displayterm value="PassUsingSmokeTestRes">System passes using smoke test of an altered HVAC system in an existing building.   [d:l t="*"] [d:list] No visible smoke exits the accessible portions of the duct system. [/d:list] [d:list]  Smoke is only emanating from air-handling unit (AHU) cabinet and non-accessible portions of the duct system.  [/d:list] [/d:l] Note: Accessible is defined as having access thereto, but which first may require removal or opening of access panels, doors, or moving similar obstructions.  If access to the ducts requires an object to be demolished or deconstructed then sealing of those ducts is not required</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2917,6 +3042,19 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="DuctsExposedConditionedSpaceRValueException">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Exposed Ducts in Directly Conditioned Space R-Value Exception</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">True</dtyp:displayterm>
+            <dtyp:displayterm value="false">Not applicable</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="DuctsInConditionedSpaceCreditTaken">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -2943,6 +3081,19 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DuctsInWallCavitiesRValueException">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Ducts in Wall Cavities R-Value Exception</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">True</dtyp:displayterm>
+            <dtyp:displayterm value="false">Not applicable</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
@@ -3799,9 +3950,9 @@
    <xsd:simpleType name="FanWattMeterType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AnalogUtilityWattMeter">Analog Utility Revenue Meter (spinning wheel type)</dtyp:displayterm>
+            <dtyp:displayterm value="AnalogUtilityWattMeter">Analog Utility Revenue Meter</dtyp:displayterm>
             <dtyp:displayterm value="DigitalUtilityWattMeter">Digital Utility Revenue Meter</dtyp:displayterm>
-            <dtyp:displayterm value="PortableWattMeter">Portable watt meter</dtyp:displayterm>
+            <dtyp:displayterm value="PortableWattMeter">Portable Watt Meter</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6997,6 +7148,34 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="SystemModelNumberHVI">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>HVI Directory Listed Model Number</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:String50Char">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SystemRatedAirflowHVI">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft3 per min</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>HVI Directory Listed Rated Airflow</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SystemSoundRatingHVI">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>HVI Directory Listed Sound Rating</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="T24StandardsCodeYear">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -7364,6 +7543,10 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
       <xsd:restriction base="dtyp:IntegerNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="WHF_Location">
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="WHF_Manufacturer">
       <xsd:restriction base="dtyp:String50Char">
       </xsd:restriction>
@@ -7386,9 +7569,29 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="WHFsInstalledFanEfficacy">
+      <xsd:annotation>
+         <xsd:documentation>  Units: W per ft3 per min</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>WHFs Installed Fan Efficacy (Watts/CFM)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="WHFsMinimumRequiredAirflow">
       <xsd:annotation>
          <xsd:documentation>  Units: ft3 per min</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WHFsTotalMeasuredAirFlow">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft3 per min</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>WHFs Total Measured Airflow (CFM)</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>

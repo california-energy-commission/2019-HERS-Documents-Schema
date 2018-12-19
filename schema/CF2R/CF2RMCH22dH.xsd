@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Diane Pepetone (L'Monte Information Services) -->
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RMCH22dH" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF2RMCH22dH" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+	<xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+	<xsd:element name="ComplianceDocumentPackage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocID" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH22dH"/>
+						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+						<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Space Conditioning System Fan Efficacy"/>
+						<xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH22d Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems with Central Fan Ventilation Cooling"/>
+						<xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="d"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Payload" type="comp:Payload"/>
+				<xsd:element name="DocumentData">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+							<xsd:element ref="cF2RMCH22dH"/>
+							<xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+							<xsd:element name="Footer" type="comp:Footer"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Report" type="xsd:base64Binary"/>
+			</xsd:sequence>
+			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
+			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH22dH"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CF2RMCH22dH">
+		<xsd:annotation>
+			<xsd:documentation>Space Conditioning System Fan Efficacy - MCH22d Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems with Central Fan Ventilation Cooling</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Ducted Cooling System Information</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="A01_ResidentialCoolingSystemName" type="hvac:ResidentialCoolingSystemName">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System Identification or Name</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System Location or Area Served</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A03_ImprovementStatus">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System Installation Type</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="hvac:ImprovementStatus">
+									<xsd:enumeration value="Alteration"/>
+									<xsd:enumeration value="New"/>
+									<xsd:enumeration value="Replacement"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A04_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A05_CondenserSpeedType" type="hvac:CondenserSpeedType">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Condenser Speed Type</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Condenser Speed Type</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A06_ResidentialCoolingZoneType" type="hvac:ResidentialCoolingZoneType">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Cooling System Zonal Control Type</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A06_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Cooling System Zonal Control Type</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:element name="A07_IsVentilationSystemCFI" type="comp:IsVentilationSystemCFI">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Central  Fan Integrated (CFI) Ventilation System Status</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A08_HasBypassDuct" type="hvac:HasBypassDuct">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A09_AirflowRateMeasurementDate" type="comp:AirflowRateMeasurementDate">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Date of System Airflow Rate Measurement</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A10_AirflowRateMeasurementProtocol" type="comp:AirflowRateMeasurementProtocol">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Airflow Rate Protocol utilized</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R-MCH-23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A11_CentralFanVentilationCooling" type="comp:CentralFanVentilationCooling">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Status</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF2R-MCH23</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Fan Watt Measurement Apparatus and Procedure Information</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="B_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">[d:i]Instrument Specifications are given in RA3.3.1, and system fan watt measurement apparatus information is given in RA3.3.2.2.[/d:i]</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B01_FanWattMeterType" type="comp:FanWattMeterType">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Fan Watt Verification Device Used.</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input:  For choice PortableWattMeter display text: Portable watt meter  For choice AnalogUtilityWattMeter display text: Analog Utility Revenue Meter (spinning wheel type)  For DigitalUtilityWattMeter display text: Digital Utility Revenue Meter</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B01After" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Mch22d Variant</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">MCH22d Forced Air System Fan Efficacy Measurement - Newly Installed Zoned Single-Speed Compressor Systems with Central Fan Ventilation Cooling</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If the project MCH23 variant == MCH23a or MCH23d, If A11_CentralFanVentilationCooling == true variant result  = MCH-22c  Else variant result  = MCH-22a;  Else If project MCH23 variant == MCH23b And A11_CentralFanVentilationCooling == true variant result  = MCH22d Else variant result = MCH22b.  Use the variant result for the remainder of this compliance document.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_C" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Forced Air System Fan Efficacy Measurement</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="C_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">[d:i]The procedures for System Fan Watt Verification are specified in Reference Residential Appendix RA3.3.[/d:i]</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C01_FanPowerActual" type="hvac:FanPowerActual">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Actual Tested Watts</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input, numeric value xx.xx</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C02_AirflowMeasuredRate" type="hvac:AirflowMeasuredRate">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Actual Tested Airflow from MCH-23 (cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Referenced from MCH-23 (make sure to reference tested airflow value and not target airflow value</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C03_FanEfficacyRequired" type="hvac:FanEfficacyRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Required Fan Efficacy (Watts/cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document == MCH-01a or MCH01d, then reference its value in C09_MaximumCoolingWperCFM;  Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 ResidentialCoolingSystemType  == SmallDuctHighVelocityHP Or SmallDuctHighVelocityAC result = 0.62  Else If  MCH01b - C02 Or Mch01c - B02 ResidentialHeatingSystemType  == CentralGasFurnace Or GasPackagedFurnace result = 0.45 Else result = 0.58</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C04_FanEfficacy" type="hvac:FanEfficacy">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Actual Fan Efficacy (Watts/cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: C01_FanPowerActual / C02_AirflowMeasuredRate</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C05_DoesSystemFanEfficacyComply" type="comp:DoesSystemFanEfficacyComply">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If C04_FanEfficacy LTE C03_FanEfficacyRequired result = true display term: System fan efficacy complies.  Else result =  false display term   System does not comply with fan efficacy requirement.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_D" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Forced Air System Fan Efficacy Measurement - All Zonal Control Modes</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="D_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The procedures for System Fan Efficacy Verification are specified in Reference Residential Appendix RA3.3.Note: For compliance with verification in all zonal control modes, it is sufficient to verify fan efficacy for operation of each individual zone when the individual zone is the sole zone calling for conditioning.  It is not necessary to verify fan efficacy for combinations of 2 or more zones that are less than all zones calling (e.g., 2 out of three zones calling).</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D01_ResidentialIndependentlyControlledZoneCount" type="hvac:ResidentialIndependentlyControlledZoneCount">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Number of independently controlled zones (i.e., number of thermostats or temperature sensors that independently control one or more dampers.)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D02_FanEfficacyRequiredZonalControl" type="hvac:FanEfficacyRequiredZonalControl">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Required Fan Efficacy in all Zonal Control Modes(Watt/cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document == MCH-01a or MCH01d, then reference its value in C09_MaximumCoolingWperCFM;  Else If parent document == MCH-01b Or Mch01c   If MCH01b- C06 or Mch01c - B05 ResidentialCoolingSystemType  == SmallDuctHighVelocityHP Or SmallDuctHighVelocityAC result = 0.62  Else If  MCH01b - C02 Or Mch01c - B02 ResidentialHeatingSystemType  == CentralGasFurnace Or GasPackagedFurnace result = 0.45 Else result = 0.58</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="TableZones">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="D03_ThermalZoneName" type="hvac:ThermalZoneName">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Zone Name</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">Create 1 row of data for each of the number of independently controlled zones identified in D01.  User entry, text field 20 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="D04_ThermalZoneDescription" type="hvac:ThermalZoneDescription">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Zone Description</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">User entry, text field 50 characters</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="D05_ZoneMeasuredFanPower" type="hvac:ZoneMeasuredFanPower">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Measured Watt Draw with all other zones off</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">User input numeric value: xxxx</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="D06_ZoneMeasuredAirflow" type="hvac:ZoneMeasuredAirflow">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Measured Airflow with all other zones off (CFM)</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">Data from MCH23b</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="D07_FanEfficacyMeasuredZonalControl" type="hvac:FanEfficacyMeasuredZonalControl">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Calculated Fan Efficacy</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">Calculated field:   D05_ZoneMeasuredFanPower / D06_ZoneMeasuredAirflow</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="D08_DoesZoneComplyWithRequiredFanEfficacy" type="comp:DoesZoneComplyWithRequiredFanEfficacy">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Zone Compliance Status</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">If D07_FanEfficacyMeasuredZonalControl LTE  D02_FanEfficacyRequiredZonalControl  result = true display term Pass;  Else result = false.  display term  Fail</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="D09_DoAllZonesComplyWithRequiredFanEfficacy" type="comp:DoAllZonesComplyWithRequiredFanEfficacy">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If D08_DoesZoneComplyWithRequiredFanEfficacy == true for all rows, then result = true  display term  System fan efficacy complies.  Else result = false display term System does not comply with fan efficacy requirement</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_E" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Fan Efficacy Measurement</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="E_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E01_FanPowerActual" type="hvac:FanPowerActual">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Actual Tested Watts</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input, numeric value xx.xx</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E02_AirflowMeasuredRate" type="hvac:AirflowMeasuredRate">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Actual Tested Ventilation Airflow from MCH-23 (cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Referenced from CF2R-MCH-23f F02 Actual System Ventilation Airflow Rate Measurement (cfm)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E03_FanEfficacyRequired" type="hvac:FanEfficacyRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Required Fan Efficacy (Watts/cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document == MCH-01a  reference value from Mch01a (Section TBD) Else If parent document == MCH-01d  reference value from Mch01a (Section TBD)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E04_FanEfficacy" type="hvac:FanEfficacy">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Actual Fan Efficacy (Watts/cfm)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field:  E01_FanPowerActual  /  E02_AirflowMeasuredRate</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E05_DoesSystemFanEfficacyComply" type="comp:DoesSystemFanEfficacyComply">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If E04_FanEfficacy LTE E03_FanEfficacyRequired result = true display term: System fan efficacy complies.  Else result =  false display term   System does not comply with fan efficacy requirement.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_F" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Additional Requirements</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="F01" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">All registers fully open</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">All registers were fully open during the diagnostic test.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F02" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System fan testing speed</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">System fan was set at maximum speed during the diagnostic test.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F03" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Fresh Air Duct</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">If fresh air duct is part of the HVAC system it was not closed during the diagnostic test.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F04" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Fan Efficacy tested value</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Airflow rate and fan watt draw shall be simultaneous measurements when used to calculate the Fan Efficacy tested value.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F05" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Multi-speed compressor</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Multi-speed compressor space cooling systems or variable speed compressor systems shall verify air flow (cfm/ton) and fan efficacy (Watt/cfm) with system operating in cooling mode at the maximum compressor speed and the maximum air handler fan speed.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F06" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Single speed compressors</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Zoned cooling air distribution systems with single speed compressors shall meet both the airflow (cfm/ton) and fan efficacy (Watt/cfm) criteria in every zonal control mode.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F07" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Portable Watt meters</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Portable Watt meters used for measurements of air handler watt draws shall be true power measurement systems (i.e., sensor plus data acquisition system) having an accuracy of +- 2 percent of reading or +- 10 Watts whichever is greater.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="FEndNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="cF2RMCH22dH" type="CF2RMCH22dH">
+		<xsd:annotation>
+			<xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH22dH compliance report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>

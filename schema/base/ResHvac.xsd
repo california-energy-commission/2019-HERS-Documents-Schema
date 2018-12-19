@@ -4,6 +4,7 @@
    xmlns:hvac="http://www.lmonte.com/besm/hvac"
    xmlns:com="http://www.lmonte.com/besm/com"
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
@@ -2630,6 +2631,25 @@
          <xsd:enumeration value="New"/>
          <xsd:enumeration value="Removed"/>
          <xsd:enumeration value="Replacement"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IndoorUnitName">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Indoor unit name</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IndoorUnitNominalCoolingCapacity">
+      <xsd:annotation>
+         <xsd:documentation>  Units: cooling ton (12,000 Btu per h)</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Indoor Unit Nominal Cooling Capacity</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="InteriorTankInsulation">
