@@ -3,4 +3,4 @@
 *.iml
 *.iws
 *.ipr
-validation.txt
+tools/validation.txt
