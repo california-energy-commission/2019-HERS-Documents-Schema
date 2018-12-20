@@ -30,7 +30,7 @@ jobs:
             sh ./validate-schema.sh || exit 1
       - run:
           name: Find empty displayterm text
-          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
+          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
       - run:
           name: Validate deployed schema files
           command: |
