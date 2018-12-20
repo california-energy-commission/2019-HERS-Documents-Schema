@@ -24,7 +24,7 @@ jobs:
           name: Validate schema files
           command: |
             cd tools
-            sh validate-schema.sh
+            sh ./validate-schema.sh
       - run:
           name: Find empty CBECCresXMLterm text
           command: grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
@@ -35,7 +35,7 @@ jobs:
           name: Validate deployed schema files
           command: |
             cd tools
-            sh validate-deployed-schema.sh
+            sh ./validate-deployed-schema.sh
 
 workflows:
   version: 2
