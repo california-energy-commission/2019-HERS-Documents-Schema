@@ -1,7 +1,7 @@
 #!/bin/bash
 
 errors=0
-cd ../
+cd ..
 for file in schema/**/*.xsd;
 do
     xmllint --noout "$file" >> validation.txt  2>&1

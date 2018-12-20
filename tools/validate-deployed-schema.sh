@@ -1,7 +1,8 @@
 #!/bin/bash
 
 errors=0
-for file in ../deployed/**/**/*.xsd;
+cd ..
+for file in deployed/**/**/*.xsd;
 do
     xmllint --noout "$file" >> validation.txt  2>&1
     if [ $(wc -l <validation.txt) -ge 1 ]
