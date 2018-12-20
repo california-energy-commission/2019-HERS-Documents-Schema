@@ -23,7 +23,7 @@ jobs:
       - run:
           name: Validate schema files
           command: |
-            sh ./validate-schema.sh
+            sh ./validate.sh
       - run:
           name: Find empty CBECCresXMLterm text
           command: grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'

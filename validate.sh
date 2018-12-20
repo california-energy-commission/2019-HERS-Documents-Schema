@@ -26,4 +26,4 @@ do
     fi
     > validation.txt
 done
-[ "$errors" -eq 1 ] && exit 1 
+[ "$errors" -eq 1 ] && exit 1
