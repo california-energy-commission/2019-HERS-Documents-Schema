@@ -26,6 +26,7 @@ jobs:
       - run:
           name: Validate schema files
           command: |
+            cd tools
             sh ./validate-schema.sh || exit 1
       - run:
           name: Find empty displayterm text
