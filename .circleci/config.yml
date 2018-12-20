@@ -21,13 +21,13 @@ jobs:
             sudo apt update
             sudo apt install libxml2-utils
       - run:
+          name: Find empty CBECCresXMLterm text
+          command: grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
+      - run:
           name: Validate schema files
           command: |
             find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
             sh ./validate.sh
-      - run:
-          name: Find empty CBECCresXMLterm text
-          command: grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
       - run:
           name: Find empty displayterm text
           command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
