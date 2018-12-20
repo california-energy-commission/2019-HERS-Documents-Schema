@@ -34,6 +34,7 @@ jobs:
       - run:
           name: Validate deployed schema files
           command: |
+            cd tools
             sh ./validate-deployed-schema.sh || exit 1
 
 workflows:
