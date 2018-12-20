@@ -28,6 +28,14 @@ Current regular expressions to use to check for `empty` terms:
 ```
 <dtyp:CBECCresXMLterm value=".*?" *?><
 ```
+On Windows you can use the Git Bash terminal to find the `empty` terms
+with [grep](https://www.gnu.org/software/grep/) as shown below:
+```
+grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
+```
+```
+grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
+```
 
 ### Deploy Schema
 
