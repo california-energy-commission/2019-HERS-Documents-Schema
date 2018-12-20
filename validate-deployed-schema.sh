@@ -13,4 +13,3 @@ do
     > validation.txt
 done
 echo $errors
-[ "$errors" -eq 1 ] && exit 1
