@@ -5,11 +5,35 @@
 Thanks for your interest in contributing! There are many ways to contribute to this project. 
 Get started here [CONTRIBUTING](CONTRIBUTING.md)
 
+## Checks to run before submitting a pull request
+
+- validate XML schema
+- check for empty display term text
+
+On [Ubuntu](https://www.ubuntu.com/) Linux you can use [xmllint](http://xmlsoft.org/xmllint.html)
+to validate a directory of XML or even XML schema. 
+The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
+can be installed on Windows and emulates the Ubuntu environment.
+
+The command to run is:
+```
+cd 2019-HERS-Documents-Schema
+find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
+```
+
+Current regular expressions to use to check for `empty` terms:
+```
+<dtyp:displayterm value=".*?" *?><
+```
+```
+<dtyp:CBECCresXMLterm value=".*?" *?><
+```
 
 ### Deploy Schema
 
-`deploy-schema.exe` is a command line application executable file which
-deploys the schema (replaces embedded square markup, formats, indents, removes whitespace, orders alphabetically)
+`deploy-schema.exe` is a command line application executable file that was
+written in [Golang](https://golang.org/). This application deploys the schema (replaces embedded 
+square markup, formats, indents, removes whitespace, orders alphabetically)
 to a `deployed` folder.  There is also a `deploy-schema` script that runs
 on Linux and MacOS.
 
