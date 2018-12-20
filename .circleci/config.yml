@@ -23,6 +23,7 @@ jobs:
       - run:
           name: Validate schema files
           command: |
+            find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
             sh ./validate.sh
       - run:
           name: Find empty CBECCresXMLterm text
