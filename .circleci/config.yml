@@ -27,7 +27,7 @@ jobs:
           name: Validate schema files
           command: |
             cd tools
-            sh ./validate-schema.sh && exit 1
+            sh ./validate-schema.sh || exit 1
       - run:
           name: Find empty displayterm text
           command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
@@ -35,7 +35,7 @@ jobs:
           name: Validate deployed schema files
           command: |
             cd tools
-            sh ./validate-deployed-schema.sh && exit 1
+            sh ./validate-deployed-schema.sh || exit 1
 
 workflows:
   version: 2
