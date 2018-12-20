@@ -26,9 +26,7 @@ jobs:
       - run:
           name: Validate schema files
           command: |
-            pwd
-            find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
-            #sh ./validate.sh
+            sh ./validate-schema.sh || exit 1
       - run:
           name: Find empty displayterm text
           command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
