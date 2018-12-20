@@ -21,12 +21,21 @@ jobs:
             sudo apt update
             sudo apt install libxml2-utils
       - run:
-          name: Find empty displayterm text
-          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
+          name: Find empty CBECCresXMLterm text
+          command: grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
       - run:
-          name: Validate XML schema files
+          name: Validate schema files
           command: |
-            sh ./validate.sh
+            cd tools
+            sh ./validate-schema.sh || exit 1
+      - run:
+          name: Find empty displayterm text
+          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
+      - run:
+          name: Validate deployed schema files
+          command: |
+            cd tools
+            sh ./validate-deployed-schema.sh || exit 1
 
 workflows:
   version: 2
