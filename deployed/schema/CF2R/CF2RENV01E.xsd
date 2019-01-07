@@ -37,12 +37,10 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 2</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Note: If meeting Exception 1 to 150.1(c)3A, Installing 
-                           <d:lte/> 3 ft
-                           <d:sup>2</d:sup> glass in door, it is assumed to meet the minimum required U-factor (0.30) and SHGC (0.23). 
+                           <d:lte/> 3 ft<d:sup>2</d:sup> glass in door, it is assumed to meet the minimum required U-factor (0.30) and SHGC (0.23). 
                            <d:line1/>
                            <d:tab1/> If meeting Exception 1 to 150.1(c)3A, Installing 
-                           <d:lte/> 3 ft
-                           <d:sup>2</d:sup>  tubular skylight, it is assumed to meet the minimum required U-factor (0.55) and SHGC (0.30).
+                           <d:lte/> 3 ft<d:sup>2</d:sup>  tubular skylight, it is assumed to meet the minimum required U-factor (0.55) and SHGC (0.30).
                            <d:line1/>
                            <d:tab1/> Doors with greater than or equal to 25 percent glazing area are considered glazed doors and are treated as fenestration products.</xsd:documentation>
                      </xsd:annotation>
@@ -79,15 +77,13 @@
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="A03_FenestrationVerticalArea" type="env:FenestrationVerticalArea">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Fenestration Area (ft
-                                                <d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Fenestration Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">auto-filled with value from CF1R</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="A03_SkylightArea" type="env:SkylightArea">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Fenestration Area (ft
-                                                <d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Fenestration Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">auto-filled with value from CF1R</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>

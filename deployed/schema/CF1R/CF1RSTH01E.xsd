@@ -83,8 +83,7 @@
                   </xsd:element>
                   <xsd:element name="A10_SolarWaterHeatingCollectorArea" type="hvac:SolarWaterHeatingCollectorArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Collector Area (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Collector Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: numeric xxx</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -150,8 +149,7 @@
                   </xsd:element>
                   <xsd:element name="A19_TotalConditionedFloorArea" type="com:TotalConditionedFloorArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">reference data from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

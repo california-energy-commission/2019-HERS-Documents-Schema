@@ -294,8 +294,7 @@ VerticalRollerOrShades,</xsd:documentation>
                                     <xsd:element name="D02_LargestProposedSHGC" type="comp:LargestProposedSHGC">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">SHGC
-                                             <d:i>
-                                                <d:sub>max =</d:sub>
+                                             <d:i><d:sub>max =</d:sub>
                                              </d:i>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field  Result = Largest of available values ( A04_SolarHeatGainCoefficientNFRC,  A07_ SolarHeatGainCoefficientExteriorShading, B07_SolarHeatGainCoefficientCEC, C08_ SiteBuiltFenestrationSHGC )</xsd:documentation>
@@ -304,8 +303,7 @@ VerticalRollerOrShades,</xsd:documentation>
                                     <xsd:element name="D03_SmallestProposedSHGC" type="comp:SmallestProposedSHGC">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">SHGC
-                                             <d:i>
-                                                <d:sub>min =</d:sub>
+                                             <d:i><d:sub>min =</d:sub>
                                              </d:i>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field  Result = Smallest of available values ( A04_SolarHeatGainCoefficientNFRC,  A07_ SolarHeatGainCoefficientExteriorShading, B07_SolarHeatGainCoefficientCEC, C08_ SiteBuiltFenestrationSHGC )</xsd:documentation>
@@ -313,8 +311,7 @@ VerticalRollerOrShades,</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="D04_ProposedAllFenestrationAdjustedTotalSHGC" type="comp:ProposedAllFenestrationAdjustedTotalSHGC">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">The total combined adjusted SHGC with exterior shading device; (SHGC
-                                             <d:sub>total</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">The total combined adjusted SHGC with exterior shading device; (SHGC<d:sub>total</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result = PRODUCT( PRODUCT(D02_LargestProposedSHGC, 0.2875) + .75), D03_SmallestProposedSHGC</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>

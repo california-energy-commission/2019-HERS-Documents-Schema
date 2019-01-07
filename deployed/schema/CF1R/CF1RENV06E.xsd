@@ -48,8 +48,7 @@
                                     </xsd:element>
                                     <xsd:element name="A04_PartitionGrossArea" type="env:PartitionGrossArea">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Area (ft
-                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -179,11 +178,7 @@
                   <xsd:element name="C_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Equation 4-4: U
-                           <d:sub>Total</d:sub> = 1/ (R
-                           <d:sub>Outside</d:sub> + (1/U
-                           <d:sub>Mass</d:sub>) + R
-                           <d:sub>Inside</d:sub> )</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Equation 4-4: U<d:sub>Total</d:sub> = 1/ (R<d:sub>Outside</d:sub> + (1/U<d:sub>Mass</d:sub>) + R<d:sub>Inside</d:sub> )</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableUFactor">
@@ -204,32 +199,28 @@
                                     <xsd:element name="C02_UFactorLimit" type="com:UFactorLimit">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Mass Wall U-factor 
-                                             <d:line1/> (U
-                                             <d:sub>Mass</d:sub>)</xsd:documentation>
+                                             <d:line1/> (U<d:sub>Mass</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference  value from A08_UFactorLimit</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C03_InsulationExteriorRValue" type="env:InsulationExteriorRValue">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Adjusted Exterior R-value 
-                                             <d:line1/> (R
-                                             <d:sub>Outside</d:sub>)</xsd:documentation>
+                                             <d:line1/> (R<d:sub>Outside</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference  value from B07_InsulationExteriorRValue</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C04_InsulationInteriorRValue" type="env:InsulationInteriorRValue">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Adjusted Interior R-value 
-                                             <d:line1/> (R
-                                             <d:sub>Inside</d:sub>)</xsd:documentation>
+                                             <d:line1/> (R<d:sub>Inside</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference  value from B08_InsulationInteriorRValue</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C05_UFactorMassWallTotal" type="com:UFactorMassWallTotal">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Total Performance U-factor 
-                                             <d:line1/>(U
-                                             <d:sub>Total</d:sub>)</xsd:documentation>
+                                             <d:line1/>(U<d:sub>Total</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: Result = 1/ (C03_InsulationExteriorRValue
  + (1/C02_UFactorLimit) + C04_InsulationInteriorRValue)</xsd:documentation>
                                        </xsd:annotation>

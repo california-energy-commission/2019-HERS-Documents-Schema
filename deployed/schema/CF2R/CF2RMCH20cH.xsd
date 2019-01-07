@@ -138,16 +138,14 @@
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="B05_HvacSystemConditionedFloorArea" type="hvac:HvacSystemConditionedFloorArea">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft
-                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If B01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
 ( should be consistent with CF1R zone CFA data)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft
-                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="FieldText">Conditioned Floor Area Served by this HVAC System (ft<d:sup>2</d:sup>)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If B01_AirflowMethod == DefaultAirFlowMethod user input numeric xx,xxx Else result = N/A stored in NotApplicableMessage 
 ( should be consistent with CF1R zone CFA data)</xsd:documentation>
                         </xsd:annotation>

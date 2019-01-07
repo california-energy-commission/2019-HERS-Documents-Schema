@@ -64,16 +64,14 @@
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="B03_RoofAreaLowSlope70PercentSolarAccess" type="comp:RoofAreaLowSlope70PercentSolarAccess">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
 or allow user to select N/A stored in the NotApplicableMessage element.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="B03_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
 or allow user to select N/A stored in the NotApplicableMessage element.</xsd:documentation>
                         </xsd:annotation>
@@ -82,15 +80,13 @@ or allow user to select N/A stored in the NotApplicableMessage element.</xsd:doc
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="B04_RoofAreaSteepSlope70PercentSolarAccess" type="comp:RoofAreaSteepSlope70PercentSolarAccess">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -98,15 +94,13 @@ or allow user to select N/A stored in the NotApplicableMessage element.</xsd:doc
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="B05_SolarZoneAreaPotential" type="comp:SolarZoneAreaPotential">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft
-                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft<d:sup>2</d:sup>)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  If B03_NotApplicableMessage  Or  B04_NotApplicableMessage == N/A Then result = N/A stored in the NotApplicableMessage ;  Else result = PRODUCT(  SUM (RoofAreaLowSlope70PercentSolarAccess, RoofAreaSteepSlope70PercentSolarAccess),  0.5)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft
-                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - solar access method (ft<d:sup>2</d:sup>)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  If B03_NotApplicableMessage  Or  B04_NotApplicableMessage == N/A Then result = N/A stored in the NotApplicableMessage ;  Else result = PRODUCT(  SUM (RoofAreaLowSlope70PercentSolarAccess, RoofAreaSteepSlope70PercentSolarAccess),  0.5)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -120,8 +114,7 @@ or allow user to select N/A stored in the NotApplicableMessage element.</xsd:doc
                   </xsd:element>
                   <xsd:element name="B07_SolarZoneAreaRequiredMinimum" type="comp:SolarZoneAreaRequiredMinimum">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Minimum required solar zone area (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Minimum required solar zone area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess And B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF  And B06_IsOCST_RequirementSatisfied  ==  false Then If B05_NotApplicableMessage == N/A Then result = 250, Else If B05_SolarZoneAreaPotential NotNull result = Smallest( B05_SolarZoneAreaPotential, 250);   Else if B01_IsResidence3StoriesOrMoreAnd2000ft2OrLess    Or   B02_IsResidenceInCZ8_14WildlandUrbanAreaWithWHF   Or   B06_IsOCST_RequirementSatisfied  = true Then If B05_NotApplicableMessage == N/A  result = 150, Else If B05_SolarZoneAreaPotential NotNull  result = Smallest( B05_SolarZoneAreaPotential, 150).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -138,31 +131,27 @@ or allow user to select N/A stored in the NotApplicableMessage element.</xsd:doc
                <xsd:sequence>
                   <xsd:element name="C01_RoofAreaMultifamilyBuilding" type="comp:RoofAreaMultifamilyBuilding">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">What is the total area of the roof of the building? (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">What is the total area of the roof of the building? (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input, number</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C02_TotalSkylightArea" type="env:TotalSkylightArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">What is the total area of skylights installed in the roof of the building? (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">What is the total area of skylights installed in the roof of the building? (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input, number</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="C03_RoofAreaLowSlope70PercentSolarAccess" type="comp:RoofAreaLowSlope70PercentSolarAccess">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
 or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C03_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of low-sloped roofs where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaLowSlope70PercentSolarAccess, 
 or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentation>
                         </xsd:annotation>
@@ -171,46 +160,40 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="C04_RoofAreaSteepSlope70PercentSolarAccess" type="comp:RoofAreaSteepSlope70PercentSolarAccess">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplipcableMessage.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft
-                              <d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplipcableMessage.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="C05_SolarZoneAreaNetRoofAreaMethod" type="comp:SolarZoneAreaNetRoofAreaMethod">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Solar zone area - net roof area method (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Solar zone area - net roof area method (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT ( (C01_RoofAreaMultifamilyBuilding - C02_TotalSkylightArea),  0.15)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="C06_SolarZoneAreaSolarAccessMethod" type="comp:SolarZoneAreaSolarAccessMethod">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Solar Zone Area - Solar Access Method (ft
-                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - Solar Access Method (ft<d:sup>2</d:sup>)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  If C03_NotApplicableMessage And C04_NotApplicableMessage == N/A result =  N/A stored in NotApplicableMessage Else result =  PRODUCT ( SUM ( C03_RoofAreaLowSlope70PercentSolarAccess,  C04_RoofAreaSteepSlope70PercentSolarAccess), 0.5)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C06_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Solar Zone Area - Solar Access Method (ft
-                              <d:sup>2</d:sup>)</xsd:documentation>
+                           <xsd:documentation source="FieldText">Solar Zone Area - Solar Access Method (ft<d:sup>2</d:sup>)</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field:  If C03_NotApplicableMessage And C04_NotApplicableMessage == N/A result =  N/A stored in NotApplicableMessage Else result =  PRODUCT ( SUM ( C03_RoofAreaLowSlope70PercentSolarAccess,  C04_RoofAreaSteepSlope70PercentSolarAccess), 0.5)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="C07_SolarZoneAreaRequiredMinimum" type="comp:SolarZoneAreaRequiredMinimum">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Minimum Required Solar Zone Area? (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Minimum Required Solar Zone Area? (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If C06_NotApplicableMessage == N/A Then result = C05_SolarZoneAreaNetRoofAreaMethod Else result = Smallest (  C05_SolarZoneAreaNetRoofAreaMethod,  C06_SolarZoneAreaSolarAccessMethod)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -300,10 +283,7 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
                                     </xsd:element>
                                     <xsd:element name="D09_IsSolarZoneSubAreaAdequateSize" type="comp:IsSolarZoneSubAreaAdequateSize">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Subarea is at least 80 ft 
-                                             <d:sup>2</d:sup> (160 ft
-                                             <d:sup>2</d:sup> for a building with roof area greater than 10,000 ft
-                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Subarea is at least 80 ft<d:sup>2</d:sup> (160 ft<d:sup>2</d:sup> for a building with roof area greater than 10,000 ft<d:sup>2</d:sup>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input : select from list of Boolean values: For true display text: Yes.  For false display text: No.  User input.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -315,8 +295,7 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
                                     </xsd:element>
                                     <xsd:element name="D11_SolarZoneSubAreaSquareFootage" type="comp:SolarZoneSubAreaSquareFootage">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Area (ft
-                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input number</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -341,8 +320,7 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
                   </xsd:element>
                   <xsd:element name="D12_TotalProposedSolarZoneArea" type="comp:TotalProposedSolarZoneArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Total proposed solar zone area (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Total proposed solar zone area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field:  SUM ALL ( D11_SolarZoneSubAreaSquareFootage)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

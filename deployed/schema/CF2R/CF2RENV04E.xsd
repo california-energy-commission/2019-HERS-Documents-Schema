@@ -36,8 +36,7 @@
                   </xsd:element>
                   <xsd:element name="A02_AtticFloorArea" type="env:AtticFloorArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Total Attic Area (ft
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Total Attic Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input integer nonnegative</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -134,8 +133,7 @@
                                     </xsd:element>
                                     <xsd:element name="C02_AtticNetFreeAreaPerVent" type="env:AtticNetFreeAreaPerVent">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">NFA per vent (in
-                                             <d:sup>2</d:sup>)  (Manufacturer's Specification Sheet)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">NFA per vent (in<d:sup>2</d:sup>)  (Manufacturer's Specification Sheet)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">The Net Free Area of a product is usually one half to one third of the open area.  For example 2 inch round vent the open area is 3.14 in2 and the net free area is 1.1 in2.  A 22 in x 3 in eave vent will have an open area of 81 in2 and the net free area is 39 in2.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -147,8 +145,7 @@
                                     </xsd:element>
                                     <xsd:element name="C04_AtticTotalNetFreeAreaPerVentType" type="env:AtticTotalNetFreeAreaPerVentType">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total NFA Per Vent Type (in
-                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Total NFA Per Vent Type (in<d:sup>2</d:sup>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT (C02_AtticNetFreeAreaPerVent, C03_AtticVentCountPerType)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -192,8 +189,7 @@
                                     </xsd:element>
                                     <xsd:element name="D02_AtticNetFreeAreaPerVent" type="env:AtticNetFreeAreaPerVent">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">NFA per vent (in
-                                             <d:sup>2</d:sup>)/Per Linear Foot  (Manufacturer's Specification Sheet)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">NFA per vent (in<d:sup>2</d:sup>)/Per Linear Foot  (Manufacturer's Specification Sheet)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -212,8 +208,7 @@
                                     </xsd:choice>
                                     <xsd:element name="D04_AtticTotalNetFreeAreaPerVentType" type="env:AtticTotalNetFreeAreaPerVentType">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total NFA Per Vent Type (in
-                                             <d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Total NFA Per Vent Type (in<d:sup>2</d:sup>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT (D02_AtticNetFreeAreaPerVent,  D03_AtticVentCountPerType)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -236,29 +231,25 @@
                <xsd:sequence>
                   <xsd:element name="E01_AtticInstalledTotalNetFreeArea" type="env:AtticInstalledTotalNetFreeArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Combined NFA of installed upper and lower vents (in
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Combined NFA of installed upper and lower vents (in<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: SUM (SUM ALL ( C04_AtticTotalNetFreeAreaPerVentType), SUM ALL (D04_ AtticTotalNetFreeAreaPerVentType))</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E02_AtticAllVentMinimumNetFreeAreaRequired" type="env:AtticAllVentMinimumNetFreeAreaRequired">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Minimum required combined NFA of upper and lower vents (in
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Minimum required combined NFA of upper and lower vents (in<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT ( A02_AtticFloorArea / 300, 144)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E03_AtticUpperVentsTotalNetFreeAreaInstalled" type="env:AtticUpperVentsTotalNetFreeAreaInstalled">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">NFA of installed upper vents (in
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">NFA of installed upper vents (in<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: SUM ALL (D04_ AtticTotalNetFreeAreaPerVentType</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E04_AtticUpperVentMinimumNetFreeAreaRequired" type="env:AtticUpperVentMinimumNetFreeAreaRequired">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Minimum required NFA of upper vents (in
-                           <d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Minimum required NFA of upper vents (in<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: PRODUCT (E02_ AtticAllVentMinimumNetFreeAreaRequired,  0.3)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -511,8 +502,7 @@
                   <xsd:element name="I03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mass roof</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Mass roof 25 lb/ft
-                           <d:sup>2</d:sup> or greater: Mass roofs are not required to have a cool roof even if the climate zone specifies minimum performance requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Mass roof 25 lb/ft<d:sup>2</d:sup> or greater: Mass roofs are not required to have a cool roof even if the climate zone specifies minimum performance requirements</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="IEndNote1" minOccurs="0">

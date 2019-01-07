@@ -24,15 +24,9 @@
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">A continuous sealed exterior air barrier is required in all thermal envelope assemblies to limit air movement between unconditioned/ outside spaces and conditioned/ inside spaces, and must comply using one of the following methods: 
                            <d:l t="#">
-                              <d:list> Using individual materials that have an air permeance not exceeding 0.004 cfm/ft
-                                 <d:sup>2</d:sup> under a pressure differential of 0.3 in. w.g. (1.57 pcf) (0.02 L/s.m
-                                 <d:sup>2</d:sup> at 75 pa) when tested in accordance with ASTM E2178; or </d:list>
-                              <d:list> Using assemblies of materials and components that have an average air leakage not to exceed 0.04 cfm/ft
-                                 <d:sup>2</d:sup> under a pressure differential of 0.3 in. w.g. (1.57 pcf) (0.2 L/s.m
-                                 <d:sup>2</d:sup> at 75 pa) when tested in accordance with ASTM E2357, ASTM E1677, ASTM E1680, or ASTM E283; or </d:list>
-                              <d:list> Testing the complete building and demonstrating that the air leakage rate of the building envelope does not exceed  0.40 cfm/ft
-                                 <d:sup>2</d:sup> under a pressure differential of 0.3 in. w.g. (1.57 pcf) (2.0 L/s.m
-                                 <d:sup>2</d:sup> at 75 pa) when tested in accordance with ASTM E779 or an equivalent approved method.  </d:list>
+                              <d:list> Using individual materials that have an air permeance not exceeding 0.004 cfm/ft<d:sup>2</d:sup> under a pressure differential of 0.3 in. w.g. (1.57 pcf) (0.02 L/s.m<d:sup>2</d:sup> at 75 pa) when tested in accordance with ASTM E2178; or </d:list>
+                              <d:list> Using assemblies of materials and components that have an average air leakage not to exceed 0.04 cfm/ft<d:sup>2</d:sup> under a pressure differential of 0.3 in. w.g. (1.57 pcf) (0.2 L/s.m<d:sup>2</d:sup> at 75 pa) when tested in accordance with ASTM E2357, ASTM E1677, ASTM E1680, or ASTM E283; or </d:list>
+                              <d:list> Testing the complete building and demonstrating that the air leakage rate of the building envelope does not exceed  0.40 cfm/ft<d:sup>2</d:sup> under a pressure differential of 0.3 in. w.g. (1.57 pcf) (2.0 L/s.m<d:sup>2</d:sup> at 75 pa) when tested in accordance with ASTM E779 or an equivalent approved method.  </d:list>
                            </d:l>
                         </xsd:documentation>
                      </xsd:annotation>

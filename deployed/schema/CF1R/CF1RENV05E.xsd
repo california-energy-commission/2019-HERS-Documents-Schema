@@ -71,8 +71,7 @@
                                     </xsd:element>
                                     <xsd:element name="B02_GlazingArea" type="env:GlazingArea">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Area (ft
-                                             <d:sup>2</d:sup>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>
                                           </xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xsd:documentation>
                                        </xsd:annotation>
@@ -97,11 +96,7 @@
                   <xsd:element name="C_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Equation NA6-1: U
-                           <d:sub>T</d:sub> = C
-                           <d:sub>1</d:sub> + (C
-                           <d:sub>2</d:sub> x U
-                           <d:sub>C</d:sub>
+                        <xsd:documentation source="AdditionalRequirements">Equation NA6-1: U<d:sub>T</d:sub> = C<d:sub>1</d:sub> + (C<d:sub>2</d:sub> x U<d:sub>C</d:sub>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -141,22 +136,19 @@
                                     </xsd:element>
                                     <xsd:element name="C04_UfactorCoefficient1" type="comp:UfactorCoefficient1">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">C
-                                             <d:sub>1</d:sub> from Table NA6-5</xsd:documentation>
+                                          <xsd:documentation source="FieldText">C<d:sub>1</d:sub> from Table NA6-5</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C05_UfactorCoefficient2" type="comp:UfactorCoefficient2">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">C
-                                             <d:sub>2</d:sub> from Table NA6-5</xsd:documentation>
+                                          <xsd:documentation source="FieldText">C<d:sub>2</d:sub> from Table NA6-5</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input decimal number from Table NA6-5</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C06_UFactorCenterOfGlass" type="com:UFactorCenterOfGlass">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Center of Glass U-factor (U
-                                             <d:sub>c</d:sub> )</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Center of Glass U-factor (U<d:sub>c</d:sub> )</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input decimal number</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -168,8 +160,7 @@
                                     </xsd:element>
                                     <xsd:element name="C08_SiteBuiltFenestrationUFactor" type="comp:SiteBuiltFenestrationUFactor">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total Performance U-factor(U
-                                             <d:sub>T</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Total Performance U-factor(U<d:sub>T</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (C05_UfactorCoefficient2, C06_UFactorCenterOfGlass) + C04_UfactorCoefficient1</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -198,15 +189,13 @@
                            </xsd:element>
                            <xsd:element name="Col02Heading" minOccurs="0">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">C
-                                    <d:sub>1</d:sub>
+                                 <xsd:documentation source="FieldText">C<d:sub>1</d:sub>
                                  </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
                            <xsd:element name="Col03Heading" minOccurs="0">
                               <xsd:annotation>
-                                 <xsd:documentation source="FieldText">C
-                                    <d:sub>2</d:sub>
+                                 <xsd:documentation source="FieldText">C<d:sub>2</d:sub>
                                  </xsd:documentation>
                               </xsd:annotation>
                            </xsd:element>
@@ -377,9 +366,7 @@
                   <xsd:element name="D_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Equation NA6-2: SHGC
-                           <d:sub>T</d:sub> = 0.08 + (0.86 x SHGC
-                           <d:sub>C</d:sub>
+                        <xsd:documentation source="AdditionalRequirements">Equation NA6-2: SHGC<d:sub>T</d:sub> = 0.08 + (0.86 x SHGC<d:sub>C</d:sub>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -400,8 +387,7 @@
                                     </xsd:element>
                                     <xsd:element name="D02_SHGC_CenterOfGlass" type="com:SHGC_CenterOfGlass">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Center of Glass SHGC (SHGC
-                                             <d:sub>C</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Center of Glass SHGC (SHGC<d:sub>C</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User entry, nonnegative decimal</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -413,8 +399,7 @@
                                     </xsd:element>
                                     <xsd:element name="D04_SiteBuiltFenestrationSHGC" type="comp:SiteBuiltFenestrationSHGC">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Total Performance SHGC (SHGC
-                                             <d:sub>T</d:sub>)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Total Performance SHGC (SHGC<d:sub>T</d:sub>)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field:  Result = PRODUCT (D02_SHGC_CenterOfGlass, 0.86) + 0.08</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
