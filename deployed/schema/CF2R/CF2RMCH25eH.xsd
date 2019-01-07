@@ -325,8 +325,7 @@
                   </xsd:element>
                   <xsd:element name="F03_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-Bulb Temperature (T
-                           <d:sub>condenser, db</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-Bulb Temperature (T<d:sub>condenser, db</d:sub>) (
                            <d:deg/>F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 130</xsd:documentation>
                      </xsd:annotation>
@@ -339,23 +338,20 @@
                   </xsd:element>
                   <xsd:element name="F05_MeasuredLiquidLineTemperature" type="comp:MeasuredLiquidLineTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Liquid Line Temperature (T
-                           <d:sub>liquid</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Liquid Line Temperature (T<d:sub>liquid</d:sub>) (
                            <d:deg/>F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  -40 to 150</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F06_MeasuredLiquidLinePressure" type="comp:MeasuredLiquidLinePressure">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Liquid Line Pressure (P
-                           <d:sub>liquid</d:sub>) (psig)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Measured Liquid Line Pressure (P<d:sub>liquid</d:sub>) (psig)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 800</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F07_CondenserSaturationTemperature" type="comp:CondenserSaturationTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Condenser Saturation Temperature (T
-                           <d:sub>condenser, sat</d:sub>) from Digital Gauge or P-T Table using Line F06 (
+                        <xsd:documentation source="FieldText">Condenser Saturation Temperature (T<d:sub>condenser, sat</d:sub>) from Digital Gauge or P-T Table using Line F06 (
                            <d:deg/>F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  -40 to 150</xsd:documentation>
                      </xsd:annotation>
@@ -397,23 +393,20 @@
                   </xsd:element>
                   <xsd:element name="G01_MeasuredSuctionLineTemperature" type="comp:MeasuredSuctionLineTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Suction Line Temperature (T
-                           <d:sub>suction</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Suction Line Temperature (T<d:sub>suction</d:sub>) (
                            <d:deg/>F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G02_MeasuredSuctionLinePressure" type="comp:MeasuredSuctionLinePressure">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Suction Line Pressure (P
-                           <d:sub>suction</d:sub>) (psig)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Measured Suction Line Pressure (P<d:sub>suction</d:sub>) (psig)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 400</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G03_EvaporatorSaturationTemperature" type="comp:EvaporatorSaturationTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Evaporator Saturation Temperature (T
-                           <d:sub>evaporator, sat</d:sub>) from Digital Gauge or P-T Table using Line G02</xsd:documentation>
+                        <xsd:documentation source="FieldText">Evaporator Saturation Temperature (T<d:sub>evaporator, sat</d:sub>) from Digital Gauge or P-T Table using Line G02</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Evaporator saturation temperature from digital gauge or P-T Table using line G02 (degreeF)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
                      </xsd:annotation>
@@ -462,9 +455,7 @@
                   </xsd:element>
                   <xsd:element name="H01_RefrigerantPressureDifferential" type="comp:RefrigerantPressureDifferential">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">P 
-                           <d:sub>high</d:sub> -  P 
-                           <d:sub>low</d:sub> (psi)  from F06 and G02</xsd:documentation>
+                        <xsd:documentation source="FieldText">P<d:sub>high</d:sub> -  P<d:sub>low</d:sub> (psi)  from F06 and G02</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Report results of MeasuredLiquidLinePressure from section F  minus  MeasuredSuctionLinePressure from section G</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

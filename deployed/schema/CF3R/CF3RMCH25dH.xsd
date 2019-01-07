@@ -169,8 +169,7 @@
                <xsd:sequence>
                   <xsd:element name="B01_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Condenser air entering dry-bulb temperature (T 
-                           <d:sub>condenser, db</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Condenser air entering dry-bulb temperature (T<d:sub>condenser, db</d:sub>) (
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range = 0 to 130</xsd:documentation>
                      </xsd:annotation>

@@ -80,15 +80,13 @@
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B02_SurfaceArea" type="dtyp:SurfaceArea">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Surface Area (ft
-                                                <d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature == Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B02_RoughOpeningArea" type="env:RoughOpeningArea">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Surface Area (ft
-                                                <d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input numeric; If A03_AreaWeightedAverageFeature == Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -148,15 +146,13 @@
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="C02_SurfaceArea" type="dtyp:SurfaceArea">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Surface Area (ft
-                                                <d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature ==  Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C02_RoughOpeningArea" type="env:RoughOpeningArea">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Surface Area (ft
-                                                <d:sup>2</d:sup>)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Surface Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input numeric;  If A03_AreaWeightedAverageFeature ==  Fenestration, store result in RoughOpeningArea; Else store result in SurfaceArea</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>

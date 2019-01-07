@@ -333,8 +333,7 @@
                   <xsd:element name="F05" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Attic rulers specified to the installed loose-fill material (brand and type) are installed and evenly distributed throughout the attic to verify depth (one ruler for every 250 ft
-                           <d:sup>2</d:sup>). The rulers are clearly readable and scaled to read inches of insulation and the R-value installed.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Attic rulers specified to the installed loose-fill material (brand and type) are installed and evenly distributed throughout the attic to verify depth (one ruler for every 250 ft<d:sup>2</d:sup>). The rulers are clearly readable and scaled to read inches of insulation and the R-value installed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="FEndNote1" minOccurs="0">

@@ -276,8 +276,7 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                   </xsd:element>
                   <xsd:element name="E01_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T
-                           <d:sub>condenser, db</d:sub>) ((
+                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T<d:sub>condenser, db</d:sub>) ((
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric value xxx.x, check range = 0 to 130;  If all of the following condiitons are true:  A12 equals yes, A13 equals yes and A15 equals WeighIn or WeighInHERS And value entered isgreater than 55 degrees F,  Then display message:  "For this system, compliance using Weigh-In with HERS Rater observation is allowed only when outside temperature is 
                            <d:lt/> 55

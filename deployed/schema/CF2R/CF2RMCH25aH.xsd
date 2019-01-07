@@ -308,8 +308,7 @@
                   </xsd:element>
                   <xsd:element name="F02_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T
-                           <d:sub>condenser, db</d:sub>) ((
+                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T<d:sub>condenser, db</d:sub>) ((
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 130</xsd:documentation>
                      </xsd:annotation>
@@ -322,39 +321,34 @@
                   </xsd:element>
                   <xsd:element name="F04_MeasuredReturnAirDryBulbTemperature" type="comp:MeasuredReturnAirDryBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Return (evaporator entering) Air Dry-bulb Temperature (T
-                           <d:sub>return, db</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Return (evaporator entering) Air Dry-bulb Temperature (T<d:sub>return, db</d:sub>) (
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 130.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F05_MeasuredReturnAirWetBulbTemperature" type="comp:MeasuredReturnAirWetBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Return (evaporator entering) Air Wet-bulb Temperature (T
-                           <d:sub>return, wb</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Return (evaporator entering) Air Wet-bulb Temperature (T<d:sub>return, wb</d:sub>) (
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is  0 to 130.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F06_MeasuredSuctionLineTemperature" type="comp:MeasuredSuctionLineTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Suction Line Temperature (T
-                           <d:sub>suction</d:sub>) (
+                        <xsd:documentation source="FieldText">Measured Suction Line Temperature (T<d:sub>suction</d:sub>) (
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F07_MeasuredSuctionLinePressure" type="comp:MeasuredSuctionLinePressure">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Suction Line Pressure (P
-                           <d:sub>suction</d:sub> - psig)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Measured Suction Line Pressure (P<d:sub>suction</d:sub> - psig)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is 0 to 400</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F08_EvaporatorSaturationTemperature" type="comp:EvaporatorSaturationTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Evaporator Saturation Temperature (T 
-                           <d:sub>evaporator, sat</d:sub>) from Digital Gauge or P-T Table using Line F07 (
+                        <xsd:documentation source="FieldText">Evaporator Saturation Temperature (T<d:sub>evaporator, sat</d:sub>) from Digital Gauge or P-T Table using Line F07 (
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Range for this value is -40 to 150</xsd:documentation>
                      </xsd:annotation>

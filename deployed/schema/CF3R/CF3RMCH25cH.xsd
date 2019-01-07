@@ -235,8 +235,7 @@
                   </xsd:element>
                   <xsd:element name="D01_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T
-                           <d:sub>condenser, db</d:sub>) ((
+                        <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T<d:sub>condenser, db</d:sub>) ((
                            <d:deg/> F)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Reference value from CF2R.  Rater to have observed the collection of this data;  Range for this value is  0 to 130.</xsd:documentation>
                      </xsd:annotation>
