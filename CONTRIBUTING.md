@@ -40,6 +40,42 @@ Essential free Git GUI clients:
 - [GitHub Desktop](https://desktop.github.com/)
 - [Sourcetree](https://www.sourcetreeapp.com/)
 
+### Essential Git commands
+
+The `git branch` command lists all the local branches with the
+current branch highlighted by the `*` with and example seen below:
+```
+$ git branch
+* docs
+  master
+```
+When creating a pull request you need to create a new branch or
+more technically a `feature branch`.  In the above example the 
+`docs` branch is a new feature branch.
+
+Another useful command is `git status`.  
+```
+$ git status
+  On branch docs
+  Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
+  
+          modified:   CONTRIBUTING.md
+  
+  no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+The `origin` and the `upstream` are displayed below for a GitHub user. You
+should think of the upstream as the original source.
+```
+$ git remote -v
+origin  https://github.com/jbampton/2019-HERS-Documents-Schema.git (fetch)
+origin  https://github.com/jbampton/2019-HERS-Documents-Schema.git (push)
+upstream        https://github.com/RASENTSolutionsLLC-CEC/2019-HERS-Documents-Schema.git (fetch)
+upstream        https://github.com/RASENTSolutionsLLC-CEC/2019-HERS-Documents-Schema.git (push)
+```
+
 #### Sync your fork
 Refer to the GitHub help article on **[Syncing a fork](https://help.github.com/articles/syncing-a-fork/)**.
 ```
