@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF2RPLB03E"
+   xmlns="http://www.lmonte.com/besm/CF2RPLB03E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RPLB03E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Pool And Spa Heating Systems"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R" />
+                     <xsd:element ref="cF2RPLB03E" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB03E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF2RPLB03E">
+      <xsd:annotation>
+         <xsd:documentation>Pool And Spa Heating Systems</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pool And Spa System Type</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_PoolSpaType" type="comp:PoolSpaType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pool And Spa System Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: PoolOnly display term Pool only, PoolSpa display term Pool and spa, SpaOnly display term Spa only</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pool And Spa Systems And Equipment Requirements (Section 110.4(a) and 110.5)</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Comply with Appliance Efficiency Regulations</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Heater has a thermal efficiency that complies with the Appliance Efficiency Regulations.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Accessible on-off switch</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A readily accessible on-off switch is mounted on the outside of the heater, which allows the heater to be shut off without the user adjusting the thermostat setting.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Energy-efficient operation instructions</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A weatherproof plate or card containing instructions for the energy-efficient operation of the pool or spa heater is permanently mounted.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Electric resistance heating exceptions</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">No electric resistance heating except for listed package units that have fully insulated enclosures and tight fitting covers that are insulated to at least R-6. Or if documentation is provided that at least 60 percent of the annual heating energy is from site solar energy or recovered energy.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">No pilot light</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Heating system has no pilot light.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="BEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pool And Spa System Installation Requirements (Section 110.4(b))</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Addition of solar heating equipment</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">To allow for the future addition of solar heating equipment, at least 36" of pipe is installed between the filter and heater, or dedicated suction and return lines are installed, or built-in or built-up connections for future solar heating are provided.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Cover for outdoor pools or spas</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A cover is provided for outdoor pools or spas that have a heat pump or gas heater.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pool system directional inlets</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Pool system has directional inlets to adequately mix the pool water</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pool system time switch</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Pool system has a time switch that allows the pump to be set or programmed to run during off-peak periods only</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pool Pump Sizing And Flow Rate Specification (Section 150.0(p))</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is only applicable if PoolSpaType in A01_PoolSpaType =! SpaOnly.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Certified pool pumps</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The pool pump specified is listed in the CEC database of certified pool pumps.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pool pump flow rate</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The pool pump flow rate shall not exceed the maximum pump flow rate calculated based on pool sizing in the table below. The return pipe diameter, suction pipe diameter, and filter area shall be at least as large as the required minimums shown in the table. [d:line1/] Alternatively, a flow calculation or flow test result shall be provided to demonstrate that the pump flow rate is less than 6 hour filtration turnover, and the return pipe flow rate does not exceed 8 fps and that the suction pipe flow rate does not exceed 6 fps.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D03_IsAlterrnativePoolPumpFlowResultProvided" type="comp:IsAlterrnativePoolPumpFlowResultProvided" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">An alternative compliance calculation or a flow test result is provided for this pool or spa use (must attach flow calculation or flow test result to this form)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from Boolean values:  true value, display term  Yes and false value, display term  No.  If D06_PoolVolume GT 48,000 gal, Then result  must be true, display text Yes.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Pump speeds</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The pump is capable of operating at 2 or more speeds (not applicable if pump is less than 1 horsepower).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Auxiliary pool load</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Each auxiliary pool load is served by either a separate pump, or the system is served by a multi-speed pump.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D06_PoolVolume" type="hvac:PoolVolume" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Volume of pool (gallons)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric xx,xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D07_PoolFilterType" type="hvac:PoolFilterType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Filter Type (Cartridge, Sand, DE)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: Cartridge display term Cartridge, DE display term Diatomaceous Earth (DE), Sand display term Sand</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="D08a_PoolReturnPipeDiameterMinimumRequired" type="hvac:PoolReturnPipeDiameterMinimumRequired" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Min Return Pipe Diameter (inches)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="D08a_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Min Return Pipe Diameter (inches)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="D08b_PoolSuctionPipeDiameterMinimumRequired" type="hvac:PoolSuctionPipeDiameterMinimumRequired" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Min Suction Pipe Diameter (inches)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="D08b_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Min Suction Pipe Diameter (inches)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="D08c_PoolFilterSurfaceAreaMinimumRequired" type="hvac:PoolFilterSurfaceAreaMinimumRequired" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Min Filter Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="D08c_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Min Filter Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="D08d_PumpFlowMaximumRequired" type="hvac:PumpFlowMaximumRequired" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Max Pump Flow (gpm)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="D08d_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Required Max Pump Flow (gpm)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If D03_IsAlterrnativePoolPumpFlowResultProvided == false, result is based on values from D06_PoolVolume and D07_PoolFilterType used to identify the result in Table C  found in the user instructions section of the Word layout document, 2019-CF2R-PLB-03-PoolAndSpaHeatingSystems.docx.   Else If IsAlterrnativePoolPumpFlowResultProvided == true, result = N/a  stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="D09_PoolReturnPipeDiameter" type="hvac:PoolReturnPipeDiameter" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Return Pipe Diameter (inches)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric x.x</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D10_PoolSuctionPipeDiameter" type="hvac:PoolSuctionPipeDiameter" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Suction Pipe Diameter (inches)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric x.x</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D11_PoolFilterSurfaceArea" type="hvac:PoolFilterSurfaceArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Filter Surface Area  (ft[d:sup]2[/d:sup])</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D12_PumpFlowMaximum" type="hvac:PumpFlowMaximum" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Max Pump Flow Rate (gpm)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: numeric xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="D13_PoolReturnLineFlowRate" type="hvac:PoolReturnLineFlowRate" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Measured Flow Rate in Return Line (fps)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If D03_IsAlterrnativePoolPumpFlowResultProvided == true,  this field is required. User input: numeric x.xx  Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="D13_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Measured Flow Rate in Return Line (fps)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If D03_IsAlterrnativePoolPumpFlowResultProvided == true,  this field is required. User input: numeric x.xx  Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="D14_PoolSuctionLineFlowRate" type="hvac:PoolSuctionLineFlowRate" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Measured Flow Rate in Suction Line (fps)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If D03_IsAlterrnativePoolPumpFlowResultProvided == true,  this field is required. User input: numeric x.xx  Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="D14_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Measured Flow Rate in Suction Line (fps)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If D03_IsAlterrnativePoolPumpFlowResultProvided == true,  this field is required. User input: numeric x.xx  Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="D15_DoesPoolPumpSizingAndFlowRateComply" type="comp:DoesPoolPumpSizingAndFlowRateComply" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If  D03_IsAlterrnativePoolPumpFlowResultProvided == true Then If D13_PoolReturnLineFlowRate LTE 8 And D14_PoolSuctionLineFlowRate LTE 6 Then result = true;  ElseIf IsAlterrnativePoolPumpFlowResultProvided == false Then If D09_PoolReturnPipeDiameter GTE D08a_PoolReturnPipeDiameterMinimumRequired And If D10_PoolSuctionPipeDiameter GTE D08b_PoolSuctionPipeDiameterMinimumRequired And If D11_PoolFilterSurfaceArea GTE D08c_PoolFilterSurfaceAreaMinimumRequired And If D12_PumpFlowMaximum LTE D08d_PumpFlowMaximumRequired Then result = true; Else result = false.  For Boolean true value display term: System complies.  For Boolean false value display term  System does not comply.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pool System Piping (Section 150.0(p)2)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is only applicable If A01_PoolSpaType =! SpaOnly</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Suction side pipe straight run length</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The suction side pipe is straight for at least 4 pipe diameters before entering the pump (See table below for the required straight run lengths for various pipe sizes).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Elbow requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All elbows are sweep elbows, or an elbow type that has a pressure drop that is less than the pressure drop of a straight pipe with a length of 30 pipe diameters.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="EEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pool Filters and Valves  (Section 150.0(p)3 and 4)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is only applicable If A01_PoolSpaType =! SpaOnly</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Filter size for pool public use</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If a filter is used in a pool intended for public use: The size of the filter is at least the size specified in NSF/ANSI 50.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Backwash valve</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If a backwash valve is used: The diameter of the backwash valve is 2 inches or the diameter of the return pipe,  whichever is greater</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="FEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF2RPLB03E" type="CF2RPLB03E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RPLB03E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
