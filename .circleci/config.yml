@@ -24,15 +24,17 @@ jobs:
           name: Find empty CBECCresXMLterm text
           command: grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
       - run:
-          name: Validate schema files
+          name: Original XML Schema - Check Well Formedness
           command: |
             cd tools
             sh ./validate-schema.sh || exit 1
       - run:
           name: Find empty displayterm text
-          command: grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><' && exit 1
+          command: |
+            cd tools
+            sh ./displayterm-check.sh || exit 1
       - run:
-          name: Validate deployed schema files
+          name: Deployed XML Schema - Check Well Formedness
           command: |
             cd tools
             sh ./validate-deployed-schema.sh || exit 1
