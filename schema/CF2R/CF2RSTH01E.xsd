@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Diane Pepetone (L'Monte Information Services) -->
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF2RSTH01E" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF2RSTH01E" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+	<xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+	<xsd:element name="ComplianceDocumentPackage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocID" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RSTH01E"/>
+						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+						<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Solar Water Heating Systems"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Payload" type="comp:Payload"/>
+				<xsd:element name="DocumentData">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+							<xsd:element ref="cF2RSTH01E"/>
+							<xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+							<xsd:element name="Footer" type="comp:Footer"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Report" type="xsd:base64Binary"/>
+			</xsd:sequence>
+			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
+			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RSTH01E"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CF2RSTH01E">
+		<xsd:annotation>
+			<xsd:documentation>Solar Water Heating Systems</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Solar Water Heating Systems</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="A01_ClimateZone" type="com:ClimateZone">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Auto-filled from project CF1R</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A02_SolarWaterHeatingCertificationType" type="comp:SolarWaterHeatingCertificationType">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Certification Type</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User selects from OG-100 or OG-300</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A03_ResidentialDHWCentralDistributionType" type="hvac:ResidentialDHWCentralDistributionType">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If available result = project CF1R value Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If available result = project CF1R value Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:element name="A04_ComplianceMethod">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Certificate of Compliance Type</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Reference from project CF1R document Allowed values: Performance, PrescriptiveNewConstruction</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="comp:ComplianceMethod">
+									<xsd:enumeration value="Performance"/>
+									<xsd:enumeration value="PrescriptiveNewConstruction"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="A05_SolarWaterHeatingCollectorManufacturer" type="hvac:SolarWaterHeatingCollectorManufacturer">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Manufacturer Name</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A02_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A06_SolarWaterHeatingCollectorModelNumber" type="hvac:SolarWaterHeatingCollectorModelNumber">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Model Number</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A02_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A07_SolarWaterSystemSRCC_CertificationNumber" type="hvac:SolarWaterSystemSRCC_CertificationNumber">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Certification Number</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A02_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A08_SolarWaterHeatingSavingsFraction" type="comp:SolarWaterHeatingSavingsFraction">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Solar Savings Fraction from calculator or directly from website (annual average value)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A02_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A09_SolarWaterHeatingSavingsFractionRequired" type="comp:SolarWaterHeatingSavingsFractionRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Required Solar Savings Fraction</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: If project CF1R == CF1R-PRF-01  result = value  from CF1R-PRF Else If A01_ClimateZone InclusiveRange(1,9) result = 0.2 Else If A01_ClimateZone InclusiveRange(10,16) result = 0.35</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A10_SolarWaterHeatingCollectorCount" type="hvac:SolarWaterHeatingCollectorCount">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Number of Collectors</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Number of Collectors</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A11_SolarWaterHeatingCollectorArea" type="hvac:SolarWaterHeatingCollectorArea">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Collector Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A11_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Collector Area (ft[d:sup]2[/d:sup])</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A12_StorageCapacity" type="hvac:StorageCapacity">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Water Heater Storage Volume (gallons)</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A12_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Water Heater Storage Volume (gallons)</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-02-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:choice maxOccurs="1">
+							<xsd:element name="A13_VolumeCapacity" type="hvac:VolumeCapacity">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Secondary Storage Tank Volume  (gallons)</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="A13_NotApplicableMessage" type="comp:NotApplicableMessage">
+								<xsd:annotation>
+									<xsd:documentation source="FieldText">Secondary Storage Tank Volume  (gallons)</xsd:documentation>
+									<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+						<xsd:element name="A14_SolarWaterHeatingCollectorAngleFromNorth">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Collector angle from true north (in degrees)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else user input</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="comp:SolarWaterHeatingCollectorAngleFromNorth">
+									<xsd:minInclusive value="-180"/>
+									<xsd:maxInclusive value="180"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="A15_SolarWaterHeatingCollectorSlope">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Collector slope from horizontal (in degrees)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If A02_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else user input</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="hvac:SolarWaterHeatingCollectorSlope">
+									<xsd:minInclusive value="0"/>
+									<xsd:maxInclusive value="90"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="A16_IsSolarWaterHeatingSystemCompliant" type="comp:IsSolarWaterHeatingSystemCompliant">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: If A08_   GTE A09_SolarWaterHeatingSavingsFractionRequired result = true display term Solar water heater system complies  Else result = false display term Solar water heater system does not comply</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A16AfterNote" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Click for SRCC OG-300 Ratings</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">SRRCC OG 300 Ratings has hyper link https://secure.solar-rating.org/Certification/Ratings/RatingsSummaryPage.aspx?type=2</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_B" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">OG-100 Certified Collectors</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">This section is required If A02_SolarWaterHeatingCertificationType ==  OG100</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="B_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">[d:i]The installed system shall meet the following eligibility criteria: [/d:i]</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B01" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">System is installed at the same orientation as modeled.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B02" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">System is installed at the same tilt as modeled.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B03" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">The system shall have the same collectors, pumps, controls, storage tank and backup water heater fuel type as the rated condition.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B04" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">The collectors are located in a position that is not shaded by adjacent buildings or trees.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B05" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">Backup Storage tanks are insulated with either an internal R-16 (labeled on tank) or external R-12</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="BEndNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_C" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">OG-300 Certified Collectors</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">This section is required If A02_SolarWaterHeatingCertificationType ==   OG300</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="C_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">[d:i]The installed system shall meet the following eligibility criteria:[/d:i]</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C01" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">The collectors shall face within 35 [d:deg/] of south and be tilted at a slope of at least 3:12</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C02" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">The system shall have the same collectors, pumps, controls, storage tank and backup water heater fuel type as the rated condition.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C03" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">The collectors shall be located in a position that is not shaded by adjacent buildings or trees.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="CEndNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_D" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Sizing Compliance With Multifamily Central System Prescriptive Requirements:</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">This section is required If A04_ComplianceMethod == PrescriptiveNewConstruction And D03_NotApplicableMessage == N/A,</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="D01" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">For climate zones 1 through 9 only - the solar system has an annual solar savings fraction of 0.2</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D02" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">For climate zones 10 through 16 only - the solar system has an annual solar savings fraction of 0.35</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="DEndNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_E" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Mandatory Measures For Solar Water Heating Systems</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="E01" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">Backup storage tanks for solar water-heating systems have R-12 external insulation or R-16 internal insulation where the internal insulation R-value indicated on the exterior of the tank. ([d:t24ref/]150.0(j)1B).</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E02" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">All domestic hot water piping (including solar) shall be insulated ([d:t24ref/]150(j)2A)</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E03" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+								<xsd:documentation source="AdditionalRequirements">Solar water-heating system and/or collectors are certified by the Solar Rating and Certification Corporation. ([d:t24ref/]150.0(n)).</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="EEndNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="cF2RSTH01E" type="CF2RSTH01E">
+		<xsd:annotation>
+			<xsd:documentation>This element contains all of the data and text required to generate the CF2RSTH01E compliance report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>
