@@ -669,8 +669,28 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="DwellingUnitEnclosureArea">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Dwelling Unit Enclosure Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ResidentialDwellingUnitName">
       <xsd:restriction base="dtyp:ObjectNamePermissive">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DwellingUnitsSharedWallArea">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Dwelling unit wall area shared with other dwelling units</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DwellingUnitsWithAdditionsCount">
@@ -835,7 +855,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="FloorArea">
       <xsd:annotation>
-         <xsd:documentation>Used as the measurement of area of the floor that is part of a building object and is calculated by multiplying  the length dimension by the width dimension.  Units: ft2</xsd:documentation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Floor Area</dtyp:displayterm>
          </xsd:appinfo>
