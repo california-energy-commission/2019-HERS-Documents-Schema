@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/CF3RMCH31bH"
+   xmlns="http://www.lmonte.com/besm/CF3RMCH31bH"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH31bH"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Whole House Fan Airflow and Fan Efficacy"/>
+                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value"/>
+                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="b"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R" />
+                     <xsd:element ref="cF3RMCH31bH" />
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R" />
+                     <xsd:element name="Footer" type="comp:Footer" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH31bH"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="CF3RMCH31bH">
+      <xsd:annotation>
+         <xsd:documentation>Whole House Fan Airflow and Fan Efficacy - MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Whole House Fan Measurement Procedures</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_AirflowWattsMeasurementWHF" type="comp:AirflowWattsMeasurementWHF" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Whole House Fan Airflow/Watts Measurement Procedures Used</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: CaptureHoodPortableMeter display term Capture Hood and Portable Watt Meter,  CaptureHoodRevenueMeter display term Capture Hood and Revenue Meter, BlowerDoorPortableMeter display term Blower Door and Portable Watt Meter, BlowerDoorRevenueMeter display term Blower Door and Revenue Meter</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01After" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">MCH-31b variant</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value[/d:b]</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated variant result:  Switch ( A01_AirflowWattsMeasurementWHF) case CaptureHoodPortableMeter:  variant result =  MCH-31a; case CaptureHoodRevenueMeter: variant result =  MCH-31b;   case BlowerDoorPortableMeter: variant result =  MCH-31c;   case BlowerDoorRevenueMeter: variant result =  MCH-31d;   Use variant result for the remainder of this document</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Whole House Fan Equipment Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Requirements for Whole House Fans are given in Sections 150.1(b)3.B.vi and 150.1(c)12d</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableEquipment" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_FanName" type="hvac:FanName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF2R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_WHF_Location" type="comp:WHF_Location" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF2R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B03_WHF_Manufacturer" type="comp:WHF_Manufacturer" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">WHF Manufacturer Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input string</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B04_WHF_ModelNumber" type="comp:WHF_ModelNumber" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">WHF Model Number</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input string</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B05_AirflowMeasuredRate" type="hvac:AirflowMeasuredRate" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">WHF Measured Airflow (CFM)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input numeric</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="B06_FanPowerActual" type="hvac:FanPowerActual" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">WHF Measured Watts</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Whole House Fan Compliance Calculations</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01_WHFsMinimumRequiredAirflow" type="comp:WHFsMinimumRequiredAirflow" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required CFM</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled from CF2R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02_WHFsTotalMeasuredAirFlow" type="comp:WHFsTotalMeasuredAirFlow" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Installed CFM</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL (B05_AirFlowMeasuredRate)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03_FanEfficacyRequired" type="hvac:FanEfficacyRequired" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required Fan Efficacy (Watts/CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled from CF2R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04_WHFsInstalledFanEfficacy" type="comp:WHFsInstalledFanEfficacy" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Installed Fan Efficacy (Watts/CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = B06_FanActualPower / C02_WHFsTotalMeasuredAirFlow</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D01_DoesWHF_AirFlowEfficacyComply" type="comp:DoesWHF_AirFlowEfficacyComply" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Result</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_WHFsTotalMeasuredAirFlow GTE C01_WHFsMinimumRequiredAirflow And C03_FanEfficacyRequired  GTE  C04_WHFsInstalledFanEfficacy  result = true display term System passes whole house fan verification requirement; Else result = false display term System fails whole house fan verification requirement</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Requirements</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Listed on CEC appliance database</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installed fan shall be listed on the CEC Modernized Appliance Efficiency Database as an approved model</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">User instructions documentation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The homeowner shall be provided with user instructions documentation that describe the proper use of the whole house fan necessary to obtain the full energy savings benefit.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E03_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E04_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Verification Status= Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="EEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If D01_DoesWHF_AirFlowEfficacyComply == true and E03_DoesSystemComplyWithRequirements = Pass then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="cF3RMCH31bH" type="CF3RMCH31bH">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH31bH compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
