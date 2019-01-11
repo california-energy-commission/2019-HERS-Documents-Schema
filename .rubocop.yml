@@ -1,0 +1,42 @@
+AllCops:
+  Exclude:
+    - vendor/**/*
+  TargetRubyVersion: 2.5.3
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Layout/SpaceBeforeBlockBraces:
+  EnforcedStyle: no_space
+
+Layout/SpaceInsideBlockBraces:
+  EnforcedStyle: no_space
+  SpaceBeforeBlockParameters: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 155
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/HashSyntax:
+  EnforcedStyle: no_mixed_keys
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+  AllowInnerSlashes: true
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true

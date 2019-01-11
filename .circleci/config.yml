@@ -70,6 +70,69 @@ jobs:
             find . -type f -name '*.sh' | wc -l
             find . -type f -name '*.sh' | xargs shellcheck --external-sources
 
+  ruby-lint:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:2.5.3-node-browsers
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: run lint
+          command: |
+            bundle exec rubocop
+
+  no-missing-base-types:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for missing base elements
+          command: |
+            ruby missing-base-elements.rb -p schema || exit 1
+
+
 workflows:
   version: 2
   build:
@@ -78,5 +141,5 @@ workflows:
       - displayterms
       - well-formedness
       - shellcheck
-
-
+      - ruby-lint
+      - no-missing-base-types
