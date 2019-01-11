@@ -1,5 +1,6 @@
 version: 2
 jobs:
+
   CBECCresXMLterm:
     docker:
       # specify the version you desire here
@@ -21,7 +22,29 @@ jobs:
             cd tools
             sh ./cbeccresxmlterm-check.sh || exit 1
 
-  schema-well-formedness-and-displayterms:
+
+  displayterms:
+    docker:
+      # specify the version you desire here
+      # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
+      - image: circleci/python:3.6.1
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/postgres:9.4
+
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Find empty displayterm text
+          command: |
+            cd tools
+            sh ./displayterm-check.sh || exit 1
+
+
+  well-formedness:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
@@ -45,23 +68,20 @@ jobs:
           name: Original XML Schema - Check Well Formedness
           command: |
             cd tools
-            sh ./validate-schema.sh || exit 1
-      - run:
-          name: Find empty displayterm text
-          command: |
-            cd tools
-            sh ./displayterm-check.sh || exit 1
+            sh ./well-formedness-schema.sh || exit 1
+
       - run:
           name: Deployed XML Schema - Check Well Formedness
           command: |
             cd tools
-            sh ./validate-deployed-schema.sh || exit 1
+            sh ./well-formedness-deployed-schema.sh || exit 1
 
 workflows:
   version: 2
   build:
     jobs:
       - CBECCresXMLterm
-      - schema-well-formedness-and-displayterms
+      - displayterms
+      - well-formedness
 
 

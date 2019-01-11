@@ -208,7 +208,7 @@
             <dtyp:displayterm>Cavity Insulation</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="Other"/>
+            <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="R0">R 0</dtyp:displayterm>
             <dtyp:displayterm value="R11">R 11</dtyp:displayterm>
             <dtyp:displayterm value="R13">R 13</dtyp:displayterm>
@@ -238,6 +238,15 @@
          <xsd:enumeration value="R30"/>
          <xsd:enumeration value="R38"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="CeilingArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Ceiling Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="CeilingConstructionType">
       <xsd:annotation>
@@ -475,6 +484,15 @@
          <xsd:enumeration value="SlabOnGrade"/>
          <xsd:enumeration value="SlabRaised"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExteriorWallArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Exterior Wall Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="ExteriorWallName">
       <xsd:restriction base="xsd:token"/>
@@ -893,7 +911,7 @@
             <dtyp:displayterm value="2x4">2x4</dtyp:displayterm>
             <dtyp:displayterm value="2x6">2x6</dtyp:displayterm>
             <dtyp:displayterm value="2x8">2x8</dtyp:displayterm>
-            <dtyp:displayterm value="Other"/>
+            <dtyp:displayterm value="Other">Other</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -925,7 +943,7 @@
             <dtyp:displayterm value="24InchOC">@ 24 in. O. C.</dtyp:displayterm>
             <dtyp:displayterm value="48InchOC">@ 48 in. O. C.</dtyp:displayterm>
             <dtyp:displayterm value="96InchOC">@ 96 in. O. C.</dtyp:displayterm>
-            <dtyp:displayterm value="Other"/>
+            <dtyp:displayterm value="Other">Other</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantPermissive">
@@ -1267,7 +1285,7 @@
       <xsd:annotation>
          <xsd:documentation>A measure of thermal resistance of an insulating material used in a pre-defined ConstructionAssembly or individual construction layer or used to insulate ducts or equipment like a water heater.  It is usually expressed in whole number units of (hr x ft2 x degrees F)/Btu but can be a decimal value  Units: h ft2 F per Btu</xsd:documentation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Insulation RValue</dtyp:displayterm>
+            <dtyp:displayterm>Insulation R-value</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
@@ -2081,7 +2099,7 @@ For selection of NA-6 properties</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>The rated R-value of slab-on-grade floor insulation.</xsd:documentation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="Other"/>
+            <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="R0">none</dtyp:displayterm>
             <dtyp:displayterm value="R10">R10</dtyp:displayterm>
             <dtyp:displayterm value="R15">R15</dtyp:displayterm>
