@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Diane Pepetone (L'Monte Information Services) -->
+<xsd:schema xmlns="http://www.lmonte.com/besm/CF3RMCH28H" xmlns:d="http://www.lmonte.com/besm/d" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:env="http://www.lmonte.com/besm/env" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:com="http://www.lmonte.com/besm/com" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:altova="http://www.altova.com/xml-schema-extensions" targetNamespace="http://www.lmonte.com/besm/CF3RMCH28H" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+	<xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+	<xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+	<xsd:element name="ComplianceDocumentPackage">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocID" minOccurs="0">
+					<xsd:complexType>
+						<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3RMCH28H"/>
+						<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+						<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Payload" type="comp:Payload"/>
+				<xsd:element name="DocumentData">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+							<xsd:element ref="cF3RMCH28H"/>
+							<xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+							<xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
+							<xsd:element name="Footer" type="comp:Footer"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Report" type="xsd:base64Binary"/>
+			</xsd:sequence>
+			<xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
+			<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RMCH28H"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CF3RMCH28H">
+		<xsd:annotation>
+			<xsd:documentation>Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">System Information</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="A01_DuctSystemName" type="hvac:DuctSystemName">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System Identification or Name</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">System Location or Area Served</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A03_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A04_ReturnDuctCount" type="hvac:ReturnDuctCount">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Number of Return Ducts Used for Compliance</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User selects from list:  1 display term One Return Duct,  2 display term Two Return Ducts</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="A05_AdditionalReturnDuctCount" type="hvac:AdditionalReturnDuctCount">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Number of Additional Return Ducts (Not Used for Compliance)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer value</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">One Return Duct</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">Display this section if A04_ReturnDuctCount equals 1</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="B01_ReturnDuctDiameterMinimumRequired" type="hvac:ReturnDuctDiameterMinimumRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Return Duct Minimum Nominal Diameter (inches)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 16; case 2.0: result = 18; case 2.5: result = 20; case GT 2.5: report "Cooling Capacity above 2.5 tons requires two return air ducts - [d:b]Do Not Proceed[/d:b]"</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B02_ReturnDuctDiameter" type="hvac:ReturnDuctDiameter">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Installed Return Duct Nominal Diameter (inches)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B03_ReturnDuctsFilterGrilleGrossAreaRequired" type="hvac:ReturnDuctsFilterGrilleGrossAreaRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Minimum Total Return Filter Grille Nominal Area (inch[d:sup]2[/d:sup])</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 500; case 2.0: result = 600; case 2.5: result = 800</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B04_ReturnDuctsFilterGrilleGrossAreaInstalled" type="hvac:ReturnDuctsFilterGrilleGrossAreaInstalled">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Installed Total Return Filter Grille Nominal Area (inch[d:sup]2[/d:sup])</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="B05_IsReturnDuctAirFilterDeviceSizingCompliant" type="comp:IsReturnDuctAirFilterDeviceSizingCompliant">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If B02_ReturnDuctDiameter GTE  B01_ReturnDuctDiameterMinimumRequired And B04_ ReturnDuctsFilterGrilleGrossAreaInstalled GTE  B03_ ReturnDuctsFilterGrilleGrossAreaRequired, result = true display term System Passes   Else result = false. display term  System Fails</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Two Return Ducts</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">Display this section if A04_ReturnDuctCount equals 2</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="C01_ReturnDuctDiameterMinimumRequired" type="hvac:ReturnDuctDiameterMinimumRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Minimum Return Duct1 Diameter (inches)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 12; case 2.0: result = 14; case 2.5: result = 14; case 3.0: result = 16; case 3.5: result = 16; case 4.0: result = 18; case 5.0: result = 20</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C02_ReturnDuctDiameter" type="hvac:ReturnDuctDiameter">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Installed Return Duct1 Diameter (inches)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C03_SecondReturnDuctDiameterMinimumRequired" type="hvac:SecondReturnDuctDiameterMinimumRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Minimum Return Duct2 Diameter (inches)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 10; case 2.0: result = 12; case 2.5: result = 14; case 3.0: result = 14; case 3.5: result = 16; case 4.0: result = 18; case 5.0: result = 20</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C04_SecondReturnDuctDiameter" type="hvac:SecondReturnDuctDiameter">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Installed Return Duct2 Diameter (inches)</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C05_ReturnDuctsFilterGrilleGrossAreaRequired" type="hvac:ReturnDuctsFilterGrilleGrossAreaRequired">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Minimum Total Return Filter Grille Gross Area (inch[d:sup]2[/d:sup])</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 500; case 2.0: result = 600; case 2.5: result = 800; case 3.0: result = 900 case 3.5: result = 1000; case 4.0: result = 1200; case 5.0: result = 1500</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C06_ReturnDuctsFilterGrilleGrossAreaInstalled" type="hvac:ReturnDuctsFilterGrilleGrossAreaInstalled">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Installed Total Return Filter Grille Gross Area (inch[d:sup]2[/d:sup])</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="C07_IsReturnDuctAirFilterDeviceSizingCompliant" type="comp:IsReturnDuctAirFilterDeviceSizingCompliant">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If C02_ReturnDuctDiameter GTE C01 _ReturnDuctDiameterMinimumRequired And C04_SecondReturnDuctDiameter GTE C03_SecondReturnDuctDiameterMinimumRequired And  C06_ReturnDuctsFilterGrilleGrossAreaInstalled GTE C05_ReturnDuctsFilterGrilleGrossAreaRequired,  then result = true display term System Passes   Else result = false display term  System Fails</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_D" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Additional Requirements For Compliance</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="D01" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Alternative to Section 150.0(m)13B Requirements</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Qualification for the Alternative to Section 150.0(m)13B and D  requires that the ducted space conditioning system shall not use zoning dampers.  Systems that use zoning dampers shall comply with the requirements of Section 150.0(m)13.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D02" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Return Duct Length</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The return duct length for each return air filter grille shall not exceed 30 linear feet.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D03" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Return Ducts Maximum Bend</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The return duct(s) shall not contain more than a total of 180[d:deg/] of bend.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D04" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Return Duct Greater Than 90 Degree Bend</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">If the return duct contains more than 90[d:deg/], one of the bends shall be a metal elbow.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D05" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Return Grille Design Airflow Rate Label</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Return grille devices shall be labeled in accordance with the requirements in section 150.0(m)12Biv to disclose the grilles design airflow rate and a maximum allowable clean-filter pressure drop of 25  Pa (0.1 inches water) for the air filter when tested using ASHRAE Standard 52.2 or as rated in accordance with AHRI Standard 680 for the design airflow rate for the return grille.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D06_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="D07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">if Verification Status equals Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="DEndNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_E" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Hole for the placement of a Static Pressure Probe (HSPP), and Permanently installed Static Pressure Probe (PSPP) in the supply plenum.</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="E_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">Procedures for installing HSPP or PSPP are specified in RA3.3.1.1.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="E01_HSPP_PSPP_ComplianceMethod" type="comp:HSPP_PSPP_ComplianceMethod">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Method used to demonstrate compliance with the HSPP/PSPP requirement</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">User selects from list: HSPP_InstalledAsRequired  display term HSPP installed and labeled consistent with Figure RA3.3-1.    PSPP_InstalledAsRequired  display term PSPP installed and labeled consistent with Figure RA3.3-1. HSPP_PSPP_InstalledAlternativeLocation  display term HSPP/PSPP cannot be installed consistent with Figure RA3.3-1.  An alternative location has been provided and clearly labeled.  HSPP_PSPP_NotApplicable  display term HSPP/PSPP  are not applicable to this system.  HSPP_PSPP_NotInstalled  display term HSPP or PSPP not installed. System does not comply</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_F" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+					<xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="F_BeginNote1" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+								<xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<xsd:element name="F01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+								<xsd:documentation source="CalculationsAndRules">If A04_ReturnDuctCount == 1 And B05_IsReturnDuctAirFilterDeviceSizingCompliant == false Or A04_ReturnDuctCount == 2 And  C07_IsReturnDuctAirFilterDeviceSizingCompliant == false Or D06_DoesSystemComplyWithRequirements == Fail, Or  E01_HSPP_PSPP_ComplianceMethod == HSPP_PSPP_NotInstalled then result = false display term Does not comply: One or more specified verification protocol requirements on this document are not met.  Else result = true display term  Complies: All specified verification protocol requirements on this document are met.</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Section_G" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation source="FieldText">Additional Return Ducts (Not Used for Compliance)</xsd:documentation>
+					<xsd:documentation source="CalculationsAndRules">This section is required if A05_AdditionalReturnDuctCount  GT 0.  Require the same number of rows as the count in A05</xsd:documentation>
+					<xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="TableAdditionalDucts">
+							<xsd:annotation>
+								<xsd:documentation source="FieldText"/>
+							</xsd:annotation>
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="G01_ReturnDuctDiameter" type="hvac:ReturnDuctDiameter">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Installed Return Nominal Duct Diameter (inches)</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">Auto-filled reference value from CF2R-MCH-28H</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+												<xsd:element name="G02_ReturnDuctsFilterGrilleGrossAreaInstalled" type="hvac:ReturnDuctsFilterGrilleGrossAreaInstalled">
+													<xsd:annotation>
+														<xsd:documentation source="FieldText">Installed Total Return Filter Grille Nominal Area (inch[d:sup]2[/d:sup])</xsd:documentation>
+														<xsd:documentation source="CalculationsAndRules">Auto-filled reference value from CF2R-MCH-28H</xsd:documentation>
+													</xsd:annotation>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="cF3RMCH28H" type="CF3RMCH28H">
+		<xsd:annotation>
+			<xsd:documentation>This element contains all of the data and text required to generate the CF3RMCH28H compliance report.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:schema>
