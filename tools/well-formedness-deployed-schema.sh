@@ -11,7 +11,7 @@ do
         cat validation.txt
         errors=1
     fi
-    > validation.txt
+    :> validation.txt
 done
 if [ "$errors" -ge 1 ]
 then
