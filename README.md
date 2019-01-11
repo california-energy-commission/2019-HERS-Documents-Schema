@@ -11,7 +11,8 @@ Get started here [CONTRIBUTING](CONTRIBUTING.md)
 - check for empty display term text
 
 On [Ubuntu](https://www.ubuntu.com/) Linux you can use [xmllint](http://xmlsoft.org/xmllint.html)
-to validate a directory of XML or even XML schema. 
+to check the well formedness of a directory of XML or even XML schema.
+
 The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
 can be installed on Windows and emulates the Ubuntu environment.
 

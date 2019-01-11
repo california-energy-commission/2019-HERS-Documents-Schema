@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH29H" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF2RMCH29H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RMCH29H">
+      <xsd:annotation>
+         <xsd:documentation>Duct Surface Area Reduction, R-Value, Buried Ducts Compliance Credit</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Duct System Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note:  Submit one Certificate of installation for each duct system that must demonstrate compliance in the dwelling.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_DuctSystemName" type="hvac:DuctSystemName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Name or Identification/Tag:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Location or Area Served:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_DuctSurfaceAreaReductionRValueCreditTaken" type="comp:DuctSurfaceAreaReductionRValueCreditTaken">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Duct Surface Area Reduction And R-Value Compliance Credit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">if CF1R Duct Surface Area Reduction And R-Value Compliance Credit == true , then result = true display term Installation should proceed according to the requirements in RA3.1.4.1.4.   Else result = false display term Credit not taken</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_DuctsBuriedComplianceCreditTaken" type="comp:DuctsBuriedComplianceCreditTaken">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Buried Ducts Compliance Credit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">if CF1R flags: Buried Ducts Compliance Credit == true , then result = true display term Installation should proceed according to the requirements in RA3.1.4.1.5,    Else result = false display term Credit not taken</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_DuctsDeeplyBuriedComplianceCreditTaken" type="comp:DuctsDeeplyBuriedComplianceCreditTaken">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Deeply Buried Ducts Compliance Credit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">if CF1R flags:Deeply Buried Ducts Compliance Credit  == true ,  For Boolean true value,  display text: Installation should proceed according to the requirements in RA3.1.4.1.6.    Else result is false.  For Boolean false value display text: Credit not taken</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Duct Surface Area Reduction And R-Value Compliance Credit</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section if A03_DuctSurfaceAreaReductionRValueCreditTaken == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Credit is available for supply duct systems with reduced surface area in unconditioned space with varying combinations of higher performance insulation if the system complies with the following requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Design Special Feature in CF1R-PRF-01-E</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system design shall be detailed in the special features section of the CF1R-PRF-01-E approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Design Documented on Building Design Plans</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A duct design layout that conforms to the duct system design details in the special features section of the CF1R-PRF-01-E shall be documented on the building design plans approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Installation Conforms to Design</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation, including duct sizes, R-values and lengths, and locations of supply &amp;amp; return registers shall conform to the duct system design layout approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">HERS Rater Verification of Duct System Installation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a HERS rater according to the requirements in RA3.1.4.1.4.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">No Restriction of Required Operating Airflow.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall not have severely twisted or compressed sections that would restrict required operating airflow.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="BEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Buried Ducts Compliance Credit</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section if A04_DuctsBuriedComplianceCreditTaken == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Ducts partly or completely buried in blown attic insulation in dwelling units meeting the requirements for verified quality insulation installation may take credit for increased effective duct insulation if the system complies with the following requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Design Special Feature in CF1R-PRF-01-E</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system design shall be detailed in the special features section of the CF1R-PRF-01-E approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Design Documented on Building Design Plans</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A duct design layout that conforms to the duct system design details in the special features section of the CF1R-PRF-01-E shall be documented on the building design plans approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Installation Conforms to Design</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installed duct system and attic insulation  shall conform to the design details in the  enforcement agency.approved CF1R-PRF-01-E.  These installation details include duct nominal diameter, R-value, and length of each segment, ceiling insulation depth, type (i.e. fiberglass or cellulose), and R-value, and supply and return register locations.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">HERS Rater Verification of Duct System Installation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a HERS rater according to the requirements in RA3.1.4.1.5.  Verification of duct system installation shall be completed prior to burial of ducts.  Verification of insulation installation shall be completed by a second HERS inspection after ducts are buried.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">No Restriction of Required Operating Airflow.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Ducts shall not have severely twisted or compressed sections that would restrict required operating airflow.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Buried ducts placement</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Ducts shall be buried by a uniform level of insulation (i.e. no mounding attic insulation to achieve burial level), lay directly or within 3.5 inches of ceiling gypsum board, and have at least 6 inches of space between the duct outer jacket and the roof sheathing.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Quality Insulation Installation requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The dwelling shall comply with all Quality Insulation Installation requirements as documented on the applicable CF2R and CF3R.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Deeply Buried Ducts Compliance Credit</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section if A05_DuctsDeeplyBuriedComplianceCreditTaken == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Duct segments meeting requirements for buried ducts  and covered by at least 3.5 inches of insulation can take credit for effective duct insulation levels greater than buried ducts.  Deeply buried ducts have the option of using lowered portions of the ceiling or durable containment systems to achieve burial depth greater than the overall attic insulation level.  Deeply buried duct systems must comply with the following requirements:</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Design Special Feature in CF1R-PRF-01-E</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system design shall be detailed in the special features section of the CF1R-PRF-01-E approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Design Documented on Building Design Plans</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A duct design layout that conforms to the duct system design details in the special features section of the CF1R-PRF-01-E shall be documented on the building design plans approved by the enforcement agency.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Installation Conforms to Design</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The installed duct system and attic insulation shall conform to the  system design details in the  enforcement agency.approved CF1R-PRF-01-E.  These installation details include duct nominal diameter, R-value, and length of each segment, ceiling insulation depth, type (i.e. fiberglass or cellulose), and R-value, lowered chase or containment system locations, and supply and return register locations.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">HERS Rater Verification of Duct System Installation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The duct system installation shall be verified by a HERS rater according to the requirements in RA3.1.4.1.6.  Verification of duct system installation shall be completed prior to burial of ducts.  Verification of insulation installation shall be completed by a second HERS inspection after ducts are buried.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">No Restriction of Required Operating Airflow.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Ducts shall not have severely twisted or compressed sections that would restrict required operating airflow.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Buried Duct Placement</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Ducts shall be buried by a uniform level of insulation (i.e. no mounding attic insulation to achieve burial level), lay directly or within 3.5 inches of ceiling gypsum board, and have at least 6 inches of space between the duct outer jacket and the roof sheathing.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Quality Insulation Installation requirements</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The dwelling shall comply with all Quality Insulation Installation requirements as documented on the applicable CF2R and CF3R.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D08" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Containment Systems</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Containment systems shall have walls at least 7 inches wider than the duct outer diameter, extend at least 3.5 inches above the duct jacket, be filled completely with blown insulation. and have the duct centered between the containment walls.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Duct System Details</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A03_DuctSurfaceAreaReductionRValueCreditTaken  == true Or A04_DuctsBuriedComplianceCreditTaken  == true  Or A05_DuctsDeeplyBuriedComplianceCreditTaken  == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E_TableDuctDesign">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="E01_AirSegmentName" type="hvac:AirSegmentName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Duct Segment Identification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E02_DuctNominalDiameter" type="hvac:DuctNominalDiameter">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Nominal Diam. (in)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E03_DuctRValue" type="hvac:DuctRValue">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Duct R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E04_DuctLength" type="hvac:DuctLength">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Length (ft)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E05_InsulationRValue" type="env:InsulationRValue">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Attic insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E06_InsulationThickness" type="env:InsulationThickness">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Attic Insulation Depth (in)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E07_InsulationType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Attic Insulation Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01  Acceptable values are Fiberglass and Cellulose</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:InsulationType">
+                                             <xsd:enumeration value="Cellulose"/>
+                                             <xsd:enumeration value="Fiberglass"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="E08_BuriedDuctInsulationDevice" type="hvac:BuriedDuctInsulationDevice">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Containment system or Lowered Chase</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E09_DuctBuriedLevel" type="hvac:DuctBuriedLevel">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Duct Burial Level</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference data from CF1R-PRF-01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH29H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Duct Surface Area Reduction, R-Value, Buried Ducts Compliance Credit"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RMCH29H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH29H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RMCH29H" type="CF2RMCH29H">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH29H compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
