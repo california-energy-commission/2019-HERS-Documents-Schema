@@ -1,17 +1,17 @@
 #!/bin/bash
 
 errors=0
-cd ../
+cd ../ || exit
 for file in deployed/**/**/*.xsd;
 do
     xmllint --noout "$file" >> validation.txt  2>&1
-    if [ $(wc -l <validation.txt) -ge 1 ]
+    if [ "$(wc -l <validation.txt)" -ge 1 ]
     then
         #echo "This has more 1 line or more."
         cat validation.txt
         errors=1
     fi
-    > validation.txt
+    :> validation.txt
 done
 if [ "$errors" -ge 1 ]
 then

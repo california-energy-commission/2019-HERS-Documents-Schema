@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../
+cd ../ || exit
 # print first
 grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
 
