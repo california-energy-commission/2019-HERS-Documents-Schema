@@ -12,6 +12,8 @@ Discussion about code base improvements happens in GitHub issues and on pull req
 - ["Decision Making" Process](#decision-making-process)
 - [Helpful Information](#helpful-information)
 
+[&#8593;](#contributing)
+
 ## Contributor Workflow
 
 To contribute a patch, the workflow is as follows:
@@ -25,11 +27,15 @@ To contribute a patch, the workflow is as follows:
 If a commit references an issue, please add the reference. 
 For example: `refs #321` or `fixes #12`. Using the `fixes` or `closes` keywords will cause the applicable issue to be closed when the pull request is merged.
 
+[&#8593;](#contributing)
+
 ## GitHub Cheat Sheets 
 
 - [Awesome](https://github.com/tiimgreen/github-cheat-sheet)
 - [GitHub Git Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
 - [Tower](https://www.git-tower.com/blog/git-cheat-sheet)
+
+[&#8593;](#contributing)
 
 ## More Git Information
 
@@ -142,10 +148,14 @@ $ git merge upstream/master
 ```
 You will then need to push your changes back up to your fork on GitHub.
 
+[&#8593;](#contributing)
+
 ## Decision Making Process
 
 The project merge maintainers and ultimately the project lead are responsible for deciding whether
 a pull request is merged.
+
+[&#8593;](#contributing)
 
 ## Helpful Information
 
@@ -170,7 +180,12 @@ a pull request is merged.
 - [IntelliJ IDEA Community](https://www.jetbrains.com/idea/download)
 - [Atom](https://atom.io/)
 
-#### Schema Deployer - Experimental !!!
+[&#8593;](#contributing)
+
+## C# Schema Deployer - Experimental !!!
+
+Unfinished raw C#.NET based tool working currently inside 
+Visual Studio in debug mode only.
 
 ![Schema Deployer](assets/images/sd-1.png)
 
@@ -179,3 +194,5 @@ a pull request is merged.
 ![Schema Deployer](assets/images/sd-3.png)
 
 ![Schema Deployer](assets/images/sd-4.png)
+
+[&#8593;](#contributing)

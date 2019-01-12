@@ -15,6 +15,8 @@ We have two reports located in the `tools\output` directory.
 The Excel report is best seen in Excel but can be opened with other programs like Google Sheets.
 The HTML files in the RubyCritic report can be opened locally with a web browser.
 
+[&#8593;](#2019-hers-documents-schema)
+
 ## Checks to run before submitting a pull request
 
 - validate XML schema
@@ -49,7 +51,9 @@ grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
 grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
 ```
 
-### Deploy Schema
+[&#8593;](#2019-hers-documents-schema)
+
+## Deploy Schema
 
 `deploy-schema.exe` is a command line application executable file that was
 written in [Golang](https://golang.org/). This application deploys the schema (replaces embedded 
@@ -77,6 +81,7 @@ $ cd 2019-HERS-Documents-Schema
 $ deploy-schema.exe -d . -s schema -v 2019.1.000
 ```
 
+[&#8593;](#2019-hers-documents-schema)
 
 ## Ruby
 
@@ -92,6 +97,8 @@ To generate the web based [RubyCritic](https://github.com/whitesmith/rubycritic)
 ```
 $ rubycritic -p tools/output/rubycritic
 ```
+
+[&#8593;](#2019-hers-documents-schema)
 
 ## Links
 
@@ -122,7 +129,7 @@ $ rubycritic -p tools/output/rubycritic
 - [find](https://linux.die.net/man/1/find)
 - [libxml2-utils](https://packages.ubuntu.com/search?keywords=libxml2-utils)
 
-
+[&#8593;](#2019-hers-documents-schema)
 
 ## Advanced Links
 
