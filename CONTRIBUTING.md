@@ -61,6 +61,8 @@ Commercial Git GUI clients:
 - [GitKraken](https://www.gitkraken.com/git-client)
 - [Tower](https://www.git-tower.com/)
 
+[&#8593;](#contributing)
+
 ### Essential Git commands
 
 So you have just cloned your Fork from GitHub and the first Git
@@ -178,6 +180,7 @@ a pull request is merged.
 ### Free Awesome IDE's
 
 - [IntelliJ IDEA Community](https://www.jetbrains.com/idea/download)
+- [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
 - [Atom](https://atom.io/)
 
 [&#8593;](#contributing)

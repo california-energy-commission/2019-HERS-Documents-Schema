@@ -128,6 +128,8 @@ $ rubycritic -p tools/output/rubycritic
 - [wc](https://en.wikipedia.org/wiki/Wc_\(Unix\))
 - [find](https://linux.die.net/man/1/find)
 - [libxml2-utils](https://packages.ubuntu.com/search?keywords=libxml2-utils)
+- [XMLSpy](https://www.altova.com/xmlspy-xml-editor)
+- [Oxygen XML Editor](https://www.oxygenxml.com/)
 
 [&#8593;](#2019-hers-documents-schema)
 
