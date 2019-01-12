@@ -111,7 +111,5 @@ end
 check(create_path(options[:path]))
 
 if error == 1
-  exit 1
-else
-  exit 0
+  raise
 end
