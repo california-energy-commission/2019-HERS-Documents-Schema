@@ -103,6 +103,22 @@ Date:   Sat Jan 12 14:10:26 2019 +1000
 
     Add Excel report built with Ruby.
 ```
+Another useful command is: git diff
+```
+$ git diff
+diff --git a/README.md b/README.md
+index 2821648..5f7ec95 100644
+--- a/README.md
++++ b/README.md
+@@ -9,20 +9,20 @@ Get started here [CONTRIBUTING](CONTRIBUTING.md)
+
+ We have two reports located in the `tools\output` directory.
+
+-- Excel report with charts which reports on the files in the repository
+-- Web based report using mainly HTML, JavaScript and CSS that reports on the Ruby code
++- **Excel** report with charts which reports on the files in the repository
++- **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
+```
 
 #### Sync your fork
 Refer to the GitHub help article on **[Syncing a fork](https://help.github.com/articles/syncing-a-fork/)**.
