@@ -12,6 +12,8 @@ Discussion about code base improvements happens in GitHub issues and on pull req
 - ["Decision Making" Process](#decision-making-process)
 - [Helpful Information](#helpful-information)
 
+[&#8593;](#contributing)
+
 ## Contributor Workflow
 
 To contribute a patch, the workflow is as follows:
@@ -25,11 +27,15 @@ To contribute a patch, the workflow is as follows:
 If a commit references an issue, please add the reference. 
 For example: `refs #321` or `fixes #12`. Using the `fixes` or `closes` keywords will cause the applicable issue to be closed when the pull request is merged.
 
+[&#8593;](#contributing)
+
 ## GitHub Cheat Sheets 
 
 - [Awesome](https://github.com/tiimgreen/github-cheat-sheet)
 - [GitHub Git Cheat Sheet](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
 - [Tower](https://www.git-tower.com/blog/git-cheat-sheet)
+
+[&#8593;](#contributing)
 
 ## More Git Information
 
@@ -55,18 +61,33 @@ Commercial Git GUI clients:
 - [GitKraken](https://www.gitkraken.com/git-client)
 - [Tower](https://www.git-tower.com/)
 
+[&#8593;](#contributing)
+
 ### Essential Git commands
 
-The `git branch` command lists all the local branches with the
-current branch highlighted by the `*` with and example seen below:
+So you have just cloned your Fork from GitHub and the first Git
+command you should try is:
 ```
 $ git branch
-* docs
+* master
+```
+Now you want to submit a patch or new feature so you can create
+a new branch by using:
+```
+$ git checkout -b feature-branch
+Switched to a new branch 'feature-branch'
+```
+And now the `git branch` command lists two local branches with the
+current branch highlighted by the `*`:
+```
+$ git branch
+* feature-branch
   master
 ```
 When creating a pull request you need to create a new branch or
 more technically a `feature branch`.  In the above example the 
-`docs` branch is a new feature branch.
+`feature-branch` is a new branch, but you should try to be more 
+descriptive when naming the new feature branch.
 
 Another useful command is `git status`.  
 ```
@@ -129,10 +150,14 @@ $ git merge upstream/master
 ```
 You will then need to push your changes back up to your fork on GitHub.
 
+[&#8593;](#contributing)
+
 ## Decision Making Process
 
 The project merge maintainers and ultimately the project lead are responsible for deciding whether
 a pull request is merged.
+
+[&#8593;](#contributing)
 
 ## Helpful Information
 
@@ -155,9 +180,15 @@ a pull request is merged.
 ### Free Awesome IDE's
 
 - [IntelliJ IDEA Community](https://www.jetbrains.com/idea/download)
+- [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
 - [Atom](https://atom.io/)
 
-#### Schema Deployer - Experimental !!!
+[&#8593;](#contributing)
+
+## C# Schema Deployer - Experimental !!!
+
+Unfinished raw C#.NET based tool working currently inside 
+Visual Studio in debug mode only.
 
 ![Schema Deployer](assets/images/sd-1.png)
 
@@ -166,3 +197,5 @@ a pull request is merged.
 ![Schema Deployer](assets/images/sd-3.png)
 
 ![Schema Deployer](assets/images/sd-4.png)
+
+[&#8593;](#contributing)
