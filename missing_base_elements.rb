@@ -11,18 +11,17 @@ end
 
 def check(folder)
   Dir.glob("#{folder}/**/*.xsd").each do |filename|
-    @doc = Nokogiri::XML(File.open("#{filename}"))
-    @doc.xpath("//*[@type]").map do |tag|
-      fixed = tag.attribute("fixed")
-      if /^((bld|com|comp|dtyp|env|hvac|lit):)/ === tag.attribute("type")
-        base, simple = tag.attribute("type").to_s.split ':'
+    @doc = Nokogiri::XML(File.open(filename))
+    @doc.xpath('//*[@type]').map do |tag|
+      if /^((bld|com|comp|dtyp|env|hvac|lit):)/.match?(tag.attribute('type'))
+        base, simple = tag.attribute('type').to_s.split ':'
 
         case base
 
         when 'bld'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResBuilding.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing ResBuilding element - #{simple}"
             error = 1
           end
@@ -30,7 +29,7 @@ def check(folder)
         when 'com'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResCommon.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing ResCommon element - #{simple}"
             error = 1
           end
@@ -38,7 +37,7 @@ def check(folder)
         when 'comp'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResCompliance.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing ResCompliance element - #{simple}"
             error = 1
           end
@@ -46,7 +45,7 @@ def check(folder)
         when 'dtyp'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/DataTypes.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing DataTypes element - #{simple}"
             error = 1
           end
@@ -54,7 +53,7 @@ def check(folder)
         when 'env'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResEnvelope.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing ResEnvelope element - #{simple}"
             error = 1
           end
@@ -62,7 +61,7 @@ def check(folder)
         when 'hvac'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResHvac.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing ResHvac element - #{simple}"
             error = 1
           end
@@ -70,7 +69,7 @@ def check(folder)
         when 'lit'
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResLighting.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
-          if found.size == 0
+          if found.empty?
             puts "Missing ResLighting element - #{simple}"
             error = 1
           end
@@ -84,7 +83,7 @@ end
 options = {:path => nil}
 
 parser = OptionParser.new do |opts|
-  opts.banner = "Usage: missing-base-elments.rb"
+  opts.banner = 'Usage: missing-base-elments.rb'
 
   opts.on('-p', '--path path', 'Path to folder of schema') do |path|
     options[:path] = path

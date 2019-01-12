@@ -104,7 +104,7 @@ jobs:
           command: |
             bundle exec rubocop
 
-  no-missing-base-types:
+  missing-base-types:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
 
@@ -130,7 +130,7 @@ jobs:
       - run:
           name: Check for missing base elements
           command: |
-            bundle exec ruby missing-base-elements.rb -p schema || exit 1
+            bundle exec ruby missing_base_elements.rb -p schema || exit 1
 
 
 workflows:
@@ -142,4 +142,4 @@ workflows:
       - well-formedness
       - shellcheck
       - ruby-lint
-      - no-missing-base-types
+      - missing-base-types
