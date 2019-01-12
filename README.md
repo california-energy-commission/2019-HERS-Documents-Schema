@@ -5,6 +5,17 @@
 Thanks for your interest in contributing! There are many ways to contribute to this project. 
 Get started here [CONTRIBUTING](CONTRIBUTING.md)
 
+## Reports
+
+We have two reports located in the `tools\output` directory. 
+
+- Excel report with charts which reports on the files in the repository
+- Web based report using mainly HTML, JavaScript and CSS that reports on the Ruby code
+
+The Excel report is best seen in Excel but can be opened with other programs like Google Sheets.
+The HTML files in the RubyCritic report can be opened locally with a web browser.
+
+
 ## Checks to run before submitting a pull request
 
 - validate XML schema
@@ -69,7 +80,7 @@ $ deploy-schema.exe -d . -s schema -v 2019.1.000
 
 ### Ruby
 
-We are using [Bundler](https://bundler.io/) to manage and install the RubyGems.
+We are using [Bundler](https://bundler.io/) to manage and install the [RubyGems](https://rubygems.org/).
 ```
 $ gem install bundler
 ```
