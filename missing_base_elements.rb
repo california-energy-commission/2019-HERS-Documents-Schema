@@ -110,6 +110,4 @@ end
 
 check(create_path(options[:path]))
 
-if @error == 1
-  raise
-end
+exit 1 unless @error.zero?
