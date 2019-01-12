@@ -119,10 +119,15 @@ $ rubycritic -p tools/output/rubycritic
 - [APT](https://en.wikipedia.org/wiki/APT_\(Debian\))
 - [xargs](https://en.wikipedia.org/wiki/Xargs)
 - [wc](https://en.wikipedia.org/wiki/Wc_\(Unix\))
+- [find](https://linux.die.net/man/1/find)
 - [libxml2-utils](https://packages.ubuntu.com/search?keywords=libxml2-utils)
+
+
 
 ## Advanced Links
 
 - [Oracle VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/)
 - [Docker](https://www.docker.com/)
+
+[&#8593;](#2019-hers-documents-schema)
