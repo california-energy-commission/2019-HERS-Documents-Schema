@@ -35,10 +35,25 @@ For example: `refs #321` or `fixes #12`. Using the `fixes` or `closes` keywords 
 
 Refer to the [Git manual](https://git-scm.com/doc) for more information about Git.
 
-Essential free Git GUI clients:
+Git comes with built-in GUI tools for committing (git-gui) and browsing (gitk).
+To run them open your repository in Git Bash and type:
+```
+$ git gui
+```
+or
+```
+$ gitk
+```
+
+Other Free Git GUI clients:
 
 - [GitHub Desktop](https://desktop.github.com/)
 - [Sourcetree](https://www.sourcetreeapp.com/)
+
+Commercial Git GUI clients:
+
+- [GitKraken](https://www.gitkraken.com/git-client)
+- [Tower](https://www.git-tower.com/)
 
 ### Essential Git commands
 
@@ -67,7 +82,7 @@ $ git status
 ```
 
 The `origin` and the `upstream` are displayed below for a GitHub user. You
-should think of the upstream as the original source.
+should think of the upstream as the source and the origin as your fork on GitHub.
 ```
 $ git remote -v
 origin  https://github.com/jbampton/2019-HERS-Documents-Schema.git (fetch)
@@ -76,13 +91,27 @@ upstream        https://github.com/RASENTSolutionsLLC-CEC/2019-HERS-Documents-Sc
 upstream        https://github.com/RASENTSolutionsLLC-CEC/2019-HERS-Documents-Schema.git (push)
 ```
 
+The Git log command is shown below and it contains the history of the past commits:
+```
+$ git log
+commit 942fbcae19ae2e2cd4c1b3a071cdb9932acebbc0 (HEAD -> rubycritic-report, upstream/master, origin/master, origin/HEAD, master)
+Merge: a2df06d b717e7e
+Author: John Bampton <jbampton@users.noreply.github.com>
+Date:   Sat Jan 12 14:10:26 2019 +1000
+
+    Merge pull request #39 from jbampton/excel-report
+
+    Add Excel report built with Ruby.
+```
+
 #### Sync your fork
 Refer to the GitHub help article on **[Syncing a fork](https://help.github.com/articles/syncing-a-fork/)**.
 ```
-git checkout master
-git fetch upstream
-git merge upstream/master
+$ git checkout master
+$ git fetch upstream
+$ git merge upstream/master
 ```
+You will then need to push your changes back up to your fork on GitHub.
 
 ## Decision Making Process
 
