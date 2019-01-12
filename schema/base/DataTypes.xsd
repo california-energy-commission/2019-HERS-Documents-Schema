@@ -482,12 +482,12 @@
 			<xsd:maxLength value="50"/>
 		</xsd:restriction>
 	</xsd:simpleType>
-	<xsd:simpleType name="SurfaceArea">
+	<!--<xsd:simpleType name="SurfaceArea">
 		<xsd:annotation>
 			<xsd:documentation>Area is the two dimensional extent of a surface.  For horizontal rectangular areas, such as most floor areas, it is calculated by multiplying the linear extent of each dimension, usually referred to as Width and Length. For vertical rectangular surfaces such as walls, the vertical linear dimension is usually referred to as Height and the horizontal may be called Width or Length.  Units: ft2</xsd:documentation>
 		</xsd:annotation>
 		<xsd:restriction base="dtyp:DecimalNonnegative"/>
-	</xsd:simpleType>
+	</xsd:simpleType>-->
 	<xsd:simpleType name="Thickness">
 		<xsd:annotation>
 			<xsd:documentation>The thickness of a material.  Units: foot.</xsd:documentation>

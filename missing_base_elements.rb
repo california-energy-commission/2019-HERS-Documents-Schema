@@ -12,6 +12,7 @@ end
 def check(folder)
   Dir.glob("#{folder}/**/*.xsd").each do |filename|
     @doc = Nokogiri::XML(File.open(filename))
+    shortname = File.basename(filename)
     @doc.xpath('//*[@type]').map do |tag|
       if /^((bld|com|comp|dtyp|env|hvac|lit):)/.match?(tag.attribute('type'))
         base, simple = tag.attribute('type').to_s.split ':'
@@ -22,7 +23,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResBuilding.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing ResBuilding element - #{simple}"
+            puts "#{shortname} uses missing ResBuilding.xsd element - #{simple}"
             error = 1
           end
 
@@ -30,7 +31,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResCommon.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing ResCommon element - #{simple}"
+            puts "#{shortname} uses missing ResCommon.xsd element - #{simple}"
             error = 1
           end
 
@@ -38,7 +39,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResCompliance.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing ResCompliance element - #{simple}"
+            puts "#{shortname} uses missing ResCompliance.xsd element - #{simple}"
             error = 1
           end
 
@@ -46,7 +47,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/DataTypes.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing DataTypes element - #{simple}"
+            puts "#{shortname} uses missing DataTypes.xsd element - #{simple}"
             error = 1
           end
 
@@ -54,7 +55,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResEnvelope.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing ResEnvelope element - #{simple}"
+            puts "#{shortname} uses missing ResEnvelope.xsd element - #{simple}"
             error = 1
           end
 
@@ -62,7 +63,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResHvac.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing ResHvac element - #{simple}"
+            puts "#{shortname} uses missing ResHvac.xsd element - #{simple}"
             error = 1
           end
 
@@ -70,7 +71,7 @@ def check(folder)
           @basedoc = Nokogiri::XML(File.open("#{folder}/base/ResLighting.xsd"))
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
-            puts "Missing ResLighting element - #{simple}"
+            puts "#{shortname} uses missing ResLighting.xsd element - #{simple}"
             error = 1
           end
         end
