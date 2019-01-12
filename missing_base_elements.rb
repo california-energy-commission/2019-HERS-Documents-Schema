@@ -3,7 +3,7 @@ require 'optparse'
 
 VERSION = '1.0.0'.freeze
 
-error = 0
+@error = 0
 
 def create_path(path)
   path.tr('\\', '/')
@@ -24,7 +24,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing ResBuilding.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
 
         when 'com'
@@ -32,7 +32,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing ResCommon.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
 
         when 'comp'
@@ -40,7 +40,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing ResCompliance.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
 
         when 'dtyp'
@@ -48,7 +48,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing DataTypes.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
 
         when 'env'
@@ -56,7 +56,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing ResEnvelope.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
 
         when 'hvac'
@@ -64,7 +64,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing ResHvac.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
 
         when 'lit'
@@ -72,7 +72,7 @@ def check(folder)
           found = @basedoc.xpath("//*[@name=\"#{simple}\"]")
           if found.empty?
             puts "#{shortname} uses missing ResLighting.xsd element - #{simple}"
-            error = 1
+            @error = 1
           end
         end
       end
@@ -110,6 +110,6 @@ end
 
 check(create_path(options[:path]))
 
-if error == 1
+if @error == 1
   raise
 end
