@@ -134,6 +134,7 @@ a pull request is merged.
 - [DataCamp - Introduction to Git for Data Science](https://www.datacamp.com/courses/introduction-to-git-for-data-science)
 - [Codecademy - Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)
 - [DataCamp - Introduction to Shell for Data Science](https://www.datacamp.com/courses/introduction-to-shell-for-data-science)
+- [Codecademy - Learn Ruby](https://www.codecademy.com/learn/learn-ruby)
 
 ### Free Awesome IDE's
 

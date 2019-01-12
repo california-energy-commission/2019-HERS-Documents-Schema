@@ -84,7 +84,7 @@ end
 options = {:path => nil}
 
 parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: missing-base-elments.rb'
+  opts.banner = 'Usage: missing_base_elments.rb'
 
   opts.on('-p', '--path path', 'Path to folder of schema') do |path|
     options[:path] = path
