@@ -104,6 +104,33 @@ jobs:
           command: |
             bundle exec rubocop
 
+  built-in-datatypes:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for correct XML schema built in datatypes
+          command: |
+            cd tools
+            bundle exec ruby built_in_datatypes.rb -p ../schema || exit 1
+
   missing-base-types:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
@@ -143,3 +170,4 @@ workflows:
       - shellcheck
       - ruby-lint
       - missing-base-types
+      - built-in-datatypes

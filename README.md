@@ -128,6 +128,9 @@ $ rubycritic -p tools/output/rubycritic
 - [wc](https://en.wikipedia.org/wiki/Wc_\(Unix\))
 - [find](https://linux.die.net/man/1/find)
 - [libxml2-utils](https://packages.ubuntu.com/search?keywords=libxml2-utils)
+- [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction)
+- [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/)
+- [XML Schema built in datatypes](https://www.w3.org/TR/xmlschema-2/#built-in-datatypes)
 - [XMLSpy](https://www.altova.com/xmlspy-xml-editor)
 - [Oxygen XML Editor](https://www.oxygenxml.com/)
 
