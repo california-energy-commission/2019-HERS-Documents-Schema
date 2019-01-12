@@ -66,3 +66,18 @@ $ cd 2019-HERS-Documents-Schema
 $ deploy-schema.exe -d . -s schema -v 2019.1.000
 ```
 
+
+### Ruby
+
+We are using [Bundler](https://bundler.io/) to manage and install the RubyGems.
+```
+$ gem install bundler
+```
+Then to install this projects RubyGems run:
+```
+$ bundle install
+```
+To generate the web based [RubyCritic](https://github.com/whitesmith/rubycritic) report run:
+```
+$ rubycritic -p tools/output/rubycritic
+```
