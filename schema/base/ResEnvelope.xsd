@@ -507,6 +507,27 @@
       <xsd:restriction base="dtyp:Decimal">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ExteriorEnvelopeAreaNotShared">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Exterior Envelope Surface Area
+Not Shared</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExteriorEnvelopeAreaTotal">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Total Exterior Envelope Surface Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ExteriorFloorArea">
       <xsd:annotation>
          <xsd:documentation>  Units: ft2</xsd:documentation>
@@ -1465,12 +1486,6 @@
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="InteriorEnvelopeName">
-      <xsd:annotation>
-         <xsd:appinfo source="CBECCresXML">
-            <dtyp:CBECCresXMLterm>Yes</dtyp:CBECCresXMLterm>
-            <dtyp:termConditions>{{CONDITIONS}}</dtyp:termConditions>
-         </xsd:appinfo>
-      </xsd:annotation>
       <xsd:restriction base="xsd:string">
       </xsd:restriction>
    </xsd:simpleType>
