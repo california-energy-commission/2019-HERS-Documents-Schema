@@ -853,6 +853,16 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       <xsd:restriction base="xsd:string">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="FirstFloorToHighestCeilingHeight">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Vertical Distance from lowest above-grade floor to highest ceiling height</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="FloorArea">
       <xsd:annotation>
          <xsd:documentation>  Units: ft2</xsd:documentation>
@@ -1382,13 +1392,15 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="MultiFamily">Multifamily</dtyp:displayterm>
             <dtyp:displayterm value="NonDwellingUnit">Non-dwelling Unit</dtyp:displayterm>
-            <dtyp:displayterm value="SingleFamily">Single Family</dtyp:displayterm>
+            <dtyp:displayterm value="SingleFamilyAttached">Single family attached</dtyp:displayterm>
+            <dtyp:displayterm value="SingleFamilyDetached">Single family detached</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="MultiFamily"/>
          <xsd:enumeration value="NonDwellingUnit"/>
-         <xsd:enumeration value="SingleFamily"/>
+         <xsd:enumeration value="SingleFamilyAttached"/>
+         <xsd:enumeration value="SingleFamilyDetached"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialBuildingTypeMechExhaust">
@@ -2270,6 +2282,16 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="WeatherShieldingFactor">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Weather Shielding Factor (WSF)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="WeatherStation">
       <xsd:annotation>
          <xsd:documentation>86 different weather stations that provide weather data for different climate zones.</xsd:documentation>
@@ -2277,11 +2299,34 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:restriction base="dtyp:EnumerationConstant">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationName">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Weather Station</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="WeatherStationNumber">
       <xsd:annotation>
          <xsd:documentation>A numeric value for each of the 86 weather stations used for table lookup  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WholeBuildingOccupancy">
+      <xsd:annotation>
+         <xsd:documentation>One of the occupancy types applied to the whole building.</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Whole Building Occupancy</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="HighRiseResidential">High-Rise Residential</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="HighRiseResidential"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WholeHouseCoolingVentilationLimit">
