@@ -250,7 +250,7 @@
 		<xsd:annotation>
 			<xsd:documentation>The base type of all numeric decimal non-negative enumerated type constants.</xsd:documentation>
 		</xsd:annotation>
-		<xsd:restriction base="dtyp:DecimalNonnegative"/>
+		<xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
 	</xsd:simpleType>
 	<xsd:simpleType name="EnumerationIntegerNonNegative">
 		<xsd:annotation>

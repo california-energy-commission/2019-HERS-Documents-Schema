@@ -1923,6 +1923,7 @@
             <dtyp:displayterm value="MCH25e Winter Setup Charge Verification Procedure">MCH25e Winter Setup Charge Verification Procedure</dtyp:displayterm>
             <dtyp:displayterm value="MCH25f New Package Unit With Factory Charge">MCH25f New Package Unit With Factory Charge</dtyp:displayterm>
             <dtyp:displayterm value="MCH27a Single Family Attached/Detached Ventilation">MCH27a Single Family Attached/Detached Ventilation</dtyp:displayterm>
+            <dtyp:displayterm value="MCH27b High-rise Residential Multifamily Ventilation">MCH27b High-rise Residential Multifamily Ventilation</dtyp:displayterm>
             <dtyp:displayterm value="MCH27b Multifamily Ventilation">MCH27b Multifamily Ventilation</dtyp:displayterm>
             <dtyp:displayterm value="MCH27c Scheduled or Real-Time Control Ventilation system">MCH27c Scheduled or Real-Time Control Ventilation system</dtyp:displayterm>
             <dtyp:displayterm value="MCH27d Non-dwelling Unit">MCH27d Non-dwelling Unit</dtyp:displayterm>
@@ -1978,6 +1979,7 @@
          <xsd:enumeration value="MCH25e Winter Setup Charge Verification Procedure"/>
          <xsd:enumeration value="MCH25f New Package Unit With Factory Charge"/>
          <xsd:enumeration value="MCH27a Single Family Attached/Detached Ventilation"/>
+         <xsd:enumeration value="MCH27b High-rise Residential Multifamily Ventilation"/>
          <xsd:enumeration value="MCH27b Multifamily Ventilation"/>
          <xsd:enumeration value="MCH27c Scheduled or Real-Time Control Ventilation system"/>
          <xsd:enumeration value="MCH27d Non-dwelling Unit"/>
@@ -5204,8 +5206,8 @@
    <xsd:simpleType name="IsRoofPitchGTE2Run12Rise">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Roof pitch is greater or equal to than 2 :12</dtyp:displayterm>
-            <dtyp:displayterm value="false">Roof pitch is less than 2 :12</dtyp:displayterm>
+            <dtyp:displayterm value="true">Roof pitch is [d:gte/] 2 :12</dtyp:displayterm>
+            <dtyp:displayterm value="false">Roof pitch is [d:lt/] 2 :12</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
@@ -5415,6 +5417,16 @@
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="IsTXV_RequiredByAHRI">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsValueWeightedAverage">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
@@ -6446,7 +6458,7 @@
    <xsd:simpleType name="ProjectScopeNew">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AdditionAlone">Newly constructed  (addition alone)</dtyp:displayterm>
+            <dtyp:displayterm value="AdditionAlone">Newly constructed (addition alone)</dtyp:displayterm>
             <dtyp:displayterm value="AdditionAloneNoKitchen">Newly constructed without Kitchen (addition alone)</dtyp:displayterm>
             <dtyp:displayterm value="NewConstructionNoKitchen">Newly Constructed without Kitchen</dtyp:displayterm>
             <dtyp:displayterm value="NewConstruction">Newly Constructed</dtyp:displayterm>
@@ -6466,6 +6478,7 @@
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AdditionComplete">Complete Addition</dtyp:displayterm>
+            <dtyp:displayterm value="ExistingAddition">Existing addition</dtyp:displayterm>
             <dtyp:displayterm value="ExistingAdditionAndAlteration">Existing addition and alteration</dtyp:displayterm>
             <dtyp:displayterm value="ExistingAlteration">Existing alteration</dtyp:displayterm>
             <dtyp:displayterm value="NewComplete">New complete scope</dtyp:displayterm>
@@ -6473,6 +6486,7 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AdditionComplete"/>
+         <xsd:enumeration value="ExistingAddition"/>
          <xsd:enumeration value="ExistingAdditionAndAlteration"/>
          <xsd:enumeration value="ExistingAlteration"/>
          <xsd:enumeration value="NewComplete"/>
@@ -6808,15 +6822,13 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    <xsd:simpleType name="ResidentialCeilingRoofInsulationOption">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="RoofInsulationOptionA">Option A</dtyp:displayterm>
-            <dtyp:displayterm value="RoofInsulationOptionB">Option B</dtyp:displayterm>
-            <dtyp:displayterm value="RoofInsulationOptionC">Option C</dtyp:displayterm>
+            <dtyp:displayterm value="OptionB">Option B</dtyp:displayterm>
+            <dtyp:displayterm value="OptionC">Option C</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="RoofInsulationOptionA"/>
-         <xsd:enumeration value="RoofInsulationOptionB"/>
-         <xsd:enumeration value="RoofInsulationOptionC"/>
+         <xsd:enumeration value="OptionB"/>
+         <xsd:enumeration value="OptionC"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialPerformanceComplianceResult">

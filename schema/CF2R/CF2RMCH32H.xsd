@@ -63,7 +63,7 @@
                   <xsd:element name="A_BeforeNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings.  [d:b]Equation and table numbering on this form corresponds to the numbering for that informaton in the published ANSI/ASHRAE Standard 62.2-2010 [/d:b]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) [d:b]Ventilation for Indoor Air Quality.[/d:b] All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings.  [d:b]Equation and table numbering on this form corresponds to the numbering for that information in the published ANSI/ASHRAE Standard 62.2-2010 [/d:b]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName" >
@@ -280,7 +280,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                   <xsd:element name="D05" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Exhaust fans in separate dwellling units shall not share a common exhaust duct.  Exhaust inlets from more than one dwelling unit may be served by a single exhaust fan downstream of all the exhaust inlets if the fan is designated and intended to run continuously or if each inlet is equipped with a back-draft damper to prevent cross-contamination when the fan is not running.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Exhaust fans in separate dwelling units shall not share a common exhaust duct.  Exhaust inlets from more than one dwelling unit may be served by a single exhaust fan downstream of all the exhaust inlets if the fan is designated and intended to run continuously or if each inlet is equipped with a back-draft damper to prevent cross-contamination when the fan is not running.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="DEndNote1" minOccurs="0">
