@@ -796,6 +796,15 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
+   <xsd:simpleType name="FirstFloorToHighestCeilingHeight">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Vertical Distance from lowest above-grade floor to highest ceiling height</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="FloorArea">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
@@ -1135,19 +1144,8 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="OpaqueNonFramedConstructionAssembly">
       <xsd:annotation>
          <xsd:documentation>Construction assemblies used in opaque non-framed walls or roofs</xsd:documentation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="SIP_SplineDouble2x">SIP 4x</dtyp:displayterm>
-            <dtyp:displayterm value="SIP_SplineI_Joist">SIP I-Joist</dtyp:displayterm>
-            <dtyp:displayterm value="SIP_SplineOSB">SIP OSB</dtyp:displayterm>
-            <dtyp:displayterm value="SIP_SplineSingle2x">SIP 2x</dtyp:displayterm>
-         </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="SIP_SplineDouble2x"/>
-         <xsd:enumeration value="SIP_SplineI_Joist"/>
-         <xsd:enumeration value="SIP_SplineOSB"/>
-         <xsd:enumeration value="SIP_SplineSingle2x"/>
-      </xsd:restriction>
+      <xsd:restriction base="dtyp:EnumerationConstant"/>
    </xsd:simpleType>
    <xsd:simpleType name="OverhangDepth">
       <xsd:annotation>
@@ -1304,13 +1302,15 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="MultiFamily">Multifamily</dtyp:displayterm>
             <dtyp:displayterm value="NonDwellingUnit">Non-dwelling Unit</dtyp:displayterm>
-            <dtyp:displayterm value="SingleFamily">Single Family</dtyp:displayterm>
+            <dtyp:displayterm value="SingleFamilyAttached">Single family attached</dtyp:displayterm>
+            <dtyp:displayterm value="SingleFamilyDetached">Single family detached</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="MultiFamily"/>
          <xsd:enumeration value="NonDwellingUnit"/>
-         <xsd:enumeration value="SingleFamily"/>
+         <xsd:enumeration value="SingleFamilyAttached"/>
+         <xsd:enumeration value="SingleFamilyDetached"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialBuildingTypeMechExhaust">
@@ -1342,12 +1342,14 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    <xsd:simpleType name="ResidentialLowriseBuildingType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="LowRiseMultiFamily">Multi-family</dtyp:displayterm>
+            <dtyp:displayterm value="LowRiseMultiFamily">Multifamily</dtyp:displayterm>
+            <dtyp:displayterm value="MultiFamilyWithCentralWH">Multifamily with central water heating</dtyp:displayterm>
             <dtyp:displayterm value="SingleFamily">Single family</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="LowRiseMultiFamily"/>
+         <xsd:enumeration value="MultiFamilyWithCentralWH"/>
          <xsd:enumeration value="SingleFamily"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -2115,17 +2117,48 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
+   <xsd:simpleType name="WeatherShieldingFactor">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Weather Shielding Factor (WSF)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="WeatherStation">
       <xsd:annotation>
          <xsd:documentation>86 different weather stations that provide weather data for different climate zones.</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant"/>
    </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationName">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Weather Station</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="WeatherStationNumber">
       <xsd:annotation>
          <xsd:documentation>A numeric value for each of the 86 weather stations used for table lookup  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WholeBuildingOccupancy">
+      <xsd:annotation>
+         <xsd:documentation>One of the occupancy types applied to the whole building.</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Whole Building Occupancy</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="HighRiseResidential">High-Rise Residential</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="HighRiseResidential"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WholeHouseCoolingVentilationLimit">
       <xsd:annotation>
