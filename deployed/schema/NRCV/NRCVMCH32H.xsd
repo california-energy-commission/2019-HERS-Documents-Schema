@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH32H" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF2RMCH32H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH32H" version="2019.1.000" xmlns="http://www.lmonte.com/besm/NRCVMCH32H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -7,7 +7,35 @@
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF2RMCH32H">
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVMCH32H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Local Mechanical Exhaust"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="nRCVMCH32H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonNRCV"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH32H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="NRCVMCH32H">
       <xsd:annotation>
          <xsd:documentation>Local Mechanical Exhaust</xsd:documentation>
       </xsd:annotation>
@@ -44,13 +72,13 @@
                      <xsd:element name="A03_FloorArea" type="com:FloorArea">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User inpupt numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User inpupt numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -58,13 +86,13 @@
                      <xsd:element name="A04_FloorToCeilingHeight" type="com:FloorToCeilingHeight">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User inpupt numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User inpupt numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotAppicablemessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -72,14 +100,14 @@
                      <xsd:element name="A05_Volume" type="com:Volume">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated fiel: If A03_NotApplicableMessage Or A04_NotApplicableMessage == N/A result = N/A stored in NotApplicablemessage
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A03_NotApplicableMessage Or A04_NotApplicableMessage == N/A result = N/A stored in NotApplicablemessage
 Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated fiel: If A03_NotApplicableMessage Or A04_NotApplicableMessage == N/A result = N/A stored in NotApplicablemessage
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:: If A03_NotApplicableMessage Or A04_NotApplicableMessage == N/A result = N/A stored in NotApplicablemessage
 Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -202,16 +230,16 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                   <xsd:element name="C10_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A06_Enclosed == false And C07_KitchenExhaustOperation == DemandControl AndC04_SystemRatedAirflowHVI GTE C08_MinimumAirflowRateRequired  result = true display term Kitchen Exhaust System Complies Else If C04_SystemRatedAirflowHVI GTE C08_MinimumAirflowRateRequired  result = true display term Kitchen Exhaust System Complies  Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A06_Enclosed == false And C07_KitchenExhaustOperation == DemandControl And C04_SystemRatedAirflowHVI GTE C08_MinimumAirflowRateRequired  result = true display term Kitchen Exhaust System Complies Else If C04_SystemRatedAirflowHVI GTE C08_MinimumAirflowRateRequired  result = true display term Kitchen Exhaust System Complies  Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Other Requirements</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -258,10 +286,44 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                         <xsd:documentation source="AdditionalRequirements">Exhaust fans in separate dwelling units shall not share a common exhaust duct.  Exhaust inlets from more than one dwelling unit may be served by a single exhaust fan downstream of all the exhaust inlets if the fan is designated and intended to run continuously or if each inlet is equipped with a back-draft damper to prevent cross-contamination when the fan is not running.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="D06_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If D07_DoesSystemComplyWithRequirements value = Fail, require that the reason is described in this field</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="DEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">If C10_DoesKitchenExhaustSystemComply == true And D07_DoesSystemComplyWithRequirements != Fail result = true display term Complies: All specified verification protocol requirements on this document are met.  Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -269,37 +331,9 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="ComplianceDocumentPackage">
-      <xsd:complexType>
-         <xsd:sequence>
-            <xsd:element name="DocID" minOccurs="0">
-               <xsd:complexType>
-                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH32H"/>
-                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
-                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Local Mechanical Exhaust"/>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Payload" type="comp:Payload"/>
-            <xsd:element name="DocumentData">
-               <xsd:complexType>
-                  <xsd:sequence>
-                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
-                     <xsd:element ref="cF2RMCH32H"/>
-                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
-                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
-                     <xsd:element name="Footer" type="comp:Footer"/>
-                  </xsd:sequence>
-               </xsd:complexType>
-            </xsd:element>
-            <xsd:element name="Report" type="xsd:base64Binary"/>
-         </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH32H"/>
-      </xsd:complexType>
-   </xsd:element>
-   <xsd:element name="cF2RMCH32H" type="CF2RMCH32H">
+   <xsd:element name="nRCVMCH32H" type="NRCVMCH32H">
       <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH32H compliance report.</xsd:documentation>
+         <xsd:documentation>This element contains all of the data and text required to generate the NRCVMCH32H compliance report.</xsd:documentation>
       </xsd:annotation>
    </xsd:element>
 </xsd:schema>

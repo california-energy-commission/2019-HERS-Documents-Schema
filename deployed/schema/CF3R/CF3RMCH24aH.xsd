@@ -364,7 +364,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Calculations">
+                  <xsd:element name="Calculations" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                      </xsd:annotation>
@@ -388,13 +388,13 @@
                               <xsd:element name="Da2_IndoorAirViscosityCorrection" type="comp:IndoorAirViscosityCorrection">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A05_TestTemperatureOutdoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A04_TestTemperatureIndoor, 460))))  Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="Da2_NotApplicableMessage" type="comp:NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A05_TestTemperatureOutdoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A04_TestTemperatureIndoor, 460))))  Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -432,7 +432,7 @@
                   <xsd:element name="D01_AltitudeTemperatureCorrectionFactor" type="comp:AltitudeTemperatureCorrectionFactor">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Altitude and Temperature Correction Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT (Da1_OutdoorAirVicosityCorrection / 0.044) exp PRODUCT(2, 0.65 exp-1), (Da3_OutdoorAirDensityCorrection / 0.07517)exp (1-(0.65 exp-1)))  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (Da1_OutdoorAirVicosityCorrection / 0.044) exp PRODUCT(2, 0.65 exp-1), (Da4_IndoorAirDensityCorrection / 0.07517)exp (1-(0.65 exp-1)))</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT ((Da1_OutdoorAirVicosityCorrection / 0.044)^(PRODUCT(2, 0.65) -1))), (Da3_OutdoorAirDensityCorrection / 0.07517)^ (1-0.65))  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT ((Da1_OutdoorAirVicosityCorrection / 0.044)^( PRODUCT(2, 0.65) -1 ))), (Da4_IndoorAirDensityCorrection / 0.07517)^ (1-0.65))</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D02_CFM50TempAltCorrected" type="comp:CFM50TempAltCorrected">

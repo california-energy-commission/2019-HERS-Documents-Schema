@@ -1113,6 +1113,7 @@
             <dtyp:displayterm value="ConditionedSpace">Conditioned space-entirely</dtyp:displayterm>
             <dtyp:displayterm value="ConditionedSpaceDuctsVLL">Verified low-leakage ducts in conditioned space</dtyp:displayterm>
             <dtyp:displayterm value="ConditionedSpaceExcept12ft">Conditioned space - except 12ft</dtyp:displayterm>
+            <dtyp:displayterm value="DuctedAndDuctlessIndoorUnits">Multiple split Indoor Units combined Ducted and Ductless</dtyp:displayterm>
             <dtyp:displayterm value="Ductless">No ducts</dtyp:displayterm>
             <dtyp:displayterm value="DuctsInMultipleLocations">Ducts located in multiple places</dtyp:displayterm>
             <dtyp:displayterm value="Outdoors">Outdoor locations</dtyp:displayterm>
@@ -1126,6 +1127,7 @@
             <dtyp:CBECCresXMLterm value="ConditionedSpace">DuctsInAll</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="ConditionedSpaceDuctsVLL">LowLlCod</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="ConditionedSpaceExcept12ft">DuctsInEx12</dtyp:CBECCresXMLterm>
+            <dtyp:CBECCresXMLterm value="DuctedAndDuctlessIndoorUnits"/>
             <dtyp:CBECCresXMLterm value="Ductless">DuctsNone</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="DuctsInMultipleLocations">DuctsMult</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="Outdoors">DuctsOutdoor</dtyp:CBECCresXMLterm>
@@ -1140,6 +1142,7 @@
          <xsd:enumeration value="ConditionedSpace"/>
          <xsd:enumeration value="ConditionedSpaceDuctsVLL"/>
          <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
+         <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
          <xsd:enumeration value="Ductless"/>
          <xsd:enumeration value="DuctsInMultipleLocations"/>
          <xsd:enumeration value="Outdoors"/>
@@ -1347,6 +1350,7 @@
             <dtyp:displayterm>Duct System Type</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DuctedAndDuctlessIndoorUnits">Multiple split Indoor Units combined Ducted and Ductless</dtyp:displayterm>
             <dtyp:displayterm value="DuctedSystem">Ducted System</dtyp:displayterm>
             <dtyp:displayterm value="Ductless">System has no ducts</dtyp:displayterm>
             <dtyp:displayterm value="Piping">Piping</dtyp:displayterm>
@@ -1354,6 +1358,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
          <xsd:enumeration value="DuctedSystem"/>
          <xsd:enumeration value="Ductless"/>
          <xsd:enumeration value="Piping"/>
@@ -1366,6 +1371,7 @@
             <dtyp:displayterm value="ConditionedSpace">Conditioned space-entirely</dtyp:displayterm>
             <dtyp:displayterm value="ConditionedSpaceDuctsVLL">Verified low-leakage ducts in conditioned space</dtyp:displayterm>
             <dtyp:displayterm value="ConditionedSpaceExcept12ft">Conditioned space - except 12ft</dtyp:displayterm>
+            <dtyp:displayterm value="DuctedAndDuctlessIndoorUnits">Multiple split Indoor Units combined Ducted and Ductless</dtyp:displayterm>
             <dtyp:displayterm value="Ductless">No ducts</dtyp:displayterm>
             <dtyp:displayterm value="DuctsInMultipleLocations">Ducts located in multiple places</dtyp:displayterm>
             <dtyp:displayterm value="Outdoors">Outdoor locations</dtyp:displayterm>
@@ -1379,6 +1385,7 @@
          <xsd:enumeration value="ConditionedSpace"/>
          <xsd:enumeration value="ConditionedSpaceDuctsVLL"/>
          <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
+         <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
          <xsd:enumeration value="Ductless"/>
          <xsd:enumeration value="DuctsInMultipleLocations"/>
          <xsd:enumeration value="Outdoors"/>
@@ -1387,6 +1394,14 @@
          <xsd:enumeration value="UnconditionedCrawlSpace"/>
          <xsd:enumeration value="UnconditionedGarage"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DuctedIndoorUnitsCount">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Number of Ducted Indoor Units</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="DwellingUnitDesignHeatingLoad">
       <xsd:annotation>
@@ -3395,6 +3410,8 @@
             <dtyp:displayterm value="Compressor">Compressor</dtyp:displayterm>
             <dtyp:displayterm value="FancoilAHU">Fancoil AHU</dtyp:displayterm>
             <dtyp:displayterm value="GasFurnaceAHU">Gas furnace AHU</dtyp:displayterm>
+            <dtyp:displayterm value="GasFurnaceDualFuelHP">Dual Fuel HP + GasFurnace</dtyp:displayterm>
+            <dtyp:displayterm value="GasPackagedFurnace">Packaged Gas Furnace</dtyp:displayterm>
             <dtyp:displayterm value="GasWallFurnace">Gas wall furnace</dtyp:displayterm>
             <dtyp:displayterm value="IndoorCoil">Indoor coil</dtyp:displayterm>
             <dtyp:displayterm value="NoHeatingComponentsAltered">No Heating Component Altered</dtyp:displayterm>
@@ -3408,6 +3425,8 @@
             <dtyp:CBECCresXMLterm value="Compressor"/>
             <dtyp:CBECCresXMLterm value="FancoilAHU"/>
             <dtyp:CBECCresXMLterm value="GasFurnaceAHU"/>
+            <dtyp:CBECCresXMLterm value="GasFurnaceDualFuelHP"/>
+            <dtyp:CBECCresXMLterm value="GasPackagedFurnace"/>
             <dtyp:CBECCresXMLterm value="GasWallFurnace">gas wall furnace</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="IndoorCoil"/>
             <dtyp:CBECCresXMLterm value="NoHeatingComponentsAltered"/>
@@ -3422,6 +3441,8 @@
          <xsd:enumeration value="Compressor"/>
          <xsd:enumeration value="FancoilAHU"/>
          <xsd:enumeration value="GasFurnaceAHU"/>
+         <xsd:enumeration value="GasFurnaceDualFuelHP"/>
+         <xsd:enumeration value="GasPackagedFurnace"/>
          <xsd:enumeration value="GasWallFurnace"/>
          <xsd:enumeration value="IndoorCoil"/>
          <xsd:enumeration value="NoHeatingComponentsAltered"/>
@@ -3438,22 +3459,6 @@
          <xsd:documentation>Units: ft2</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ResidentialIAQ_StandaloneFanType">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CentralFanIntegrated">Central Fan Integrated (CFI)</dtyp:displayterm>
-            <dtyp:displayterm value="StandaloneBalanced">Standalone - Balanced</dtyp:displayterm>
-            <dtyp:displayterm value="StandaloneExhaust">Standalone - Exhaust</dtyp:displayterm>
-            <dtyp:displayterm value="StandaloneSupply">Standalone - Supply</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="CentralFanIntegrated"/>
-         <xsd:enumeration value="StandaloneBalanced"/>
-         <xsd:enumeration value="StandaloneExhaust"/>
-         <xsd:enumeration value="StandaloneSupply"/>
-      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialIndependentlyControlledZoneCount">
       <xsd:annotation>
@@ -4063,17 +4068,24 @@
          <xsd:enumeration value="UnconditionedSpace"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="TankZone">
+   <xsd:simpleType name="TankLocation">
       <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Tank Location</dtyp:displayterm>
+         </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Conditioned">Conditioned</dtyp:displayterm>
-            <dtyp:displayterm value="Exterior">Outside or in Exterior Closet</dtyp:displayterm>
+            <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
+            <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
+            <dtyp:displayterm value="TankZone">Tank Zone</dtyp:displayterm>
             <dtyp:displayterm value="Unconditioned">Unconditioned</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Conditioned"/>
-         <xsd:enumeration value="Exterior"/>
+         <xsd:enumeration value="Garage"/>
+         <xsd:enumeration value="Outside"/>
+         <xsd:enumeration value="TankZone"/>
          <xsd:enumeration value="Unconditioned"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -4142,6 +4154,15 @@
          <xsd:enumeration value="SleepingThermostat"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="TotalContinuousAirflowRateInstalled">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft3 per min</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Total Continuous Airflow Rate Installed</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="UniformEnergyFactor">
       <xsd:annotation>
          <xsd:documentation>Units: none</xsd:documentation>
@@ -4163,19 +4184,32 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="VentilationOperationRuntime">
+      <xsd:annotation>
+         <xsd:documentation>Units: min per h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Ventilation Operation Runtime</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="VentilationOperationSchedule">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Ventilation Operation Schedule</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ContinuousVentilation">Continuous</dtyp:displayterm>
-            <dtyp:displayterm value="IntermittentVentilation">Intermittent</dtyp:displayterm>
+            <dtyp:displayterm value="Continuous">Continuous</dtyp:displayterm>
+            <dtyp:displayterm value="RealTimeControl">Real-time Control</dtyp:displayterm>
+            <dtyp:displayterm value="Scheduled">Scheduled</dtyp:displayterm>
+            <dtyp:displayterm value="ShortTermAverage">Short Term Average</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="ContinuousVentilation"/>
-         <xsd:enumeration value="IntermittentVentilation"/>
+         <xsd:enumeration value="Continuous"/>
+         <xsd:enumeration value="RealTimeControl"/>
+         <xsd:enumeration value="Scheduled"/>
+         <xsd:enumeration value="ShortTermAverage"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="VentilationRateCalculationMethod">
@@ -4208,6 +4242,32 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="VentilationSystemType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Balanced">Balanced</dtyp:displayterm>
+            <dtyp:displayterm value="BalancedCentralVent">Central Ventilation System - Balanced</dtyp:displayterm>
+            <dtyp:displayterm value="BalancedERV">Balanced ERV</dtyp:displayterm>
+            <dtyp:displayterm value="BalancedHRV">Balanced HRV</dtyp:displayterm>
+            <dtyp:displayterm value="CentralFanIntegrated">Central Fan Integrated (CFI)</dtyp:displayterm>
+            <dtyp:displayterm value="ExhaustCentralVent">Central Ventilation System - Exhaust</dtyp:displayterm>
+            <dtyp:displayterm value="ExhaustVent">Exhaust</dtyp:displayterm>
+            <dtyp:displayterm value="SupplyCentralVent">Central Ventilation System - Supply</dtyp:displayterm>
+            <dtyp:displayterm value="SupplyVent">Supply</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Balanced"/>
+         <xsd:enumeration value="BalancedCentralVent"/>
+         <xsd:enumeration value="BalancedERV"/>
+         <xsd:enumeration value="BalancedHRV"/>
+         <xsd:enumeration value="CentralFanIntegrated"/>
+         <xsd:enumeration value="ExhaustCentralVent"/>
+         <xsd:enumeration value="ExhaustVent"/>
+         <xsd:enumeration value="SupplyCentralVent"/>
+         <xsd:enumeration value="SupplyVent"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="VolumeCapacity">
       <xsd:annotation>
@@ -4283,6 +4343,7 @@
             <dtyp:displayterm value="NaturalGas">Natural Gas</dtyp:displayterm>
             <dtyp:displayterm value="Oil">Oil</dtyp:displayterm>
             <dtyp:displayterm value="PropaneGas">Propane gas</dtyp:displayterm>
+            <dtyp:displayterm value="WaterHeatingHP">Heat Pump</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -4291,6 +4352,7 @@
          <xsd:enumeration value="NaturalGas"/>
          <xsd:enumeration value="Oil"/>
          <xsd:enumeration value="PropaneGas"/>
+         <xsd:enumeration value="WaterHeatingHP"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterGasFiredRatedInput">

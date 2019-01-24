@@ -236,7 +236,7 @@
                                     <xsd:element name="B06_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Manometer Calibration Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate  is within 12 months of the diagnostic TestDate in section A, then result = true  display term   Manometer Calibration is valid.  Else result = false display term WARNING -  Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage Diagnostic Test</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B05_ManometerCalibrationDate  is within 12 months of the diagnostic TestDate in section A, then result = true  display term   Manometer Calibration is valid.  Else result = false display term WARNING -  Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage Worksheet</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -326,13 +326,13 @@
                   </xsd:element>
                   <xsd:element name="C05_BuildingPressureMeasuredUnadjusted" type="comp:BuildingPressureMeasuredUnadjusted">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Measured (Pa) (Pressurization is positive; Depressuriation is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Unadjusted Enclosure Pressure Measured (Pa) (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressuriation is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurziation is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result =  C05_BuildingPressureMeasuredUnadjusted - C03_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -364,7 +364,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="Calculations">
+                  <xsd:element name="Calculations" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                      </xsd:annotation>
@@ -388,13 +388,13 @@
                               <xsd:element name="Da2_IndoorAirViscosityCorrection" type="comp:IndoorAirViscosityCorrection">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A05_TestTemperatureOutdoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A04_TestTemperatureIndoor, 460))))  Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="Da2_NotApplicableMessage" type="comp:NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A05_TestTemperatureOutdoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10 exp -3, (SUM(A04_TestTemperatureIndoor, 460)) exp0.5 / SUM(1, (198.7 / SUM(A04_TestTemperatureIndoor, 460))))  Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -432,7 +432,7 @@
                   <xsd:element name="D01_AltitudeTemperatureCorrectionFactor" type="comp:AltitudeTemperatureCorrectionFactor">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Altitude and Temperature Correction Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT (Da1_OutdoorAirVicosityCorrection / 0.044) exp PRODUCT(2, 0.65 exp-1), (Da3_OutdoorAirDensityCorrection / 0.07517)exp (1-(0.65 exp-1)))  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (Da1_OutdoorAirVicosityCorrection / 0.044) exp PRODUCT(2, 0.65 exp-1), (Da4_IndoorAirDensityCorrection / 0.07517)exp (1-(0.65 exp-1)))</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT ((Da1_OutdoorAirVicosityCorrection / 0.044)^(PRODUCT(2, 0.65) -1))), (Da3_OutdoorAirDensityCorrection / 0.07517)^ (1-0.65))  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT ((Da1_OutdoorAirVicosityCorrection / 0.044)^( PRODUCT(2, 0.65) -1 ))), (Da4_IndoorAirDensityCorrection / 0.07517)^ (1-0.65))</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D02_CFM50TempAltCorrected" type="comp:CFM50TempAltCorrected">

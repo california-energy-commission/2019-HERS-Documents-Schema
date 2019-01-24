@@ -24,7 +24,7 @@
                         <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 150.0(o) 
                            <d:b>Ventilation for Indoor Air Quality.</d:b> All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2. Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings.  
-                           <d:b>Equation and table numbering on this form corresponds to the numbering for that informaton in the published ANSI/ASHRAE Standard 62.2-2010 </d:b>
+                           <d:b>Equation and table numbering on this form corresponds to the numbering for that information in the published ANSI/ASHRAE Standard 62.2-2010 </d:b>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -255,7 +255,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                   <xsd:element name="D05" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Exhaust fans in separate dwellling units shall not share a common exhaust duct.  Exhaust inlets from more than one dwelling unit may be served by a single exhaust fan downstream of all the exhaust inlets if the fan is designated and intended to run continuously or if each inlet is equipped with a back-draft damper to prevent cross-contamination when the fan is not running.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Exhaust fans in separate dwelling units shall not share a common exhaust duct.  Exhaust inlets from more than one dwelling unit may be served by a single exhaust fan downstream of all the exhaust inlets if the fan is designated and intended to run continuously or if each inlet is equipped with a back-draft damper to prevent cross-contamination when the fan is not running.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D06_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
@@ -273,7 +273,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                   <xsd:element name="DEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible persons signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -295,7 +295,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                   <xsd:element name="E01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">If C10_DoesKitchenExhaustSystemComply == true And D06_DoesSystemComplyWithRequirements =! Fail result = true display term Complies: All specified verification protocol requirements on this document are met.  Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If C10_DoesKitchenExhaustSystemComply == true And D06_DoesSystemComplyWithRequirements != Fail result = true display term Complies: All specified verification protocol requirements on this document are met.  Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
