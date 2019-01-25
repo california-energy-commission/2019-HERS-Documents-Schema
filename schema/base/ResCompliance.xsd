@@ -2421,11 +2421,13 @@
             <dtyp:displayterm value="DuctSection150_1c9Requirements">Existing ducts in the attic are insulated and sealed according to Section 150.1(c)9</dtyp:displayterm>
             <dtyp:displayterm value="MassRoof25Lbs">Mass roof 25 lbs/ft2 or greater</dtyp:displayterm>
             <dtyp:displayterm value="NoDuctsInAttic">Buildings that have no ducts in the attic</dtyp:displayterm>
+            <dtyp:displayterm value="NoException">No exceptions</dtyp:displayterm>
             <dtyp:displayterm value="R38Insulation">Buildings with at least R-38 ceiling insulation</dtyp:displayterm>
             <dtyp:displayterm value="RadiantBarrier">Buildings with a radiant barrier in the attic meeting the requirements of Section 150.1(c)2</dtyp:displayterm>
-            <dtyp:displayterm value="RoofDeckInsulationLowSlope">Roof deck insulation</dtyp:displayterm>
             <dtyp:displayterm value="RoofDeckInsulationAbove">R-2 or greater insulation above the roof deck</dtyp:displayterm>
+            <dtyp:displayterm value="RoofDeckInsulationLowSlope">Roof deck insulation</dtyp:displayterm>
             <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product;</dtyp:displayterm>
+            <dtyp:displayterm value="SolarOnRoof">Roof area with PV panels or solar thermal panels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2433,11 +2435,13 @@
          <xsd:enumeration value="DuctSection150_1c9Requirements"/>
          <xsd:enumeration value="MassRoof25Lbs"/>
          <xsd:enumeration value="NoDuctsInAttic"/>
+         <xsd:enumeration value="NoException"/>
          <xsd:enumeration value="R38Insulation"/>
          <xsd:enumeration value="RadiantBarrier"/>
-         <xsd:enumeration value="RoofDeckInsulationLowSlope"/>
          <xsd:enumeration value="RoofDeckInsulationAbove"/>
+         <xsd:enumeration value="RoofDeckInsulationLowSlope"/>
          <xsd:enumeration value="RoofingProductException"/>
+         <xsd:enumeration value="SolarOnRoof"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CoolRoofToBeInstalled">
@@ -2511,6 +2515,16 @@
          <xsd:documentation>  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:dateTime">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DirectlyVentedToOutside">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DistributionHERS_VerificationName">
@@ -6553,6 +6567,56 @@
       <xsd:restriction base="xsd:dateTime">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="PV_AdjustedMinimumSize">
+      <xsd:annotation>
+         <xsd:documentation>  Units: kWdc</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Adjusted Minimum PV Size</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="PV_AdjustmentFactorA">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>PV Adjustment Factor A</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="PV_AdjustmentFactorB">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>PV Adjustment Factor B</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="PV_ExtraCapacity">
+      <xsd:annotation>
+         <xsd:documentation>  Units: kWdc</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Additional PV Capacity</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="PV_MinimumSize">
+      <xsd:annotation>
+         <xsd:documentation>  Units: kWdc</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Minimum PV Size</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="RadiantBarrierProductNameNumber">
       <xsd:restriction base="dtyp:String50Char">
       </xsd:restriction>
@@ -7911,6 +7975,34 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeatingSystemOption">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Option1InstantaneousGas">1</dtyp:displayterm>
+            <dtyp:displayterm value="Option2CompactDrainRecovery55Gal">2</dtyp:displayterm>
+            <dtyp:displayterm value="Option3StorageGT55Gal">3</dtyp:displayterm>
+            <dtyp:displayterm value="Option4A_CompactDistDrainHeatRecovery">4A</dtyp:displayterm>
+            <dtyp:displayterm value="Option4B_HeatPumpWithExtraPV">4B</dtyp:displayterm>
+            <dtyp:displayterm value="Option5A_Tier3WithExtraPV">5A</dtyp:displayterm>
+            <dtyp:displayterm value="Option5B_Tier3CompactDist">5B</dtyp:displayterm>
+            <dtyp:displayterm value="Option5Tier3">5</dtyp:displayterm>
+            <dtyp:displayterm value="OptionA_CentralMF">A additional solar</dtyp:displayterm>
+            <dtyp:displayterm value="OptionB_DrainHeatRecoveryCentralMF">B solar + drain water heat recovery</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Option1InstantaneousGas"/>
+         <xsd:enumeration value="Option2CompactDrainRecovery55Gal"/>
+         <xsd:enumeration value="Option3StorageGT55Gal"/>
+         <xsd:enumeration value="Option4A_CompactDistDrainHeatRecovery"/>
+         <xsd:enumeration value="Option4B_HeatPumpWithExtraPV"/>
+         <xsd:enumeration value="Option5A_Tier3WithExtraPV"/>
+         <xsd:enumeration value="Option5B_Tier3CompactDist"/>
+         <xsd:enumeration value="Option5Tier3"/>
+         <xsd:enumeration value="OptionA_CentralMF"/>
+         <xsd:enumeration value="OptionB_DrainHeatRecoveryCentralMF"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WeightedAverageMeasurementType">

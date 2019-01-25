@@ -555,18 +555,16 @@ Not Shared</dtyp:displayterm>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Raised">Raised</dtyp:displayterm>
+            <dtyp:displayterm value="SlabConcreteRaised">Concrete raised</dtyp:displayterm>
+            <dtyp:displayterm value="SlabHeated">Heated Slab</dtyp:displayterm>
             <dtyp:displayterm value="SlabOnGrade">Slab on grade</dtyp:displayterm>
-            <dtyp:displayterm value="SlabOnGradeHeated">Heated Slab on grade</dtyp:displayterm>
-            <dtyp:displayterm value="SlabRaised">Slab raised</dtyp:displayterm>
-            <dtyp:displayterm value="SlabRaisedHeated">Heated Slab raised</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Raised"/>
+         <xsd:enumeration value="SlabConcreteRaised"/>
+         <xsd:enumeration value="SlabHeated"/>
          <xsd:enumeration value="SlabOnGrade"/>
-         <xsd:enumeration value="SlabOnGradeHeated"/>
-         <xsd:enumeration value="SlabRaised"/>
-         <xsd:enumeration value="SlabRaisedHeated"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ExteriorWallArea">
@@ -2357,8 +2355,8 @@ For selection of NA-6 properties</xsd:documentation>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="R0">R-0</dtyp:displayterm>
-            <dtyp:displayterm value="R10">R-10 vertical</dtyp:displayterm>
-            <dtyp:displayterm value="R10R7">R-10 vertical and R-7 horizontal (See Table 110.8-A)</dtyp:displayterm>
+            <dtyp:displayterm value="R10Vertical">R-10 vertical</dtyp:displayterm>
+            <dtyp:displayterm value="R10VR7H">R-10 vertical and R-7 horizontal</dtyp:displayterm>
             <dtyp:displayterm value="R4">R-4</dtyp:displayterm>
             <dtyp:displayterm value="R5">R-5</dtyp:displayterm>
             <dtyp:displayterm value="R7">R-7</dtyp:displayterm>
@@ -2367,8 +2365,8 @@ For selection of NA-6 properties</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="R0"/>
-         <xsd:enumeration value="R10"/>
-         <xsd:enumeration value="R10R7"/>
+         <xsd:enumeration value="R10Vertical"/>
+         <xsd:enumeration value="R10VR7H"/>
          <xsd:enumeration value="R4"/>
          <xsd:enumeration value="R5"/>
          <xsd:enumeration value="R7"/>
@@ -2493,6 +2491,22 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:documentation>This is the required SRI which is a measure of the roof's ability to reject solar heat which includes both reflectance and emittance.  SRI is based on climate zone and roof slope  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SplineTypeSIP">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="SIP_SplineDouble2x">SIP 4x</dtyp:displayterm>
+            <dtyp:displayterm value="SIP_SplineI_Joist">SIP I-Joist</dtyp:displayterm>
+            <dtyp:displayterm value="SIP_SplineOSB">SIP OSB</dtyp:displayterm>
+            <dtyp:displayterm value="SIP_SplineSingle2x">SIP 2x</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="SIP_SplineDouble2x"/>
+         <xsd:enumeration value="SIP_SplineI_Joist"/>
+         <xsd:enumeration value="SIP_SplineOSB"/>
+         <xsd:enumeration value="SIP_SplineSingle2x"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SunExposure">
