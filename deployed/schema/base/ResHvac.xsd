@@ -3166,11 +3166,14 @@
       <xsd:annotation>
          <xsd:documentation>This describes the type of mechanism is used to distribute hot water in a dwelling unit in a low-rise residential buildings</xsd:documentation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CompactDistributionDrainHeatRecoveryHERS">HERS Verified Compact Hot Water Distribution and drain water heat recovery</dtyp:displayterm>
             <dtyp:displayterm value="CompactHotWaterDistributionSystemHERS">HERS Verified Compact Hot Water Distribution System</dtyp:displayterm>
+            <dtyp:displayterm value="DemandRecirculation">Demand recirculation</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculationManualControl">Demand Recirculation Manual Control</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculationManualControlHERS">HERS Verified Demand Recirculation Manual Control</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculationSensorControls">Demand Recirculation Sensor Controls</dtyp:displayterm>
             <dtyp:displayterm value="DemandRecirculationSensorControlsHERS">HERS Verified Demand Recirculation Sensor Controls</dtyp:displayterm>
+            <dtyp:displayterm value="DrainWaterHeatRecoveryHERS">HERS Drain Water Heat Recovery</dtyp:displayterm>
             <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="PointOfUse">Point of Use</dtyp:displayterm>
             <dtyp:displayterm value="PointOfUseHERS">HERS Verified Point of Use</dtyp:displayterm>
@@ -3183,11 +3186,14 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CompactDistributionDrainHeatRecoveryHERS"/>
          <xsd:enumeration value="CompactHotWaterDistributionSystemHERS"/>
+         <xsd:enumeration value="DemandRecirculation"/>
          <xsd:enumeration value="DemandRecirculationManualControl"/>
          <xsd:enumeration value="DemandRecirculationManualControlHERS"/>
          <xsd:enumeration value="DemandRecirculationSensorControls"/>
          <xsd:enumeration value="DemandRecirculationSensorControlsHERS"/>
+         <xsd:enumeration value="DrainWaterHeatRecoveryHERS"/>
          <xsd:enumeration value="Other"/>
          <xsd:enumeration value="PointOfUse"/>
          <xsd:enumeration value="PointOfUseHERS"/>
@@ -3508,6 +3514,7 @@
             <dtyp:displayterm value="InstantaneousLarge">Large Instantaneous</dtyp:displayterm>
             <dtyp:displayterm value="InstantaneousResDutyCommercial">Residential-Duty Commercial Instantaneous</dtyp:displayterm>
             <dtyp:displayterm value="InstantaneousSmall">Small Instantaneous</dtyp:displayterm>
+            <dtyp:displayterm value="NEEA_Tier3HP">NEEA Tier 3 heat pump water heater</dtyp:displayterm>
             <dtyp:displayterm value="StorageCommercial">Commercial Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageConsumer">Consumer Storage</dtyp:displayterm>
             <dtyp:displayterm value="StorageLarge">Large Storage</dtyp:displayterm>
@@ -3524,6 +3531,7 @@
          <xsd:enumeration value="InstantaneousLarge"/>
          <xsd:enumeration value="InstantaneousResDutyCommercial"/>
          <xsd:enumeration value="InstantaneousSmall"/>
+         <xsd:enumeration value="NEEA_Tier3HP"/>
          <xsd:enumeration value="StorageCommercial"/>
          <xsd:enumeration value="StorageConsumer"/>
          <xsd:enumeration value="StorageLarge"/>
