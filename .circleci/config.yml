@@ -157,7 +157,8 @@ jobs:
       - run:
           name: Check for missing base elements
           command: |
-            bundle exec ruby missing_base_elements.rb -p schema || exit 1
+            cd tools
+            bundle exec ruby missing_base_elements.rb -p ../schema || exit 1
 
 
 workflows:
