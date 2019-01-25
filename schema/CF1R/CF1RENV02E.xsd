@@ -7,7 +7,7 @@
    xmlns:env="http://www.lmonte.com/besm/env"
    xmlns:lit="http://www.lmonte.com/besm/lit"
    xmlns:hvac="http://www.lmonte.com/besm/hvac"
-   xmlns:comp="http://www.lmonte.com/besm/comp"
+
    xmlns:com="http://www.lmonte.com/besm/com"
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"

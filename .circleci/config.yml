@@ -160,6 +160,34 @@ jobs:
             cd tools
             bundle exec ruby missing_base_elements.rb -p ../schema || exit 1
 
+  missing-namespace:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for missing namespace declarations
+          command: |
+            cd tools
+            bundle exec ruby namespace_prefixes.rb -p ../schema || exit 1
 
 workflows:
   version: 2
@@ -172,3 +200,4 @@ workflows:
       - ruby-lint
       - missing-base-types
       - built-in-datatypes
+      - missing-namespace

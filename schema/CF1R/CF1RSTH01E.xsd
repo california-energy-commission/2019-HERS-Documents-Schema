@@ -2,7 +2,7 @@
 <xsd:schema
    targetNamespace="http://www.lmonte.com/besm/CF1RSTH01E"
    xmlns="http://www.lmonte.com/besm/CF1RSTH01E"
-   xmlns:d="http://www.lmonte.com/besm/d"
+
    xmlns:bld="http://www.lmonte.com/besm/bld"
    xmlns:env="http://www.lmonte.com/besm/env"
    xmlns:lit="http://www.lmonte.com/besm/lit"
