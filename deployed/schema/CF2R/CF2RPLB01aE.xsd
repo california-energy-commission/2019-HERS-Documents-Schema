@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB01aE" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF2RPLB01aE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RPLB01aE">
+      <xsd:annotation>
+         <xsd:documentation>Multifamily Central Hot Water System Distribution</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Design Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">This table reports the water heating system features that were specified on the registered CF1R compliance document for this project.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableDesignSystem">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B02_ResidentialWaterHeatingSystemType" type="hvac:ResidentialWaterHeatingSystemType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance, reference values from CF1R-PRF; Allowed values are: DHW display term DHW,  Hydronic display term Hydronic and  HydronicSpaceConditioningDHW display term Combined Hydronic; Else If Prescriptive result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance, reference values from CF1R-PRF; Allowed values are: DHW display term DHW,  Hydronic display term Hydronic and  HydronicSpaceConditioningDHW display term Combined Hydronic; Else If Prescriptive result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B03_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water-Heater Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R Allowed values are: BoilerWaterHeater display term: Boiler, HeatPumpWaterHeater display term: Heat Pump,  IndirectWaterHeating display term:  Indirect, InstantaneousCommercial display term: Commercial Instantaneous, InstantaneousResDutyCommercial display term: Residential-Duty Commercial Instantaneous, InstantaneousConsumer display term: Consumer Instantaneous,   StorageCommercial display term: Commercial Storage, StorageResDutyCommercial display term: Residential-Duty Commercial Storage,   StorageConsumer display term: Consumer Storage;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Number of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B05_StorageCapacity" type="hvac:StorageCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heater Storage Volume (gal)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R; N/A is allowed only if B03_ResidentialWaterHeaterType is one of the  Instantaneous types</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heater Storage Volume (gal)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R; N/A is allowed only if B03_ResidentialWaterHeaterType is one of the  Instantaneous types</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B06_WaterHeaterFuelSource">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R Allowed values are: Electricity; NaturalGas; PropaneGas, WaterHeatingHP</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:WaterHeaterFuelSource">
+                                             <xsd:enumeration value="Electricity"/>
+                                             <xsd:enumeration value="NaturalGas"/>
+                                             <xsd:enumeration value="PropaneGas"/>
+                                             <xsd:enumeration value="WaterHeatingHP"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_WaterHeaterRatedInputUnits" type="hvac:WaterHeaterRatedInputUnits">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B06_WaterHeaterFuelSource == WaterHeatingHP then result = NotApplicable stored in the NotApplicableMessage; Else If B06_WaterHeaterFuelSource == NaturalGas; PropaneGas result = BtuHr display term: Btu/hr,  Else If B06_WaterHeaterFuelSource == Electricity result = kW display term: kW</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B06_WaterHeaterFuelSource == WaterHeatingHP then result = NotApplicable stored in the NotApplicableMessage; Else If B06_WaterHeaterFuelSource == NaturalGas; PropaneGas result = BtuHr display term: Btu/hr,  Else If B06_WaterHeaterFuelSource == Electricity result = kW display term: kW</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B08_WaterHeaterElectricFiredRatedInput" type="hvac:WaterHeaterElectricFiredRatedInput">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = NotApplicable stored in NotApplicableMessage; Else If Performance  reference value from CF1R-PRF  for electric fired or gas fired water heater; Else If Prescriptive result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B08_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = NotApplicable stored in NotApplicableMessage; Else If Performance  reference value from CF1R-PRF  for electric fired or gas fired water heater; Else If Prescriptive result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_ResidentialWaterHeaterType == HeatPumpWaterHeater then result = NotApplicable stored in NotApplicableMessage; Else If Performance  reference value from CF1R-PRF  for electric fired or gas fired water heater; Else If Prescriptive result = N/A stored in NotApplicableMessage.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B09_EfficiencyType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF for efficiency type  Allowed values are: AFUE, EnergyFactor, ThermalEfficiency, Uniform Energy Factor; Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="AFUE"/>
+                                                <xsd:enumeration value="EnergyFactor"/>
+                                                <xsd:enumeration value="ThermalEfficiency"/>
+                                                <xsd:enumeration value="UniformEnergyFactor"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="B09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF for efficiency type  Allowed values are: AFUE, EnergyFactor, ThermalEfficiency, Uniform Energy Factor; Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B10_WaterHeaterAFUE" type="hvac:WaterHeaterAFUE">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_EnergyFactor" type="hvac:EnergyFactor">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_UniformEnergyFactor" type="hvac:UniformEnergyFactor">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_ThermalEfficiency" type="hvac:ThermalEfficiency">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B11_WaterHeatingStandbyLossPercent" type="hvac:WaterHeatingStandbyLossPercent">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss (%)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  Performance reference value from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B11_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss (%)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  Performance reference value from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B12_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exterior Insulation R-Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  Performance reference value from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B12_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exterior Insulation R-Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  Performance reference value from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">This table reports the water heating system features that were specified on the registered CF1R compliance document for this project.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableInstalledSystem">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B01_WaterHeatingSystemName</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C02_ResidentialWaterHeatingSystemType" type="hvac:ResidentialWaterHeatingSystemType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B02 which may be in B02_ResidentialWaterHeatingSystemType or N/A in B02_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B02 which may be in B02_ResidentialWaterHeatingSystemType or N/A in B02_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C03_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water-Heater Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B03_ResidentialWaterHeaterType</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Number of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B04_WaterHeaterTotalSystemCount</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C05_StorageCapacity" type="hvac:StorageCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heater Storage Volume (gal)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B05_StorageCapacity or  B05_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Water Heater Storage Volume (gal)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B05_StorageCapacity or  B05_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C06_WaterHeaterFuelSource">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B06_WaterHeaterFuelSource</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:WaterHeaterFuelSource">
+                                             <xsd:enumeration value="Electricity"/>
+                                             <xsd:enumeration value="NaturalGas"/>
+                                             <xsd:enumeration value="PropaneGas"/>
+                                             <xsd:enumeration value="WaterHeatingHP"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C07_WaterHeaterRatedInputUnits" type="hvac:WaterHeaterRatedInputUnits">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B07_WaterHeaterRatedInputUnits or  B07_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B07_WaterHeaterRatedInputUnits or  B07_NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C08_WaterHeaterElectricFiredRatedInput" type="hvac:WaterHeaterElectricFiredRatedInput">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C06__WaterHeaterFuelSource == WaterHeatingHP result = N/A stored in NotApplicableMessage; Else User input value which must pass the following range tests: (Note: GT is greater than, LTE is less than or equal to)  If B06_WaterHeaterFuelSource == NaturalGas Or PropaneGas, Switch ( B03_ResidentialWaterHeaterType) case StorageCommercial: result must be GT 75,000 Btu/hr; case StorageConsumer: result must be LTE 75,000 Btu/hr; case  InstantaneousCommercial: result must be GT 200,000 Btu/hr; case InstantaneousConsumer:  result must be LTE 200,000 Btu/hr; case  StorageResDutyCommercial: result must be LTE 105,000 Btu/hr.   Else if B06_WaterHeaterFuelSource == Electricity, Switch ( B03_ResidentialWaterHeaterType) case  StorageCommercial: and case InstantaneousCommercial: result  must be GT 12 kW; case StorageConsumer: and case InstantaneousConsumer: result must be LTE 12 kW; case InstantaneousResDutyCommercial: result must be LTE 58.6 kW.    If result passes all range tests, if B06_WaterHeaterFuelSource == Electricity result is stored in C08_WaterHeaterElectricFiredRatedInput, Else result stored in C08_WaterHeaterGasFiredRatedInput</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C08_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C06__WaterHeaterFuelSource == WaterHeatingHP result = N/A stored in NotApplicableMessage; Else User input value which must pass the following range tests: (Note: GT is greater than, LTE is less than or equal to)  If B06_WaterHeaterFuelSource == NaturalGas Or PropaneGas, Switch ( B03_ResidentialWaterHeaterType) case StorageCommercial: result must be GT 75,000 Btu/hr; case StorageConsumer: result must be LTE 75,000 Btu/hr; case  InstantaneousCommercial: result must be GT 200,000 Btu/hr; case InstantaneousConsumer:  result must be LTE 200,000 Btu/hr; case  StorageResDutyCommercial: result must be LTE 105,000 Btu/hr.   Else if B06_WaterHeaterFuelSource == Electricity, Switch ( B03_ResidentialWaterHeaterType) case  StorageCommercial: and case InstantaneousCommercial: result  must be GT 12 kW; case StorageConsumer: and case InstantaneousConsumer: result must be LTE 12 kW; case InstantaneousResDutyCommercial: result must be LTE 58.6 kW.    If result passes all range tests, if B06_WaterHeaterFuelSource == Electricity result is stored in C08_WaterHeaterElectricFiredRatedInput, Else result stored in C08_WaterHeaterGasFiredRatedInput</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C06__WaterHeaterFuelSource == WaterHeatingHP result = N/A stored in NotApplicableMessage; Else User input value which must pass the following range tests: (Note: GT is greater than, LTE is less than or equal to)  If B06_WaterHeaterFuelSource == NaturalGas Or PropaneGas, Switch ( B03_ResidentialWaterHeaterType) case StorageCommercial: result must be GT 75,000 Btu/hr; case StorageConsumer: result must be LTE 75,000 Btu/hr; case  InstantaneousCommercial: result must be GT 200,000 Btu/hr; case InstantaneousConsumer:  result must be LTE 200,000 Btu/hr; case  StorageResDutyCommercial: result must be LTE 105,000 Btu/hr.   Else if B06_WaterHeaterFuelSource == Electricity, Switch ( B03_ResidentialWaterHeaterType) case  StorageCommercial: and case InstantaneousCommercial: result  must be GT 12 kW; case StorageConsumer: and case InstantaneousConsumer: result must be LTE 12 kW; case InstantaneousResDutyCommercial: result must be LTE 58.6 kW.    If result passes all range tests, if B06_WaterHeaterFuelSource == Electricity result is stored in C08_WaterHeaterElectricFiredRatedInput, Else result stored in C08_WaterHeaterGasFiredRatedInput</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C09_EfficiencyType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B09_EfficiencyType Else If Prescriptive user selects from list: AFUE, ThermalEfficiency, Uniform Energy Factor;</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:EfficiencyType">
+                                             <xsd:enumeration value="AFUE"/>
+                                             <xsd:enumeration value="EnergyFactor"/>
+                                             <xsd:enumeration value="ThermalEfficiency"/>
+                                             <xsd:enumeration value="UniformEnergyFactor"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C10_WaterHeaterAFUE" type="hvac:WaterHeaterAFUE">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10_WaterHeaterAFUE.  N/A is only allowed If B10_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_UniformEnergyFactor" type="hvac:UniformEnergyFactor">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10_UniformEnergyFactor,it complies N/A is only allowed  If B10_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_ThermalEfficiency" type="hvac:ThermalEfficiency">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10_ThermalEfficiency.  N/A is only allowed  If B10_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10 value for efficiency.  N/A is only allowed  If B10_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C11_WaterHeatingStandbyLossPercent" type="hvac:WaterHeatingStandbyLossPercent">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss (%)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is LTE B11_WaterHeatingStandbyLossPercent, it complies, N/A is only allowed  If B11_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C11_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss (%)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is LTE B11_WaterHeatingStandbyLossPercent, it complies, N/A is only allowed  If B11_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C12_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exterior Insulation R-Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B12_ExteriorTankInsulation, it complies. N/A is only allowed  If B12_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C12_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exterior Insulation R-Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B12_ExteriorTankInsulation, it complies. N/A is only allowed  If B12_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Design Central Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if compliance is performance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered CF1R compliance document for this project.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableDesignDistribution">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.  (See rule in header)</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_ResidentialDHWCentralDistributionType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-PRF-01.  Allowed values: RecirculatingTemperatureModulationMF  display term Multi-family: Recirculating with temperature modulation,  RecirculatingContinuousTemperatureModulationMonitoringMF display term Multi-family: Recirculating with temperature modulation and monitoring, RecirculatingDemandControlMF  display term Multi-family: Recirculating demand control, RecirculatingNonDemandContinuousPumpingMF  display term Multi-family: Recirculating with no control (continuous pumping), NoRecirculationPumpNoLoopsMF  display term Multi-family: No loops or recirc. pump; Else If prescriptive compliance result = RecirculatingDemandControlMF  display term Multi-family: Recirculating demand control;</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialDHWCentralDistributionType">
+                                             <xsd:enumeration value="NoRecirculationPumpNoLoopsMF"/>
+                                             <xsd:enumeration value="RecirculatingContinuousTemperatureModulationMonitoringMF"/>
+                                             <xsd:enumeration value="RecirculatingDemandControlMF"/>
+                                             <xsd:enumeration value="RecirculatingNonDemandContinuousPumpingMF"/>
+                                             <xsd:enumeration value="RecirculatingTemperatureModulationMF"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="D03_ResidentialDHWDwellingUnitDistributionType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R;  Allowed values:  StandardDistribution display term Standard distribution system, StandardDistributionInsulatedPipesHERS  display term HERS Verified Pipe Insulation; Else If prescriptive compliance result =  StandardDistribution display term Standard distribution system.</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                             <xsd:enumeration value="StandardDistribution"/>
+                                             <xsd:enumeration value="StandardDistributionInsulatedPipesHERS"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Central Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">This table reports the water heating distribution types specified on the registered CF1R compliance document for this project.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableInstalledDistribution">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="E01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from D01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E02_ResidentialDHWCentralDistributionType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from D02</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialDHWCentralDistributionType">
+                                             <xsd:enumeration value="NoRecirculationPumpNoLoopsMF"/>
+                                             <xsd:enumeration value="RecirculatingContinuousTemperatureModulationMonitoringMF"/>
+                                             <xsd:enumeration value="RecirculatingDemandControlMF"/>
+                                             <xsd:enumeration value="RecirculatingNonDemandContinuousPumpingMF"/>
+                                             <xsd:enumeration value="RecirculatingTemperatureModulationMF"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="E03_ResidentialDHWDwellingUnitDistributionType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from D03</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                             <xsd:enumeration value="StandardDistribution"/>
+                                             <xsd:enumeration value="StandardDistributionInsulatedPipesHERS"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed Water Heater Manufacturer Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters included in the count in A04</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableInstalledWaterHeater">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="F01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference from D01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F02_WaterHeaterManufacturer" type="hvac:WaterHeaterManufacturer">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F03_WaterHeaterModelNumber" type="hvac:WaterHeaterModelNumber">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Model Number</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input;</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Mandatory Requirements For All Central Domestic Hot Water Systems</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">On systems that have a total capacity greater than 167,000 Btu/hr, outlets that require higher than service water temperatures as listed in the ASHRAE Handbook have separate remote heaters, heat exchangers, or boosters to supply the outlet with the higher temperature.  (Section 110.3 (c)1)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Systems with circulating pumps or with electrical heat trace systems shall be capable of automatically turning off the system.  (Section 110.3(c)2).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Unfired storage tanks are insulated with an external R-12 or combination of R-16 internal and external Insulation.(Section 110.3(c)4).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  
+                           <d:l t="*">
+                              <d:list>The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). </d:list>
+                              <d:list> A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).</d:list>
+                              <d:list> A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). </d:list>
+                              <d:list>Isolation valves are installed on both sides of the pump of which te valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).</d:list>
+                              <d:list> The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). </d:list>
+                              <d:list> A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   </d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Instantaneous water heaters with an input greater than 6.8 kBtu/hr. (2kW) shall have isolation valves at both the cold water supply and the hot water line (110.3(c)6).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">All domestic hot water piping shall be insulated as specified in Section 609.11 of the California Plumbing Code.  In addition, the following piping conditions shall have a minimum insulation wall thickness of 1 inch or a minimum of insulation R-value of 7.7 (RA4.4.1) 
+                           <d:l t="*">
+                              <d:list> The first 5 feet (1.5 meters) of hot and cold water pipes from the storage tank. </d:list>
+                              <d:list> All piping with a nominal diameter of 3/4 inch (19 millimeter) and less than 1 inch. </d:list>
+                              <d:list> All hot water pipes from the heating source to the kitchen fixtures. </d:list>
+                              <d:list> Piping from the heating source to storage tank of between tanks. </d:list>
+                              <d:list>  All piping associated with a recirculation system </d:list>
+                              <d:list> All underground piping.  </d:list>
+                           </d:l>
+                           <d:line1/>
+                           <d:l t="*">
+                              <d:list> Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve.</d:list>
+                              <d:list> Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.   Metal piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   </d:list>
+                              <d:list> Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch of insulation. </d:list>
+                              <d:list> Piping installed in crawlspace with a minimum of 1 inch (5cm) of crawlspace insulation above and below. </d:list>
+                              <d:list> Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top. </d:list>
+                              <d:list> Pipe insulation shall fit tightly and all elbows and tees shall be fully insulated. </d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="GEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Multiple Dwelling Units - Recirculation Temperature Modulation Control Requirements (RA4.4.11)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section D has D02_ResidentialDHWCentralDistributionType == RecirculatingTemperatureModulationMF</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="H_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Systems that utilize this distribution type shall comply with these requirements.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Controls have been installed that reduce the hot water supply temperature when hot water demand is determined to be low by the control system. The control system may use a fixed control schedule or dynamic control schedules based measurements of hot water demand.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Daily hot water supply temperature reduction (which is defined as the sum of temperature reduction by the control in each hour within a 24-hour period) shall be more than 50 
+                           <d:deg/> F.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Multiple Dwelling Units - Recirculation Continuous Monitoring Systems Requirements (RA4.4.12)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section D has D02_ResidentialDHWCentralDistributionType == RecirculatingContinuousTemperatureModulationMonitoringMF</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="I_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Systems that utilize this distribution type shall comply with these requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The water heating system must have a means of communicating with the remote monitoring facility.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The monitoring system must record no less frequently than hourly measurement of key system operation parameters, including hot water supply and return temperatures, and status of gas valve relays.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A current contract must be available that demonstrate the system will be monitored.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="IEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_J" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Multiple Dwelling Units - Demand Recirculation Requirements (RA4.4.13)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section D has D02_ResidentialDHWCentralDistributionType == RecirculatingDemandControlMF</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="J_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Systems that utilize this distribution type shall comply with these requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The system operates "on-demand", meaning that the pump begins to operate shortly before or immediately after hot water draw begins, and stops when the return water temperature reaches a certain threshold value.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">After the pump has been activated, the controls shall allow the pump to operate until the water temperature at the thermo-sensor rises to one of the following values: (RA4.4.13) 
+                           <d:l t="*">
+                              <d:list>  Not more than 10
+                                 <d:deg/> F ( 5.6
+                                 <d:deg/> C ) above the initial temperature of the water in the pipe.</d:list>
+                              <d:list> Not more than 102
+                                 <d:deg/> F (38.9
+                                 <d:deg/> C). </d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The controls shall limit pump operation to a maximum of 10 minutes following any activation. This is provided in the event that the normal means of shutting off the pump have failed.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Pump and control placement shall meet one of the following criteria:  
+                           <d:l t="*">
+                              <d:list> When a dedicated return line has been installed the pump, controls and thermo-sensor are installed at the end of the supply portion of the recirculation loop; or  </d:list>
+                              <d:list> The pump and controls are installed on the dedicated return line near the water heater and the thermosensor is installed in an accessible location as close to the end of the supply portion of the recirculation loop as possible, or  </d:list>
+                              <d:list>  When the cold water line is used as the return, the pump, demand controls and thermosensor shall be installed in an accessible location at the end of supply portion of the hot water distribution line (typically under a sink).</d:list>
+                           </d:l>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Insulation is not required on the cold water line when it is used as the return.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Manual or sensor controls shall be installed and, if powered, each control has standby power of 1 Watt or less.  Controls may be located in individual units or on the loop. Controls may be activated by wired or wireless mechanisms, including buttons, motion sensors, door switches and flow switches.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="JEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_K" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Multiple Dwelling Units -Non-Demand Control Recirculation Systems Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section D has D02 ResidentialDHWCentralDistributionType  == RecirculatingNonDemandContinuousPumpingMF)</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="K_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Systems that utilize this distribution type shall comply with these requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The active control shall be either: timer, temperature, or time and temperature. Timers shall be set to less than 24 hours. The temperature sensor shall be connected to the piping and to the controls for the pump.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="KEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RPLB01aE"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Multifamily Central Hot Water System Distribution"/>
+                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="a"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RPLB01aE"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB01aE"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RPLB01aE" type="CF2RPLB01aE">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RPLB01aE compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
