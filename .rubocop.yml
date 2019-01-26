@@ -6,6 +6,9 @@ AllCops:
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
+Layout/SpaceAroundOperators:
+  Enabled: false
+
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
 
@@ -29,7 +32,7 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 155
+  Max: 190
 
 Metrics/MethodLength:
   Max: 62

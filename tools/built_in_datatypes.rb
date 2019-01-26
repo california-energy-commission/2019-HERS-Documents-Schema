@@ -37,12 +37,10 @@ if options[:path].nil?
 end
 
 @error = 0
-# rubocop:disable Metrics/LineLength
 @allowed = %w[string boolean base64Binary hexBinary float decimal double anyURI QName NOTATION duration dateTime time date gYearMonth gYear gMonthDay gDay gMonth
               normalizedString integer token nonPositiveInteger long nonNegativeInteger language Name NMTOKEN negativeInteger
               int unsignedLong positiveInteger NCName NMTOKENS short unsignedInt ID IDREF ENTITY byte unsignedShort IDREFS
               ENTITIES unsignedByte]
-# rubocop:enable Metrics/LineLength
 
 # start
 project_path = create_path(options[:path])
