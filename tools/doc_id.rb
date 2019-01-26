@@ -48,11 +48,11 @@ end
 # start
 project_path = create_path(options[:path])
 
-filename=[]; doc=[]; doc_type=[]; doc_title=[]; doc_variant_subtitle=[]; doc_variant_letter=[]
+filename=[]; revision=[]; version=[]; doc=[]; doc_type=[]; doc_title=[]; doc_variant_subtitle=[]; doc_variant_letter=[]
 
 Dir.glob("#{project_path}/*").map do |schema_folder|
   folder = File.basename(schema_folder)
-  if folder.size == 4 && folder != 'base'
+  if folder.size == 4
     Dir.glob("#{schema_folder}/*.xsd").map do |schema_file|
       data = read_file(schema_file)
       schema = File.basename(schema_file)
@@ -65,11 +65,22 @@ Dir.glob("#{project_path}/*").map do |schema_folder|
         doc << 'CF3RFeatureNotTestedH'
         doc_title << 'CF3RFeatureNotTestedH'
       else
-        doc << data.gsub(/(.*<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
-        # revision << data.gsub(/(.*<xsd:attribute name="revision".*?fixed=")(.*?)("\/>.*<\/xsd:schema>)/m,'\2').strip
-        doc_title << data.gsub(/(.*<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
+        doc << if folder == 'base'
+                 'N/A'
+               else
+                 data.gsub(/(.*<xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
+               end
+        doc_title << if folder == 'base'
+                       'N/A'
+                     else
+                       data.gsub(/(.*<xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
+                     end
       end
-      doc_type << data.gsub(/(.*<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
+      doc_type << if folder == 'base'
+                    'N/A'
+                  else
+                    data.gsub(/(.*<xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
+                  end
       doc_variant_subtitle << if data.include?('docVariantSubtitle') && fn != 'cf3rnotesth.xsd' && fn != 'cf3rfeaturenottestedh.xsd'
                                 data.gsub(/(.*<xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
                               else
@@ -80,14 +91,20 @@ Dir.glob("#{project_path}/*").map do |schema_folder|
                             else
                               'N/A'
                             end
+      revision << if folder == 'base'
+                    'N/A'
+                  else
+                    data.gsub(/(.*<xsd:attribute name="revision".*?fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
+                  end
+      version << data.gsub(/(.*<xsd:schema.*?version=")(.*?)(">.*<\/xsd:schema>)/m, '\2').strip
     end
   end
 end
 
 FileUtils.mkdir_p "#{Dir.getwd}/output/docid"
 CSV.open("#{Dir.getwd}/output/docid/DocID.csv", 'wb') do |csv|
-  csv << ['File Path', 'doc', 'docType', 'docTitle', 'docVariantSubtitle', 'docVariantLetter']
+  csv << ['File Path', 'Version', 'Revision', 'doc', 'docType', 'docTitle', 'docVariantSubtitle', 'docVariantLetter']
   filename.map.with_index do |item, i|
-    csv << [item, doc[i], doc_type[i], doc_title[i], doc_variant_subtitle[i], doc_variant_letter[i]]
+    csv << [item, version[i], revision[i], doc[i], doc_type[i], doc_title[i], doc_variant_subtitle[i], doc_variant_letter[i]]
   end
 end
