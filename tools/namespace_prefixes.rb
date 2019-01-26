@@ -88,7 +88,7 @@ Dir.glob("#{project_path}/**/*.xsd").map do |schema|
   # puts @namespaces
   # puts @prefixes
   @prefixes.map do |fix|
-    if !@namespaces.key?("xmlns:#{fix}") # rubocop:disable Style/NegatedIf
+    if !@namespaces.key?("xmlns:#{fix}")
       # TODO: refactor error message to be more descriptive
       puts "#{File.basename(schema)} has missing namespace declaration xmlns:#{fix}"
       @global_error = 1
