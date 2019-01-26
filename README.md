@@ -94,6 +94,11 @@ Then to install this projects RubyGems run:
 ```
 bundle install
 ```
+We are using [overcommit](https://github.com/brigade/overcommit) to manage and configure Git hooks which
+can be installed by running:
+```
+overcommit --install
+```
 To generate the web based [RubyCritic](https://github.com/whitesmith/rubycritic) report run:
 ```
 cd 2019-HERS-Documents-Schema
@@ -124,6 +129,7 @@ ruby doc_id.rb -p ../schema
 - [FileUtils](https://ruby-doc.org/stdlib-2.5.3/libdoc/fileutils/rdoc/FileUtils.html)
 - [Rubocop](https://github.com/rubocop-hq/rubocop)
 - [Axlsx](https://github.com/randym/axlsx)
+- [overcommit](https://github.com/brigade/overcommit)
 - [OptionParser](https://docs.ruby-lang.org/en/2.5.0/OptionParser.html)
 - [CSV](https://ruby-doc.org/stdlib-2.5.3/libdoc/csv/rdoc/CSV.html)
 - [RubyCritic](https://github.com/whitesmith/rubycritic)
