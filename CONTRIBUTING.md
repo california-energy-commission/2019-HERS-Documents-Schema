@@ -140,6 +140,12 @@ index 2821648..5f7ec95 100644
 +- **Excel** report with charts which reports on the files in the repository
 +- **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
 ```
+Once your feature branch has been merged into the upstream you should delete it.
+The following command deletes a branch named `overcommit` on your local machine:
+```
+git branch -D overcommit
+Deleted branch overcommit (was d0e141b).
+```
 
 #### Sync your fork
 Refer to the GitHub help article on **[Syncing a fork](https://help.github.com/articles/syncing-a-fork/)**.
@@ -147,8 +153,8 @@ Refer to the GitHub help article on **[Syncing a fork](https://help.github.com/a
 $ git checkout master
 $ git fetch upstream
 $ git merge upstream/master
+$ git push
 ```
-You will then need to push your changes back up to your fork on GitHub.
 
 [&#8593;](#contributing)
 
