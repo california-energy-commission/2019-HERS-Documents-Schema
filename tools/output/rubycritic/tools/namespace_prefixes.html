@@ -45,12 +45,12 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2019-01-13 01:57:49 +1000'>2019-01-13 01:57:49 +1000</time>
+          Updated <time class='js-timeago' datetime='2019-01-25 13:55:43 +1000'>2019-01-25 13:55:43 +1000</time>
         
       </span>
     </div>
     <div>
-      <h3><small>tools /</small> built_in_datatypes.rb</h3>
+      <h3><small>tools /</small> namespace_prefixes.rb</h3>
     </div>
   </div>
   <!--End Page Title -->
@@ -66,15 +66,15 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">68</span><small> lines of codes</small></div>
-              <div><span class="metric">1</span><small> methods</small></div>
+              <div><span class="metric">99</span><small> lines of codes</small></div>
+              <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">1.1</span><small> complexity/method</small></div>
+              <div><span class="metric">2.5</span><small> complexity/method</small></div>
               <div><span class="metric">1</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
-              <div><span class="metric">1.1</span><small> complexity</small></div>
+              <div><span class="metric">5.07</span><small> complexity</small></div>
               <div><span class="metric">39</span><small> duplications</small></div>
             </div>
           </div>
@@ -86,7 +86,7 @@
             <li><a href="#" id="toggle-code" class="toggle-button button">code</a></li>
             <li class="active">
               <a href="#" id="toggle-smells" class="toggle-button button">
-                2
+                4
                 smells
               </a>
             </li>
@@ -105,11 +105,20 @@ def create_path(path)<ol class="nocode errors smells">  <li>    <div class="desc
   path.tr(&#39;\\&#39;, &#39;/&#39;)
 end
 
+# Function to open and read in file and return the data
+# TODO: refactor to use less memory
+def read_file(file)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Utility-Function.md" target="_blank"><b>UtilityFunction</b></a>        </span>      </div>      <span>read_file doesn't depend on instance state (maybe move it to another class?)</span>          </div>  </li></ol>
+  f = File.open(file, &#39;r&#39;)<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="https://github.com/troessner/reek/blob/master/docs/Uncommunicative-Variable-Name.md" target="_blank"><b>UncommunicativeVariableName</b></a>        </span>      </div>      <span>read_file has the variable name 'f'</span>          </div>  </li></ol>
+  data = f.read
+  f.close
+  data
+end
+
 # implement commandline options
 options = {:path =&gt; nil}
 
 parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L14" class="js-smell-location">0</a>                  <a href="doc_id.html#L23" class="js-smell-location">1</a>                  <a href="excel.html#L70" class="js-smell-location">2</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">3</a>                  <a href="namespace_prefixes.html#L23" class="js-smell-location">4</a>                  </div>  </li></ol>
-  opts.banner = &#39;Usage: built_in_datatypes.rb&#39;
+  opts.banner = &#39;Usage: namespace_prefixes.rb&#39;
 
   opts.on(&#39;-p&#39;, &#39;--path path&#39;, &#39;Path to schema&#39;) do |path|
     options[:path] = path
@@ -133,36 +142,58 @@ if options[:path].nil?
   options[:path] = STDIN.gets.chomp
 end
 
-@error = 0
-# rubocop:disable Metrics/LineLength
-@allowed = %w[string boolean base64Binary hexBinary float decimal double anyURI QName NOTATION duration dateTime time date gYearMonth gYear gMonthDay gDay gMonth
-              normalizedString integer token nonPositiveInteger long nonNegativeInteger language Name NMTOKEN negativeInteger
-              int unsignedLong positiveInteger NCName NMTOKENS short unsignedInt ID IDREF ENTITY byte unsignedShort IDREFS
-              ENTITIES unsignedByte]
-# rubocop:enable Metrics/LineLength
+@global_error = 0
 
 # start
 project_path = create_path(options[:path])
-@datatypes = []
+
+# d namespace required for the square markup for when it becomes XML in the deployed folder
+# req = &#39;&quot;xmlns:d&quot;=&gt;&quot;http://www.lmonte.com/besm/d&quot;&#39;
 
 Dir.glob(&quot;#{project_path}/**/*.xsd&quot;).map do |schema|
+  @prefixes = []
+  @namespaces = []
   @doc = Nokogiri::XML(File.open(schema))
-  @doc.xpath(&#39;//*[starts-with(@type,&quot;xsd:&quot;)]&#39;).map do |tag|
-    type = tag.attribute(&#39;type&#39;).to_s.split(&#39;:&#39;).last
-    next if @datatypes.include?(type)
-
-    @datatypes &lt;&lt; type
+  @namespaces = @doc.namespaces
+  # d namespace check  [d:l t=&quot;*&quot;]
+  @data = read_file(schema)
+  @error = 0
+  if @data.scan(/\[d:.*?\]/).size.positive?
+    @error = 1 unless @namespaces.key?(&#39;xmlns:d&#39;) &amp;&amp; @namespaces.value?(&#39;http://www.lmonte.com/besm/d&#39;)
+    puts File.basename(schema) + &#39; has missing namespace declaration &quot;xmlns:d&quot;=&gt;&quot;http://www.lmonte.com/besm/d&quot;&#39; unless @error.zero?
+    @global_error = 1 unless @error.zero?
+  end
+  @doc.xpath(&#39;//*&#39;).map do |element|
+    begin
+      pre = element.namespace.prefix
+    rescue # rubocop:disable Style/RescueStandardError, Lint/HandleExceptions
+    end
+    begin
+      base = element.attribute(&#39;base&#39;).to_s.split(&#39;:&#39;).first
+    rescue # rubocop:disable Style/RescueStandardError, Lint/HandleExceptions
+    end
+    begin
+      att = element.attribute(&#39;type&#39;).to_s
+      type = att.split(&#39;:&#39;).first if att.include?(&#39;:&#39;)
+    rescue # rubocop:disable Style/RescueStandardError, Lint/HandleExceptions
+    end
+    @prefixes &lt;&lt; pre unless pre.nil? || @prefixes.include?(pre)
+    @prefixes &lt;&lt; base unless base.nil? || @prefixes.include?(base)
+    @prefixes &lt;&lt; type unless type.nil? || @prefixes.include?(type)
+    @prefixes.uniq!
+  end
+  # puts @namespaces
+  # puts @prefixes
+  @prefixes.map do |fix|
+    if !@namespaces.key?(&quot;xmlns:#{fix}&quot;) # rubocop:disable Style/NegatedIf
+      # TODO: refactor error message to be more descriptive
+      puts &quot;#{File.basename(schema)} has missing namespace declaration xmlns:#{fix}&quot;
+      @global_error = 1
+    end
   end
 end
 
-@datatypes.map do |type|
-  next if @allowed.include?(type)
-
-  @error = 1
-  puts &quot;#{type} does not match any built in XML Schema datatype&quot;
-end
-
-exit 1 unless @error.zero?
+exit 1 unless @global_error.zero?
 </code>
   </div>
 </div>

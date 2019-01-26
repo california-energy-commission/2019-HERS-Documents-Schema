@@ -7,10 +7,11 @@ Get started here [CONTRIBUTING](CONTRIBUTING.md)
 
 ## Reports
 
-We have two reports located in the `tools\output` directory. 
+We have three reports located in the `tools\output` directory. 
 
-- **Excel** report with charts which reports on the files in the repository
-- **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
+- docid: **CSV** report that is a summary of the original main schema files DocID element which is best viewed in Excel
+- excel: **Excel** report with charts which reports on the files in the repository
+- rubycritic: **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
 
 The Excel report is best seen in Excel but can be opened with other programs like Google Sheets.
 The HTML files in the RubyCritic report can be opened locally with a web browser.
@@ -64,7 +65,7 @@ on Linux and MacOS.
 #### Windows
 
 ```
-$ deploy-schema.exe
+deploy-schema.exe
 Usage: deploy-schema.exe [options]
 Options:
   -d, --destination string
@@ -77,8 +78,8 @@ Options:
 
 ##### Example run
 ```
-$ cd 2019-HERS-Documents-Schema
-$ deploy-schema.exe -d . -s schema -v 2019.1.000
+cd 2019-HERS-Documents-Schema
+deploy-schema.exe -d . -s schema -v 2019.1.000
 ```
 
 [&#8593;](#2019-hers-documents-schema)
@@ -87,15 +88,26 @@ $ deploy-schema.exe -d . -s schema -v 2019.1.000
 
 We are using [Bundler](https://bundler.io/) to manage and install the [RubyGems](https://rubygems.org/).
 ```
-$ gem install bundler
+gem install bundler
 ```
 Then to install this projects RubyGems run:
 ```
-$ bundle install
+bundle install
 ```
 To generate the web based [RubyCritic](https://github.com/whitesmith/rubycritic) report run:
 ```
-$ rubycritic -p tools/output/rubycritic
+cd 2019-HERS-Documents-Schema
+rubycritic -p tools/output/rubycritic
+```
+To generate the Excel report of the repositories files run:
+```
+cd tools
+ruby excel.rb -p ../
+```
+To generate a CSV report of the main schema files that is best viewed in Excel run:
+```
+cd tools
+ruby doc_id.rb -p ../schema
 ```
 
 [&#8593;](#2019-hers-documents-schema)
@@ -113,6 +125,7 @@ $ rubycritic -p tools/output/rubycritic
 - [Rubocop](https://github.com/rubocop-hq/rubocop)
 - [Axlsx](https://github.com/randym/axlsx)
 - [OptionParser](https://docs.ruby-lang.org/en/2.5.0/OptionParser.html)
+- [CSV](https://ruby-doc.org/stdlib-2.5.3/libdoc/csv/rdoc/CSV.html)
 - [RubyCritic](https://github.com/whitesmith/rubycritic)
 - [Golang](https://golang.org/)
 - [YAML](https://yaml.org/)
