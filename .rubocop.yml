@@ -32,10 +32,13 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 190
+  Enabled: false
 
 Metrics/MethodLength:
   Max: 62
+
+Metrics/ParameterLists:
+  Enabled: false
 
 Metrics/PerceivedComplexity:
   Enabled: false
@@ -43,8 +46,14 @@ Metrics/PerceivedComplexity:
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 
+Style/GlobalVars:
+  Enabled: false
+
 Style/HashSyntax:
   EnforcedStyle: no_mixed_keys
+
+Style/NegatedIf:
+  Enabled: false
 
 Style/Next:
   Enabled: false

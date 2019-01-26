@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other
+         head content must come *after* these tags -->
+    <title>2019 HERS Documents Schema Analytics Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">2019 HERS Documents Schema Analytics Dashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </div>
+      </div>
+    </nav>
+    <div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_0"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_1"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_2"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_3"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_4"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_5"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_6"></div><div class="col-lg-4 col-md-6 col-sm-12 plotlypie" id="plotly_chart_div_7"></div></div>
+  <script>
+    var data = [{
+      values: [7, 8, 58, 40, 9],
+      labels: ["base", "CF1R", "CF2R", "CF3R", "NRCV"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '1 - Type',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_0', data, layout);
+  
+    var data = [{
+      values: [16, 1, 2, 81, 1, 8, 2, 2, 2],
+      labels: ["ENV", "EXC", "LTG", "MCH", "NCB", "PLB", "PVB", "SRA", "STH"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '2 - Subtype',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_1', data, layout);
+  
+    var data = [{
+      values: [7, 115],
+      labels: ["base", "rev 20181201"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '3 - Revsion',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_2', data, layout);
+  
+    var data = [{
+      values: [7, 8, 58, 49],
+      labels: ["base", "CERTIFICATE OF COMPLIANCE", "CERTIFICATE OF INSTALLATION", "CERTIFICATE OF VERIFICATION"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '4 - docType',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_3', data, layout);
+  
+    var data = [{
+      values: [7, 8, 20, 38, 39, 1, 9],
+      labels: ["base", "CF1R", "CF2R_E", "CF2R_H", "CF3R", "CF3REXC", "NRCV"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '5 - Responsible',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_4', data, layout);
+  
+    var data = [{
+      values: [7, 8, 106, 1],
+      labels: ["base", "HeaderCF1R", "HeaderCF2R_3R", "HeaderCF3REXC"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '6 - Header',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_5', data, layout);
+  
+    var data = [{
+      values: [122],
+      labels: ["2019.1.000"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '7 - Version',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 400,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_6', data, layout);
+  
+    var data = [{
+      values: [7, 5, 8, 17, 15, 19, 19, 11, 6, 2, 2, 4, 1, 3, 1, 1, 1],
+      labels: ["0 sections", "2 sections", "3 sections", "4 sections", "5 sections", "6 sections", "7 sections", "8 sections", "9 sections", "10 sections", "11 sections", "12 sections", "13 sections", "14 sections", "15 sections", "16 sections", "17 sections"],
+      hole: 0,
+      type: 'pie',
+      textinfo: 'value'
+    }];
+    var layout = {
+      title: '8 - Sections',
+      titlefont: {
+        size: 12,
+        color: 'black'
+      },
+      height: 600,
+      width: 400,
+      showlegend: true,
+	      legend: {
+          "orientation": "h"
+        }
+      };
+    Plotly.newPlot('plotly_chart_div_7', data, layout);
+  </script>
+  </body>
+</html>

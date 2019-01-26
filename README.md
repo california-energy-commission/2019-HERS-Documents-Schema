@@ -7,15 +7,17 @@ Get started here [CONTRIBUTING](CONTRIBUTING.md)
 
 ## Reports
 
-We have three reports located in the `tools\output` directory. 
+We have four reports located in the `tools\output` directory. 
 
 - docid: **CSV** report that is a summary of the original schema files which shows data on the
 version, revision and the DocID element. Best viewed in Excel
 - excel: **Excel** report with charts which reports on the files in the repository
 - rubycritic: **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
+- web-charts: **Awesome web based** report using [plotly.js](https://plot.ly/javascript/) pie charts
 
 The Excel report is best seen in Excel but can be opened with other programs like Google Sheets.
-The HTML files in the RubyCritic report can be opened locally with a web browser.
+The HTML files in the RubyCritic report can be opened locally with a web browser. The Plotly charts
+can also be opened locally with a web browser.
 
 [&#8593;](#2019-hers-documents-schema)
 
@@ -110,10 +112,15 @@ To generate the Excel report of the repositories files run:
 cd tools
 ruby excel.rb -p ../
 ```
-To generate a CSV report of the main schema files that is best viewed in Excel run:
+To generate the CSV report of the schema files that is best viewed in Excel run:
 ```
 cd tools
 ruby doc_id.rb -p ../schema
+```
+To generate the web based Plotly pie charts run:
+```
+cd tools
+ruby web_charts.rb -p ../schema
 ```
 
 [&#8593;](#2019-hers-documents-schema)
@@ -142,6 +149,8 @@ ruby doc_id.rb -p ../schema
 - [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
 - [Markdown](https://guides.github.com/features/mastering-markdown/)
 - [RubyGems](https://rubygems.org/)
+- [plotly.js](https://plot.ly/javascript/)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Learn/HTML)
 - [Regular expressions](https://www.rexegg.com/)
 - [APT](https://en.wikipedia.org/wiki/APT_\(Debian\))
 - [xargs](https://en.wikipedia.org/wiki/Xargs)
