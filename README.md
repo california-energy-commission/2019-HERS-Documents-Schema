@@ -9,7 +9,8 @@ Get started here [CONTRIBUTING](CONTRIBUTING.md)
 
 We have three reports located in the `tools\output` directory. 
 
-- docid: **CSV** report that is a summary of the original main schema files DocID element which is best viewed in Excel
+- docid: **CSV** report that is a summary of the original schema files which shows data on the
+version, revision and the DocID element. Best viewed in Excel
 - excel: **Excel** report with charts which reports on the files in the repository
 - rubycritic: **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
 
