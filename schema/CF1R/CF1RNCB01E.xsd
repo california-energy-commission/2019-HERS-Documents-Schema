@@ -322,7 +322,7 @@
                                           <xsd:documentation source="CalculationsAndRules">User input: ObjectNamePermissive</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C02_SplineTypeSIP" type="env:SplineTypeSIP" >
+                                    <xsd:element name="C02_NonFramedAssembly" type="env:NonFramedAssembly" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Assembly Materials</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list:   SIP2x display term SIP 2x, SIP4x display term SIP 4x, SIP_IJoist display term SIP I-Joist, SIP_OSB display term SIP OSB, MetalPanel display term Metal Panel Walls, StrawBaleWall display term Straw Bale Walls, LogWall display term Log Home Walls, ICF_Assembly display term Insulating Concrete Form</xsd:documentation>
