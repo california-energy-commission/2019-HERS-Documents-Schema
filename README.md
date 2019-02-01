@@ -102,6 +102,9 @@ can be installed by running:
 ```
 overcommit --install
 ```
+```
+overcommit --sign
+```
 To generate the web based [RubyCritic](https://github.com/whitesmith/rubycritic) report run:
 ```
 cd 2019-HERS-Documents-Schema
@@ -127,6 +130,7 @@ ruby web_charts.rb -p ../schema
 
 ## Links
 
+- [XPath](https://www.w3schools.com/xml/xpath_intro.asp)
 - [Git](https://git-scm.com/)
 - [Shell script](https://en.wikipedia.org/wiki/Shell_script)
 - [grep](https://www.gnu.org/software/grep/)
