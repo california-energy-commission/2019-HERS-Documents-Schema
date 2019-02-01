@@ -45,7 +45,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Never committed
+          Updated <time class='js-timeago' datetime='2019-01-26 18:58:22 +1000'>2019-01-26 18:58:22 +1000</time>
         
       </span>
     </div>
@@ -66,12 +66,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">93</span><small> lines of codes</small></div>
+              <div><span class="metric">110</span><small> lines of codes</small></div>
               <div><span class="metric">2</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">2.5</span><small> complexity/method</small></div>
-              <div><span class="metric">0</span><small> churn</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">5.07</span><small> complexity</small></div>
@@ -117,7 +117,7 @@ end
 # implement commandline options
 options = {:path =&gt; nil}
 
-parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L14" class="js-smell-location">0</a>                  <a href="doc_id.html#L23" class="js-smell-location">1</a>                  <a href="excel.html#L70" class="js-smell-location">2</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">3</a>                  <a href="namespace_prefixes.html#L23" class="js-smell-location">4</a>                  </div>  </li></ol>
+parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L14" class="js-smell-location">0</a>                  <a href="doc_id.html#L23" class="js-smell-location">1</a>                  <a href="excel.html#L70" class="js-smell-location">2</a>                  <a href="generate_docs.html#L10" class="js-smell-location">3</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">4</a>                  <a href="namespace_prefixes.html#L23" class="js-smell-location">5</a>                  <a href="web_charts.html#L54" class="js-smell-location">6</a>                  </div>  </li></ol>
   opts.banner = &#39;Usage: doc_id.rb&#39;
 
   opts.on(&#39;-p&#39;, &#39;--path path&#39;, &#39;Path to schema&#39;) do |path|
@@ -145,11 +145,11 @@ end
 # start
 project_path = create_path(options[:path])
 
-filename=[]; doc=[]; doc_type=[]; doc_title=[]; doc_variant_subtitle=[]; doc_variant_letter=[]
+filename=[]; revision=[]; version=[]; doc=[]; doc_type=[]; doc_title=[]; doc_variant_subtitle=[]; doc_variant_letter=[]
 
 Dir.glob(&quot;#{project_path}/*&quot;).map do |schema_folder|
   folder = File.basename(schema_folder)
-  if folder.size == 4 &amp;&amp; folder != &#39;base&#39;
+  if folder.size == 4
     Dir.glob(&quot;#{schema_folder}/*.xsd&quot;).map do |schema_file|
       data = read_file(schema_file)
       schema = File.basename(schema_file)
@@ -162,30 +162,47 @@ Dir.glob(&quot;#{project_path}/*&quot;).map do |schema_folder|
         doc &lt;&lt; &#39;CF3RFeatureNotTestedH&#39;
         doc_title &lt;&lt; &#39;CF3RFeatureNotTestedH&#39;
       else
-        doc &lt;&lt; data.gsub(/(.*&lt;xsd:attribute name=&quot;doc&quot; type=&quot;comp:ComplianceDocumentTag&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
-        # revision &lt;&lt; data.gsub(/(.*&lt;xsd:attribute name=&quot;revision&quot;.*?fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m,&#39;\2&#39;).strip
-        doc_title &lt;&lt; data.gsub(/(.*&lt;xsd:attribute name=&quot;docTitle&quot; type=&quot;comp:ComplianceDocumentTitleRes&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
+        doc &lt;&lt; if folder == &#39;base&#39;
+                 &#39;N/A&#39;
+               else
+                 data.gsub(/(.*&lt;xsd:attribute name=&quot;doc&quot; type=&quot;comp:ComplianceDocumentTag&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
+               end
+        doc_title &lt;&lt; if folder == &#39;base&#39;
+                       &#39;N/A&#39;
+                     else
+                       data.gsub(/(.*&lt;xsd:attribute name=&quot;docTitle&quot; type=&quot;comp:ComplianceDocumentTitleRes&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
+                     end
       end
-      doc_type &lt;&lt; data.gsub(/(.*&lt;xsd:attribute name=&quot;docType&quot; type=&quot;comp:ComplianceDocumentType&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
-      doc_variant_subtitle &lt;&lt; if data.include?(&#39;docVariantSubtitle&#39;) &amp;&amp; fn != &#39;cf3rnotesth.xsd&#39; &amp;&amp; fn != &#39;cf3rfeaturenottestedh.xsd&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="doc_id.html#L73" class="js-smell-location">0</a>                  <a href="doc_id.html#L78" class="js-smell-location">1</a>                  </div>  </li></ol>
+      doc_type &lt;&lt; if folder == &#39;base&#39;
+                    &#39;N/A&#39;
+                  else
+                    data.gsub(/(.*&lt;xsd:attribute name=&quot;docType&quot; type=&quot;comp:ComplianceDocumentType&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
+                  end
+      doc_variant_subtitle &lt;&lt; if data.include?(&#39;docVariantSubtitle&#39;) &amp;&amp; fn != &#39;cf3rnotesth.xsd&#39; &amp;&amp; fn != &#39;cf3rfeaturenottestedh.xsd&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="doc_id.html#L84" class="js-smell-location">0</a>                  <a href="doc_id.html#L89" class="js-smell-location">1</a>                  </div>  </li></ol>
                                 data.gsub(/(.*&lt;xsd:attribute name=&quot;docVariantSubtitle&quot; type=&quot;comp:ComplianceDocumentVariantSubtitle&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
                               else
                                 &#39;N/A&#39;
                               end
-      doc_variant_letter &lt;&lt; if data.include?(&#39;docVariantLetter&#39;) &amp;&amp; fn != &#39;cf3rnotesth.xsd&#39; &amp;&amp; fn != &#39;cf3rfeaturenottestedh.xsd&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="doc_id.html#L73" class="js-smell-location">0</a>                  <a href="doc_id.html#L78" class="js-smell-location">1</a>                  </div>  </li></ol>
+      doc_variant_letter &lt;&lt; if data.include?(&#39;docVariantLetter&#39;) &amp;&amp; fn != &#39;cf3rnotesth.xsd&#39; &amp;&amp; fn != &#39;cf3rfeaturenottestedh.xsd&#39;<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 2 nodes</span>              <span>Locations:</span>                  <a href="doc_id.html#L84" class="js-smell-location">0</a>                  <a href="doc_id.html#L89" class="js-smell-location">1</a>                  </div>  </li></ol>
                               data.gsub(/(.*&lt;xsd:attribute name=&quot;docVariantLetter&quot; type=&quot;comp:ComplianceDocumentVariant&quot; fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
                             else
                               &#39;N/A&#39;
                             end
+      revision &lt;&lt; if folder == &#39;base&#39;
+                    &#39;N/A&#39;
+                  else
+                    data.gsub(/(.*&lt;xsd:attribute name=&quot;revision&quot;.*?fixed=&quot;)(.*?)(&quot;\/&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
+                  end
+      version &lt;&lt; data.gsub(/(.*&lt;xsd:schema.*?version=&quot;)(.*?)(&quot;&gt;.*&lt;\/xsd:schema&gt;)/m, &#39;\2&#39;).strip
     end
   end
 end
 
 FileUtils.mkdir_p &quot;#{Dir.getwd}/output/docid&quot;
 CSV.open(&quot;#{Dir.getwd}/output/docid/DocID.csv&quot;, &#39;wb&#39;) do |csv|
-  csv &lt;&lt; [&#39;File Path&#39;, &#39;doc&#39;, &#39;docType&#39;, &#39;docTitle&#39;, &#39;docVariantSubtitle&#39;, &#39;docVariantLetter&#39;]
+  csv &lt;&lt; [&#39;File Path&#39;, &#39;Version&#39;, &#39;Revision&#39;, &#39;doc&#39;, &#39;docType&#39;, &#39;docTitle&#39;, &#39;docVariantSubtitle&#39;, &#39;docVariantLetter&#39;]
   filename.map.with_index do |item, i|
-    csv &lt;&lt; [item, doc[i], doc_type[i], doc_title[i], doc_variant_subtitle[i], doc_variant_letter[i]]
+    csv &lt;&lt; [item, version[i], revision[i], doc[i], doc_type[i], doc_title[i], doc_variant_subtitle[i], doc_variant_letter[i]]
   end
 end
 </code>

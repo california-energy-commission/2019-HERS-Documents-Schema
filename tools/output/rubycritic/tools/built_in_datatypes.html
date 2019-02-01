@@ -45,7 +45,7 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2019-01-13 01:57:49 +1000'>2019-01-13 01:57:49 +1000</time>
+          Updated <time class='js-timeago' datetime='2019-01-26 17:37:52 +1000'>2019-01-26 17:37:52 +1000</time>
         
       </span>
     </div>
@@ -60,18 +60,18 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-1">
-            <div class="rating c big">
-              C
+            <div class="rating d big">
+              D
             </div>
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">68</span><small> lines of codes</small></div>
+              <div><span class="metric">66</span><small> lines of codes</small></div>
               <div><span class="metric">1</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">1.1</span><small> complexity/method</small></div>
-              <div><span class="metric">1</span><small> churn</small></div>
+              <div><span class="metric">2</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">1.1</span><small> complexity</small></div>
@@ -108,7 +108,7 @@ end
 # implement commandline options
 options = {:path =&gt; nil}
 
-parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 5 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L14" class="js-smell-location">0</a>                  <a href="doc_id.html#L23" class="js-smell-location">1</a>                  <a href="excel.html#L70" class="js-smell-location">2</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">3</a>                  <a href="namespace_prefixes.html#L23" class="js-smell-location">4</a>                  </div>  </li></ol>
+parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 7 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L14" class="js-smell-location">0</a>                  <a href="doc_id.html#L23" class="js-smell-location">1</a>                  <a href="excel.html#L70" class="js-smell-location">2</a>                  <a href="generate_docs.html#L10" class="js-smell-location">3</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">4</a>                  <a href="namespace_prefixes.html#L23" class="js-smell-location">5</a>                  <a href="web_charts.html#L54" class="js-smell-location">6</a>                  </div>  </li></ol>
   opts.banner = &#39;Usage: built_in_datatypes.rb&#39;
 
   opts.on(&#39;-p&#39;, &#39;--path path&#39;, &#39;Path to schema&#39;) do |path|
@@ -134,12 +134,10 @@ if options[:path].nil?
 end
 
 @error = 0
-# rubocop:disable Metrics/LineLength
 @allowed = %w[string boolean base64Binary hexBinary float decimal double anyURI QName NOTATION duration dateTime time date gYearMonth gYear gMonthDay gDay gMonth
               normalizedString integer token nonPositiveInteger long nonNegativeInteger language Name NMTOKEN negativeInteger
               int unsignedLong positiveInteger NCName NMTOKENS short unsignedInt ID IDREF ENTITY byte unsignedShort IDREFS
               ENTITIES unsignedByte]
-# rubocop:enable Metrics/LineLength
 
 # start
 project_path = create_path(options[:path])
