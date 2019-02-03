@@ -1,9 +1,22 @@
 # 2019 HERS Documents Schema
 
+- [Contributing](#contributing)
+- [Reports](#reports)
+- [Checks to run before submitting a pull request](#checks-to-run-before-submitting-a-pull-request)
+- [Deploy Schema](#deploy-schema)
+    - [Windows](#windows)
+        - [Example run](#example-run)
+- [Ruby](#ruby)
+- [Links](#links)
+- [Go Faster](#go-faster)
+- [Advanced Links](#advanced-links)
+
 ## Contributing
 
 Thanks for your interest in contributing! There are many ways to contribute to this project. 
 Get started here [CONTRIBUTING](CONTRIBUTING.md)
+
+[&#8593;](#2019-hers-documents-schema)
 
 ## Reports
 
@@ -166,7 +179,6 @@ ruby web_charts.rb -p ../schema
 - [Markdown](https://guides.github.com/features/mastering-markdown/)
 - [RubyGems](https://rubygems.org/)
 - [plotly.js](https://plot.ly/javascript/)
-- [HTML5](https://developer.mozilla.org/en-US/docs/Learn/HTML)
 - [Regular expressions](https://www.rexegg.com/)
 - [APT](https://en.wikipedia.org/wiki/APT_\(Debian\))
 - [xargs](https://en.wikipedia.org/wiki/Xargs)
@@ -187,6 +199,7 @@ ruby web_charts.rb -p ../schema
 - [Sourcetree](https://www.sourcetreeapp.com/)
 - [GitKraken](https://www.gitkraken.com/git-client)
 - [Tower](https://www.git-tower.com/)
+- [Batch file](https://en.wikipedia.org/wiki/Batch_file)
 
 [&#8593;](#2019-hers-documents-schema)
 
