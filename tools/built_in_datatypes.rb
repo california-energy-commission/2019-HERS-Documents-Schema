@@ -1,4 +1,3 @@
-require 'fileutils'
 require 'nokogiri'
 require 'optparse'
 
@@ -47,8 +46,8 @@ project_path = create_path(options[:path])
 @datatypes = []
 
 Dir.glob("#{project_path}/**/*.xsd").map do |schema|
-  @doc = Nokogiri::XML(File.open(schema))
-  @doc.xpath('//*[starts-with(@type,"xsd:")]').map do |tag|
+  doc = Nokogiri::XML(File.open(schema))
+  doc.xpath('//*[starts-with(@type,"xsd:")]').map do |tag|
     type = tag.attribute('type').to_s.split(':').last
     next if @datatypes.include?(type)
 
