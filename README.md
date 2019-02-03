@@ -130,10 +130,23 @@ ruby web_charts.rb -p ../schema
 
 ## Links
 
-- [XPath](https://www.w3schools.com/xml/xpath_intro.asp)
+- [The Extensible Stylesheet Language Family (XSL)](https://www.w3.org/Style/XSL/)
+- [Ibex PDF Creator .NET Programmers Guide](http://www.xmlpdf.com/builds/ibex.pdf)
+- [XSL-FO Tutorial - Apache FOP](https://xmlgraphics.apache.org/fop/fo.html)
+- [FO Processors](http://www.sagehill.net/docbookxsl/FOprocessors.html)
+- [XPath Intro](https://www.w3schools.com/xml/xpath_intro.asp)
+- [XSLT Intro](https://www.w3schools.com/xml/xsl_intro.asp)
+- [XHTML](https://en.wikipedia.org/wiki/XHTML)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+- [XML Schema Tutorial](https://www.w3schools.com/xml/schema_intro.asp)
+- [Saxonica](https://www.saxonica.com/)
 - [Git](https://git-scm.com/)
 - [Shell script](https://en.wikipedia.org/wiki/Shell_script)
 - [grep](https://www.gnu.org/software/grep/)
+- [dwdiff](https://linux.die.net/man/1/dwdiff)
+- [GNU wdiff](https://www.gnu.org/software/wdiff/)
+- [pdftotext](https://www.xpdfreader.com/pdftotext-man.html)
+- [colordiff](https://www.colordiff.org/)
 - [Ruby](https://www.ruby-lang.org)
 - [Bundler](https://bundler.io/)
 - [Gemfile](https://bundler.io/gemfile.html)
@@ -145,7 +158,6 @@ ruby web_charts.rb -p ../schema
 - [OptionParser](https://docs.ruby-lang.org/en/2.5.0/OptionParser.html)
 - [CSV](https://ruby-doc.org/stdlib-2.5.3/libdoc/csv/rdoc/CSV.html)
 - [RubyCritic](https://github.com/whitesmith/rubycritic)
-- [Golang](https://golang.org/)
 - [YAML](https://yaml.org/)
 - [CircleCI](https://circleci.com/)
 - [xmllint](http://xmlsoft.org/xmllint.html)
@@ -166,11 +178,40 @@ ruby web_charts.rb -p ../schema
 - [XML Schema built in datatypes](https://www.w3.org/TR/xmlschema-2/#built-in-datatypes)
 - [XMLSpy](https://www.altova.com/xmlspy-xml-editor)
 - [Oxygen XML Editor](https://www.oxygenxml.com/)
+- [dos2unix](https://linux.die.net/man/1/dos2unix)
+- [RubyMine](https://www.jetbrains.com/ruby/)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/)
+- [PyCharm](https://www.jetbrains.com/pycharm/)
+- [Sublime Text](https://www.sublimetext.com/)
+- [GitHub Desktop](https://desktop.github.com/)
+- [Sourcetree](https://www.sourcetreeapp.com/)
+- [GitKraken](https://www.gitkraken.com/git-client)
+- [Tower](https://www.git-tower.com/)
+
+[&#8593;](#2019-hers-documents-schema)
+
+## Go Faster
+
+- [Golang](https://golang.org/) - Go is a statically typed, compiled programming language designed at Google
+- [Getting Started on Heroku with Go](https://devcenter.heroku.com/articles/getting-started-with-go)
+- [govendor](https://github.com/kardianos/govendor) - Go vendor tool that works with the standard vendor file.
+- [Gin](https://github.com/gin-gonic/gin) - Gin is a HTTP web framework written in Go (Golang). It features a Martini-like API with much better performance -- up to 40 times faster. If you need smashing performance, get yourself some Gin. 
+- [GoLand](https://www.jetbrains.com/go) - A Clever IDE to Go
+- [Colly](http://go-colly.org) - Fast and Elegant Scraping Framework for Gophers
+- [que-go](https://github.com/bgentry/que-go) - An interoperable Golang port of the Ruby Que queuing library for PostgreSQL 
+- [pgx](https://github.com/jackc/pgx) - PostgreSQL driver and toolkit for Go
+- [ratago](https://github.com/jbowtie/ratago) - Go implementation of an XSLT 1.0 processor
+- [pflag](https://github.com/ogier/pflag) - Drop-in replacement for Go's flag package, implementing POSIX/GNU-style --flags.
+- [etree](https://github.com/beevik/etree) - parse and generate XML easily in go 
+- [gofpdf](https://github.com/jung-kurt/gofpdf) - A PDF document generator with high level support for text, drawing and images
+- [xmlquery](https://github.com/antchfx/xmlquery) - xmlquery, is an XPath query package for XML in Go.
 
 [&#8593;](#2019-hers-documents-schema)
 
 ## Advanced Links
 
+- [Heroku](https://www.heroku.com/)
+- [Google Cloud](https://cloud.google.com/)
 - [Oracle VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/)
 - [Docker](https://www.docker.com/)
