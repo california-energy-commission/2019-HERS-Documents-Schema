@@ -11,7 +11,7 @@ end
 options = {:path => nil}
 
 parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: built_in_datatypes.rb'
+  opts.banner = 'Usage: document_mismatch.rb'
 
   opts.on('-p', '--path path', 'Path to schema') do |path|
     options[:path] = path

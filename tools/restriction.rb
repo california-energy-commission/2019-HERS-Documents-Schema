@@ -1,4 +1,3 @@
-require 'fileutils'
 require 'nokogiri'
 require 'optparse'
 
