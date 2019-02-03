@@ -9,8 +9,13 @@ Discussion about code base improvements happens in GitHub issues and on pull req
 - [Contributor Workflow](#contributor-workflow)
 - [GitHub Cheat Sheets](#github-cheat-sheets)
 - [More Git Information](#more-git-information)
+    - [Essential Git commands](#essential-git-commands)
+        - [Sync your fork](#sync-your-fork)
 - ["Decision Making" Process](#decision-making-process)
 - [Helpful Information](#helpful-information)
+    - [Training](#training)
+    - [Courses](#courses)
+    - [Free Awesome IDE](#free-awesome-ide)
 
 [&#8593;](#contributing)
 
@@ -183,7 +188,7 @@ a pull request is merged.
 - [DataCamp - Introduction to Shell for Data Science](https://www.datacamp.com/courses/introduction-to-shell-for-data-science)
 - [Codecademy - Learn Ruby](https://www.codecademy.com/learn/learn-ruby)
 
-### Free Awesome IDE's
+### Free Awesome IDE
 
 - [IntelliJ IDEA Community](https://www.jetbrains.com/idea/download)
 - [PyCharm Community](https://www.jetbrains.com/pycharm/download/)
