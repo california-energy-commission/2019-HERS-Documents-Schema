@@ -189,7 +189,7 @@ jobs:
             cd tools
             bundle exec ruby namespace_prefixes.rb -p ../schema || exit 1
 
-  missing-restriction:
+  missing-enumeration:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
 
@@ -218,6 +218,34 @@ jobs:
             cd tools
             bundle exec ruby restriction.rb -p ../schema || exit 1
 
+  document-mismatch:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for a mismatch between targetNamespace | complexType | element[@name='DocumentData']//element/@ref | element/@name | element/@type
+          command: |
+            cd tools
+            bundle exec ruby document_mismatch.rb -p ../schema || exit 1
 
 workflows:
   version: 2
@@ -231,4 +259,5 @@ workflows:
       - missing-base-types
       - built-in-datatypes
       - missing-namespace
-      - missing-restriction
+      - missing-enumeration
+      - document-mismatch
