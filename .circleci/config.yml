@@ -213,7 +213,7 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
-          name: Check for missing xsd:restrictions
+          name: Check for missing xsd:enumerations in the xsd:restrictions
           command: |
             cd tools
             bundle exec ruby restriction.rb -p ../schema || exit 1
