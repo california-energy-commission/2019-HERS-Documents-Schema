@@ -242,7 +242,7 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
-          name: Check for a mismatch between targetNamespace | complexType | element[@name='DocumentData']//element/@ref | element/@name | element/@type
+          name: Check for a mismatch between targetNamespace | xsd:element[@name='DocID']//xsd:attribute[@name='doc'][@type='comp:ComplianceDocumentTag']/@fixed | //xsd:complexType/xsd:attribute[@name='doc'][@use='required']/@fixed | complexType[@name] | element[@name='DocumentData']//element/@ref | element/@name | element/@type
           command: |
             cd tools
             bundle exec ruby document_mismatch.rb -p ../schema || exit 1

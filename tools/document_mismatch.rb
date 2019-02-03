@@ -42,14 +42,16 @@ project_path = create_path(options[:path])
 Dir.glob("#{project_path}/**/{CF1R,CF2R,CF3R,NRCV}/*.xsd").map do |schema|
   doc = Nokogiri::XML(File.open(schema))
   namespace = doc.xpath('/xsd:schema/@targetNamespace').to_s.split('/').last
+  compliance = doc.xpath('//xsd:element[@name="DocID"]//xsd:attribute[@name="doc"][@type="comp:ComplianceDocumentTag"]/@fixed').to_s
+  required = doc.xpath('//xsd:complexType/xsd:attribute[@name="doc"][@use="required"]/@fixed').to_s
   complex = doc.xpath('/xsd:schema/xsd:complexType/@name').to_s
   ref = doc.xpath('//xsd:element[@name="DocumentData"]//xsd:element/@ref').to_s
   element = doc.xpath('/xsd:schema/xsd:element[@name != "ComplianceDocumentPackage"]')
   name = element.attribute('name').to_s
   type = element.attribute('type').to_s
-  if [namespace, complex, ref, name, type].map(&:downcase).uniq.size > 1
+  if [namespace, compliance, required, complex, ref, name, type].map(&:downcase).uniq.size > 1
     @error = 1
-    puts "#{File.basename(schema)} has a targetNamespace:#{namespace} / xsd:complexType:#{complex} / xsd:element[@name='DocumentData']//xsd:element/@ref:#{ref} / xsd:element/@name:#{name} / xsd:element/@type:#{type} - mismatch"
+    puts "#{File.basename(schema)} has a targetNamespace:#{namespace} | xsd:element[@name='DocID']//xsd:attribute[@name='doc'][@type='comp:ComplianceDocumentTag']/@fixed:#{compliance} | //xsd:complexType/xsd:attribute[@name='doc'][@use='required']/@fixed:#{required} | xsd:complexType:#{complex} | xsd:element[@name='DocumentData']//xsd:element/@ref:#{ref} | xsd:element/@name:#{name} | xsd:element/@type:#{type} - mismatch\n\n"
   end
 end
 
