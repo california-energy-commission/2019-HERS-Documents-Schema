@@ -32,8 +32,6 @@ if options[:path].nil?
   options[:path] = STDIN.gets.chomp
 end
 
-# start
-
 # run shell command
 `generateDocs.bat`
 
@@ -57,9 +55,8 @@ end
 page += %(
     </ul>
   </body>
-</html>
-)
+</html>)
 
-f = File.open("#{create_path(ARGV[0])}/documentation/index.html", 'w')
+f = File.open("#{create_path(options[:path])}/documentation/index.html", 'w')
 f.write(page)
 f.close
