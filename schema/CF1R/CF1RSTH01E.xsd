@@ -35,7 +35,7 @@
                <xsd:complexType>
                   <xsd:sequence>
                      <xsd:element name="Header" type="comp:HeaderCF1R" />
-                     <xsd:element ref="cF1RSTH02E" />
+                     <xsd:element ref="cF1RSTH01E" />
                      <xsd:element name="DocAuthor" type="comp:DocumentAuthor" />
                      <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R" />
                      <xsd:element name="Footer" type="comp:Footer" />
@@ -48,7 +48,7 @@
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RSTH01E"/>
       </xsd:complexType>
    </xsd:element>
-   <xsd:complexType name="CF1RSTH02E">
+   <xsd:complexType name="CF1RSTH01E">
       <xsd:annotation>
          <xsd:documentation>OG 100 Solar Water Heating Worksheet</xsd:documentation>
       </xsd:annotation>
@@ -225,9 +225,9 @@
          </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:element name="cF1RSTH02E" type="CF1RSTH02E">
+   <xsd:element name="cF1RSTH01E" type="CF1RSTH01E">
       <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF1RSTH02E compliance report.</xsd:documentation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RSTH01E compliance report.</xsd:documentation>
       </xsd:annotation>
    </xsd:element>
 </xsd:schema>
