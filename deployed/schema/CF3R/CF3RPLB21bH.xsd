@@ -7,7 +7,7 @@
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
-   <xsd:complexType name="CF3RPLB21bE">
+   <xsd:complexType name="CF3RPLB21bH">
       <xsd:annotation>
          <xsd:documentation>HERS Verified Multifamily Central Hot Water System Distribution</xsd:documentation>
       </xsd:annotation>
@@ -594,7 +594,7 @@
                <xsd:complexType>
                   <xsd:sequence>
                      <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
-                     <xsd:element ref="cF3RPLB21bE"/>
+                     <xsd:element ref="cF3RPLB21bH"/>
                      <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
                      <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3R"/>
                      <xsd:element name="Footer" type="comp:Footer"/>
@@ -607,9 +607,9 @@
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RPLB21bH"/>
       </xsd:complexType>
    </xsd:element>
-   <xsd:element name="cF3RPLB21bE" type="CF3RPLB21bE">
+   <xsd:element name="cF3RPLB21bH" type="CF3RPLB21bH">
       <xsd:annotation>
-         <xsd:documentation>This element contains all of the data and text required to generate the CF3RPLB21bE compliance report.</xsd:documentation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF3RPLB21bH compliance report.</xsd:documentation>
       </xsd:annotation>
    </xsd:element>
 </xsd:schema>
