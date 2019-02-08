@@ -978,11 +978,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1">
+         <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior(Section 150.1(c).5)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if theproject has any opaque swinging doors</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="FieldText">Opaque Swinging Doors to Exterior (Section 150.1(c).5)</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if the project has any opaque swinging doors</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -998,7 +998,7 @@
                                     <xsd:element name="H01_DoorName" type="env:DoorName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tag/ID</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input string (max 50 characters)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H02_DoorArea" type="env:DoorArea" >
@@ -1240,19 +1240,11 @@
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegtive</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J10_FenestrationCertificationMethod" >
+                                    <xsd:element name="J10_FenestrationCertificationMethod" type="env:FenestrationCertificationMethod" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Proposed U-factor Source</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Choice NFRCRated, display text: NFRC;  Choice CECDefaultPerformance, display text: Tables 110.6A; Choice NA6Equations, display text: Equations NA6-1 and NA6-2; 6-2; and Choice CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="env:FenestrationCertificationMethod">
-                                             <xsd:enumeration value="CECDefaultPerformance"/>
-                                             <xsd:enumeration value="CF1R_ENV_02"/>
-                                             <xsd:enumeration value="NA6Equations"/>
-                                             <xsd:enumeration value="NFRCRated"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="J11_SHGC" type="com:SHGC" >
                                        <xsd:annotation>
@@ -1260,19 +1252,11 @@
                                           <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegtive</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J12_FenestrationCertificationMethod" >
+                                    <xsd:element name="J12_FenestrationCertificationMethod" type="env:FenestrationCertificationMethod" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Proposed SHGC Source</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Choice NFRCRated, display text: NFRC;  Choice CECDefaultPerformance, display text: Tables 110.6B; Choice NA6Equations, display text: Equations NA6-1 and NA6-2 and Choice CF1R_ENV_02 display text: Area-weighted Average Worksheet (CF1R-ENV-02)</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="env:FenestrationCertificationMethod">
-                                             <xsd:enumeration value="CECDefaultPerformance"/>
-                                             <xsd:enumeration value="CF1R_ENV_02"/>
-                                             <xsd:enumeration value="NA6Equations"/>
-                                             <xsd:enumeration value="NFRCRated"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="J13_ExternalShadingObjectType" type="env:ExternalShadingObjectType" >
                                        <xsd:annotation>
@@ -1922,16 +1906,6 @@
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
-                                       <xsd:element name="M14_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH result = RecirculatingContinuousTemperatureModulationMonitoringMF stored in ResidentialDHWCentralDistributionType; Else If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH (results stored in ResidentialDHWDwellingUnitDistributionType ) If  M03__WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution or    DemandRecirculation; Else If M03__WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If M03__WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  M03__WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
-                                             <xsd:appinfo source="displayterm">
-                                                <dtyp:displayterm value="Not Applicable">N/A - not a central DHW system</dtyp:displayterm>
-                                             </xsd:appinfo>
-                                             
-                                          </xsd:annotation>
-                                       </xsd:element>
                                     </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
@@ -1942,7 +1916,7 @@
                   <xsd:element name="MEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Options: [d:line1/] Single Family &amp; Multifamily with Individual Water Heaters [d:l t="#"][d:list] Gas or propane instantaneous [/d:list][d:list] 55 gallons or less storage tank with 75,000 Btu or less rated input  [/d:list][d:list]  Greater than 55 gallons with 75,000 Btu or less rated input  [/d:list][d:list] Heat pump water heater installed in conditioned space or garage with either: [d:l t="A"][d:list] Compact hot water distribution basic and drain water heat recovery (HERS) or [/d:list][d:list] If climate zone 8-15, a PV system 0.3 kWdc larger than system required by Table O below, or If climate zone 1 or 16, a PV system 1.1 kWdc larger than system required by Table O below [/d:list][/d:l] [/d:list][d:list] Tier 3 water heater (as rated by Northwest Energy Efficiency Alliance (NEEA)) installed in conditioned space or garage.  If climate zone is 1 or 16 either [d:l t="A"][d:list] A PV system that is 0.3kWdc larger than Table O below or [/d:list][d:list] Compact hot water distribution basic  [/d:list][/d:l] [/d:list][/d:l] [d:line1/] Multifamily with Central Water Heating [d:l t="A"][d:list]  Gas or propane water heating system, a recirculation  system, and a minimum solar savings fraction of 0.20 in climate zones 1 through 9, or a minimum solar savings fraction of 0.35 in climate zones 10 through 16.  [/d:list][d:list] Gas or propane water heating system, a recirculation  system, a minimum solar savings fraction of 0.15 in climate zones 1 through 9, or a minimum solar savings fraction of 0.30 in climate zones 10 through 16, and drain water heat recovery.[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Options: [d:line1/] Single Family &amp; Multifamily with Individual Water Heaters [d:l t="#"][d:list] Gas or propane instantaneous [/d:list][d:list] 55 gallons or less storage tank with 75,000 Btu or less rated input. Distribution either compact hot water distribution (HERS) or drain water heat recovery (HERS). [/d:list][d:list]  Greater than 55 gallons with 75,000 Btu or less rated input  [/d:list][d:list] Heat pump water heater installed in conditioned space or garage with either: [d:l t="A"][d:list] Compact hot water distribution basic and drain water heat recovery (HERS) or [/d:list][d:list] If climate zone 8-15, a PV system 0.3 kWdc larger than system required by Table O below, or If climate zone 1 or 16, a PV system 1.1 kWdc larger than system required by Table O below [/d:list][/d:l] [/d:list][d:list] Tier 3 water heater (as rated by Northwest Energy Efficiency Alliance (NEEA)) installed in conditioned space or garage.  If climate zone is 1 or 16 either [d:l t="A"][d:list] A PV system that is 0.3kWdc larger than Table O below or [/d:list][d:list] Compact hot water distribution basic  [/d:list][/d:l] [/d:list][/d:l] [d:line1/] Multifamily with Central Water Heating [d:l t="A"][d:list]  Gas or propane water heating system, a recirculation  system, and a minimum solar savings fraction of 0.20 in climate zones 1 through 9, or a minimum solar savings fraction of 0.35 in climate zones 10 through 16.  [/d:list][d:list] Gas or propane water heating system, a recirculation  system, a minimum solar savings fraction of 0.15 in climate zones 1 through 9, or a minimum solar savings fraction of 0.30 in climate zones 10 through 16, and drain water heat recovery system.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -1950,7 +1924,7 @@
          </xsd:element>
          <xsd:element name="Section_N" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
-               <xsd:documentation source="FieldText">Space Conditioning Systems And Water Heating Systems In Multifamily Dwelling Units</xsd:documentation>
+               <xsd:documentation source="FieldText">Multifamily Space Conditioning Systems And Water Heating Systems</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable only if A11 != SingleFamily.  Require a minimum of one row of data to be entered in this section for each of the quantity of dwelling units entered in A06 with a unique dwelling unit name in N01 for each of the quantity.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
