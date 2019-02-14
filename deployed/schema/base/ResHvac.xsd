@@ -777,6 +777,20 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="CompactDistributionType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BasicType">Basic</dtyp:displayterm>
+            <dtyp:displayterm value="Expanded">Expanded</dtyp:displayterm>
+            <dtyp:displayterm value="NotCompact">None</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BasicType"/>
+         <xsd:enumeration value="Expanded"/>
+         <xsd:enumeration value="NotCompact"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="CondenserNominalCoolingCapacity">
       <xsd:annotation>
          <xsd:documentation>Units: cooling ton (12,000 Btu per h)</xsd:documentation>
@@ -926,6 +940,18 @@
          <xsd:documentation>Units: W</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_Type">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="DWHR">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="NoDWHR">None</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="DWHR"/>
+         <xsd:enumeration value="NoDWHR"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DX_AirflowVerified">
       <xsd:annotation>
@@ -2164,6 +2190,7 @@
             <dtyp:displayterm value="StateHPX80DHPTNE">HPX 80 DHPTNE 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Stiebel58A220E">Accelera 220 E  (58 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Stiebel80A300">Accelera 300/WHP 300  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Tier3NEEA">NEEA Tier 3</dtyp:displayterm>
             <dtyp:displayterm value="USCraftmasterHPE2F80U">HPE2F80HD045VU 102  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="USCraftmasterHPE2K60">HPE2K60HD045V  (60 gal)</dtyp:displayterm>
             <dtyp:displayterm value="USCraftmasterHPE2K80">HPE2K80HD045V  (80 gal)</dtyp:displayterm>
@@ -2322,6 +2349,7 @@
          <xsd:enumeration value="StateHPX80DHPTNE"/>
          <xsd:enumeration value="Stiebel58A220E"/>
          <xsd:enumeration value="Stiebel80A300"/>
+         <xsd:enumeration value="Tier3NEEA"/>
          <xsd:enumeration value="USCraftmasterHPE2F80U"/>
          <xsd:enumeration value="USCraftmasterHPE2K60"/>
          <xsd:enumeration value="USCraftmasterHPE2K80"/>
