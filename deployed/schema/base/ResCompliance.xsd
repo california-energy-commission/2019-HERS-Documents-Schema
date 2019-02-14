@@ -960,6 +960,24 @@
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="CompactDistCoefA">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Coefficient a</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="CompactDistCoefB">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Coefficient b</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="Company">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -1675,7 +1693,7 @@ Document Data</dtyp:displayterm>
             <dtyp:displayterm value="Fan Efficacy (Fan Watt Draw)">Fan Efficacy (Fan Watt Draw)</dtyp:displayterm>
             <dtyp:displayterm value="Fenestration Installation">Fenestration Installation</dtyp:displayterm>
             <dtyp:displayterm value="HERS Verified High Rise Residential/Hotel/Motel Central Hot Water System Distribution">HERS Verified High Rise Residential/Hotel/Motel Central Hot Water System Distribution</dtyp:displayterm>
-            <dtyp:displayterm value="HERS Verified High Rise Residential/Hotel/Motel Single Dwelling Unit Hot Water">HERS Verified High Rise Residential/Hotel/Motel Single Dwelling Unit Hot Water</dtyp:displayterm>
+            <dtyp:displayterm value="HERS Verified High Rise Residential/Hotel/Motel Single Dwelling Unit Hot Water System Distribution">HERS Verified High Rise Residential/Hotel/Motel Single Dwelling Unit Hot Water System Distribution</dtyp:displayterm>
             <dtyp:displayterm value="HERS Verified Multifamily Central Hot Water System Distribution">HERS Verified Multifamily Central Hot Water System Distribution</dtyp:displayterm>
             <dtyp:displayterm value="HERS Verified Single Dwelling Unit Hot Water System Distribution">HERS Verified Single Dwelling Unit Hot Water System Distribution</dtyp:displayterm>
             <dtyp:displayterm value="Hydronic Heating System Worksheet">Hydronic Heating System Worksheet</dtyp:displayterm>
@@ -1739,7 +1757,7 @@ Document Data</dtyp:displayterm>
          <xsd:enumeration value="Fan Efficacy (Fan Watt Draw)"/>
          <xsd:enumeration value="Fenestration Installation"/>
          <xsd:enumeration value="HERS Verified High Rise Residential/Hotel/Motel Central Hot Water System Distribution"/>
-         <xsd:enumeration value="HERS Verified High Rise Residential/Hotel/Motel Single Dwelling Unit Hot Water"/>
+         <xsd:enumeration value="HERS Verified High Rise Residential/Hotel/Motel Single Dwelling Unit Hot Water System Distribution"/>
          <xsd:enumeration value="HERS Verified Multifamily Central Hot Water System Distribution"/>
          <xsd:enumeration value="HERS Verified Single Dwelling Unit Hot Water System Distribution"/>
          <xsd:enumeration value="Hydronic Heating System Worksheet"/>
@@ -2398,6 +2416,69 @@ Document Data</dtyp:displayterm>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="DWHR_CertifiedByCEC">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>DWHR System Certified by CEC</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_Configuration">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>DWHR Instalation Configuration</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="EqualFlow">Equal Flow</dtyp:displayterm>
+            <dtyp:displayterm value="UnequalFlowShower">Unequal to Shower</dtyp:displayterm>
+            <dtyp:displayterm value="UnequalFlowWaterHeater">Unequal to Water Heater</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="EqualFlow"/>
+         <xsd:enumeration value="UnequalFlowShower"/>
+         <xsd:enumeration value="UnequalFlowWaterHeater"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_Manufacturer">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>DWHR Manufacturer</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:String50Char"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_ModelNumber">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>DWHR Model Number</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:String50Char"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_PercentShowerServed">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Percent of Shower Served by DWHR</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_RatedEffectiveness">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>DWHR Rated Effectiveness</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="DataRegistryProvider">
       <xsd:annotation>
          <xsd:documentation source="propertyrules">This value is a string representing the data registry provider that generated the compliance document</xsd:documentation>
@@ -2610,6 +2691,15 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Pass - dwelling does comply with the Photovoltaic System requirements</dtyp:displayterm>
             <dtyp:displayterm value="false">Fail - dwelling does not comply with the Photovoltaic System requirements</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="DoesDwellingUnitWaterHeatingEfficiencyComply">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">System complies</dtyp:displayterm>
+            <dtyp:displayterm value="false">System does not comply</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
@@ -4558,6 +4648,18 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="IsDHW_Central">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Central DHW System Distribution</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">NA</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
    <xsd:simpleType name="IsDigitalRefrigerantGaugeCalibrationCurrent">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -6181,14 +6283,15 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CoolingSystemAlteration">Space cooling system</dtyp:displayterm>
             <dtyp:displayterm value="DuctSystemAlteration">Space conditioning duct system</dtyp:displayterm>
-            <dtyp:displayterm value="FenestrationGlazingAddition">Adding Fenestration/Glazing greater than 75 ft2 of windows  and/or 16 ft2 of skylights</dtyp:displayterm>
-            <dtyp:displayterm value="FenestrationGlazingReplacement">Replacing Fenestration/Glazing greater than 75 ft2 of windows</dtyp:displayterm>
+            <dtyp:displayterm value="FenestrationGlazingAddition">Adding Fenestration/Glazing</dtyp:displayterm>
+            <dtyp:displayterm value="FenestrationGlazingReplacement">Replacing Fenestration/Glazing</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingSkylightMinimumFt2Addition">Adding Fenestration/Glazing less than or equal to 16 ft2 Skylights</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingSkylightMinimumFt2Replacement">Replacing Fenestration/Glazing Skylights</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingWindowMinimumFt2Addition">Adding Fenestration/Glazing less than or equal to 75 ft2  Windows</dtyp:displayterm>
             <dtyp:displayterm value="FenestrationGlazingWindowMinimumFt2Replacement">Replacing Fenestration/Glazing less than or equal to 75 ft2  Windows</dtyp:displayterm>
             <dtyp:displayterm value="HeatingSystemAlteration">Space heating system</dtyp:displayterm>
             <dtyp:displayterm value="InsulationAlteration">Insulation</dtyp:displayterm>
+            <dtyp:displayterm value="KitchenRemodelAlteration">Kitchen Remodel</dtyp:displayterm>
             <dtyp:displayterm value="RoofAlterationGT50Percent">Roof replacement greater than 50 %</dtyp:displayterm>
             <dtyp:displayterm value="WaterHeatingAlteration">Water heating</dtyp:displayterm>
          </xsd:appinfo>
@@ -6204,6 +6307,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="FenestrationGlazingWindowMinimumFt2Replacement"/>
          <xsd:enumeration value="HeatingSystemAlteration"/>
          <xsd:enumeration value="InsulationAlteration"/>
+         <xsd:enumeration value="KitchenRemodelAlteration"/>
          <xsd:enumeration value="RoofAlterationGT50Percent"/>
          <xsd:enumeration value="WaterHeatingAlteration"/>
       </xsd:restriction>
@@ -7711,6 +7815,51 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterQuantificationDistance">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Quantification Distance</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterToBath">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Master Bath distance of furthest fixture to Water Heater</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterToFurthest3rdFixture">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Furthest Third furthest fixture to Water Heater</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterToKitchen">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Kitchen distance of furthest fixture to Water Heater</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterWeightedDistance">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Weighted Distance</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeatingSystemOption">
       <xsd:annotation>
