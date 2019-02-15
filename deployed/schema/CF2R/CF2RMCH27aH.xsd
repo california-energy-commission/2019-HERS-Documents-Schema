@@ -358,6 +358,16 @@
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL (D05_ContinuousAirflowRateInstalled)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
                   <xsd:element name="E01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
