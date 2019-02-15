@@ -161,6 +161,18 @@ $ git merge upstream/master
 $ git push
 ```
 
+#### Squashing Commits
+You may be asked by a maintainer to squash your commits before it will be merged. 
+```
+git checkout your_branch
+git rebase -i HEAD~n
+# n is the number of commits in the pull request.
+# Set commits (except the one in the first line) from 'pick' to 'squash', save and quit.
+# On the next screen, edit/refine commit messages.
+# Save and quit.
+git push -f # (force push to GitHub)
+```
+
 [&#8593;](#contributing)
 
 ## Decision Making Process

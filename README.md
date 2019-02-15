@@ -138,6 +138,11 @@ To generate the web based Plotly pie charts run:
 cd tools
 ruby web_charts.rb -p ../schema
 ```
+On Linux you can generate all the reports at once as shown below:
+```
+cd tools
+./run.sh
+```
 
 [&#8593;](#2019-hers-documents-schema)
 
