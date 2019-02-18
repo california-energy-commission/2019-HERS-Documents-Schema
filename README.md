@@ -102,6 +102,8 @@ deploy-schema.exe -d . -s schema -v 2019.1.000
 
 ## Ruby
 
+So far most of the [Ruby](https://www.ruby-lang.org) code has been tested on Ruby 2.5.3 and Ruby 2.6.1
+
 We are using [Bundler](https://bundler.io/) to manage and install the [RubyGems](https://rubygems.org/).
 ```
 gem install bundler
@@ -205,6 +207,7 @@ cd tools
 - [GitKraken](https://www.gitkraken.com/git-client)
 - [Tower](https://www.git-tower.com/)
 - [Batch file](https://en.wikipedia.org/wiki/Batch_file)
+- [cloc](https://github.com/AlDanial/cloc)
 
 [&#8593;](#2019-hers-documents-schema)
 
@@ -235,3 +238,12 @@ cd tools
 - [Docker](https://www.docker.com/)
 
 [&#8593;](#2019-hers-documents-schema)
+
+## Cloc Report
+
+[cloc](https://github.com/AlDanial/cloc) counts blank lines, comment lines, and physical lines of source code in many programming languages.
+
+```
+cd 2019-HERS-Documents-Schema
+cloc --report-file=assets/cloc.txt .
+```
