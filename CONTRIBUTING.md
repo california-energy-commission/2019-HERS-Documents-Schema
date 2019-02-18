@@ -9,8 +9,11 @@ Discussion about code base improvements happens in GitHub issues and on pull req
 - [Contributor Workflow](#contributor-workflow)
 - [GitHub Cheat Sheets](#github-cheat-sheets)
 - [More Git Information](#more-git-information)
+    - [Free Git GUI clients](#free-git-gui-clients)
+    - [Commercial Git GUI clients](#commercial-git-gui-clients)
     - [Essential Git commands](#essential-git-commands)
         - [Sync your fork](#sync-your-fork)
+        - [Squashing Commits](#squashing-commits)
 - ["Decision Making" Process](#decision-making-process)
 - [Helpful Information](#helpful-information)
     - [Training](#training)
@@ -56,12 +59,14 @@ or
 $ gitk
 ```
 
-Other Free Git GUI clients:
+### Free Git GUI clients:
 
 - [GitHub Desktop](https://desktop.github.com/)
 - [Sourcetree](https://www.sourcetreeapp.com/)
 
-Commercial Git GUI clients:
+[&#8593;](#contributing)
+
+### Commercial Git GUI clients:
 
 - [GitKraken](https://www.gitkraken.com/git-client)
 - [Tower](https://www.git-tower.com/)
@@ -187,10 +192,14 @@ a pull request is merged.
 - [Free Training](#training)
 - [Free Short Intro Courses on Git/Shell](#courses)
 
+[&#8593;](#contributing)
+
 ### Training
 
 - [GitHub Learning Lab](https://lab.github.com/)
 - [Codewars](https://www.codewars.com/) - Train on kata in the dojo and reach your highest potential
+
+[&#8593;](#contributing)
 
 ### Courses
 
@@ -199,6 +208,12 @@ a pull request is merged.
 - [Codecademy - Learn the Command Line](https://www.codecademy.com/learn/learn-the-command-line)
 - [DataCamp - Introduction to Shell for Data Science](https://www.datacamp.com/courses/introduction-to-shell-for-data-science)
 - [Codecademy - Learn Ruby](https://www.codecademy.com/learn/learn-ruby)
+- [Codecademy - Deploy a Website](https://www.codecademy.com/learn/deploy-a-website)
+- [Codecademy - Learn SQL](https://www.codecademy.com/learn/learn-sql)
+- [Introduction To JavaScript](https://www.codecademy.com/learn/introduction-to-javascript)
+- [Learn JavaScript](https://www.codecademy.com/learn/learn-javascript)
+
+[&#8593;](#contributing)
 
 ### Free Awesome IDE
 
@@ -215,9 +230,15 @@ Visual Studio in debug mode only.
 
 ![Schema Deployer](assets/images/sd-1.png)
 
+[&#8593;](#contributing)
+
 ![Schema Deployer](assets/images/sd-2.png)
 
+[&#8593;](#contributing)
+
 ![Schema Deployer](assets/images/sd-3.png)
+
+[&#8593;](#contributing)
 
 ![Schema Deployer](assets/images/sd-4.png)
 
