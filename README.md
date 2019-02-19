@@ -4,8 +4,8 @@
 - [Reports](#reports)
 - [Checks to run before submitting a pull request](#checks-to-run-before-submitting-a-pull-request)
 - [Deploy Schema](#deploy-schema)
-    - [Windows](#windows)
-        - [Example run](#example-run)
+  - [Windows](#windows)
+    - [Example run](#example-run)
 - [Ruby](#ruby)
 - [Links](#links)
 - [Go Faster](#go-faster)
@@ -13,17 +13,17 @@
 
 ## Contributing
 
-Thanks for your interest in contributing! There are many ways to contribute to this project. 
+Thanks for your interest in contributing! There are many ways to contribute to this project.
 Get started here [CONTRIBUTING](CONTRIBUTING.md)
 
 [&#8593;](#2019-hers-documents-schema)
 
 ## Reports
 
-We have four reports located in the `tools\output` directory. 
+We have four reports located in the `tools\output` directory.
 
 - docid: **CSV** report that is a summary of the original schema files which shows data on the
-version, revision and the DocID element. Best viewed in Excel
+  version, revision and the DocID element. Best viewed in Excel
 - excel: **Excel** report with charts which reports on the files in the repository
 - rubycritic: **Web based** report using mainly HTML, JavaScript and CSS that reports on the Ruby code
 - web-charts: **Awesome web based** report using [plotly.js](https://plot.ly/javascript/) pie charts
@@ -40,30 +40,36 @@ can also be opened locally with a web browser.
 - check for empty display term text
 
 On [Ubuntu](https://www.ubuntu.com/) Linux you can use [xmllint](http://xmlsoft.org/xmllint.html)
-to check the well formedness of a directory of XML or even XML schema.  Well formed XML is the first step 
+to check the well formedness of a directory of XML or even XML schema.  Well formed XML is the first step
 towards full XML validation.
 
 The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
 can be installed on Windows and emulates the Ubuntu environment.
 
 The command to run is:
+
 ```
 cd 2019-HERS-Documents-Schema
 find schema -type f -name "*.xsd" -exec xmllint --noout {} \;
 ```
 
 Current [regular expressions](https://www.rexegg.com/) to use to check for `empty` terms:
+
 ```
 <dtyp:displayterm value=".*?" *?><
 ```
+
 ```
 <dtyp:CBECCresXMLterm value=".*?" *?><
 ```
+
 On Windows you can use the Git Bash terminal to find the `empty` terms
 with [grep](https://www.gnu.org/software/grep/) as shown below:
+
 ```
 grep -rnE schema -e '<dtyp:displayterm value=".*?" *?><'
 ```
+
 ```
 grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
 ```
@@ -73,26 +79,27 @@ grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
 ## Deploy Schema
 
 `deploy-schema.exe` is a command line application executable file that was
-written in [Golang](https://golang.org/). This application deploys the schema (replaces embedded 
+written in [Golang](https://golang.org/). This application deploys the schema (replaces embedded
 square markup, formats, indents, removes whitespace, orders alphabetically)
 to a `deployed` folder.  There is also a `deploy-schema` script that runs
 on Linux and MacOS.
 
-#### Windows
+### Windows
 
 ```
 deploy-schema.exe
 Usage: deploy-schema.exe [options]
 Options:
   -d, --destination string
-        Path to deploy the schema: 
+        Path to deploy the schema:
   -s, --source string
-        Path to schema: 
+        Path to schema:
   -v, --version string
         Enter new schema version:
 ```
 
-##### Example run
+#### Example run
+
 ```
 cd 2019-HERS-Documents-Schema
 deploy-schema.exe -d . -s schema -v 2019.1.000
@@ -105,42 +112,58 @@ deploy-schema.exe -d . -s schema -v 2019.1.000
 So far most of the [Ruby](https://www.ruby-lang.org) code has been tested on Ruby 2.5.3 and Ruby 2.6.1
 
 We are using [Bundler](https://bundler.io/) to manage and install the [RubyGems](https://rubygems.org/).
+
 ```
 gem install bundler
 ```
+
 Then to install this projects RubyGems run:
+
 ```
 bundle install
 ```
+
 We are using [overcommit](https://github.com/brigade/overcommit) to manage and configure Git hooks which
 can be installed by running:
+
 ```
 overcommit --install
 ```
+
 ```
 overcommit --sign
 ```
+
 To generate the web based [RubyCritic](https://github.com/whitesmith/rubycritic) report run:
+
 ```
 cd 2019-HERS-Documents-Schema
 rubycritic -p tools/output/rubycritic
 ```
+
 To generate the Excel report of the repositories files run:
+
 ```
 cd tools
 ruby excel.rb -p ../
 ```
+
 To generate the CSV report of the schema files that is best viewed in Excel run:
+
 ```
 cd tools
 ruby doc_id.rb -p ../schema
 ```
+
 To generate the web based Plotly pie charts run:
+
 ```
 cd tools
 ruby web_charts.rb -p ../schema
 ```
+
 On Linux you can generate all the reports at once as shown below:
+
 ```
 cd tools
 ./run.sh
@@ -221,14 +244,14 @@ cd tools
 - [Golang](https://golang.org/) - Go is a statically typed, compiled programming language designed at Google
 - [Getting Started on Heroku with Go](https://devcenter.heroku.com/articles/getting-started-with-go)
 - [govendor](https://github.com/kardianos/govendor) - Go vendor tool that works with the standard vendor file.
-- [Gin](https://github.com/gin-gonic/gin) - Gin is a HTTP web framework written in Go (Golang). It features a Martini-like API with much better performance -- up to 40 times faster. If you need smashing performance, get yourself some Gin. 
+- [Gin](https://github.com/gin-gonic/gin) - Gin is a HTTP web framework written in Go (Golang). It features a Martini-like API with much better performance -- up to 40 times faster. If you need smashing performance, get yourself some Gin.
 - [GoLand](https://www.jetbrains.com/go) - A Clever IDE to Go
 - [Colly](http://go-colly.org) - Fast and Elegant Scraping Framework for Gophers
-- [que-go](https://github.com/bgentry/que-go) - An interoperable Golang port of the Ruby Que queuing library for PostgreSQL 
+- [que-go](https://github.com/bgentry/que-go) - An interoperable Golang port of the Ruby Que queuing library for PostgreSQL
 - [pgx](https://github.com/jackc/pgx) - PostgreSQL driver and toolkit for Go
 - [ratago](https://github.com/jbowtie/ratago) - Go implementation of an XSLT 1.0 processor
 - [pflag](https://github.com/ogier/pflag) - Drop-in replacement for Go's flag package, implementing POSIX/GNU-style --flags.
-- [etree](https://github.com/beevik/etree) - parse and generate XML easily in go 
+- [etree](https://github.com/beevik/etree) - parse and generate XML easily in go
 - [gofpdf](https://github.com/jung-kurt/gofpdf) - A PDF document generator with high level support for text, drawing and images
 - [xmlquery](https://github.com/antchfx/xmlquery) - xmlquery, is an XPath query package for XML in Go.
 

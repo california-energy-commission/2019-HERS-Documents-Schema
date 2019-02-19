@@ -1,0 +1,4 @@
+rules "~MD013"
+git_recurse true
+
+
