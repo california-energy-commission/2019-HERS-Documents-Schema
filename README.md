@@ -208,6 +208,11 @@ cd tools
 - [Tower](https://www.git-tower.com/)
 - [Batch file](https://en.wikipedia.org/wiki/Batch_file)
 - [cloc](https://github.com/AlDanial/cloc)
+- [pdftocairo](https://www.mankier.com/1/pdftocairo)
+- [Python](https://www.python.org/)
+- [yamllint](https://yamllint.readthedocs.io/en/stable/index.html)
+- [pip](https://pypi.org/project/pip/)
+- [Debian](https://www.debian.org/)
 
 [&#8593;](#2019-hers-documents-schema)
 
@@ -231,7 +236,10 @@ cd tools
 
 ## Advanced Links
 
+- [GitHub Pages](https://pages.github.com/)
 - [Heroku](https://www.heroku.com/)
+- [Linode](https://www.linode.com/)
+- [DigitalOcean](https://www.digitalocean.com/)
 - [Google Cloud](https://cloud.google.com/)
 - [Oracle VirtualBox](https://www.virtualbox.org/)
 - [Vagrant](https://www.vagrantup.com/)
