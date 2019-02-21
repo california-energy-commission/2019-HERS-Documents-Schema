@@ -6,7 +6,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6.4
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -25,7 +25,7 @@ jobs:
 
   displayterms:
     docker:
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6.4
 
     working_directory: ~/repo
     steps:
@@ -39,7 +39,7 @@ jobs:
 
   well-formedness:
     docker:
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6.4
 
     working_directory: ~/repo
     steps:
@@ -282,7 +282,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.6.1
+      - image: circleci/python:3.6.4
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -333,6 +333,35 @@ jobs:
           command: |
             bundle exec mdl .
 
+  empty-sections:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for empty sections in the XML Schema
+          command: |
+            cd tools
+            bundle exec ruby empty_sections.rb -p ../schema || exit 1
+
 workflows:
   version: 2
   build:
@@ -350,3 +379,4 @@ workflows:
       - missing-sections
       - yaml-lint
       - markdown-lint
+      - empty-sections
