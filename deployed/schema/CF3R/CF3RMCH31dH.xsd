@@ -89,9 +89,15 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="B05_FanPowerActual" type="hvac:FanPowerActual">
+                  <xsd:element name="B05_AirflowMeasuredRate" type="hvac:AirflowMeasuredRate">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">WHF Measured Airflow (CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B06_FanPowerActual" type="hvac:FanPowerActual">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">WHF Measured Watts</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

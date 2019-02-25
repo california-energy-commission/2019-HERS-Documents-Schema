@@ -46,7 +46,13 @@
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
-               <xsd:sequence/>
+               <xsd:sequence>
+                  <xsd:element name="A01_BuildingName" type="com:BuildingName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Name</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
