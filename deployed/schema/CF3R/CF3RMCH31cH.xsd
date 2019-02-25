@@ -95,6 +95,12 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="B05_AirflowMeasuredRate" type="hvac:AirflowMeasuredRate">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">WHF Measured Airflow (CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric  Note although this is not part of the table, it should be displayed between B04 and B06 with only cell for one value</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>

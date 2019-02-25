@@ -826,11 +826,12 @@
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">For Gas or Propane Water Heaters: Ensure the following are installed (Section 150.0(n))  
                            <d:l t="#">
-                              <d:list>A dedicated 120V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, 10AWG copper branch circuit, within 3 feet from the water heater and accessible with no obstructions </d:list>
-                              <d:l t="#">
-                                 <d:list>The conductor shall be labeled with the word "Spare" on both ends; and </d:list>
-                                 <d:list> A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future" 240V shall be provided. </d:list>
-                              </d:l>
+                              <d:list>A dedicated 120V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, 10AWG copper branch circuit, within 3 feet from the water heater and accessible with no obstructions 
+                                 <d:l t="#">
+                                    <d:list>The conductor shall be labeled with the word "Spare" on both ends; and </d:list>
+                                    <d:list> A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future" 240V shall be provided. </d:list>
+                                 </d:l>
+                              </d:list>
                               <d:list> A Category III or IV vent, or a Type B vent with straight pipe between outside and water heater  </d:list>
                               <d:list>A condensate drain no more than 2 inches higher than the base on water heater for natural draining   </d:list>
                               <d:list>A gas supply line with capacity of at least 200,000 Btu/Hr</d:list>
