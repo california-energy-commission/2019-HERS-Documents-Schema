@@ -221,8 +221,7 @@
                   </xsd:element>
                   <xsd:element name="A15After" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Mch24b Variant Banner</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">MCH24b Single Point Air Tightness Test With Automatic Meter</xsd:documentation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A15_AirLeakageTestProcedure == SinglePointTestAutomaticMeter, Then variant result = MCH24b Single Point Air Tightness Test With Automatic Meter.  Use this variant for the remainder of this document.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -332,6 +331,12 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="B11After" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Mch24b Variant Banner</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">MCH24b Single Point Air Tightness Test With Automatic Meter</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -362,7 +367,7 @@
                   </xsd:element>
                   <xsd:element name="C04_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference from Manometer (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressuriation is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference from Manometer (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric xx.x in InclusiveRange(-75, 75)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

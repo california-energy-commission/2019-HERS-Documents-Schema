@@ -221,8 +221,7 @@
                   </xsd:element>
                   <xsd:element name="A15After" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Mch24a Variant Banner</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">MCH24a - Single Point Air Tightness Test With Manual Meter</xsd:documentation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If A15_AirLeakageTestProcedure == SinglePointTestManualMeter, Then variant result = MCH24a - Single Point Air Tightness Test With Manual Meter.  Use this variant for the remainder of this document.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -332,6 +331,12 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="B11After" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Mch24a Variant Banner</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">MCH24a - Single Point Air Tightness Test With Manual Meter</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -374,7 +379,7 @@
                   </xsd:element>
                   <xsd:element name="C06_InducedEnclosurePressureDifference" type="comp:InducedEnclosurePressureDifference" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurziation is negative)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Induced Enclosure Pressure Difference (Pa) Goal = 50 +- 3 (Pressurization is positive; Depressurization is negative)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: result =  C05_BuildingPressureMeasuredUnadjusted - C03_BuildingPressureReadingPreTest</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
