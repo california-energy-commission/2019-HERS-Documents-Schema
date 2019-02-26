@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH30H" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF2RMCH30H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RMCH30H">
+      <xsd:annotation>
+         <xsd:documentation>Central Fan Ventilation Cooling Systems (VCS)</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System (VCS) Equipment Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:i>NOTE: When the Certificate of Compliance indicates a Central Fan Ventilation Cooling system is installed, the following items must be verified.</d:i>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Space Conditioning System Identification or Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Space Conditioning System Location or Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_FanManufacturerName" type="comp:FanManufacturerName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Central Fan VCS Equipment - Manufacturer Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_FanManufacturerModelNumber" type="comp:FanManufacturerModelNumber">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Central Fan VCS Equipment - Manufacturer Model No.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_FanFlowType" type="hvac:FanFlowType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Central Fan VCS Equipment - Fan Type Required</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text from Cf2R-Mch-01 B06_FanFlowType value; FixedFlow display term Fixed Flow or VariableFlow display term Variable Flow</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_FanFlowType" type="hvac:FanFlowType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Central Fan VCS Equipment - Fan Type Installed</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: FixedFlow display term Fixed Flow or VariableFlow display term Variable Flow</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_DoesManufacturerDocumentationMeetApplicableRequirements" type="comp:DoesManufacturerDocumentationMeetApplicableRequirements">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Central Fan VCS Equipment - Manufacturer Documentation Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: Manufacturer system documentation meets the applicable requirements in section B item 06 on this document  or Manufacturer system documentation does not meet the applicable requirements in section B item 06 on this document</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_IsRequiredCF2RMCH20Registered" type="comp:IsRequiredCF2RMCH20Registered">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct Leakage Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field:  If this air system has a registered CF2R-MCH-20 that complies with the maximum duct leakage rate criteria on the CF1R, then result  is true and display text is: System Complies with Duct Leakage Verification Requirements;  Else result is false and display text is: System Does not Comply.  A registered CF2R-MCH-20 is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_IsRequiredCF2RMCH23Registered" type="comp:IsRequiredCF2RMCH23Registered">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Airflow Rate Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field:  If variant == CF2R-MCH-23e then If its E03 ==true Or variant == CF2R-MCH-23f then If its F03 == true result = true display term System Complies with Airflow Rate Verification Requirements;  Else result = false display term   System Does not Comply.  A registered CF2R-MCH-23 is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A10_IsRequiredCF2RMCH22Registered" type="comp:IsRequiredCF2RMCH22Registered">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fan Efficacy Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field: If variant == CF2R-MCH-22c  and D05 == true Or   If variant == CF2R-MCH-22d  and E05 == true  then result is true display term System Complies with Fan Efficacy Verification Requirements;  Else result is false display term  System Does not Comply.  A registered CF2R-MCH-22 is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A11_DoesSystemComplyWithFanDuctVerification" type="comp:DoesSystemComplyWithFanDuctVerification">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field:   If FanFlowType in A06 equals FanFlowType in A05, And A07, A08 and A09 equal true, then result is true, Else the result is false.  For Boolean true value display text: System Complies with Fan and Duct Verification Requirements.  For Boolean false value display text: System does not Comply with Fan and Duct Verification Requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Requirements</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">When the Central Fan Ventilation Cooling system directs its relief airflow into the dwelling's attic, the attic vent free area shall be equal to or greater than 1 ft<d:sup>2</d:sup> per 750 CFM of the system's rated Ventilation Cooling airflow.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Variable speed motor systems shall be capable of varying system airflow rate in a continuous range between full air flow rate (100%) and a minimum airflow rate of no more than 25% of the full airflow rate.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Central fan ventilation cooling system controls shall include proper installation of an indoor thermostat</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Central fan ventilation cooling system controls shall include installation of an outdoor temperature sensor to initiate or terminate ventilation cooling operation automatically in response to user preference or availability of ventilation cooling capacity of outside air.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Central fan ventilation cooling system controls shall include proper installation of an air handler temperature sensor, or damper end switches, or other control device(s) that ensure correct outdoor air damper position.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">The central fan ventilation cooling system manufacturer shall provide detailed system operation documentation to the building owner that describes how to configure the system controls and operate the system to obtain the maximum energy savings benefit.  The manufacturer's system operation documentation shall also describe how the system's control strategy is implemented; how the fan speed is controlled during ventilation cooling mode; and how ventilation cooling rates are determined. System target ventilation cooling rate calculations (if applicable) shall occur at time intervals of 24 hours or less to ensure the system responds correctly to changes in weather patterns</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="BEndnote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH30H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Central Fan Ventilation Cooling Systems (VCS)"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RMCH30H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH30H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RMCH30H" type="CF2RMCH30H">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH30H compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
