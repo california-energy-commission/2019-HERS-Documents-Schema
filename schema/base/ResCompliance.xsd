@@ -806,7 +806,7 @@
             <dtyp:displayterm value="CF2R-MCH-27-H">CF2R-MCH-27-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-28-H">CF2R-MCH-28-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-29-H">CF2R-MCH-29-H</dtyp:displayterm>
-            <dtyp:displayterm value="CF2R-MCH-30-E">CF2R-MCH-30-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-30-H">CF2R-MCH-30-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-PLB-01-E">CF2R-PLB-01-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-PLB-02-E">CF2R-PLB-02-E</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-PLB-03-E">CF2R-PLB-03-E</dtyp:displayterm>
@@ -842,7 +842,7 @@
          <xsd:enumeration value="CF2R-MCH-27-H"/>
          <xsd:enumeration value="CF2R-MCH-28-H"/>
          <xsd:enumeration value="CF2R-MCH-29-H"/>
-         <xsd:enumeration value="CF2R-MCH-30-E"/>
+         <xsd:enumeration value="CF2R-MCH-30-H"/>
          <xsd:enumeration value="CF2R-PLB-01-E"/>
          <xsd:enumeration value="CF2R-PLB-02-E"/>
          <xsd:enumeration value="CF2R-PLB-03-E"/>
@@ -1121,7 +1121,7 @@
             <dtyp:displayterm value="CF2R-MCH-27-H">CF2R-MCH-27-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-28-H">CF2R-MCH-28-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-29-H">CF2R-MCH-29-H</dtyp:displayterm>
-            <dtyp:displayterm value="CF2R-MCH-30-E">CF2R-MCH-30-E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2R-MCH-30-H">CF2R-MCH-30-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-31a-H">CF2R-MCH-31a-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-31b-H">CF2R-MCH-31b-H</dtyp:displayterm>
             <dtyp:displayterm value="CF2R-MCH-31c-H">CF2R-MCH-31c-H</dtyp:displayterm>
@@ -1215,7 +1215,7 @@
          <xsd:enumeration value="CF2R-MCH-27-H"/>
          <xsd:enumeration value="CF2R-MCH-28-H"/>
          <xsd:enumeration value="CF2R-MCH-29-H"/>
-         <xsd:enumeration value="CF2R-MCH-30-E"/>
+         <xsd:enumeration value="CF2R-MCH-30-H"/>
          <xsd:enumeration value="CF2R-MCH-31a-H"/>
          <xsd:enumeration value="CF2R-MCH-31b-H"/>
          <xsd:enumeration value="CF2R-MCH-31c-H"/>
@@ -1455,7 +1455,7 @@
             <dtyp:displayterm value="CF2RMCH27eE">CF2RMCH27eE</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH28H">CF2RMCH28H</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH29H">CF2RMCH29H</dtyp:displayterm>
-            <dtyp:displayterm value="CF2RMCH30E">CF2RMCH30E</dtyp:displayterm>
+            <dtyp:displayterm value="CF2RMCH30H">CF2RMCH30H</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH31aH">CF2RMCH31aH</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH31bH">CF2RMCH31bH</dtyp:displayterm>
             <dtyp:displayterm value="CF2RMCH31cH">CF2RMCH31cH</dtyp:displayterm>
@@ -1625,7 +1625,7 @@
          <xsd:enumeration value="CF2RMCH27eE"/>
          <xsd:enumeration value="CF2RMCH28H"/>
          <xsd:enumeration value="CF2RMCH29H"/>
-         <xsd:enumeration value="CF2RMCH30E"/>
+         <xsd:enumeration value="CF2RMCH30H"/>
          <xsd:enumeration value="CF2RMCH31aH"/>
          <xsd:enumeration value="CF2RMCH31bH"/>
          <xsd:enumeration value="CF2RMCH31cH"/>
@@ -5264,6 +5264,36 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">System Complies with Airflow Rate  Verification Requirements</dtyp:displayterm>
             <dtyp:displayterm value="false">System Does not Comply.  A registered CF2R-MCH-23 is required</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsRequiredCF3RMCH20Registered">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">System Complies with Duct Leakage Verification Requirements</dtyp:displayterm>
+            <dtyp:displayterm value="false">System Does not Comply.  A registered CF3R-MCH-20 is required</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsRequiredCF3RMCH22Registered">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">System Complies with Fan Efficacy   Verification Requirements</dtyp:displayterm>
+            <dtyp:displayterm value="false">System Does not Comply.  A registered CF3R-MCH-22 is required</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsRequiredCF3RMCH23Registered">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">System Complies with Airflow Rate  Verification Requirements</dtyp:displayterm>
+            <dtyp:displayterm value="false">System Does not Comply.  A registered CF3R-MCH-23 is required</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean">
