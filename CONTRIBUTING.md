@@ -176,6 +176,37 @@ git branch -D overcommit
 Deleted branch overcommit (was d0e141b).
 ```
 
+To list all the branches type:
+
+```
+$ git branch -a
+* master
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/patch-14
+  remotes/origin/patch-15
+  remotes/origin/patch-16
+  remotes/upstream/master
+```
+
+To list remote branches
+
+```
+$ git branch -r
+  origin/HEAD -> origin/master
+  origin/master
+  origin/patch-14
+  origin/patch-15
+  origin/patch-16
+  upstream/master
+```
+
+To fetch a remote a remote branch
+
+```
+git checkout -b patch-14 origin/patch-14
+```
+
 #### Sync your fork
 
 Refer to the GitHub help article on **[Syncing a fork](https://help.github.com/articles/syncing-a-fork/)**.
