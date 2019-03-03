@@ -45,12 +45,12 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2019-02-06 11:25:39 +1000'>2019-02-06 11:25:39 +1000</time>
+          Updated <time class='js-timeago' datetime='2019-02-23 06:40:15 +1000'>2019-02-23 06:40:15 +1000</time>
         
       </span>
     </div>
     <div>
-      <h3><small>. /</small> missing_sections.rb</h3>
+      <h3><small>. /</small> d_list_markup.rb</h3>
     </div>
   </div>
   <!--End Page Title -->
@@ -66,12 +66,12 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">57</span><small> lines of codes</small></div>
+              <div><span class="metric">55</span><small> lines of codes</small></div>
               <div><span class="metric">1</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">1.1</span><small> complexity/method</small></div>
-              <div><span class="metric">1</span><small> churn</small></div>
+              <div><span class="metric">3</span><small> churn</small></div>
             </div>
             <div class="col-md-3">
               <div><span class="metric">1.1</span><small> complexity</small></div>
@@ -95,7 +95,9 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;nokogiri&#39;
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># ruby d_list_markup.rb -p ../deployed
+
+require &#39;nokogiri&#39;
 require &#39;optparse&#39;
 
 VERSION = &#39;1.0.0&#39;.freeze
@@ -108,9 +110,9 @@ end
 options = {:path =&gt; nil}
 
 parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 12 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L13" class="js-smell-location">0</a>                  <a href="d_list_markup.html#L15" class="js-smell-location">1</a>                  <a href="doc_id.html#L23" class="js-smell-location">2</a>                  <a href="document_mismatch.html#L13" class="js-smell-location">3</a>                  <a href="empty_sections.html#L15" class="js-smell-location">4</a>                  <a href="excel.html#L70" class="js-smell-location">5</a>                  <a href="generate_docs.html#L10" class="js-smell-location">6</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">7</a>                  <a href="missing_sections.html#L13" class="js-smell-location">8</a>                  <a href="namespace_prefixes.html#L22" class="js-smell-location">9</a>                  <a href="restriction.html#L13" class="js-smell-location">10</a>                  <a href="web_charts.html#L54" class="js-smell-location">11</a>                  </div>  </li></ol>
-  opts.banner = &#39;Usage: document_mismatch.rb&#39;
+  opts.banner = &#39;Usage: d_list_markup.rb&#39;
 
-  opts.on(&#39;-p&#39;, &#39;--path path&#39;, &#39;Path to schema&#39;) do |path|
+  opts.on(&#39;-p&#39;, &#39;--path path&#39;, &#39;Path to deployed schema&#39;) do |path|
     options[:path] = path
   end
 
@@ -128,30 +130,26 @@ end
 parser.parse!
 
 if options[:path].nil?
-  print &#39;Enter path to schema: &#39;
+  print &#39;Enter path to deployed schema: &#39;
   options[:path] = STDIN.gets.chomp
 end
 
 # start
 project_path = create_path(options[:path])
 @error = 0
-@gb = 0
-order = (&#39;A&#39;..&#39;Z&#39;).to_a
 
-Dir.glob(&quot;#{project_path}/**/{CF1R,CF2R,CF3R,NRCV}/*.xsd&quot;).map do |schema|
+Dir.glob(&quot;#{project_path}/**/*.xsd&quot;).map do |schema|
   doc = Nokogiri::XML(File.open(schema))
-  doc.xpath(&#39;/xsd:schema/xsd:complexType/xsd:sequence/xsd:element/@name&#39;).map.with_index do |section, i|
-    letter = section.to_s.partition(&#39;_&#39;).last
-    if order[i] != letter
+  doc.xpath(&#39;//xsd:documentation&#39;).map do |documentation|
+    element = documentation.xpath(&#39;ancestor::xsd:element[1]/@name&#39;)
+    if documentation.xpath(&#39;.//d:l/d:l&#39;, &#39;d&#39; =&gt; &#39;http://www.lmonte.com/besm/d&#39;).size.positive?
       @error = 1
-      @gb = 1
+      puts &quot;List inside list found in #{File.basename(schema)} in embedded markup in element #{element}\n\n&quot;
     end
   end
-  puts &quot;#{File.basename(schema)} has the wrong Section letters\n&quot; unless @error.zero?
-  @error = 0
 end
 
-exit 1 unless @gb.zero?
+exit 1 unless @error.zero?
 </code>
   </div>
 </div>
