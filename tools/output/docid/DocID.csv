@@ -62,7 +62,7 @@ CF2RMCH27cH.xsd,2019.1.000,rev 20181201,CF2RMCH27cH,CERTIFICATE OF INSTALLATION,
 CF2RMCH27dE.xsd,2019.1.000,rev 20181201,CF2RMCH27dE,CERTIFICATE OF INSTALLATION,Indoor Air Quality and Mechanical Ventilation,MCH27d Non-dwelling Unit,d
 CF2RMCH28H.xsd,2019.1.000,rev 20181201,CF2RMCH28H,CERTIFICATE OF INSTALLATION,Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C,N/A,N/A
 CF2RMCH29H.xsd,2019.1.000,rev 20181201,CF2RMCH29H,CERTIFICATE OF INSTALLATION,"Duct Surface Area Reduction, R-Value, Buried Ducts Compliance Credit",N/A,N/A
-CF2RMCH30E.xsd,2019.1.000,rev 20181201,CF2RMCH30E,CERTIFICATE OF INSTALLATION,Central Fan Ventilation Cooling Systems (VCS),N/A,N/A
+CF2RMCH30H.xsd,2019.1.000,rev 20181201,CF2RMCH30H,CERTIFICATE OF INSTALLATION,Central Fan Ventilation Cooling Systems (VCS),N/A,N/A
 CF2RMCH31aH.xsd,2019.1.000,rev 20181201,CF2RMCH31aH,CERTIFICATE OF INSTALLATION,Whole House Fan Airflow and Fan Efficacy,MCH31a Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured per whole house fan,a
 CF2RMCH31bH.xsd,2019.1.000,rev 20181201,CF2RMCH31bH,CERTIFICATE OF INSTALLATION,Whole House Fan Airflow and Fan Efficacy,MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value,b
 CF2RMCH31cH.xsd,2019.1.000,rev 20181201,CF2RMCH31cH,CERTIFICATE OF INSTALLATION,Whole House Fan Airflow and Fan Efficacy,MCH31c Whole House Fan Airflow and Fan Efficacy - Aiflow measured as a total value and watts measured per whole house fan,c
@@ -116,6 +116,7 @@ CF3RMCH27bH.xsd,2019.1.000,rev 20181201,CF3RMCH27bH,CERTIFICATE OF VERIFICATION,
 CF3RMCH27cH.xsd,2019.1.000,rev 20181201,CF3RMCH27cH,CERTIFICATE OF VERIFICATION,Indoor Air Quality and Mechanical Ventilation,MCH27c Scheduled or Real-Time Control Ventilation system,c
 CF3RMCH28H.xsd,2019.1.000,rev 20181201,CF3RMCH28H,CERTIFICATE OF VERIFICATION,Return Duct Design and Air Filter Device Sizing According to Tables 150 B or C,N/A,N/A
 CF3RMCH29H.xsd,2019.1.000,rev 20181201,CF3RMCH29H,CERTIFICATE OF VERIFICATION,"Duct Surface Area Reduction, R-Value, Buried Ducts Compliance Credit",N/A,N/A
+CF3RMCH30H.xsd,2019.1.000,rev 20181201,CF3RMCH30H,CERTIFICATE OF VERIFICATION,Central Fan Ventilation Cooling Systems (VCS),N/A,N/A
 CF3RMCH31aH.xsd,2019.1.000,rev 20181201,CF3RMCH31aH,CERTIFICATE OF VERIFICATION,Whole House Fan Airflow and Fan Efficacy,MCH31a Whole House Fan Airflow and Fan Efficacy - Aiflow and watts measured per whole house fan,a
 CF3RMCH31bH.xsd,2019.1.000,rev 20181201,CF3RMCH31bH,CERTIFICATE OF VERIFICATION,Whole House Fan Airflow and Fan Efficacy,MCH31b Whole House Fan Airflow and Fan Efficacy - Aiflow  measured per whole house fan and watts measured as a total value,b
 CF3RMCH31cH.xsd,2019.1.000,rev 20181201,CF3RMCH31cH,CERTIFICATE OF VERIFICATION,Whole House Fan Airflow and Fan Efficacy,MCH31c Whole House Fan Airflow and Fan Efficacy - Aiflow measured as a total value and watts measured per whole house fan,c
