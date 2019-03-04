@@ -412,7 +412,7 @@
                         <xsd:documentation source="AdditionalRequirements">Multi-speed compressor space cooling systems or variable speed compressor systems shall verify air flow (cfm/ton) and fan efficacy (Watt/cfm) with system operating in cooling mode at the maximum compressor speed and the maximum air handler fan speed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="FEndNote1" minOccurs="0">
+                  <xsd:element name="GEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
@@ -449,8 +449,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH23fH"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH23fH"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF2RMCH23fH" type="CF2RMCH23fH">

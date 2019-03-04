@@ -646,18 +646,6 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="F06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements == Fail, require that the reason is described in this field</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="FEndNote1" minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -692,10 +680,10 @@
                         <xsd:documentation source="AdditionalRequirements">For Gas or Propane Water Heaters: Ensure the following are installed (Section 150.0(n))  [d:l t="#"][d:list]A dedicated 120V, 20A electrical receptacle connected to the electrical panel with a 120/240V 3 conductor, 10AWG copper branch circuit, within 3 feet from the water heater and accessible with no obstructions[d:l t="#"][d:list]The conductor shall be labeled with the word "Spare" on both ends; and [/d:list][d:list] A reserved single pole circuit breaker space next to the circuit breaker next to the branch circuit  labeled "Future" 240V shall be provided. [/d:list][/d:l] [/d:list] [d:list] A Category III or IV vent, or a Type B vent with straight pipe between outside and water heater  [/d:list][d:list]A condensate drain no more than 2 inches higher than the base on water heater for natural draining   [/d:list][d:list]A gas supply line with capacity of at least 200,000 Btu/Hr[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F05_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                  <xsd:element name="FEndNote1" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
