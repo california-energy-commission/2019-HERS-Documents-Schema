@@ -791,16 +791,16 @@
                         <xsd:documentation source="AdditionalRequirements">The hot water distribution piping must be separated by at least 2 inches from any other hot water supply piping, and at least 6 inches from any cold water supply piping.  Alternatively, the hot water supply piping must be insulated to the thicknesses shown in TABLE 120.3-A. (RA 4.4.4)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H05_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements == Fail, require that the reason is described in this field</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:element name="H05_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements == Fail, require that the reason is described in this field</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="HEndNote1" minOccurs="0">
