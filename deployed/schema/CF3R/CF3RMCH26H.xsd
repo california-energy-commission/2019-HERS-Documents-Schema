@@ -521,7 +521,7 @@
          <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Verified Space Conditioning System Air Handler, Furnace or Fan Coil</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A08_IsAirHandlerFurnaceRequiredByAHRI in == true.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only If  A09_IsAirHandlerFurnaceRequiredByAHRI == true.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
