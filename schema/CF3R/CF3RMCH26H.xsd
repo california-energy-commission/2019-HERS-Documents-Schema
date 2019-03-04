@@ -491,6 +491,12 @@
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If E02_EfficiencyInstalledValueEER GTE E01_EfficiencyMinimumValueEER tresult  = true.   display term System Passes SEER Verification   Else result = false display term System Fails.  Do not proceed with document</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="EEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Signature by responsible party below certifies that the installed cooling equipment meets or exceeds the required value listed on the CF2R.[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>

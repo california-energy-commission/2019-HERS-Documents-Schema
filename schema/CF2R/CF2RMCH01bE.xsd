@@ -1185,154 +1185,154 @@ Else If DctLk does not appear in the HERS column, then result is false.  Display
                                           <xsd:documentation source="CalculationsAndRules">Calculated Field: If C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType  ==  NonAirSourceHP Or NonAirCooledAC result = false Else   Else determine the  result for this field by the user responses in B04, B05 , B06, B07, B08, B09 and use of Logic Table for Determining Alteration Type and HERS Verification Requirements. Constrain user  input for B04-B09 to allow only available combinations of responses given in teh Logic Table.  If "RC" appears in the HERS column And  If  A02_ClimateZone == 2 Or InclusiveRange(8,15) then result = true;  Else result = false. Display Yes and No to represent Boolean values true and false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="K03a_SectionComments" type="comp:SectionComments"  minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Notes</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                 </xsd:sequence>
-                              </xsd:complexType>
-                           </xsd:element>
-                           <xsd:element name="Section_L" minOccurs="0">
-                              <xsd:annotation>
-                                 <xsd:documentation source="FieldText">Space Conditioning Systems, Ducts and Fans Mandatory Requirements and Additional Measures</xsd:documentation>
-                                 <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
-                              </xsd:annotation>
-                              <xsd:complexType>
-                                 <xsd:sequence>
-                                    <xsd:element name="L_BeginNote1" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Additional mandatory requirements from Section 150.0 that are not listed here may be applicable to some systems.  These requirements may be applicable to only newly installed equipment or portions of the system that are altered.  Existing equipment may be exempt from these requirements.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L00_Heading" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">[d:b] Heating Equipment[/d:b]</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L01" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Equipment Efficiency</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Equipment Efficiency: All heating equipment must meet the minimum efficiency requirements of Section 110.1 and Section 110.2(a) and the Appliance Efficiency Regulations.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L02" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Controls</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Controls:  All unitary heating systems, including heat pumps, must be controlled by a setback thermostat.  These thermostats must be capable of allowing the occupant to program the temperature set points for at least four different periods in 24 hours. See Sections 150.0(i), 110.2(b).</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L03" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Sizing:</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Sizing:  Heating load calculations must be done on portions of the building served by new heating systems to prevent inadvertent undersizing or oversizing. See sections 150.0(h)1 and 2).</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L04" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Furnace Temperature Rise</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Furnace Temperature Rise: Central forced-air heating furnace installations must be configured to operate at or below the furnace manufacturer's maximum inlet-to-outlet temperature rise specification. See Section 150.0(h)4.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L05" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Standby Losses and Pilot Lights</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Standby Losses and Pilot Lights: Fan-type central furnaces may not have a continuously burning pilot light. Section 110.5 and Section 110.2(d).</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L05After_Heading" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">[d:b] Cooling Equipment[/d:b]</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L06" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Equipment Efficiency:</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Equipment Efficiency:  All cooling equipment must meet the minimum efficiency requirements of Section 110.1 and Section 110.2(a) and the Appliance Efficiency Regulations.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L07" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Refrigerant Line Insulation</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Refrigerant Line Insulation:  All refrigerant line insulation in split system air conditioners and heat pumps must meet the R-value and protection requirements of Section 150.0(j)2 and 3, and Section 150.0(m)9.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L08" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Condensing Unit Location</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Condensing Unit Location:  Condensing units shall not be placed within five (5) feet of a dryer vent outlet. See Section 150.0(h)3A.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L09" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Liquid Line Filter Drier</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Liquid Line Filter Drier: A  liquid line filter drier shall be installed according to the manufacturer's specifications 150.0(h)3B</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L10" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Sizing</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Sizing: Cooling load calculations must be done on portions of the building served by new cooling systems to prevent inadvertent undersizing or oversizing. See Section 150.0(h)1 and 2.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L10After_Heading" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">[d:b] Air Distribution System Ducts, Plenums and Fans[/d:b]</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L11" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Insulation</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Insulation: The minimum duct insulation value is R-6. Note that higher values may be required by the prescriptive or performance requirements. See Section 150.0(m)1.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L12" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Connections and Closures</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Connections and Closures: All installed air-distribution system ducts and plenums must be, sealed and insulated to meet the requirements of CMC Sections 601.0, 602.0, 603.0, 604.0, 605.0 and ANSI/SMACNA-006-2006:  Supply-air and return-air ducts and plenums must be insulated to a minimum installed level of R-6.0 otherwise a minimum of R4.2 is allowed if the system is enclosed entirely in conditioned space as confirmed through field verification and diagnostic testing in accordance with the requirements of Reference Residential Appendix RA3.1.4.3.8.  Exceptions for ducts in interior wall cavities or exposed ducts entirely in conditioned space are specified in Section 150.0(m)1B.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L12After_Heading" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">[d:b] Heat Pump Thermostat[/d:b]</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L13" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Requirements of Section 110.2(b) and (c)</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">A thermostat shall be installed that meets the requirements of Section 110.2(b) and Section 110.2(c).</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L14" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Manufacturers published installation specifications</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">The thermostat shall be installed in accordance with the manufacturers published installation specifications</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L15" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">First stage of heating</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">First stage of heating shall be assigned to heat pump heating.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="L16" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Second stage back up heating</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">Second stage back up heating shall be set to come on only when the indoor set temperature cannot be met.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="LEndNote1" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                                          <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="K03a_SectionComments" type="comp:SectionComments"  minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_L" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Space Conditioning Systems, Ducts and Fans Mandatory Requirements and Additional Measures</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="L_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Additional mandatory requirements from Section 150.0 that are not listed here may be applicable to some systems.  These requirements may be applicable to only newly installed equipment or portions of the system that are altered.  Existing equipment may be exempt from these requirements.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L00_Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b] Heating Equipment[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Equipment Efficiency</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Equipment Efficiency: All heating equipment must meet the minimum efficiency requirements of Section 110.1 and Section 110.2(a) and the Appliance Efficiency Regulations.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Controls</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Controls:  All unitary heating systems, including heat pumps, must be controlled by a setback thermostat.  These thermostats must be capable of allowing the occupant to program the temperature set points for at least four different periods in 24 hours. See Sections 150.0(i), 110.2(b).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Sizing:</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Sizing:  Heating load calculations must be done on portions of the building served by new heating systems to prevent inadvertent undersizing or oversizing. See sections 150.0(h)1 and 2).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Furnace Temperature Rise</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Furnace Temperature Rise: Central forced-air heating furnace installations must be configured to operate at or below the furnace manufacturer's maximum inlet-to-outlet temperature rise specification. See Section 150.0(h)4.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Standby Losses and Pilot Lights</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Standby Losses and Pilot Lights: Fan-type central furnaces may not have a continuously burning pilot light. Section 110.5 and Section 110.2(d).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L05After_Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b] Cooling Equipment[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Equipment Efficiency:</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Equipment Efficiency:  All cooling equipment must meet the minimum efficiency requirements of Section 110.1 and Section 110.2(a) and the Appliance Efficiency Regulations.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Refrigerant Line Insulation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Refrigerant Line Insulation:  All refrigerant line insulation in split system air conditioners and heat pumps must meet the R-value and protection requirements of Section 150.0(j)2 and 3, and Section 150.0(m)9.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L08" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condensing Unit Location</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Condensing Unit Location:  Condensing units shall not be placed within five (5) feet of a dryer vent outlet. See Section 150.0(h)3A.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L09" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Liquid Line Filter Drier</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Liquid Line Filter Drier: A  liquid line filter drier shall be installed according to the manufacturer's specifications 150.0(h)3B</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L10" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Sizing</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Sizing: Cooling load calculations must be done on portions of the building served by new cooling systems to prevent inadvertent undersizing or oversizing. See Section 150.0(h)1 and 2.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L10After_Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b] Air Distribution System Ducts, Plenums and Fans[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L11" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Insulation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Insulation: The minimum duct insulation value is R-6. Note that higher values may be required by the prescriptive or performance requirements. See Section 150.0(m)1.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L12" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Connections and Closures</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Connections and Closures: All installed air-distribution system ducts and plenums must be, sealed and insulated to meet the requirements of CMC Sections 601.0, 602.0, 603.0, 604.0, 605.0 and ANSI/SMACNA-006-2006:  Supply-air and return-air ducts and plenums must be insulated to a minimum installed level of R-6.0 otherwise a minimum of R4.2 is allowed if the system is enclosed entirely in conditioned space as confirmed through field verification and diagnostic testing in accordance with the requirements of Reference Residential Appendix RA3.1.4.3.8.  Exceptions for ducts in interior wall cavities or exposed ducts entirely in conditioned space are specified in Section 150.0(m)1B.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L12After_Heading" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">[d:b] Heat Pump Thermostat[/d:b]</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L13" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Requirements of Section 110.2(b) and (c)</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A thermostat shall be installed that meets the requirements of Section 110.2(b) and Section 110.2(c).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L14" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Manufacturers published installation specifications</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The thermostat shall be installed in accordance with the manufacturers published installation specifications</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L15" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">First stage of heating</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">First stage of heating shall be assigned to heat pump heating.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L16" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Second stage back up heating</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Second stage back up heating shall be set to come on only when the indoor set temperature cannot be met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="LEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
