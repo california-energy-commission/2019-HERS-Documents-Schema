@@ -499,13 +499,27 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C12_FanEfficacy" type="hvac:FanEfficacy" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Central Fan Ventilation Cooling Fan Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If B05_NotApplicableMessage == N/A then result = N/a stored in NotApplicableMessage Else  reference value from CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C12_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Central Fan Ventilation Cooling Fan Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If B05_NotApplicableMessage == N/A then result = N/a stored in NotApplicableMessage Else  reference value from CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="C11a_SectionComments" type="comp:SectionComments"  minOccurs="0">
+                  <xsd:element name="C12a_SectionComments" type="comp:SectionComments"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
@@ -533,7 +547,7 @@
                                     <xsd:element name="D01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">SC System ID/Name from CF1R</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Require user to select applicable system name from a list comprised of the systems identified in section B, field B01.If SC system names from CBECC are installed more than once in this dwelling unit, then duplicate SC systme nameas are allowed in this field.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Require user to select applicable system name from a list comprised of the systems identified in section B, field B01.If SC system names from CBECC are installed more than once in this dwelling unit, then duplicate SC system names are allowed in this field.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed" >
@@ -1648,7 +1662,7 @@
          <xsd:element name="Section_M" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Air Filter Device Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If at least one system in section D has D07_DuctLocation != Ductless And If at least one indoor unit in L03_IndoorUnitName meets at least one of these conditions:  L04_IndoorUnitDucts == DuctsGT10Ft   Or D04_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless Or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless;   Require one row of data for each Air filter device included in the count L12_DuctSystemAirFilterDeviceCount. for each of the Indoor units listed in J03 that meet one or more of these conditiions.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If at least one system in section D has D07_DuctSystemTypePerf != Ductless And If at least one indoor unit in L03_IndoorUnitName meets at least one of these conditions:  L04_IndoorUnitDucts == DuctsGT10Ft   Or D04_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless Or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless;   Require one row of data for each Air filter device included in the count L12_DuctSystemAirFilterDeviceCount. for each of the Indoor units listed in J03 that meet one or more of these conditiions.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
