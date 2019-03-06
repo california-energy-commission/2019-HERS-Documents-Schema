@@ -45,12 +45,12 @@
     <div class="file-time">
       <span class="committed-at">
         
-          Updated <time class='js-timeago' datetime='2019-02-04 03:14:28 +1000'>2019-02-04 03:14:28 +1000</time>
+          Updated <time class='js-timeago' datetime='2019-03-03 16:57:35 +1000'>2019-03-03 16:57:35 +1000</time>
         
       </span>
     </div>
     <div>
-      <h3><small>. /</small> document_mismatch.rb</h3>
+      <h3><small>. /</small> end_notes.rb</h3>
     </div>
   </div>
   <!--End Page Title -->
@@ -66,7 +66,7 @@
           </div>
           <div class="code-statistics col-md-11">
             <div class="col-md-3">
-              <div><span class="metric">58</span><small> lines of codes</small></div>
+              <div><span class="metric">56</span><small> lines of codes</small></div>
               <div><span class="metric">1</span><small> methods</small></div>
             </div>
             <div class="col-md-3">
@@ -95,7 +95,9 @@
       </div>
     </div>
 
-    <code class="prettyprint linenums lang-ruby file-code js-file-code">require &#39;nokogiri&#39;
+    <code class="prettyprint linenums lang-ruby file-code js-file-code"># ruby end_notes.rb -p ../schema
+
+require &#39;nokogiri&#39;
 require &#39;optparse&#39;
 
 VERSION = &#39;1.0.0&#39;.freeze
@@ -108,7 +110,7 @@ end
 options = {:path =&gt; nil}
 
 parser = OptionParser.new do |opts|<ol class="nocode errors smells">  <li>    <div class="description">      <div class="heading">        <span>          <i class="fa fa-warning" aria-hidden"true"=""></i>          <a href="http://docs.seattlerb.org/flay/" target="_blank"><b>DuplicateCode</b></a>        </span>      </div>      <span>Similar code found in 16 nodes</span>              <span>Locations:</span>                  <a href="built_in_datatypes.html#L13" class="js-smell-location">0</a>                  <a href="d_list_markup.html#L15" class="js-smell-location">1</a>                  <a href="doc_id.html#L23" class="js-smell-location">2</a>                  <a href="document_mismatch.html#L13" class="js-smell-location">3</a>                  <a href="duplicate_elements.html#L15" class="js-smell-location">4</a>                  <a href="empty_sections.html#L15" class="js-smell-location">5</a>                  <a href="end_notes.html#L15" class="js-smell-location">6</a>                  <a href="excel.html#L70" class="js-smell-location">7</a>                  <a href="first_three.html#L15" class="js-smell-location">8</a>                  <a href="generate_docs.html#L10" class="js-smell-location">9</a>                  <a href="missing_base_elements.html#L85" class="js-smell-location">10</a>                  <a href="missing_elements.html#L17" class="js-smell-location">11</a>                  <a href="missing_sections.html#L13" class="js-smell-location">12</a>                  <a href="namespace_prefixes.html#L22" class="js-smell-location">13</a>                  <a href="restriction.html#L13" class="js-smell-location">14</a>                  <a href="web_charts.html#L54" class="js-smell-location">15</a>                  </div>  </li></ol>
-  opts.banner = &#39;Usage: document_mismatch.rb&#39;
+  opts.banner = &#39;Usage: end_notes.rb&#39;
 
   opts.on(&#39;-p&#39;, &#39;--path path&#39;, &#39;Path to schema&#39;) do |path|
     options[:path] = path
@@ -138,17 +140,13 @@ project_path = create_path(options[:path])
 
 Dir.glob(&quot;#{project_path}/**/{CF1R,CF2R,CF3R,NRCV}/*.xsd&quot;).map do |schema|
   doc = Nokogiri::XML(File.open(schema))
-  namespace = doc.xpath(&#39;/xsd:schema/@targetNamespace&#39;).to_s.split(&#39;/&#39;).last
-  compliance = doc.xpath(&#39;//xsd:element[@name=&quot;DocID&quot;]//xsd:attribute[@name=&quot;doc&quot;][@type=&quot;comp:ComplianceDocumentTag&quot;]/@fixed&#39;).to_s
-  required = doc.xpath(&#39;//xsd:complexType/xsd:attribute[@name=&quot;doc&quot;][@use=&quot;required&quot;]/@fixed&#39;).to_s
-  complex = doc.xpath(&#39;/xsd:schema/xsd:complexType/@name&#39;).to_s
-  ref = doc.xpath(&#39;//xsd:element[@name=&quot;DocumentData&quot;]//xsd:element/@ref&#39;).to_s
-  element = doc.xpath(&#39;/xsd:schema/xsd:element[@name != &quot;ComplianceDocumentPackage&quot;]&#39;)
-  name = element.attribute(&#39;name&#39;).to_s
-  type = element.attribute(&#39;type&#39;).to_s
-  if [namespace, compliance, required, complex, ref, name, type].map(&amp;:downcase).uniq.size &gt; 1
-    @error = 1
-    puts &quot;#{File.basename(schema)} has a targetNamespace:#{namespace} | xsd:element[@name=&#39;DocID&#39;]//xsd:attribute[@name=&#39;doc&#39;][@type=&#39;comp:ComplianceDocumentTag&#39;]/@fixed:#{compliance} | //xsd:complexType/xsd:attribute[@name=&#39;doc&#39;][@use=&#39;required&#39;]/@fixed:#{required} | xsd:complexType:#{complex} | xsd:element[@name=&#39;DocumentData&#39;]//xsd:element/@ref:#{ref} | xsd:element/@name:#{name} | xsd:element/@type:#{type} - mismatch\n\n&quot;
+  doc.xpath(&#39;/xsd:schema/xsd:complexType/xsd:sequence/xsd:element&#39;).map do |section|
+    letter = section.attribute(&#39;name&#39;).to_s.split(&#39;_&#39;).last
+    last_element = section.xpath(&#39;xsd:complexType/xsd:sequence/*[last()]/@name&#39;).to_s
+    if last_element.size.positive? &amp;&amp; last_element[1...-1].casecmp(&#39;endnote&#39;).zero? &amp;&amp; last_element[0] != letter
+      @error = 1
+      puts &quot;#{File.basename(schema)} section #{letter} end note name mismatch #{last_element}\n\n&quot;
+    end
   end
 end
 
