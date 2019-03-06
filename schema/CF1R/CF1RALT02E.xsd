@@ -495,7 +495,7 @@
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="E02_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
+                                       <xsd:element name="E03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D03</xsd:documentation>
