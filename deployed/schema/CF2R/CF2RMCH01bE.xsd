@@ -182,6 +182,11 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="B10a_SectionComments" type="comp:SectionComments" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
