@@ -512,21 +512,25 @@
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="CentralFanIAQVentilationHERS">Central Fan IAQ ventilation</dtyp:displayterm>
+            <dtyp:displayterm value="CentralFanVentilationCoolingHERS">Central Fan Ventilation Cooling System Airflow and Fan Efficacy</dtyp:displayterm>
             <dtyp:displayterm value="EnvelopeAirLeakageHERS">Building Envelope Air Leakage</dtyp:displayterm>
             <dtyp:displayterm value="IAQ_MechanicalVentilationHERS">IAQ mechanical ventilation</dtyp:displayterm>
             <dtyp:displayterm value="InsulationSprayFoamHighRvalueHERS">High R-value Spray Foam Insulation</dtyp:displayterm>
+            <dtyp:displayterm value="KitchenRangeHoodHERS">Kitchen range hood</dtyp:displayterm>
             <dtyp:displayterm value="None">-- None --</dtyp:displayterm>
             <dtyp:displayterm value="QualityInsulationInstallationHERS">High Quality Insulation Installation (QII)</dtyp:displayterm>
             <dtyp:displayterm value="VerifiedExistingConditionsHERS">Verified Existing Conditions</dtyp:displayterm>
-            <dtyp:displayterm value="WholeHouseFanHERS">Whole House Fan CFM</dtyp:displayterm>
+            <dtyp:displayterm value="WholeHouseFanHERS">Whole House Fan Airflow and Fan Efficacy</dtyp:displayterm>
             <dtyp:displayterm value="ZonalSystemBypassDuctConditionsHERS">Bypass duct conditions in zonal system(s)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="CentralFanIAQVentilationHERS"/>
+         <xsd:enumeration value="CentralFanVentilationCoolingHERS"/>
          <xsd:enumeration value="EnvelopeAirLeakageHERS"/>
          <xsd:enumeration value="IAQ_MechanicalVentilationHERS"/>
          <xsd:enumeration value="InsulationSprayFoamHighRvalueHERS"/>
+         <xsd:enumeration value="KitchenRangeHoodHERS"/>
          <xsd:enumeration value="None"/>
          <xsd:enumeration value="QualityInsulationInstallationHERS"/>
          <xsd:enumeration value="VerifiedExistingConditionsHERS"/>
@@ -1136,6 +1140,9 @@ Document Data</dtyp:displayterm>
             <dtyp:displayterm value="CF3R-PLB-21-H">CF3R-PLB-21-H</dtyp:displayterm>
             <dtyp:displayterm value="CF3R-PLB-22-H">CF3R-PLB-22-H</dtyp:displayterm>
             <dtyp:displayterm value="NRCV-MCH-04-H">NRCV-MCH-04-H</dtyp:displayterm>
+            <dtyp:displayterm value="NRCV-MCH-24-H">NRCV-MCH-24-H</dtyp:displayterm>
+            <dtyp:displayterm value="NRCV-MCH-27-H">NRCV-MCH-27-H</dtyp:displayterm>
+            <dtyp:displayterm value="NRCV-MCH-32-H">NRCV-MCH-32-H</dtyp:displayterm>
             <dtyp:displayterm value="NRCV-PLB-21-H">NRCV-PLB-21-H</dtyp:displayterm>
             <dtyp:displayterm value="NRCV-PLB-22-H">NRCV-PLB-22-H</dtyp:displayterm>
             <dtyp:displayterm value="PSR-01-E">PSR-01-E</dtyp:displayterm>
@@ -1230,6 +1237,9 @@ Document Data</dtyp:displayterm>
          <xsd:enumeration value="CF3R-PLB-21-H"/>
          <xsd:enumeration value="CF3R-PLB-22-H"/>
          <xsd:enumeration value="NRCV-MCH-04-H"/>
+         <xsd:enumeration value="NRCV-MCH-24-H"/>
+         <xsd:enumeration value="NRCV-MCH-27-H"/>
+         <xsd:enumeration value="NRCV-MCH-32-H"/>
          <xsd:enumeration value="NRCV-PLB-21-H"/>
          <xsd:enumeration value="NRCV-PLB-22-H"/>
          <xsd:enumeration value="PSR-01-E"/>
@@ -2444,6 +2454,15 @@ Document Data</dtyp:displayterm>
          <xsd:enumeration value="UnequalFlowShower"/>
          <xsd:enumeration value="UnequalFlowWaterHeater"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="DWHR_InstallAngle">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>DWHR Installation Angle</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="DWHR_Manufacturer">
       <xsd:annotation>
@@ -4304,6 +4323,26 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="HeatingSystemFeatureHERS">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="HeatPumpCapacity">Verified Heat Pump Capacity</dtyp:displayterm>
+            <dtyp:displayterm value="HeatPumpHSPF">Verified Heat Pump HSPF</dtyp:displayterm>
+            <dtyp:displayterm value="None">-- None --</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="HeatPumpCapacity"/>
+         <xsd:enumeration value="HeatPumpHSPF"/>
+         <xsd:enumeration value="None"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="HeatingSystemFeatureHERS_Data">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="HeatingSystemFeatureHERS_String">
+      <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="HeatingUnitManufacturer">
       <xsd:restriction base="dtyp:String50Char"/>
@@ -7133,7 +7172,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="AlternativePlumbingForGrayWaterIrrigation">Install alternative plumbing piping to permit the discharge from the clothes washer and all showers and bathtubs to be used for an irrigation system in compliance with the 
                <d:i>California Plumbing Code</d:i> and any applicable local ordinances.</dtyp:displayterm>
             <dtyp:displayterm value="EnergyStarAppliances">Install a dishwasher that meets or exceeds ENERGY STAR Program requirements with either a refrigerator that meets or exceeds the ENERGY STAR Program requirements or a whole house fan driven by an electronically commutated motor or a Level 2 EVSE/ EV Charger</dtyp:displayterm>
-            <dtyp:displayterm value="EV15PercentParking">The bulding meets T24 Part11 Section A4.106.8.2 requirement of 15% of total parking as EV charging spaces</dtyp:displayterm>
+            <dtyp:displayterm value="ChargingSpaceForEV">The bulding meets T24 Part11 Section A4.106.8.2 requirement of 15% of total parking as EV charging spaces</dtyp:displayterm>
             <dtyp:displayterm value="HomeAutomationDemandResponseCapable">Install a home automation system capable of, at a minimum, controlling the appliances and lighting of the dwelling and responding to demand response signals.</dtyp:displayterm>
             <dtyp:displayterm value="RainwaterCatchmentSystem">Install a rainwater catchment system designed to comply with the 
                <d:i>California Plumbing Code</d:i> and any applicable local ordinances, and that uses rainwater flowing from at least 65 percent of the available roof area.</dtyp:displayterm>
@@ -7142,7 +7181,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AlternativePlumbingForGrayWaterIrrigation"/>
          <xsd:enumeration value="EnergyStarAppliances"/>
-         <xsd:enumeration value="EV15PercentParking"/>
+         <xsd:enumeration value="ChargingSpaceForEV"/>
          <xsd:enumeration value="HomeAutomationDemandResponseCapable"/>
          <xsd:enumeration value="RainwaterCatchmentSystem"/>
       </xsd:restriction>
@@ -7255,9 +7294,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:documentation>Area of solar zone, using solar access method  Units: ft2</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="SolarZoneConnectionsDocCompliance">
-      <xsd:restriction base="dtyp:EnumerationConstantPermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="SolarZoneSubAreaID">
       <xsd:restriction base="xsd:token"/>
