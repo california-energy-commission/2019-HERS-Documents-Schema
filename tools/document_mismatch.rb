@@ -40,6 +40,8 @@ project_path = create_path(options[:path])
 @error = 0
 
 Dir.glob("#{project_path}/**/{CF1R,CF2R,CF3R,NRCV}/*.xsd").map do |schema|
+  next if File.basename(schema) == 'CF3RNoTestH.xsd'
+
   doc = Nokogiri::XML(File.open(schema))
   namespace = doc.xpath('/xsd:schema/@targetNamespace').to_s.split('/').last
   compliance = doc.xpath('//xsd:element[@name="DocID"]//xsd:attribute[@name="doc"][@type="comp:ComplianceDocumentTag"]/@fixed').to_s
