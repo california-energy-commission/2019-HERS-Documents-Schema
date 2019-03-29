@@ -596,6 +596,33 @@ jobs:
             cd tools
             bundle exec ruby compliance_document_type.rb -p ../schema || exit 1
 
+  header:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for mismatched Header
+          command: |
+            cd tools
+            bundle exec ruby header.rb -p ../schema || exit 1
+
   compliance-document-variant:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
@@ -653,3 +680,4 @@ workflows:
       - compliance-document-variant-subtitle
       - compliance-document-type
       - compliance-document-variant
+      - header
