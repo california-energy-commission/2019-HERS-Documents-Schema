@@ -488,6 +488,33 @@ jobs:
           command: |
             python3 -m pylint tools
 
+  compliance-document-tag:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for mismatched ComplianceDocumentTag
+          command: |
+            cd tools
+            bundle exec ruby compliance_document_tag.rb -p ../schema || exit 1
+
 workflows:
   version: 2
   build:
@@ -513,3 +540,4 @@ workflows:
       - py-empty-sections
       - flake8
       - pylint
+      - compliance-document-tag
