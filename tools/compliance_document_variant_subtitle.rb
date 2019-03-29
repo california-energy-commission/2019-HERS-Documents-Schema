@@ -1,4 +1,4 @@
-# ruby compliance_document_title_res.rb -p ../schema
+# ruby compliance_document_variant_subtitle.rb -p ../schema
 
 require 'nokogiri'
 require 'optparse'
@@ -13,7 +13,7 @@ end
 options = {:path => nil}
 
 parser = OptionParser.new do |opts|
-  opts.banner = 'Usage: compliance_document_title_res.rb'
+  opts.banner = 'Usage: compliance_document_variant_subtitle.rb'
 
   opts.on('-p', '--path path', 'Path to schema') do |path|
     options[:path] = path
@@ -43,14 +43,14 @@ project_path = create_path(options[:path])
 
 Dir.glob("#{project_path}/**/{CF1R,CF2R,CF3R,NRCV}/*.xsd").map do |schema|
   doc = Nokogiri::XML(File.open(schema))
-  doc.xpath('/xsd:schema/xsd:element[@name="ComplianceDocumentPackage"]/xsd:complexType//xsd:attribute[@name="docTitle"]/@fixed').map do |tag|
+  doc.xpath('/xsd:schema/xsd:element[@name="ComplianceDocumentPackage"]/xsd:complexType//xsd:attribute[@name="docVariantSubtitle"]/@fixed').map do |tag|
     base = Nokogiri::XML(File.open("#{project_path}/base/ResCompliance.xsd"))
-    value = base.xpath("/xsd:schema/xsd:simpleType[@name='ComplianceDocumentTitleRes']//dtyp:displayterm[@value='#{tag}']/@value").to_s
-    text = base.xpath("/xsd:schema/xsd:simpleType[@name='ComplianceDocumentTitleRes']//dtyp:displayterm[@value='#{tag}']/text()").to_s
-    enumeration = base.xpath("/xsd:schema/xsd:simpleType[@name='ComplianceDocumentTitleRes']//xsd:enumeration[@value='#{tag}']/@value").to_s
+    value = base.xpath("/xsd:schema/xsd:simpleType[@name='ComplianceDocumentVariantSubtitle']//dtyp:displayterm[@value='#{tag}']/@value").to_s
+    text = base.xpath("/xsd:schema/xsd:simpleType[@name='ComplianceDocumentVariantSubtitle']//dtyp:displayterm[@value='#{tag}']/text()").to_s
+    enumeration = base.xpath("/xsd:schema/xsd:simpleType[@name='ComplianceDocumentVariantSubtitle']//xsd:enumeration[@value='#{tag}']/@value").to_s
     if enumeration != value || enumeration.empty? || value.empty? || text.empty?
       @error = 1
-      puts "ComplianceDocumentTitleRes mismatch for #{File.basename(schema)} and ResCompliance.xsd\n"
+      puts "ComplianceDocumentVariantSubtitle mismatch for #{File.basename(schema)} and ResCompliance.xsd\n"
     end
   end
 end
