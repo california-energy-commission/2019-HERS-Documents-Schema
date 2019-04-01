@@ -1882,17 +1882,17 @@
    <xsd:simpleType name="ComplianceDocumentVariant">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="A">a</dtyp:displayterm>
-            <dtyp:displayterm value="B">b</dtyp:displayterm>
-            <dtyp:displayterm value="C">c</dtyp:displayterm>
-            <dtyp:displayterm value="D">d</dtyp:displayterm>
-            <dtyp:displayterm value="E">e</dtyp:displayterm>
-            <dtyp:displayterm value="F">f</dtyp:displayterm>
-            <dtyp:displayterm value="G">g</dtyp:displayterm>
-            <dtyp:displayterm value="H">h</dtyp:displayterm>
-            <dtyp:displayterm value="I">i</dtyp:displayterm>
-            <dtyp:displayterm value="J">j</dtyp:displayterm>
-            <dtyp:displayterm value="K">k</dtyp:displayterm>
+            <dtyp:displayterm value="a">a</dtyp:displayterm>
+            <dtyp:displayterm value="b">b</dtyp:displayterm>
+            <dtyp:displayterm value="c">c</dtyp:displayterm>
+            <dtyp:displayterm value="d">d</dtyp:displayterm>
+            <dtyp:displayterm value="e">e</dtyp:displayterm>
+            <dtyp:displayterm value="f">f</dtyp:displayterm>
+            <dtyp:displayterm value="g">g</dtyp:displayterm>
+            <dtyp:displayterm value="h">h</dtyp:displayterm>
+            <dtyp:displayterm value="i">i</dtyp:displayterm>
+            <dtyp:displayterm value="j">j</dtyp:displayterm>
+            <dtyp:displayterm value="k">k</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstantLowerCaseLetter">

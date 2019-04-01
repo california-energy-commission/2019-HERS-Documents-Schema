@@ -130,6 +130,14 @@
          <xsd:fractionDigits value="3"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="Decimal4Places">
+      <xsd:annotation>
+         <xsd:documentation>Basic decimal type with four decimal places.  Units: see derived type.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:decimal">
+         <xsd:fractionDigits value="4"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="Decimal4PlacesNonnegative">
       <xsd:annotation>
          <xsd:documentation>Nonnegative value of decimal type with 4 decimal places.  Units: see derived type.</xsd:documentation>
@@ -137,6 +145,23 @@
       <xsd:restriction base="xsd:decimal">
          <xsd:minInclusive value="0"/>
          <xsd:fractionDigits value="4"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Decimal5Places">
+      <xsd:annotation>
+         <xsd:documentation>Basic decimal type with five decimal places.  Units: see derived type.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:decimal">
+         <xsd:fractionDigits value="5"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Decimal5PlacesNonnegative">
+      <xsd:annotation>
+         <xsd:documentation>Nonnegative value of decimal type with 5 decimal places.  Units: see derived type.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:decimal">
+         <xsd:minInclusive value="0"/>
+         <xsd:fractionDigits value="5"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="DecimalNegative">
