@@ -96,7 +96,7 @@ Dir.glob("#{project_path}/*").map do |schema_folder|
                   else
                     data.gsub(/(.*<xsd:attribute name="revision".*?fixed=")(.*?)("\/>.*<\/xsd:schema>)/m, '\2').strip
                   end
-      version << data.gsub(/(.*<xsd:schema.*?version=")(.*?)(">.*<\/xsd:schema>)/m, '\2').strip
+      version << data.gsub(/(.*<xsd:schema.*?version=")(.*?)(".*?>.*<\/xsd:schema>)/m, '\2').strip
     end
   end
 end

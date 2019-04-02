@@ -37,7 +37,7 @@ def ext_count(project_path)
   Dir.glob("#{project_path}/**/*").map do |x|
     ext = File.extname(x)
     # TODO: refactor to use .gitignore
-    next if ['.sublime-project', '.sublime-workspace', '.xpr', '.iml', '.iws', '.ipr'].include? ext
+    next if ['.sublime-project', '.sublime-workspace', '.xpr', '.iml', '.iws', '.ipr'].include?(ext) || x.include?('venv')
 
     if File.basename(x) == 'Gemfile'
       'Gemfile'
