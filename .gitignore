@@ -4,3 +4,4 @@
 *.iws
 *.ipr
 validation.txt
+venv/

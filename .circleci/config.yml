@@ -470,7 +470,7 @@ jobs:
       - run:
           name: Run Flake8 lint
           command: |
-            flake8 exclude=venv
+            flake8 --ignore=E501 exclude=venv
 
   pylint:
     docker:
@@ -486,7 +486,7 @@ jobs:
       - run:
           name: Run Pylint
           command: |
-            python3 -m pylint tools
+            python3 -m pylint --disable=R0801 tools
 
   compliance-document-tag:
     docker:
@@ -650,6 +650,23 @@ jobs:
             cd tools
             bundle exec ruby compliance_document_variant.rb -p ../schema || exit 1
 
+  py-responsible-person:
+    docker:
+      - image: circleci/python:3.7.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: |
+            sudo apt update
+            sudo pip install lxml
+      - run:
+          name: Python based check for empty schema sections
+          command: |
+            cd tools
+            python3 responsible_person.py ../schema || exit 1
+
 workflows:
   version: 2
   build:
@@ -672,7 +689,6 @@ workflows:
       - end-notes
       - duplicate-elements
       - first-three
-      - py-empty-sections
       - flake8
       - pylint
       - compliance-document-tag
@@ -681,3 +697,5 @@ workflows:
       - compliance-document-type
       - compliance-document-variant
       - header
+      - py-responsible-person
+      - py-empty-sections
