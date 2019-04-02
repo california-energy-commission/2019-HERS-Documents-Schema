@@ -117,7 +117,7 @@ Dir.glob("#{project_path}/*").map.with_index do |sfolder, _|
         revision << 'base'
         responsible << 'base'
       end
-      version << data.gsub(/(.*<xsd:schema.*version=")(.*?)(">.*<\/xsd:schema>)/m, '\2').strip
+      version << data.gsub(/(.*<xsd:schema.*version=")(.*?)(".*?>.*<\/xsd:schema>)/m, '\2').strip
       section << data.scan(/<xsd:element name="Section_/).size
     end
   end
