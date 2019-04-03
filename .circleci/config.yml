@@ -331,7 +331,7 @@ jobs:
             cd tools
             bundle exec ruby empty_sections.rb -p ../schema || exit 1
 
-  d-list-markup:
+  list-markup:
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
     working_directory: ~/repo
@@ -667,6 +667,58 @@ jobs:
             cd tools
             python3 responsible_person.py ../schema || exit 1
 
+  d-built-in-datatypes:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for correct XML schema built in datatypes
+          command: |
+            cd tools
+            bundle exec ruby built_in_datatypes.rb -p ../deployed || exit 1
+
+  d-compliance-document-type:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+    working_directory: ~/repo
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install dependencies
+          command: |
+            gem install bundler
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Check for mismatched ComplianceDocumentType
+          command: |
+            cd tools
+            bundle exec ruby compliance_document_type.rb -p ../deployed/schema || exit 1
+
 workflows:
   version: 2
   build:
@@ -685,7 +737,7 @@ workflows:
       - yaml-lint
       - markdown-lint
       - empty-sections
-      - d-list-markup
+      - list-markup
       - end-notes
       - duplicate-elements
       - first-three
@@ -699,3 +751,5 @@ workflows:
       - header
       - py-responsible-person
       - py-empty-sections
+      - d-built-in-datatypes
+      - d-compliance-document-type
