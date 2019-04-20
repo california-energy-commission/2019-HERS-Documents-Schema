@@ -321,21 +321,21 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Backup storage tanks for solar water-heating systems have R-12 external insulation or R-16 internal insulation where the internal insulation R-value indicated on the exterior of the tank. (
-                           <d:t24ref h="150.0(j)1B)"/>.</xsd:documentation>
+                           <d:t24ref h="150.0(j)1B"/>).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">All domestic hot water piping (including solar) shall be insulated (
-                           <d:t24ref/>150(j)2A)</xsd:documentation>
+                           <d:t24ref h="150(j)2A"/>)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">Solar water-heating system and/or collectors are certified by the Solar Rating and Certification Corporation. (
-                           <d:t24ref h="150.0(n))"/>.</xsd:documentation>
+                           <d:t24ref h="150.0(n)"/>).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="EEndNote1" minOccurs="0">
