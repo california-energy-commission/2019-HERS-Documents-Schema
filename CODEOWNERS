@@ -1,0 +1,8 @@
+/tools/             @california-energy-commission/core
+.circleci/          @california-energy-commission/core
+
+/assets/            @california-energy-commission/software-developers
+/schema/            @california-energy-commission/software-developers
+/deployed/          @california-energy-commission/software-developers
+
+/CEC-Documents/     @california-energy-commission/maintainers
