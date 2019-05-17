@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+   targetNamespace="http://www.lmonte.com/besm/PSR01E"
+   xmlns="http://www.lmonte.com/besm/PSR01E"
+   xmlns:d="http://www.lmonte.com/besm/d"
+   xmlns:bld="http://www.lmonte.com/besm/bld"
+   xmlns:env="http://www.lmonte.com/besm/env"
+   xmlns:lit="http://www.lmonte.com/besm/lit"
+   xmlns:hvac="http://www.lmonte.com/besm/hvac"
+   xmlns:comp="http://www.lmonte.com/besm/comp"
+   xmlns:com="http://www.lmonte.com/besm/com"
+   xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:altova="http://www.altova.com/xml-schema-extensions"
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="PSR01E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="PROJECT REPORT"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Project Summary Report"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element ref="pSR01E" />
+                     <xsd:element name="Footer" type="comp:FooterPSR" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="PSR01E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="PSR01E">
+      <xsd:annotation>
+         <xsd:documentation>Project Summary Report</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_1" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="T24StandardsCodeYear" type="comp:T24StandardsCodeYear" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Code Year Standard</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ProjectName" type="com:ProjectName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Name</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ResidentialProjectType" type="comp:ResidentialProjectType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Type</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="StreetAddress" type="com:StreetAddress" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Address</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:sequence maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">City</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:element name="City" type="comp:City" >
+                     </xsd:element>
+                     <xsd:element name="State" type="comp:State" >
+                     </xsd:element>
+                  </xsd:sequence>
+                  <xsd:element name="Zipcode" type="comp:Zipcode" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Zipcode</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="EnforcementAgency" type="comp:EnforcementAgency" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Enforcement Agency</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="PermitNumber" type="comp:PermitNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Permit Number</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HERS_MeasuresCompletionStatus" type="comp:HERS_MeasuresCompletionStatus" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">HERS Verifiable Measures</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ResidentialProjectCompletionStatus" type="comp:ResidentialProjectCompletionStatus" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Overall Status</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_2" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">CF1R Information - Certificate of Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="ComplianceCertificateType" type="comp:ComplianceCertificateType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Certificate Type</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="Performance">Performance</dtyp:displayterm>
+                        </xsd:appinfo>
+                        
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CF1RCC_DisplayTag" type="comp:CF1RCC_DisplayTag" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Registered Compliance Document</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="RegistrationDateTime" type="comp:RegistrationDateTime" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Registered Date</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="RegistrationNumber" type="comp:RegistrationNumber" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Registration Number</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_3" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional CF1R Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableCF1R" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="SystemDescription" type="comp:SystemDescription"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="CF1RAdd_DisplayTag" type="comp:CF1RAdd_DisplayTag" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registered Document</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="RegistrationDateTime" type="comp:RegistrationDateTime"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registered Date</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="RegistrationNumber" type="comp:RegistrationNumber" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registration Number</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="IsRegistrationCompleted" type="comp:IsRegistrationCompleted" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Completed?</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_4" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">CF2R Information - Certificate of Installation</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableCF2R" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="SystemDescription" type="comp:SystemDescription"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="CF2R_DisplayTag" type="comp:CF2R_DisplayTag" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registered Document</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="RegistrationDateTime" type="comp:RegistrationDateTime"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registered Date</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="RegistrationNumber" type="comp:RegistrationNumber" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registration Number</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="IsRegistrationCompleted" type="comp:IsRegistrationCompleted" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Completed?</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableCF3R" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="SystemDescription" type="comp:SystemDescription"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="CF3R_DisplayTag" type="comp:CF3R_DisplayTag" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registered Document</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="RegistrationDateTime" type="comp:RegistrationDateTime"  minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registered Date</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="RegistrationNumber" type="comp:RegistrationNumber" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Registration Number</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="IsRegistrationCompleted" type="comp:IsRegistrationCompleted" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Completed?</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="pSR01E" type="PSR01E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the PSR01E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

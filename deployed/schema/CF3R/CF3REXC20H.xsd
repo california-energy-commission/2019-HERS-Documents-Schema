@@ -55,9 +55,9 @@
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_ComplianceManagerVersion" type="comp:ComplianceManagerVersion">
+                  <xsd:element name="A07_ComplianceSoftwareVersion" type="comp:ComplianceSoftwareVersion">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Compliance Manager Version</xsd:documentation>
+                        <xsd:documentation source="FieldText">Software Version</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -67,21 +67,29 @@
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_ComplianceSoftwareVersion" type="comp:ComplianceSoftwareVersion">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Software Version</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A09_Azimuth" type="dtyp:Azimuth">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Front Orientation (deg/Cardinal)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A09_CardinalOrientation" type="com:CardinalOrientation">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Front Orientation (deg/Cardinal)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="A10_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A11_Azimuth" type="dtyp:Azimuth">
+                  <xsd:element name="A11_DwellingUnitCount" type="com:DwellingUnitCount">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Building Front Orientation (deg)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Number of Dwelling Units</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -91,79 +99,43 @@
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A13_DwellingUnitCount" type="com:DwellingUnitCount">
+                  <xsd:element name="A13_BedroomCount" type="com:BedroomCount">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Number of Dwelling Units</xsd:documentation>
+                        <xsd:documentation source="FieldText">Number of Bedrooms</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A14_TotalConditionedFloorArea" type="com:TotalConditionedFloorArea">
+                  <xsd:element name="A14_NewConditionedFloorArea" type="bld:NewConditionedFloorArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="FieldText">New Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A15_ZoneCount" type="com:ZoneCount">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Number of Zones</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A16_FloorSlabArea" type="env:FloorSlabArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Slab Area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A16_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Slab Area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="A17_TotalStoryCount" type="com:TotalStoryCount">
+                  <xsd:element name="A15_TotalStoryCount" type="com:TotalStoryCount">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Number of Stories in Building</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A18_BuildingAdditionalConditionedFloorArea" type="bld:BuildingAdditionalConditionedFloorArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Addition Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A18_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Addition Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="A19_NaturalGasOnSite" type="com:NaturalGasOnSite">
+                  <xsd:element name="A16_ExistingConditionedFloorArea" type="bld:ExistingConditionedFloorArea">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Natural Gas Available? (Yes/No)</xsd:documentation>
+                        <xsd:documentation source="FieldText">Existing Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A20_BuildingAdditionalSlabArea" type="bld:BuildingAdditionalSlabArea">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Addition Slab Area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A20_NotApplicableMessage" type="comp:NotApplicableMessage">
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Addition Slab Area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="A21_FenestrationFloorRatio" type="env:FenestrationFloorRatio">
+                  <xsd:element name="A17_UFactorFenestrationAverage" type="com:UFactorFenestrationAverage">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fenestration Average U-factor</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A18_TotalConditionedFloorArea" type="com:TotalConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A19_FenestrationFloorRatio" type="env:FenestrationFloorRatio">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Glazing Percentage (%)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
@@ -1126,7 +1098,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3REXC20H"/>
       </xsd:complexType>
    </xsd:element>

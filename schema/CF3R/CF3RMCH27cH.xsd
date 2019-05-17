@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH27cH"/>
       </xsd:complexType>
    </xsd:element>
@@ -77,7 +77,7 @@
                   <xsd:element name="A02_ResidentialBuildingType" type="com:ResidentialBuildingType" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Referenced data from CF1R, allowed values: SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached, MultiFamily display term Multifamily; Or allow user to pick NonDwellingUnit display term Non-dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Referenced data from CF1R, allowed values: SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached, MultiFamily display term Multifamily;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -160,7 +160,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch-27c Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">MCH27c Scheduled or Real-Time Control Ventilation system</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02_ResidentialBuildingType == SingleFamilyAttached Or SingleFamilyDetached  And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV, BalancedHRV Or CentralFanIntegrated variant result =  Mch27a Single Family Attached/Detached ventilation; Else If A02_ResidentialBuildingType == Multifamily Variant result = Mch27b Multifamily Ventilation; Esle If A02_ResidentialBuildingType != NonDwellingUnit And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV Or BalancedHRV And A07_VentilationOperationSchedule == Scheduled Or  RealTimeControl Variant result = Mch27c - Schedule or Real-Time Control Ventilation System; Else If A02_ResidentialBuildingType == NonDwellingUnit Variant result = Mch27d - Non-dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02_ResidentialBuildingType == SingleFamilyAttached Or SingleFamilyDetached  And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV, BalancedHRV Or CentralFanIntegrated variant result =  Mch27a Single Family Attached/Detached ventilation; Else If A02_ResidentialBuildingType != NonDwellingUnit And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV Or BalancedHRV And A07_VentilationOperationSchedule == Scheduled Or  RealTimeControl Variant result = Mch27c - Schedule or Real-Time Control Ventilation System; Else If A02_ResidentialBuildingType == Multifamily Variant result = Mch27b Multifamily Ventilation;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="AEndNote1" minOccurs="0">

@@ -805,8 +805,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RENV22H"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RENV22H"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF3RENV22H" type="CF3RENV22H">

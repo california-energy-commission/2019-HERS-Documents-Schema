@@ -105,7 +105,7 @@
                   <xsd:element name="C01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Single Family Residence Subdivision</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The single family residence is located in a subdivision with fewer than ten single family residences.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The single family residence is located in a newly constructed subdivision with fewer than ten single family residences.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="CEndNote1" minOccurs="0">
@@ -177,10 +177,7 @@
                   <xsd:element name="E02_SolarReadyAlternativeEfficiencyMeasure">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Alternative Efficiency Measure</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects one from list:  EnergyStarAppliances with display text: Install a dishwasher that meets or exceeds ENERGY STAR Program requirements with either a refrigerator that meets or exceeds the ENERGY STAR Program requirements or a whole house fan driven by an electronically commutated motor or a Level 2 EVSE/ EV Charger; or  HomeAutomationDemandResponseCapable with display text:  Install a home automation system capable of, at a minimum, controlling the appliances and lighting of the dwelling and responding to demand response signals; or AlternativePlumbingForGrayWaterIrrigation with display text: Install alternative plumbing piping to permit the discharge from the clothes washer and all showers and bathtubs to be used for an irrigation system in compliance with the California Plumbing Code and any applicable local ordinances; or RainwaterCatchmentSystem with display text: Install a rainwater catchment system designed to comply with the California Plumbing Code and any applicable local ordinances, and that uses rainwater flowing from at least 65 percent of the available roof area.</xsd:documentation>
-                        <xsd:appinfo source="displayterm">
-                           <dtyp:displayterm value="EnergyStarAppliances">Install a dishwasher that meets or exceeds ENERGY STAR Program requirements with either a refrigerator that meets or exceeds the ENERGY STAR Program requirements or a whole house fan driven by an electronically commutated motor or a Level 2 EVSE/ EV Charger</dtyp:displayterm>
-                        </xsd:appinfo>
+                        <xsd:documentation source="CalculationsAndRules">User selects one from list:  EnergyStarAppliances with display term: Install a dishwasher that meets or exceeds ENERGY STAR Program requirements with either a refrigerator that meets or exceeds the ENERGY STAR Program requirements or a whole house fan driven by an electronically commutated motor or a Level 2 EVSE/ EV Charger; or  HomeAutomationDemandResponseCapable with display term:  Install a home automation system capable of, at a minimum, controlling the appliances and lighting of the dwelling and responding to demand response signals; or AlternativePlumbingForGrayWaterIrrigation with display term: Install alternative plumbing piping to permit the discharge from the clothes washer and all showers and bathtubs to be used for an irrigation system in compliance with the California Plumbing Code and any applicable local ordinances; or RainwaterCatchmentSystem with display term: Install a rainwater catchment system designed to comply with the California Plumbing Code and any applicable local ordinances, and that uses rainwater flowing from at least 65 percent of the available roof area.</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:SolarReadyAlternativeEfficiencyMeasure">
@@ -285,8 +282,8 @@ A02_SolarReadyAreaComplianceMethod ==  TrafficParkingOnRoof</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RSRA01E"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA01E"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF2RSRA01E" type="CF2RSRA01E">

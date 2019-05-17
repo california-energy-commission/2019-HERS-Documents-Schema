@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV06E"/>
       </xsd:complexType>
    </xsd:element>
@@ -95,7 +95,7 @@
                                     </xsd:element>
                                     <xsd:element name="A05_MassWallThickness" type="env:MassWallThickness" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Thickness (inches)</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Mass Thickness (inches)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -171,35 +171,63 @@
                                           <xsd:documentation source="CalculationsAndRules">User input: nonnegative integer</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="B05_InsulationPlacement" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior or Interior Insulation?</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: Exterior, Interior</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:InsulationPlacement">
+                                             <xsd:enumeration value="Exterior"/>
+                                             <xsd:enumeration value="Interior"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
                                     <xsd:element name="SubHeadingB05toB06" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Appendix JA4 Reference</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B05_JAReferenceTableID" type="comp:JAReferenceTableID" >
+                                    <xsd:element name="B06_JAReferenceTableID" type="comp:JAReferenceTableID" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Table</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B06_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
+                                    <xsd:element name="B07_JAReferenceTableCell" type="comp:JAReferenceTableCell" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cell</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B07_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Adjusted Exterior R-value</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B08_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Adjusted Interior R-value</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B08_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Adjusted Exterior R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B05_InsulationPlacement == Exterior, user input number GT 0 with 1 decimal place, xx.x; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Adjusted Exterior R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B05_InsulationPlacement == Exterior, user input number GT 0 with 1 decimal place, xx.x; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B09_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Adjusted Interior R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B05_InsulationPlacement == Interior, user input number GT 0 with 1 decimal place, xx.x;; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Adjusted Interior R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B05_InsulationPlacement == Interior, user input number GT 0 with 1 decimal place, xx.x;; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -246,13 +274,13 @@
                                     <xsd:element name="C03_InsulationExteriorRValue" type="env:InsulationExteriorRValue" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Adjusted Exterior R-value [d:line1/] (R[d:sub]Outside[/d:sub])</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference  value from B07_InsulationExteriorRValue</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B08_NotApplicableMessage == N/A result = 0;  Else result = B08_InsulationExteriorRValue</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C04_InsulationInteriorRValue" type="env:InsulationInteriorRValue" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Adjusted Interior R-value [d:line1/] (R[d:sub]Inside[/d:sub])</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference  value from B08_InsulationInteriorRValue</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B09_NotApplicableMessage == N/A result = 0;  Else result = B09_InsulationInteriorRValue</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C05_UFactorMassWallTotal" type="com:UFactorMassWallTotal" >

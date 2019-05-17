@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH25cH"/>
       </xsd:complexType>
    </xsd:element>
@@ -68,15 +68,15 @@
                         <xsd:documentation source="AdditionalRequirements">Each system requiring refrigerant charge verification will be documented on a separate certificate.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A01_HvacSystemName" type="hvac:HvacSystemName" >
+                  <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">System Identification or Name</xsd:documentation>
+                        <xsd:documentation source="FieldText">Space Conditioning System Identification or Name</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH01</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">System Location or Area Served</xsd:documentation>
+                        <xsd:documentation source="FieldText">Space Conditioning System Location or Area Served</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH01</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -152,7 +152,7 @@
                   <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated Value: Reference data on MCH-01 for the value to CanRA3_3AirflowProtocolsTestSystem found in MCH-01a section J field 12; or MCH-01b section G field 09; or MCH-01c section I field 11 or MCH01d section L field 11.   If value on MCH-01 for CanRA3_3AirflowProtocolsTestSystem = true, Then result is true and display text is: Yes, this is a ducted system and one of the system airflow rate measurement procedures in RA3.3 or RA3.3.3 can be used to verify system airflow rate requirements.  Else If value on MCH-01 for CanRA3_3AirflowProtocolsTestSystem = false, Then result is false and display text is: No, the airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation of the installer weigh-in charging procedure; Else If values are not available from the Mch01, then user inputs value: true display text Yes, or false, display text No.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated Value: Reference data on MCH-01 for the value to CanRA3_3AirflowProtocolsTestSystem found in MCH-01a section J field 12; or MCH-01b section G field 13; or MCH-01c section I field 11 or MCH01d section L field 13.   If value on MCH-01 for CanRA3_3AirflowProtocolsTestSystem = true, Then result is true and display text is: Yes, this is a ducted system and one of the system airflow rate measurement procedures in RA3.3 or RA3.3.3 can be used to verify system airflow rate requirements.  Else If value on MCH-01 for CanRA3_3AirflowProtocolsTestSystem = false, Then result is false and display text is: No, the airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation of the installer weigh-in charging procedure; Else If values are not available from the Mch01, then user inputs value: true display text Yes, or false, display text No.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A13_UseRefrigerantChargeApprovedVerificationProcedure" type="comp:UseRefrigerantChargeApprovedVerificationProcedure" >
@@ -267,6 +267,7 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
          <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require 1 row of data for each indoor unit listed in the "HERS Verification Requirements for Duct Systems" table in the parent MCH-01for the SC system in A02</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -277,27 +278,59 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                         <xsd:documentation source="AdditionalRequirements">Procedures for verifying minimum system airflow are specified in Reference Residential Appendix RA3.3.3.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D01_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
+                  <xsd:element name="TableIndoorUnit" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If ImprovementStatus in section A is New or Replacement, then report result of  CondenserNominalCoolingCapacity in section A times 350  Else If ImprovementStatus is Alteration, then report result of  CondenserNominalCoolingCapacity  times 300</xsd:documentation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_IndoorUnitName" type="hvac:IndoorUnitName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value in  "HERS Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If A10_ ImprovementStatus == New Or Replacement Then If system type on parent Mch-01 == SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP  result = PRODUCT (A05_CondenserNominalCoolingCapacity, 250); Else result = PRODUCT ( A05_CondenserNominalCoolingCapacity,  350);  Else If A10_ImprovementStatus == Alteration, result = PRODUCT ( A05_CondenserNominalCoolingCapacity,  300).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_MinimumAirflowRateVerificationStatus" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If A12_UseMinimumAirflowApprovedVerificationProcedure == false,  result = SystemCompliesUsingObservationOfWeighIn display term  The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);  Else If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  then If the system has a registered CF2R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  = SystemCompliesUsingTable150BC display term System complies using Table 150.0-B or C alternative return duct design criteria;   Else result = SystemDoesNotComplyCF2RMCH28Required display term System does not comply.  A registered CF2R-MCH-28 is required (do not allow this MCH-25 to be registered);     ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF2R-MCH-23a or CF2R-MCH-23b that meets the compliance criterion in E01, Then result = SystemComplies display term System complies with minimum airflow rate requirements;     Else If  A10_ImprovementStatus == Alteration Then If the system complies with the alternative airflow compliance method on a registered CF2R-MCH23c;  Then result= SystemCompliesUsingAlternativeRemedialActions display term  system complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for Group Sampling;   Else result = SystemDoesNotComplyCF2RMCH23Required display term  System does not comply. A registered CF2R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:MinimumAirflowRateVerificationStatus">
+                                             <xsd:enumeration value="SystemComplies"/>
+                                             <xsd:enumeration value="SystemCompliesUsingAlternativeRemedialActions"/>
+                                             <xsd:enumeration value="SystemCompliesUsingObservationOfWeighIn"/>
+                                             <xsd:enumeration value="SystemCompliesUsingTable150BC"/>
+                                             <xsd:enumeration value="SystemDoesNotComplyCF2RMCH23Required"/>
+                                             <xsd:enumeration value="SystemDoesNotComplyCF2RMCH28Required"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="D04_DoesSystemComplyWithAirflowRateVerification" type="comp:DoesSystemComplyWithAirflowRateVerification" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If all indoor units listed in D01 have D03 == SystemCompliesUsingObservationOfWeighIn, SystemCompliesUsingTable150BC Or SystemComplies Or SystemCompliesUsingAlternativeRemedialActions  result = true display term SC System complies with Minimum System Airflow Rate Verification; Else result = false display term SC System does not comply with Minimum System Airflow Rate Verification   and do not allow this Mch-25 to be registered.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D02_MinimumAirflowRateVerificationStatus" >
+                  <xsd:element name="D04a_SectionComments" type="comp:SectionComments"  minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If UseMinimumAirflowApprovedVerificationProcedure equals false,  then display result equals  The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);  Else If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  Then If the system has a registered CF2R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  equals system complies using Table 150.0-B or C alternative return duct design criteria;   Else result equals System does not comply.  A registered CF2R-MCH-28 is required (do not allow this MCH-25 to be registered).         ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF2R-MCH-23a or CF2R-MCH-23b that meets the compliance criterion in E01, Then result equals  System complies with minimum airflow rate requirements;        ElseIf  ImprovementStatus in section A equals Alteration:   Then If the system complies with the alternative airflow compliance method on a registered CF2R-MCH23c;  Then result equals system complies using the alternative remedial actions specified in RA3..3.3.1.5. This System does not qualify for Group Sampling;   Else result equals System does not comply. A registered CF2R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
+                        <xsd:documentation source="FieldText">Notes:</xsd:documentation>
                      </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:MinimumAirflowRateVerificationStatus">
-                           <xsd:enumeration value="SystemComplies"/>
-                           <xsd:enumeration value="SystemCompliesUsingAlternativeRemedialActions"/>
-                           <xsd:enumeration value="SystemCompliesUsingObservationOfWeighIn"/>
-                           <xsd:enumeration value="SystemCompliesUsingTable150BC"/>
-                           <xsd:enumeration value="SystemDoesNotComplyCF2RMCH23Required"/>
-                           <xsd:enumeration value="SystemDoesNotComplyCF2RMCH28Required"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
@@ -545,6 +578,21 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
                      </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableIndoorUnit" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
                   </xsd:element>
                </xsd:sequence>
             </xsd:complexType>

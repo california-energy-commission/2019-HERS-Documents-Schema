@@ -358,34 +358,18 @@
                                           <xsd:documentation source="CalculationsAndRules">Data from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C05_FurringStripDescriptionCBECC_Res" type="env:FurringStripDescriptionCBECC_Res">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Furring Strip Type and Depth (in)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF, pull data from CF1R, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Furring Strip Type and Depth (in)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF, pull data from CF1R, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C06_FurringStripDescriptionCBECC_Res" type="env:FurringStripDescriptionCBECC_Res">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Interior Furring Strip Type and Depth (in)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF, pull data from CF1R, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C06_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Interior Furring Strip Type and Depth (in)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF, pull data from CF1R, Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="C05_FurringStripDescriptionCBECC_Res" type="env:FurringStripDescriptionCBECC_Res">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Furring Strip Type and Depth (in)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 28 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C06_FurringStripDescriptionCBECC_Res" type="env:FurringStripDescriptionCBECC_Res">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Interior Furring Strip Type and Depth (in)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text maximum 28 characters</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:element name="C07_InsulationType" type="env:InsulationType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Insulation Type</xsd:documentation>
@@ -1161,7 +1145,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV03E"/>
       </xsd:complexType>
    </xsd:element>

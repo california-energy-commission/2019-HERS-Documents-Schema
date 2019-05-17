@@ -33,7 +33,7 @@
                   </xsd:element>
                   <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Indoor Unit Name</xsd:documentation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -67,7 +67,13 @@
                         <xsd:documentation source="CalculationsAndRules">User selects from list: true display term Yes, false display term No</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08After" minOccurs="0">
+                  <xsd:element name="A09_IsSystemSDHV" type="hvac:IsSystemSDHV">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the system type Small Duct High Velocity (SDHV) ?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If system type on the MCH-01 ==  SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP result = true; Else result = false.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch20b Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
@@ -209,7 +215,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH20bH"/>
       </xsd:complexType>
    </xsd:element>

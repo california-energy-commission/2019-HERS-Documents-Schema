@@ -33,7 +33,7 @@
                   </xsd:element>
                   <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Indoor Unit Name</xsd:documentation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from CF2R-MCH-20e-H</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -65,7 +65,13 @@
                         <xsd:documentation source="FieldText">Portions of Duct Located in Garage?</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08After" minOccurs="0">
+                  <xsd:element name="A09_IsSystemSDHV" type="hvac:IsSystemSDHV">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the system type Small Duct High Velocity (SDHV) ?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If system type on the MCH-01 ==  SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP result = true; Else result = false.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch20e Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
@@ -183,7 +189,7 @@
                   <xsd:element name="B10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A01_AirflowMethod)  case CoolingSystemMethod: result = PRODUCT (B02_CondenserNominalCoolingCapacity, 400, B09_ DuctSystemLeakageFactor);  case HeatingSystemMethod: result = PRODUCT (B04_HvacSystemHeatingCapacity, 21.7,  B09_ DuctSystemLeakageFactor);  case MeasuredAirflowMethod: result = PRODUCT (AHU_AirflowMeasured, B09_ DuctSystemLeakageFactor); case IndoorUnitMethod: result = PRODUCT (B03_IndoorUnitNominalCoolingCapacity, 400, B09_ DuctSystemLeakageFactor).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A01_AirflowMethod)  case DefaultAirflowMethod: result = PRODUCT (B05_HvacSystemConditionedFloorArea, 0.5, B09_DuctSystemLeakageFactor); case CoolingSystemMethod: If A09_IsSystemSDHV == false result = PRODUCT (B02_CondenserNominalCoolingCapacity, 400, B09_DuctSystemLeakageFactor); Else If A09_IsSystemSDHV == true result = PRODUCT (B02_CondenserNominalCoolingCapacity, 250, B09_DuctSystemLeakageFactor); case HeatingSystemMethod: result = PRODUCT (B04_HvacSystemHeatingCapacity, 21.7,  B09_ DuctSystemLeakageFactor);  case MeasuredAirflowMethod: result = PRODUCT (AHU_AirflowMeasured, B09_ DuctSystemLeakageFactor); case IndoorUnitMethod: result = PRODUCT (B03_IndoorUnitNominalCoolingCapacity, 400, B09_ DuctSystemLeakageFactor).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
@@ -399,8 +405,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RMCH20eH"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH20eH"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF3RMCH20eH" type="CF3RMCH20eH">

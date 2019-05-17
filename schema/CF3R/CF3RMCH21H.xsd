@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH21H"/>
       </xsd:complexType>
    </xsd:element>
@@ -78,31 +78,37 @@
                         <xsd:documentation source="CalculationsAndRules">Data from the CF2R-MCH-01 registered for this project</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03_DuctsLessThan12FtUnConditionedCreditTaken" type="comp:DuctsLessThan12FtUnConditionedCreditTaken" >
+                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from the CF2R-MCH-01 registered for this project</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_DuctsLessThan12FtUnConditionedCreditTaken" type="comp:DuctsLessThan12FtUnConditionedCreditTaken" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status - Less than 12 ft Ducts in Conditioned Space Performance Credit:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If CF1R performance flag indicating less than 12ft ducts are outside conditioned space == 1 (for true) then result = true display term: True.  and section B below should be displayed;   Else result = false display term: Not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A04_DuctsInConditionedSpaceCreditTaken" type="comp:DuctsInConditionedSpaceCreditTaken" >
+                  <xsd:element name="A05_DuctsInConditionedSpaceCreditTaken" type="comp:DuctsInConditionedSpaceCreditTaken" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status - Ducts Located In Conditioned Space Performance Credit:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If CF1R performance flag indicating a credit was taken for Ducts Located In Conditioned Space Compliance  == 1 (for true) then result = true  display term: True and section C below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_DuctsInConditionedSpaceRValueException" type="comp:DuctsInConditionedSpaceRValueException" >
+                  <xsd:element name="A06_DuctsInConditionedSpaceRValueException" type="comp:DuctsInConditionedSpaceRValueException" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status - All Ducts Entirely in Directly Conditioned Space R-value Exception</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH-01 flag for Duct R-value less then the mandatory minimum, == true then result = true display term: True. and section D below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_DuctsInWallCavitiesRValueException" type="comp:DuctsInWallCavitiesRValueException" >
+                  <xsd:element name="A07_DuctsInWallCavitiesRValueException" type="comp:DuctsInWallCavitiesRValueException" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status - Ducts Located In Wall Cavities R-Value Exception:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH-01 DuctsInWallCavitiesRValueException == true then result = true display term: True and section E below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_DuctsExposedConditionedSpaceRValueException" type="comp:DuctsExposedConditionedSpaceRValueException" >
+                  <xsd:element name="A08_DuctsExposedConditionedSpaceRValueException" type="comp:DuctsExposedConditionedSpaceRValueException" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status - Portions of Exposed Ducts in Directly Conditioned Space R-Value Exception</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH-01 DuctsExposedConditionedSpaceRValueException == true then result = true display term: True and section E below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
@@ -114,7 +120,7 @@
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">12 Linear Feet or Less of Duct Located Outside of Conditioned Space - RA3.1.4.1.2</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Display this section If DuctsLessThan12FtUnConditionedCreditTaken is true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If A04_DuctsLessThan12FtUnConditionedCreditTaken is true</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -149,7 +155,7 @@
          <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Ducts Located In Conditioned Space - RA3.1.4.1.3</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Display this section If DuctsInConditionedSpaceCreditTaken is true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If  A05_DuctsInConditionedSpaceCreditTaken is true</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -184,7 +190,7 @@
          <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">All Ducts Located Entirely in Directly Conditioned Space R-Value Exception - RA3.1.4.3.8</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Display this section If DuctsInConditionedSpaceRValueException is true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If   A06_DuctsInConditionedSpaceRValueException is true</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -213,7 +219,7 @@
          <xsd:element name="Section_E" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Exceptions to Minimum Duct R-Value Requirement</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Display this section If A06_DuctsInWallCavitiesRValueException == true</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If A07_DuctsInWallCavitiesRValueException Or A08_DuctsExposedConditionedSpaceRValueException == true</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

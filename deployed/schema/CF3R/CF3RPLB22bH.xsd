@@ -35,57 +35,63 @@
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="A01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                    <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R; If single family, enter string: Single Family</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A02_HeatPumpWaterHeaterModel" type="hvac:HeatPumpWaterHeaterModel">
+                                    <xsd:element name="A03_HeatPumpWaterHeaterModel" type="hvac:HeatPumpWaterHeaterModel">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Modeled Equipment Make and Model</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If parent CF1R == prescriptive result = Tier3NEEA; Else reference value from CF1R-PRF</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
+                                    <xsd:element name="A04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A04_TankLocation" type="hvac:TankLocation">
+                                    <xsd:element name="A05_TankLocation" type="hvac:TankLocation">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent == prescriptive CF1R result = value from CF1R;  Else If parent == CF1R-PRF-01 then If its TankOutside == true, result = Outside;   Else result =  its TankZone value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="A05_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                       <xsd:element name="A06_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                       <xsd:element name="A06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="A06_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                    <xsd:element name="A07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference CF1R: If parent == CF1R-PRF allowed values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit, StandardDistributionCentralParallelPipingHERS display term HERS Verified Parallel Piping, DemandRecirculationManualControlHERS display term HERS Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERS display term HERS Verified Demand Recirculation Sensor Controls; Else If parent  == prescriptive CF1R allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A07_CompactDistributionType" type="hvac:CompactDistributionType">
+                                    <xsd:element name="A08_CompactDistributionType" type="hvac:CompactDistributionType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R  Allowed values are BasicType display term Basic, Expanded display term Expanded, NotCompact display term None</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A08_DWHR_Type" type="hvac:DWHR_Type">
+                                    <xsd:element name="A09_DWHR_Type" type="hvac:DWHR_Type">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R  Allowed values are DWHR display term Yes and NoDWHR display term No</xsd:documentation>
@@ -128,180 +134,176 @@
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="B01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                    <xsd:element name="B01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from A01</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="B02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A02</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B02_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup">
+                                       <xsd:element name="B03_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case:  AOSmithHPTU50,  list = AOSmithHPTU50SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case:  AOSmithHPTU50,  list = AOSmithHPTU50SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup">
+                                       <xsd:element name="B03_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU66 list = AOSmithHPTU66SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU66 list = AOSmithHPTU66SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup">
+                                       <xsd:element name="B03_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU80 list =  AOSmithHPTU80SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU80 list =  AOSmithHPTU80SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_AOSmithPHPT60SimulationGroup" type="hvac:AOSmithPHPT60SimulationGroup">
+                                       <xsd:element name="B03_AOSmithPHPT60SimulationGroup" type="hvac:AOSmithPHPT60SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModelas default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT60 list = AOSmithPHPT60SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModelas default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT60 list = AOSmithPHPT60SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_AOSmithPHPT80SimulationGroup" type="hvac:AOSmithPHPT80SimulationGroup">
+                                       <xsd:element name="B03_AOSmithPHPT80SimulationGroup" type="hvac:AOSmithPHPT80SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT80 list = AOSmithPHPT80SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT80 list = AOSmithPHPT80SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_AOSmithSHPT50SimulationGroup" type="hvac:AOSmithSHPT50SimulationGroup">
+                                       <xsd:element name="B03_AOSmithSHPT50SimulationGroup" type="hvac:AOSmithSHPT50SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT50 list = AOSmithSHPT50SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT50 list = AOSmithSHPT50SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_AOSmithSHPT80SimulationGroup" type="hvac:AOSmithSHPT80SimulationGroup">
+                                       <xsd:element name="B03_AOSmithSHPT80SimulationGroup" type="hvac:AOSmithSHPT80SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT80 list = AOSmithSHPT80SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT80 list = AOSmithSHPT80SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup">
+                                       <xsd:element name="B03_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: GE201450 list = GE201450SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: GE201450 list = GE201450SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup">
+                                       <xsd:element name="B03_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: GE201480 list = GE201480SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: GE201480 list = GE201480SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHB50SimulationGroup" type="hvac:RheemHB50SimulationGroup">
+                                       <xsd:element name="B03_RheemHB50SimulationGroup" type="hvac:RheemHB50SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHB50 list = RheemHB50SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows:  Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHB50 list = RheemHB50SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup">
+                                       <xsd:element name="B03_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2250 list = RheemHBDR2250SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows:  Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2250 list = RheemHBDR2250SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup">
+                                       <xsd:element name="B03_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2265 list = RheemHBDR2265SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows:  Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2265 list = RheemHBDR2265SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup">
+                                       <xsd:element name="B03_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2280 list = RheemHBDR2280SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows:  Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2280 list = RheemHBDR2280SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup">
+                                       <xsd:element name="B03_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4550 list = RheemHBDR4550SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4550 list = RheemHBDR4550SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup">
+                                       <xsd:element name="B03_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4565 list = RheemHBDR4565SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4565 list = RheemHBDR4565SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup">
+                                       <xsd:element name="B03_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4580 list = RheemHBDR4580SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4580 list = RheemHBDR4580SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup">
+                                       <xsd:element name="B03_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Sanden40 list = Sanden40SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: Sanden40 list = Sanden40SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup">
+                                       <xsd:element name="B03_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Sanden80 list = Sanden80SimulationGroup values;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: Sanden80 list = Sanden80SimulationGroup values;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B02_Stiebel220ESimulationGroup" type="hvac:Stiebel220ESimulationGroup">
+                                       <xsd:element name="B03_Stiebel220ESimulationGroup" type="hvac:Stiebel220ESimulationGroup">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Stiebel220E list = Stiebel220ESimulationGroup values.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A10 as follows: Switch (A10_HeatPumpWaterHeaterSimulationGroup) case: Stiebel220E list = Stiebel220ESimulationGroup values.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
+                                    <xsd:element name="B04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from A03</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A04</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B04_TankLocation" type="hvac:TankLocation">
+                                    <xsd:element name="B05_TankLocation" type="hvac:TankLocation">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; Check: If result == A04_TankLocation result complies; Else flag non-compliant value and do not allow the doc to be registered.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B05_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                       <xsd:element name="B06_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input; Check: If result GTE A05_ExteriorTankInsulation result complies; Else flag non-compliant value and do not allow the doc to be registered. If A05_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; Check: If result GTE A06_ExteriorTankInsulation result complies; Else flag non-compliant value and do not allow the doc to be registered. If A06_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                       <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input; Check: If result GTE A05_ExteriorTankInsulation result complies; Else flag non-compliant value and do not allow the doc to be registered. If A05_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; Check: If result GTE A06_ExteriorTankInsulation result complies; Else flag non-compliant value and do not allow the doc to be registered. If A06_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B06_ResidentialDHWDwellingUnitDistributionType">
+                                    <xsd:element name="B07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from A06</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
-                                             <xsd:enumeration value="DemandRecirculationManualControl"/>
-                                             <xsd:enumeration value="DemandRecirculationSensorControls"/>
-                                             <xsd:enumeration value="PointOfUse"/>
-                                             <xsd:enumeration value="RecirculationNonDemand"/>
-                                             <xsd:enumeration value="StandardDistribution"/>
-                                             <xsd:enumeration value="StandardDistributionCentralParallelPiping"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
-                                    <xsd:element name="B07_CompactDistributionType" type="hvac:CompactDistributionType">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Compact Distribution</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from A07</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B08_DWHR_Type" type="hvac:DWHR_Type">
+                                    <xsd:element name="B08_CompactDistributionType" type="hvac:CompactDistributionType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Compact Distribution</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from A08</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B09_DWHR_Type" type="hvac:DWHR_Type">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from A08</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from A09</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -313,7 +315,7 @@
                   <xsd:element name="B09_DoesDwellingUnitWaterHeatingSystemComply" type="comp:DoesDwellingUnitWaterHeatingSystemComply">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If B03_ WaterHeaterTotalSystemCount == A03_ WaterHeaterTotalSystemCount result And If B05_NotApplicableMessage == N/A Or B05_ExteriorTankInsulation GTE A05_ExteriorTankInsulation And If B06_ ResidentialDHWDwellingUnitDistributionType == A06_ ResidentialDHWDwellingUnitDistributionType And If B07_CompactDistributionType == A07_ CompactDistributionType And  If B08_DWHR_Type == A08_DWHR_Type result = true display term System complies; Else result = false display term System does not comply</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If B04_ WaterHeaterTotalSystemCount == A04_ WaterHeaterTotalSystemCount result And If B06_NotApplicableMessage == N/A Or B06_ExteriorTankInsulation GTE A06_ExteriorTankInsulation And If B07_ ResidentialDHWDwellingUnitDistributionType == A07_ ResidentialDHWDwellingUnitDistributionType And If B08_CompactDistributionType == A08_ CompactDistributionType And  If B09_DWHR_Type == A09_DWHR_Type result = true display term System complies; Else result = false display term System does not comply</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -392,7 +394,7 @@
          <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS Verified Compact Hot Water Distribution Expanded Credit  (CHWDS-H-EX) RA3.6.5</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if any water heating system A07_CompactDistributionType == Expanded.  Require one row for each system in section A where A07_CompactDistributionType == Expanded</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if any water heating system A08_CompactDistributionType == Expanded.  Require one row for each system in section A where A08_CompactDistributionType == Expanded</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -400,7 +402,7 @@
                   <xsd:element name="D_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">For dwelling units with multiple systems, only allow one value to be entered for both master bath distance and kitchen distance.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For dwelling units with multiple systems, enter the master bath distance and kitchen distance to the closest water heater, and enter the average of the furthest fixture to each water heater.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableCompactExpanded">
@@ -412,9 +414,9 @@
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="D01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                    <xsd:element name="D01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from A01</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -446,20 +448,20 @@
                                     </xsd:element>
                                     <xsd:element name="D05_WaterHeaterToFurthest3rdFixture" type="comp:WaterHeaterToFurthest3rdFixture">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet  (Avg for multiple water heaters)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R  If A06_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = PRODUCT( PRODUCT (D03, 0.4), ( PRODUCT (D04, 0.4),  PRODUCT (average (D05), 0.2)); Else If A06_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = D05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R  If A07_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM ( PRODUCT (D03, 0.4),  PRODUCT (D04, 0.4),  PRODUCT (D05, 0.2)); Else If A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = D05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D07_WaterHeaterQuantificationDistance" type="comp:WaterHeaterQuantificationDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R Else result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A03_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R Else result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A04_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -517,7 +519,7 @@
          <xsd:element name="Section_E" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Compact Hot Water Distribution (CHWDS) RA4.4.6</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if all water heating system have A07_CompactDistributionType == BasicType and require one row for each of them.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one water heating system has A08_CompactDistributionType == BasicType and require one row for each system that satisfies this condition.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -525,7 +527,7 @@
                   <xsd:element name="E_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">For dwelling units with multiple systems, only allow one value to be entered for both master bath distance and kitchen distance.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For dwelling units with multiple systems, enter the master bath distance and kitchen distance to the closest water heater, and enter the average of the furthest fixture to each water heater.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableCompact">
@@ -537,9 +539,9 @@
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="E01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                    <xsd:element name="E01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">System Name</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from A01</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -571,20 +573,20 @@
                                     </xsd:element>
                                     <xsd:element name="E05_WaterHeaterToFurthest3rdFixture" type="comp:WaterHeaterToFurthest3rdFixture">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet  (Avg for multiple water heaters)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="E06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R  If A06_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = PRODUCT( PRODUCT (E03, 0.4), ( PRODUCT (E04, 0.4),  PRODUCT (average (E05), 0.2)); Else If A06_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = E05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R  If A07_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM ( PRODUCT (E03, 0.4),  PRODUCT (E04, 0.4),  PRODUCT (E05, 0.2)); Else If A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = E05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="E07_WaterHeaterQuantificationDistance" type="comp:WaterHeaterQuantificationDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A03_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = CF1R-PRF value; Else If parent == prescriptive CF1R result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A04_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -605,11 +607,27 @@
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Drain Water Heat Recovery System (DWHR-H) (RA3.6.9)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section A has A08_DWHR_Type != NoDWHR</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section A has A09_DWHR_Type != NoDWHR</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
+                  <xsd:element name="F_HeadingDesign" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Design DWHR System Information</d:b>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F_HeadingInstalled" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Installed DWHR System Information</d:b>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="TableDWHR">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
@@ -619,37 +637,98 @@
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="F01_DWHR_Manufacturer" type="comp:DWHR_Manufacturer">
+                                    <xsd:element name="F01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System ID/Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A02</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F02_DWHR_RatedEffectiveness" type="comp:DWHR_RatedEffectiveness">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Rated Effectiveness</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance, reference value from CF1R-PRF; Else result = .42 display term (.42 x 100) %</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="F03_DWHR_Configuration" type="comp:DWHR_Configuration">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Installation Configuration</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, reference value from CF1R-PRF; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Installation Configuration</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, reference value from CF1R-PRF; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="F04_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, reference value from CF1R-PRF; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, reference value from CF1R-PRF; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableInstalledDWHR">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="F05_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System ID/Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A02</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F06_DWHR_Manufacturer" type="comp:DWHR_Manufacturer">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F02_DWHR_ModelNumber" type="comp:DWHR_ModelNumber">
+                                    <xsd:element name="F07_DWHR_ModelNumber" type="comp:DWHR_ModelNumber">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Model Number</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F03_DWHR_RatedEffectiveness" type="comp:DWHR_RatedEffectiveness">
+                                    <xsd:element name="F08_DWHR_RatedEffectiveness" type="comp:DWHR_RatedEffectiveness">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Effectiveness</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; Check result GTE 0.42 And LT 1.00</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input; value GTE F02 and  check result  GTE 0.42 And LT 1.00</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F04_DWHR_Configuration" type="comp:DWHR_Configuration">
+                                    <xsd:element name="F09_DWHR_Configuration" type="comp:DWHR_Configuration">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Installation Configuration</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: EqualFlow display term Equal Flow, UnequalFlowShower display term Unequal to Shower, UnequalFlowWaterHeater display term Unequal to Water Heater</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If peformance, reference value in F03; Else user selects from list: EqualFlow display term Equal Flow, UnequalFlowShower display term Unequal to Shower, UnequalFlowWaterHeater display term Unequal to Water Heater</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F05_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed">
+                                    <xsd:element name="F10_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; Result is decimal value no units GT 0 LTE 1.00 and  displayed term is whole number with units of percent = PRODUCT ( result, 100)  Check on displayed term  GT 0 And LT 100</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If peformance, reference value in F04; Else user input; Result is decimal value no units GT 0 LTE 1.00 and  displayed term is whole number with units of percent = PRODUCT ( result, 100)  Check on displayed term is GT 0 And LT 100</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="F06_DWHR_CertifiedByCEC" type="comp:DWHR_CertifiedByCEC">
+                                    <xsd:element name="F11_DWHR_CertifiedByCEC" type="comp:DWHR_CertifiedByCEC">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">DWHR System Certified by CEC (Yes/No)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Yes (result = true), No (result = false)</xsd:documentation>
@@ -661,31 +740,31 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="F07" minOccurs="0">
+                  <xsd:element name="F12" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">For water heating systems serving a single dwelling, the DWHR system shall, at the minimum, recover heat from the master bathroom shower and must at least transfer that heat either back to all the respective showers or the water heater.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For water heating systems serving a single dwelling, the DWHR system shall, at the minimum, recover heat from the master bathroom shower and must transfer that heat either back to the respective shower(s) or the water heater.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F08" minOccurs="0">
+                  <xsd:element name="F13" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">For central water heating systems serving dwellings, the DWHR system shall, at the minimum, recover heat from half the showers located above the first floor and must at least transfer that heat either back to all the respective showers or the water heater.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For central water heating systems serving dwellings, the DWHR system shall, at the minimum, recover heat from half the showers located above the first floor and must transfer that heat either back to all the respective shower(s) or the water heater.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F09" minOccurs="0">
+                  <xsd:element name="F14" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">The DWHR unit(s) shall be installed within 1 degree of the rated slope.  Sloped DWHR shall have a minimum lengthwise slope of 1 degree.  The lateral level tolerance shall be within plus or minus 1 degree.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F10_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+                  <xsd:element name="F15_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="F11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                  <xsd:element name="F16_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements == Fail, require that the reason is described in this field</xsd:documentation>
@@ -703,7 +782,7 @@
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Pipe Insulation Credit Requirements (PIC-H) (RA3.6.3)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_  ResidentialDHWDwellingUnitDistributionType == StandardDistributionInsulatedPipesHERS</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_  ResidentialDHWDwellingUnitDistributionType == StandardDistributionInsulatedPipesHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -744,7 +823,7 @@
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Parallel Piping Requirements (PP-H) (Ra3.6.4)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_ResidentialDHWDwellingUnitDistributionType ==   StandardDistributionCentralParallelPipingHERS</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_ResidentialDHWDwellingUnitDistributionType ==   StandardDistributionCentralParallelPipingHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -803,7 +882,7 @@
          <xsd:element name="Section_I" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Parallel Piping Requirements (PP) (RA4.4.4)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_ResidentialDHWDwellingUnitDistributionType == StandardDistributionCentralParallelPiping</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -850,7 +929,7 @@
          <xsd:element name="Section_J" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Point of Use Requirements (POU) (RA4.4.5)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_  ResidentialDHWDwellingUnitDistributionType == PointOfUse</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_  ResidentialDHWDwellingUnitDistributionType == PointOfUse</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -890,7 +969,7 @@
          <xsd:element name="Section_K" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Mandatory Requirements For All Recirculation Systems (RA4.4.7)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand, DemandRecirculationManualControl,  DemandRecirculationSensorControls, DemandRecirculationManualControlsHERS, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand, DemandRecirculationManualControl,  DemandRecirculationSensorControls, DemandRecirculationManualControlsHERS, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -937,7 +1016,7 @@
          <xsd:element name="Section_L" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Recirculation Non-Demand Controls Requirements (R-ND) (RA4.4.8)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_ResidentialDHWDwellingUnitDistributionType == RecirculationNonDemand</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -966,7 +1045,7 @@
          <xsd:element name="Section_M" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Demand Recirculation Manual Control (R-DRmc) (RA4.4.9)/ Sensor Control Requirements (RDRsc) (RA4.4.10)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl,  DemandRecirculationManualControlsHERS, DemandRecirculationSensorControls, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl,  DemandRecirculationManualControlsHERS, DemandRecirculationSensorControls, Or DemandRecirculationSensorControlsHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1046,7 +1125,7 @@
          <xsd:element name="Section_N" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Demand Recirculation Manual Control (RDRmc-H)  (RA3.6.6)/ Sensor Control (RDRsc - H) (RA3.6.7)Requirements</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A06_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControlsHERS Or DemandRecirculationSensorControlsHERS</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if there is at least one water heating system that has A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControlsHERS Or DemandRecirculationSensorControlsHERS</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1094,7 +1173,7 @@
                   <xsd:element name="O01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If DoesDwellingUnitWaterHeatingSystemComply equals true And  DoesSystemComplyWithRequirements in sections D, F, G, H, N  != Fail, then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If B09_DoesDwellingUnitWaterHeatingSystemComply == true And  DoesSystemComplyWithRequirements in sections D, F, G, H, N  != Fail, then result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -1128,7 +1207,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RPLB22bH"/>
       </xsd:complexType>
    </xsd:element>

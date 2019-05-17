@@ -371,7 +371,7 @@
                <xsd:sequence>
                   <xsd:element name="Calculations" minOccurs="0">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="FieldText">NOT REPORTED IN PDF</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
@@ -446,6 +446,12 @@
                         <xsd:documentation source="CalculationsAndRules">Calculated field:  PRODUCT (C09_NominalCFM50,  D01_AltitudeTemperatureCorrectionFactor)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="D03_ACH50Adjusted" type="comp:ACH50Adjusted">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">ACH50</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  result = PRODUCT (D02_CFM50TempAltCorrected,  60) / Building Volume from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -476,19 +482,19 @@
                      <xsd:element name="F01_AirLeakageRateMeasuredACH50" type="comp:AirLeakageRateMeasuredACH50">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Enclosure Air Leakage Rate is: (ACH50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage   worksheet    Else If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then result = PRODUCT ( E01_CFM50Adjusted, 60) /  Building Volume pulled from MCH27 and stored in F01_AirLeakageRateMeasuredACH50  Else If A02_CompartmentilizationLeakageVerificationRequiredHERS == true Then result = E01_CFM50Adjusted  stored in F01_AirLeakageRateMeasuredCFM50.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet    Else If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then result = PRODUCT ( E01_CFM50Adjusted, 60) /  Building Volume pulled from CF1R and stored in F01_AirLeakageRateMeasuredACH50  Else If A02_CompartmentilizationLeakageVerificationRequiredHERS == true Then result = E01_CFM50Adjusted  stored in F01_AirLeakageRateMeasuredCFM50.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="F01_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Enclosure Air Leakage Rate is:  (CFM50)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage   worksheet    Else If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then result = PRODUCT ( E01_CFM50Adjusted, 60) /  Building Volume pulled from MCH27 and stored in F01_AirLeakageRateMeasuredACH50  Else If A02_CompartmentilizationLeakageVerificationRequiredHERS == true Then result = E01_CFM50Adjusted  stored in F01_AirLeakageRateMeasuredCFM50.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage   worksheet    Else If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then result = PRODUCT ( E01_CFM50Adjusted, 60) /  Building Volume pulled from CF1R and stored in F01_AirLeakageRateMeasuredACH50  Else If A02_CompartmentilizationLeakageVerificationRequiredHERS == true Then result = E01_CFM50Adjusted  stored in F01_AirLeakageRateMeasuredCFM50.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="F01_IsManometerCalibrationCurrent" type="comp:IsManometerCalibrationCurrent">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Manometer Calibration is expired.</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage   worksheet    Else If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then result = PRODUCT ( E01_CFM50Adjusted, 60) /  Building Volume pulled from MCH27 and stored in F01_AirLeakageRateMeasuredACH50  Else If A02_CompartmentilizationLeakageVerificationRequiredHERS == true Then result = E01_CFM50Adjusted  stored in F01_AirLeakageRateMeasuredCFM50.</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B06_IsManometerCalibrationCurrent == false result = false stored in F01_IsManometerCalibrationCurrent display term Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage   worksheet    Else If A01_IsEnvelopeAirLeakageHERSVerificationRequired == true, Then result = PRODUCT ( E01_CFM50Adjusted, 60) /  Building Volume pulled from CF1R and stored in F01_AirLeakageRateMeasuredACH50  Else If A02_CompartmentilizationLeakageVerificationRequiredHERS == true Then result = E01_CFM50Adjusted  stored in F01_AirLeakageRateMeasuredCFM50.</xsd:documentation>
                            <xsd:appinfo source="displayterm">
                               <dtyp:displayterm value="false">Manometer Calibration is expired. A manometer with current calibration is required in order to comply with this Enclosure Air Leakage worksheet</dtyp:displayterm>
                            </xsd:appinfo>
@@ -560,7 +566,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH24aH"/>
       </xsd:complexType>
    </xsd:element>

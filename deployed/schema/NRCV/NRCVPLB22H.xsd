@@ -31,7 +31,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVPLB22H"/>
       </xsd:complexType>
    </xsd:element>
@@ -778,13 +778,31 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
+                  <xsd:element name="H07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements value is Fail, require that the reason is described in this field</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_I" minOccurs="0">
+         <xsd:element name="Section_I" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Mandatory Measures For Insulation for Piping and Tanks</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -956,6 +974,12 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
+                  <xsd:element name="L_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Systems that utilize this distribution type shall comply with these requirements</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="L01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
@@ -1214,7 +1238,7 @@
                   <xsd:element name="N01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="CalculationsAndRules">If all requirements in C02 through C09 And E02 through E06 are met And If DoesSystemComplyWithRequirements in sections G, J, K, L and M  != Fail result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result =s false display term Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If all requirements in C02 through C09 And E02 through E06 are met And If DoesSystemComplyWithRequirements in sections G, H, J, K, L and M  != Fail  result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result =s false display term Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

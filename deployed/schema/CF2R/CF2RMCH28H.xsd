@@ -31,19 +31,25 @@
                         <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or  Description of  Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A04_ReturnDuctCount" type="hvac:ReturnDuctCount">
+                  <xsd:element name="A05_ReturnDuctCount" type="hvac:ReturnDuctCount">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Number of Return Ducts Used for Compliance</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from list:  1 display term One Return Duct,  2 display term Two Return Ducts</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_AdditionalReturnDuctCount" type="hvac:AdditionalReturnDuctCount">
+                  <xsd:element name="A06_AdditionalReturnDuctCount" type="hvac:AdditionalReturnDuctCount">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Number of Additional Return Ducts (Not Used for Compliance)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input integer value</xsd:documentation>
@@ -55,7 +61,7 @@
          <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">One Return Duct</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Display this section if A04_ReturnDuctCount equals 1</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section if A05_ReturnDuctCount equals 1</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -63,7 +69,7 @@
                   <xsd:element name="B01_ReturnDuctDiameterMinimumRequired" type="hvac:ReturnDuctDiameterMinimumRequired">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Return Duct Minimum Nominal Diameter (inches)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 16; case 2.0: result = 18; case 2.5: result = 20; case GT 2.5: report "Cooling Capacity above 2.5 tons requires two return air ducts - 
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A04_CondenserNominalCoolingCapacity) case 1.5: result = 16; case 2.0: result = 18; case 2.5: result = 20; case GT 2.5: report "Cooling Capacity above 2.5 tons requires two return air ducts - 
                            <d:b>Do Not Proceed</d:b>"</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -76,7 +82,7 @@
                   <xsd:element name="B03_ReturnDuctsFilterGrilleGrossAreaRequired" type="hvac:ReturnDuctsFilterGrilleGrossAreaRequired">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Minimum Total Return Filter Grille Nominal Area (inch<d:sup>2</d:sup>)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 500; case 2.0: result = 600; case 2.5: result = 800</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A04_CondenserNominalCoolingCapacity) case 1.5: result = 500; case 2.0: result = 600; case 2.5: result = 800</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B04_ReturnDuctsFilterGrilleGrossAreaInstalled" type="hvac:ReturnDuctsFilterGrilleGrossAreaInstalled">
@@ -97,7 +103,7 @@
          <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Two Return Ducts</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Display this section if A04_ReturnDuctCount equals 2</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section if A05_ReturnDuctCount equals 2</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -105,7 +111,7 @@
                   <xsd:element name="C01_ReturnDuctDiameterMinimumRequired" type="hvac:ReturnDuctDiameterMinimumRequired">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Minimum Return Duct1 Nominal Diameter (inches)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 12; case 2.0: result = 14; case 2.5: result = 14; case 3.0: result = 16; case 3.5: result = 16; case 4.0: result = 18; case 5.0: result = 20</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A04_CondenserNominalCoolingCapacity) case 1.5: result = 12; case 2.0: result = 14; case 2.5: result = 14; case 3.0: result = 16; case 3.5: result = 16; case 4.0: result = 18; case 5.0: result = 20</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C02_ReturnDuctDiameter" type="hvac:ReturnDuctDiameter">
@@ -117,7 +123,7 @@
                   <xsd:element name="C03_SecondReturnDuctDiameterMinimumRequired" type="hvac:SecondReturnDuctDiameterMinimumRequired">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Minimum Return Duct2 Nominal Diameter (inches)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 10; case 2.0: result = 12; case 2.5: result = 14; case 3.0: result = 14; case 3.5: result = 16; case 4.0: result = 18; case 5.0: result = 20</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A04_CondenserNominalCoolingCapacity) case 1.5: result = 10; case 2.0: result = 12; case 2.5: result = 14; case 3.0: result = 14; case 3.5: result = 16; case 4.0: result = 18; case 5.0: result = 20</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C04_SecondReturnDuctDiameter" type="hvac:SecondReturnDuctDiameter">
@@ -129,7 +135,7 @@
                   <xsd:element name="C05_ReturnDuctsFilterGrilleGrossAreaRequired" type="hvac:ReturnDuctsFilterGrilleGrossAreaRequired">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Minimum Total Return Filter Grille Gross Area (inch<d:sup>2</d:sup>)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A03_CondenserNominalCoolingCapacity) case 1.5: result = 500; case 2.0: result = 600; case 2.5: result = 800; case 3.0: result = 900 case 3.5: result = 1000; case 4.0: result = 1200; case 5.0: result = 1500</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A04_CondenserNominalCoolingCapacity) case 1.5: result = 500; case 2.0: result = 600; case 2.5: result = 800; case 3.0: result = 900 case 3.5: result = 1000; case 4.0: result = 1200; case 5.0: result = 1500</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C06_ReturnDuctsFilterGrilleGrossAreaInstalled" type="hvac:ReturnDuctsFilterGrilleGrossAreaInstalled">
@@ -289,8 +295,8 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RMCH28H"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH28H"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF2RMCH28H" type="CF2RMCH28H">

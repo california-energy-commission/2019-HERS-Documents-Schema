@@ -359,8 +359,8 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF2RSRA02E"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF2RSRA02E" type="CF2RSRA02E">

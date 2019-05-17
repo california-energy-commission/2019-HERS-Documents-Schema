@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH23dH"/>
       </xsd:complexType>
    </xsd:element>
@@ -94,16 +94,20 @@
                      </xsd:simpleType>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="A05_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity" >
+                     <xsd:element name="A05_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity" >
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH01's  ResidentialCoolingSystemType == NoCooling  result = N/A stored in the NotApplicableMessage and display text: N/A - Heating-only system;  Else user enters nominal ton value: numeric x.x which is stored in CondenserNominalCoolingCapacity</xsd:documentation>
+                           <xsd:documentation source="FieldText">Nominal Cooling Capacity (tons)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Else Switch (parent MCH01)  case MCH-01a:  If duct system in M03 has D06 GT 1, then result = MCH-01a G10_IndoorUnitNominalCoolingCapacity; Else If section F IsPresent (not HP system) result = MCH-01a F09_IndoorUnitNominalCoolingCapacity; Else If section I IsPresent (HP system) result = MCH-01a field I10_IndoorUnitNominalCoolingCapacity.  case MCH01b: If duct system in J03 has C12 GT 1, then If section F IsPResent (LT 75% of duct system altered) result = MCH-01b field F12_IndoorUnitNominalCoolingCapacity; Else If section G IsPresent (new or complete replaced duct system), result = G15_IndoorUnitNominalCoolingCapacity;  Else result = MCH-01b field E09_IndoorUnitNominalCoolingCapacity.  case MCH-01c: If duct system in L03 has C11 GT 1, then result = F10__IndoorUnitNominalCoolingCapacity; Else If section E IsPresent (not HP system) result = E09_IndoorUnitNominalCoolingCapacity; Else If section H IsPresent (HP system) result = H10_IndoorUnitNominalCoolingCapacity.  case Mch01d: If duct system in O03 has D06 GT 1 Then If section K IsPresent (LT 75% of duct system altered) result = K12_IndoorUnitNominalCoolingCapacity; Else If section L IsPresent (new or complete replaced duct system), result = L15_IndoorUnitNominalCoolingCapacity; Else (D06 not GT1) If section G IsPresent (not HP system) result = G09_IndoorUnitNominalCoolingCapacity; Else If section J IsPresent (HP system) result = J10_IndoorUnitNominalCoolingCapacity.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Nominal Cooling Capacity (tons) of Condenser</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH01's  ResidentialCoolingSystemType == NoCooling  result = N/A stored in the NotApplicableMessage and display text: N/A - Heating-only system;  Else user enters nominal ton value: numeric x.x which is stored in CondenserNominalCoolingCapacity</xsd:documentation>
+                           <xsd:documentation source="FieldText">Nominal Cooling Capacity (tons)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH01's  ResidentialCoolingSystemType == NoCooling  result = N/A stored in the NotApplicableMessage and display text: N/A - Heating-only system;</xsd:documentation>
+                           <xsd:appinfo source="displayterm">
+                              <dtyp:displayterm value="N/A">N/A - Heating-only system</dtyp:displayterm>
+                           </xsd:appinfo>
+                           
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -141,12 +145,20 @@
                         <xsd:documentation source="CalculationsAndRules">Calculated field: reference value from MCH-01, allowable values: true display term CFI System  and false display term Not a CFI System</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_HasBypassDuct" type="hvac:HasBypassDuct" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If parent is MCH-01b,MCH-01c or MCH-01d result = N/A in the NotApplicableMessage;  elseif parent is MCH-01a, result =  MCH-01a J10 HasBypassDuct;  allowable values: true display term Has Bypass Duct and false display term  No Bypass Duct</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A09_HasBypassDuct" type="hvac:HasBypassDuct" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If parent is MCH-01b,MCH-01c or MCH-01d result = N/A in the NotApplicableMessage;  elseif parent is MCH-01a, result =  MCH-01a J10 HasBypassDuct;  allowable values: true display term Has Bypass Duct and false display term  No Bypass Duct</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If parent is MCH-01b,MCH-01c or MCH-01d result = N/A in the NotApplicableMessage;  elseif parent is MCH-01a, result =  MCH-01a J10 HasBypassDuct;  allowable values: true display term Has Bypass Duct and false display term  No Bypass Duct</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="A10_AirflowRateMeasurementDate" type="comp:AirflowRateMeasurementDate" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Date of System Airflow Rate Measurement</xsd:documentation>
@@ -162,7 +174,7 @@
                   <xsd:element name="A12_CFVCS_Type" type="comp:CFVCS_Type" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If Mch01 in section B CFVCS_Type== VariableCFVCS  result = VariableCFVCS display term Variable  CFVCS, B06_CFVCS_Type== FixedCFVCS  result = FixedCFVCS display term Fixed CFVCS,Else result = NotCFVCS display term Not a CFVC</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If parent MCH01 = MCH01b Or MCH01c result = NotCFVCS display term Not a CFVC; Else (parent MCH01a Or MCH01d) If B05_CFVCS_Type== VariableCFVCS  result = VariableCFVCS display term Variable  CFVCS, Else If B05_CFVCS_Type== FixedCFVCS  result = FixedCFVCS display term Fixed CFVCS; Else result = NotCFVCS display term Not a CFVC.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -275,7 +287,7 @@
                   <xsd:element name="E01_AirflowRequiredMinimumTarget" type="hvac:AirflowRequiredMinimumTarget" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Minimum Ventilation System Airflow Rate (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto-filled with value from Mch01 C11</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Auto-filled with value from Mch01 Central Fan Ventilation Cooling Airflow</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E02_AirflowMeasuredRate" type="hvac:AirflowMeasuredRate" >

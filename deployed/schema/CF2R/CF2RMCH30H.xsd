@@ -39,58 +39,64 @@
                         <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH01</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03_FanManufacturerName" type="comp:FanManufacturerName">
+                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or  Description of  Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_FanManufacturerName" type="comp:FanManufacturerName">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Central Fan VCS Equipment - Manufacturer Name</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A04_FanManufacturerModelNumber" type="comp:FanManufacturerModelNumber">
+                  <xsd:element name="A05_FanManufacturerModelNumber" type="comp:FanManufacturerModelNumber">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Central Fan VCS Equipment - Manufacturer Model No.</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_FanFlowType" type="hvac:FanFlowType">
+                  <xsd:element name="A06_CFVCS_Type" type="comp:CFVCS_Type">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Central Fan VCS Equipment - Fan Type Required</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto filled text from Cf2R-Mch-01 B06_FanFlowType value; FixedFlow display term Fixed Flow or VariableFlow display term Variable Flow</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text from CF2R-Mch-01 B05_CFVCS_Type value; FixedCFVCS display term Fixed CFVCS or VariableCFVCS display term Variable CFVCS</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_FanFlowType" type="hvac:FanFlowType">
+                  <xsd:element name="A07_CFVCS_Type" type="comp:CFVCS_Type">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Central Fan VCS Equipment - Fan Type Installed</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from list: FixedFlow display term Fixed Flow or VariableFlow display term Variable Flow</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: FixedCFVCS display term Fixed CFVCS or VariableCFVCS display term Variable CFVCS</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_DoesManufacturerDocumentationMeetApplicableRequirements" type="comp:DoesManufacturerDocumentationMeetApplicableRequirements">
+                  <xsd:element name="A08_DoesManufacturerDocumentationMeetApplicableRequirements" type="comp:DoesManufacturerDocumentationMeetApplicableRequirements">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Central Fan VCS Equipment - Manufacturer Documentation Status</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User selects from list: Manufacturer system documentation meets the applicable requirements in section B item 06 on this document  or Manufacturer system documentation does not meet the applicable requirements in section B item 06 on this document</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_IsRequiredCF2RMCH20Registered" type="comp:IsRequiredCF2RMCH20Registered">
+                  <xsd:element name="A09_IsRequiredCF2RMCH20Registered" type="comp:IsRequiredCF2RMCH20Registered">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Duct Leakage Verification Status</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">calculated field:  If this air system has a registered CF2R-MCH-20 that complies with the maximum duct leakage rate criteria on the CF1R, then result  is true and display text is: System Complies with Duct Leakage Verification Requirements;  Else result is false and display text is: System Does not Comply.  A registered CF2R-MCH-20 is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_IsRequiredCF2RMCH23Registered" type="comp:IsRequiredCF2RMCH23Registered">
+                  <xsd:element name="A10_IsRequiredCF2RMCH23Registered" type="comp:IsRequiredCF2RMCH23Registered">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Airflow Rate Verification Status</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">calculated field:  If variant == CF2R-MCH-23e then If its E03 ==true Or variant == CF2R-MCH-23f then If its F03 == true result = true display term System Complies with Airflow Rate Verification Requirements;  Else result = false display term   System Does not Comply.  A registered CF2R-MCH-23 is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A10_IsRequiredCF2RMCH22Registered" type="comp:IsRequiredCF2RMCH22Registered">
+                  <xsd:element name="A11_IsRequiredCF2RMCH22Registered" type="comp:IsRequiredCF2RMCH22Registered">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Fan Efficacy Verification Status</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">calculated field: If variant == CF2R-MCH-22c  and D05 == true Or   If variant == CF2R-MCH-22d  and E05 == true  then result is true display term System Complies with Fan Efficacy Verification Requirements;  Else result is false display term  System Does not Comply.  A registered CF2R-MCH-22 is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A11_DoesSystemComplyWithFanDuctVerification" type="comp:DoesSystemComplyWithFanDuctVerification">
+                  <xsd:element name="A12_DoesSystemComplyWithFanDuctVerification" type="comp:DoesSystemComplyWithFanDuctVerification">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">calculated field:   If FanFlowType in A06 equals FanFlowType in A05, And A07, A08 and A09 equal true, then result is true, Else the result is false.  For Boolean true value display text: System Complies with Fan and Duct Verification Requirements.  For Boolean false value display text: System does not Comply with Fan and Duct Verification Requirements</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field:   If A07_CFVCS_Type == A06_CFVCS_Type And A08, A09, A10  and A11 == true, then result = true, Else the result = false.  For Boolean true value display text: System Complies with Fan and Duct Verification Requirements.  For Boolean false value display text: System does not Comply with Fan and Duct Verification Requirements</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -174,7 +180,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH30H"/>
       </xsd:complexType>
    </xsd:element>

@@ -111,10 +111,10 @@
                            <d:lte/> 1,000 ft<d:sup>2</d:sup>,   KitchenRemodelAddition display term Kitchen Remodel, HeatingSystemAddition display term Space heating system, CoolingSystemAddition display term Space cooling system, DuctSystemAddition display term Space conditioning duct system,  WaterHeatingAddition display term Water heating, FenestrationAddition display term Fenestration, ExteriorDoorsAddition display term Opaque Exterior Doors</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A14_FenestrationUfactorSHGC150_1c3A_Exception" type="comp:FenestrationUfactorSHGC150_1c3A_Exception" maxOccurs="unbounded">
+                  <xsd:element name="A14_FenestrationExceptionForUfactorSHGC" type="comp:FenestrationExceptionForUfactorSHGC" maxOccurs="unbounded">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Exceptions to Fenestration U-factor and SHGC  150.1(c)3A</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects as many values as applicable:   FenestrationGlazingDoorLTE3Ft2, display text Installing less than or equal to 3 ft2 glass in door, FenestrationGlazingSkylightLTE16Ft2, display text Installing less than or equal to 16 ft2 skylight, FenestrationGlazingSkylightTubularLTE3Ft2, display text Installing less than or equal to 3 ft2 tubular skylight; Or FenestrationGlazingNoExceptions display text N/A</xsd:documentation>
+                        <xsd:documentation source="FieldText">Fenestration Exceptions</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects as many values as applicable:   FenestrationGlazingDoorLTE3Ft2, display text Installing less than or equal to 3 ft2 glass in door, FenestrationGlazingSkylightLTE16Ft2, display text Installing less than or equal to 16 ft2 skylight, FenestrationGlazingSkylightTubularLTE3Ft2, display text Installing less than or equal to 3 ft2 tubular skylight; InstallingWaterHeaterLTE55Gal display term Installing storage water heater less than or equal to 55 gal  Or FenestrationGlazingNoExceptions display text N/A.  If result = FenestrationGlazingNoExceptions  do not allow other selectiions</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -617,51 +617,73 @@
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="E02_InsulationRValue" type="env:InsulationRValue">
+                                       <xsd:element name="E02_SlabInsulationThermalResistance">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="env:SlabInsulationThermalResistance">
+                                                <xsd:enumeration value="R0"/>
+                                                <xsd:enumeration value="R10Vertical"/>
+                                                <xsd:enumeration value="R10VR7H"/>
+                                                <xsd:enumeration value="R4"/>
+                                                <xsd:enumeration value="R5"/>
+                                                <xsd:enumeration value="R7"/>
+                                                <xsd:enumeration value="R8"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="E02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E03_InsulationUFactor" type="env:InsulationUFactor">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage, Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E03_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage.  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="E02After_HeadingForE03" minOccurs="0">
+                                    <xsd:element name="E03AfterHeading04to05" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">
                                              <d:b>Required</d:b>
                                           </xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for E03</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">This multicolumn heading is for E04 and E05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="E04_SlabInsulationRValueRequired" type="env:SlabInsulationRValueRequired">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = R7; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A09_ClimateZone == InRange(3,10) result = R0; Else If A09_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A09_ClimateZone == InRange(1,15) result = R5; Else If A09_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = R7; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A09_ClimateZone == InRange(3,10) result = R0; Else If A09_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A09_ClimateZone == InRange(1,15) result = R5; Else If A09_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="AdditionalRequirements">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 in order to comply.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16 require User input: DecimalNonnegative;  Else allow N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 in order to comply.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -703,20 +725,20 @@
                      <xsd:element name="F01_RadiantBarrierRequired" type="comp:RadiantBarrierRequired">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Radiant Barrier installed below the roof deck and on all gable end walls</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User selects from: Yes (Boolean true) or No  (Boolean false) Or N/A stored in NotApplicableMessage. If No or N/A is selected. Display Do Not Proceed</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User selects from: Yes (Boolean true) or No  (Boolean false) Or N/A stored in NotApplicableMessage. If No is selected. display Do Not Proceed</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="F01_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Radiant Barrier installed below the roof deck and on all gable end walls</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User selects from: Yes (Boolean true) or No  (Boolean false) Or N/A stored in NotApplicableMessage. If No or N/A is selected. Display Do Not Proceed</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User selects from: Yes (Boolean true) or No  (Boolean false) Or N/A stored in NotApplicableMessage. If No is selected. display Do Not Proceed</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
                   <xsd:element name="F02_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Comments</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If F01_NotApplicablemessage = N/A, require user input: Text; Else optional input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="FEndNote1" minOccurs="0">
@@ -846,13 +868,13 @@
                                        <xsd:element name="G07_CRRC_InitialReflectance" type="env:CRRC_InitialReflectance">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Initial Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage Else If G04_CoolRoofComplianceMethod == ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else If user knows what they are installing, user inputs DecimalNonnegative from CRRC Directory;  Else allow user to enter N/A stored in NotApplicablemessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage Else If G04_CoolRoofComplianceMethod == ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else If user knows what they are installing, user inputs DecimalNonnegative value which must be GT 0 and LT 1 from CRRC Directory;  Else allow user to enter N/A stored in NotApplicablemessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G07_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Initial Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage Else If G04_CoolRoofComplianceMethod == ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else If user knows what they are installing, user inputs DecimalNonnegative from CRRC Directory;  Else allow user to enter N/A stored in NotApplicablemessage.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage Else If G04_CoolRoofComplianceMethod == ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else If user knows what they are installing, user inputs DecimalNonnegative value which must be GT 0 and LT 1 from CRRC Directory;  Else allow user to enter N/A stored in NotApplicablemessage.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -860,13 +882,13 @@
                                        <xsd:element name="G08_SolarReflectanceAged" type="com:SolarReflectanceAged">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative value must be GT 0 and LT 1.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G08_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative value must be GT 0 and LT 1.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -874,13 +896,13 @@
                                        <xsd:element name="G09_ThermalEmittance" type="com:ThermalEmittance">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative value must be GT 0 and LT 1 .</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G09_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If G02_CoolRoofException != NoException result = N/A stored in NotApplicablemessage; Else If G04_CoolRoofComplianceMethod ==  ClimateZoneNotApplicable then result = N/A stored in the NotApplicableMessage; Else User input: DecimalNonnegative value must be GT 0 and LT 1 .</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1066,10 +1088,10 @@
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:element name="H06_UFactorLimit" type="com:UFactorLimit" fixed="0.30">
+                  <xsd:element name="H06_UFactorLimit" type="com:UFactorLimit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Maximum Allowed  U-factor (Windows)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">This is a fixed value of 0.30</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A14_FenestrationExceptionForUfactorSHGC  == InstallingWaterHeaterLTE55Gal result = 0.24; else result =  0.30</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="H07_UFactorLimitSkylight" type="com:UFactorLimitSkylight">
@@ -1338,13 +1360,13 @@
                      <xsd:element name="I21_UfactorProposedAllWindowFenestration" type="comp:UfactorProposedAllWindowFenestration">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If all I02_FenestrationAdditionType values != FixedWindow or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  all I09_U-factor values LTE 0.30, result = Largest (All I09_U-factor values); Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If all I02_FenestrationAdditionType values != FixedWindow or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  all I09_U-factor values LTE H06_UFactorLimit, result = Largest (All I09_U-factor values); Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="I21_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If all I02_FenestrationAdditionType values != FixedWindow or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  all I09_U-factor values LTE 0.30, result = Largest (All I09_U-factor values); Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If all I02_FenestrationAdditionType values != FixedWindow or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  all I09_U-factor values LTE H06_UFactorLimit, result = Largest (All I09_U-factor values); Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1753,18 +1775,18 @@
                                        <xsd:element name="L14_ResidentialDHWCentralDistributionType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH result = RecirculatingContinuousTemperatureModulationMonitoringMF stored in ResidentialDHWCentralDistributionType; Else If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH (results stored in ResidentialDHWDwellingUnitDistributionType ) If  L03_WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution and    DemandRecirculation; Else If L03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If L03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  L03_WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L02_ResidentialWaterHeatingSystemType == Central result = RecirculatingDemandControlMF stored in ResidentialDHWCentralDistributionType; Else If L02_ResidentialWaterHeatingSystemType != Central  (results stored in ResidentialDHWDwellingUnitDistributionType ) If  L03_WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution and    DemandRecirculation; Else If L03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If L03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  L03_WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:ResidentialDHWCentralDistributionType">
-                                                <xsd:enumeration value="RecirculatingContinuousTemperatureModulationMonitoringMF"/>
+                                                <xsd:enumeration value="RecirculatingDemandControlMF"/>
                                              </xsd:restriction>
                                           </xsd:simpleType>
                                        </xsd:element>
                                        <xsd:element name="L14_ResidentialDHWDwellingUnitDistributionType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH result = RecirculatingContinuousTemperatureModulationMonitoringMF stored in ResidentialDHWCentralDistributionType; Else If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH (results stored in ResidentialDHWDwellingUnitDistributionType ) If  L03_WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution and    DemandRecirculation; Else If L03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If L03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  L03_WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L02_ResidentialWaterHeatingSystemType == Central result = RecirculatingDemandControlMF stored in ResidentialDHWCentralDistributionType; Else If L02_ResidentialWaterHeatingSystemType != Central  (results stored in ResidentialDHWDwellingUnitDistributionType ) If  L03_WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution and    DemandRecirculation; Else If L03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If L03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  L03_WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
@@ -1894,6 +1916,49 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
+         <xsd:element name="Section_N" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">IAQ Fan Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A13_ProjectScopeAdditions == AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU Or AdditionGT700LTE1000ADU.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableFansIAQ">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="N01_FanName" type="hvac:FanName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">user iput</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="N02_VentilationSystemType" type="hvac:VentilationSystemType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">IAQ Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: SupplyVent display term Supply, ExhaustVent display term Exhaust, Balanced display term Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, ExhaustCentralVent display term Central Ventilation System - Exhaust, BalancedCentralVent display term Central Ventilation System - Balanced</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="N03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Comments</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
       </xsd:sequence>
    </xsd:complexType>
    <xsd:element name="ComplianceDocumentPackage">
@@ -1920,7 +1985,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RADD01E"/>
       </xsd:complexType>
    </xsd:element>

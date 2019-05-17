@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
       </xsd:complexType>
    </xsd:element>
@@ -312,7 +312,7 @@
                                           <xsd:documentation source="FieldText">Altered Heating Components</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHvacHeatiingComponentType: AllNewHeatingComponents, Boiler, Compressor, FancoilAHU, GasFurnaceAHU, IndoorCoil, NoHeatingComponentsAltered, OutdoorCondensingUnit, RefrigerantLineset, TXV_EXV</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:element name="D04_ResidentialHvacHeatiingComponentType" type="hvac:ResidentialHvacHeatiingComponentType" >
+                                       <xsd:element name="D04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType" >
                                        </xsd:element>
                                     </xsd:sequence>
                                     <xsd:choice maxOccurs="1">
@@ -513,7 +513,7 @@
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D04; User should select all components from list that have been altered in this project.</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:element name="E04_ResidentialHvacHeatiingComponentType" type="hvac:ResidentialHvacHeatiingComponentType" >
+                                       <xsd:element name="E04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType" >
                                        </xsd:element>
                                     </xsd:sequence>
                                     <xsd:choice maxOccurs="1">
@@ -640,7 +640,7 @@
                   <xsd:element name="EEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 1-10, 12 and 13) and R8 (CZ 11 and 14-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: [d:lte/] 5%. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate [d:line1/] - Compliance: Fan Efficacy [d:lte/] 0.58 W per cfm and System Airflow [d:gte/] 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/] [d:u]Exceptions:[/d:u][d:line1/]  Heating-only systems are exempt from the 0.58 W per cfm and 350 cfm per ton requirements. [d:line1/] [d:u]Note:[/d:u] An "entirely new or complete replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 1-10, 12 and 13) and R8 (CZ 11 and 14-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: [d:lte/] 5%. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate [d:line1/] - Compliance: Fan Efficacy [d:lte/] 0.58 W/cfm for non-gas furnaces and 0.45 W/cfm for gas furnaces and System Airflow [d:gte/] 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/] [d:u]Exceptions:[/d:u][d:line1/]  Heating-only systems are exempt from the 0.58 W per cfm and 350 cfm per ton requirements. [d:line1/] [d:u]Note:[/d:u] An "entirely new or complete replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -689,13 +689,13 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="F04_ResidentialHvacHeatiingComponentType" >
+                                    <xsd:element name="F04_ResidentialHvacHeatingComponentType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F03 == N/A, then result is NoHeatingComponentsAltered, Else the result =  AllNewHeatingComponents</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ResidentialHvacHeatiingComponentType">
+                                          <xsd:restriction base="hvac:ResidentialHvacHeatingComponentType">
                                              <xsd:enumeration value="AllNewHeatingComponents"/>
                                              <xsd:enumeration value="NoHeatingComponentsAltered"/>
                                           </xsd:restriction>
@@ -836,7 +836,7 @@ result =  AllNewCoolingComponents,</xsd:documentation>
                   <xsd:element name="FEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Documentation:</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 1-10, 12 and 13) and R8 (CZ 11 and 14-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: [d:lte/] 5%. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate Verification [d:line1/] - Compliance: Fan Efficacy [d:lte/] 0.58 W per cfm and System Airflow [d:gte/] 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/] [d:u]Exceptions:[/d:u][d:line1/]  Heating-only systems are exempt from the 0.58 W per cfm and 350 cfm per ton requirements. [d:line1/] [d:u]Note:[/d:u] An "entirely new or replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:u]Required Documentation:[/d:u][d:line1/] CF2R-MCH-01-E - Space Conditioning Systems [d:line1/]  - Duct insulation requirement for the new portions of supply-air and return-air ducts or plenums: R6 (CZ 1-10, 12 and 13) and R8 (CZ 11 and 14-16) [d:line1/] CF2R and CF3R-MCH-20-H Duct Leakage Test required [d:line1/]  - Leakage rate compliance: [d:lte/] 5%. [d:line1/] CF2R and CF3R-MCH-22 Fan Efficacy [d:line1/] CF2R and CF3R-MCH-23 Airflow Rate Verification [d:line1/] - Compliance: Fan Efficacy [d:lte/] 0.58 W/cfm for non-gas furnaces and 0.45 W/cfm for gas furnaces and System Airflow [d:gte/] 350 cfm per ton.[d:line1/] - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. [d:line1/] CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).[d:line1/] [d:u]Exceptions:[/d:u][d:line1/]  Heating-only systems are exempt from the 0.58 W per cfm and 350 cfm per ton requirements. [d:line1/] [d:u]Note:[/d:u] An "entirely new or replacement duct system" means at least 75%  of the duct system is new duct material, and up to 25% may consist of reused parts from the dwelling unit's existing duct system (e.g., registers, grilles, boots, air handler, coil, plenums, duct material) if the reused parts are accessible and can be sealed to prevent leakage</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

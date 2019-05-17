@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -45,7 +45,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB21bH"/>
       </xsd:complexType>
    </xsd:element>
@@ -114,7 +114,7 @@
                                     <xsd:element name="B04_TankLocation" type="hvac:TankLocation" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.  If parent is CF1R-PRF-01 then If  data from CF1R-PRF schema-based XML result = CF1R-PRF-01  TankLocation value; Else If pre-schema If CF1R  TankOutside == true, result = Outside; Else If TankGarage == true result = Garage Else If TankCond == true result = Conditioned; Else result = CF1R-PRF-01  TankZone</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF-01</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -298,7 +298,7 @@
                                     <xsd:element name="C04_TankLocation" type="hvac:TankLocation" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; Check that result == B04_TankLocation; Else flag non-compliant values and do not allow the doc to be registered</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B04_TankLocation;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -491,7 +491,7 @@
                   <xsd:element name="F06" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">All domestic hot water piping shall be insulated as specified in Section 609.11 of the California Plumbing Code.  In addition, the following piping conditions shall have a minimum insulation wall thickness of 1 inch or a minimum of insulation R-value of 7.7 (RA4.4.1) [d:l t="*"][d:list] The first 5 feet (1.5 meters) of hot and cold water pipes from the storage tank. [/d:list] [d:list] All piping with a nominal diameter of 3/4 inch (19 millimeter) and less than 1 inch. [/d:list] [d:list] All hot water pipes from the heating source to the kitchen fixtures. [/d:list] [d:list] Piping from the heating source to storage tank of between tanks. [/d:list] [d:list]  All piping associated with a recirculation system [/d:list] [d:list] All underground piping.  [/d:list] [/d:l] [d:line1/]   [d:l t="*"] [d:list] Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve.[/d:list] [d:list] Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.   Metal piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   [/d:list] [d:list] Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch of insulation. [/d:list] [d:list] Piping installed in crawlspace with a minimum of 1 inch (5cm) of crawlspace insulation above and below. [/d:list] [d:list] Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top. [/d:list] [d:list] Pipe insulation shall fit tightly and all elbows and tees shall be fully insulated. [/d:list] [/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All domestic hot water piping shall be insulated as specified in Section 609.11 of the California Plumbing Code.  In addition, the following piping conditions shall have a minimum insulation wall thickness of 1 inch or a minimum of insulation R-value of 7.7 (RA4.4.1) [d:l t="*"][d:list] The first 5 feet (1.5 meters) of hot and cold water pipes from the storage tank. [/d:list] [d:list] All piping with a nominal diameter of 3/4 inch (19 millimeter) and less than 1 inch. [/d:list] [d:list] All hot water pipes from the heating source to the kitchen fixtures. [/d:list] [d:list] Piping from the heating source to storage tank of between tanks. [/d:list] [d:list]  All piping associated with a recirculation system [/d:list] [d:list] All underground piping.  [/d:list] [/d:l] [d:line1/]   [d:l t="*"] [d:list] Insulation buried below grade must be installed in a waterproof and non-crushable casing or sleeve.[/d:list] [d:list] Piping that penetrates framing members shall not be required to have pipe insulation for the distance of the framing penetration.   Metal piping that penetrates metal framing shall use grommets, plugs, wrapping or other insulating material to assure that no contact is made with the metal framing. Insulation shall butt securely against all framing members.   [/d:list] [d:list] Piping installed in interior or exterior walls that is surrounded on all sides by at least 1 inch (2.5cm) of insulation. [/d:list] [d:list] Piping installed in crawlspace with a minimum of 1 inch (2.5cm) of crawlspace insulation above and below. [/d:list] [d:list] Piping installed in attics with a minimum of 4 inches (10 cm) of attic insulation on top. [/d:list] [d:list] Pipe insulation shall fit tightly and all elbows and tees shall be fully insulated. [/d:list] [/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="FEndNote1" minOccurs="0">

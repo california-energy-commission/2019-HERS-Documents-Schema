@@ -31,31 +31,49 @@
                         <xsd:documentation source="CalculationsAndRules">Data from CF2R-MCH-20c-H</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
+                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from MCH-01</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Building Type from CF-1R</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from CF2R-MCH-20c-H</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A04_VerifiedLowLeakageDuctsConditionedSpace" type="comp:VerifiedLowLeakageDuctsConditionedSpace">
+                  <xsd:element name="A05_VerifiedLowLeakageDuctsConditionedSpace" type="comp:VerifiedLowLeakageDuctsConditionedSpace">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verified Low Leakage Ducts in Conditioned Space (VLLDCS) Credit from CF1R?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from CF2R-MCH-20c-H</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
+                  <xsd:element name="A06_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verified Low Leakage Air Handling Unit Credit from CF1R?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from CF2R-MCH-20c-H</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory">
+                  <xsd:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Duct System Compliance Category</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Data from CF2R-MCH-20c-H</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A06After" minOccurs="0">
+                  <xsd:element name="A08_AreDuctsInGarage" type="comp:AreDuctsInGarage">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Portions of Duct Located in Garage?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: true display term Yes, false display term No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09_IsSystemSDHV" type="hvac:IsSystemSDHV">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is the system type Small Duct High Velocity (SDHV) ?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If system type on the MCH-01 ==  SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP result = true; Else result = false.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A09After" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch20c Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">
@@ -174,7 +192,7 @@
                   <xsd:element name="B10_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A01_AirflowMethod) case: CoolingSystemMethod result = PRODUCT (B02_CondenserNominalCoolingCapacity, 400, B09_DuctSystemLeakageFactor);  case: HeatingSystemMethodresult = PRODUCT (B04_HvacSystemHeatingCapacity, 21.7,  B09_DuctSystemLeakageFactor);  case MeasuredAirflowMethod result = PRODUCT (AHU_AirflowMeasured, B09_DuctSystemLeakageFactor); case: IndoorUnitMethod result = PRODUCT (B03_IndoorUnitNominalCoolingCapacity, 400, B09_DuctSystemLeakageFactor).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Switch (A01_AirflowMethod) case DefaultAirflowMethod: result = PRODUCT (B05_HvacSystemConditionedFloorArea, 0.5, B09_DuctSystemLeakageFactor);  case CoolingSystemMethod:  If A09_IsSystemSDHV == false  result = PRODUCT (B02_CondenserNominalCoolingCapacity, 400, B09_DuctSystemLeakageFactor); Else  If A09_IsSystemSDHV == true  result = PRODUCT (B02_CondenserNominalCoolingCapacity, 250, B09_DuctSystemLeakageFactor);  case HeatingSystemMethod: result = PRODUCT (B04_HvacSystemHeatingCapacity, 21.7,  B09_DuctSystemLeakageFactor);  case MeasuredAirflowMethod result = PRODUCT (AHU_AirflowMeasured, B09_DuctSystemLeakageFactor); case: IndoorUnitMethod result = PRODUCT (B03_IndoorUnitNominalCoolingCapacity, 400, B09_DuctSystemLeakageFactor).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="B11_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
@@ -331,8 +349,8 @@ Else result = false  display term: System Fails Leakage Test</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" type="xsd:string" use="required" fixed="rev 20181201"/>
-         <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" use="required" fixed="CF3RMCH20cH"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH20cH"/>
       </xsd:complexType>
    </xsd:element>
    <xsd:element name="cF3RMCH20cH" type="CF3RMCH20cH">

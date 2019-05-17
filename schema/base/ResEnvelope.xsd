@@ -6,7 +6,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AirInfiltrationRate">
@@ -180,6 +180,7 @@
             <dtyp:displayterm>Cavity Insulation</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="NoInsulation">No insulation</dtyp:displayterm>
             <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="R0">R 0</dtyp:displayterm>
             <dtyp:displayterm value="R11">R 11</dtyp:displayterm>
@@ -196,6 +197,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="NoInsulation"/>
          <xsd:enumeration value="Other"/>
          <xsd:enumeration value="R0"/>
          <xsd:enumeration value="R11"/>
@@ -322,6 +324,50 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Layers"/>
          <xsd:enumeration value="PredefinedConstructionAssembly"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ContinuousInsulationOptionRes">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Continuos Insulation</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Other">Other</dtyp:displayterm>
+            <dtyp:displayterm value="R0">R 0</dtyp:displayterm>
+            <dtyp:displayterm value="R11">R 11</dtyp:displayterm>
+            <dtyp:displayterm value="R13">R 13</dtyp:displayterm>
+            <dtyp:displayterm value="R15">R 15</dtyp:displayterm>
+            <dtyp:displayterm value="R19">R 19</dtyp:displayterm>
+            <dtyp:displayterm value="R21">R 21</dtyp:displayterm>
+            <dtyp:displayterm value="R22">R 22</dtyp:displayterm>
+            <dtyp:displayterm value="R23">R 23</dtyp:displayterm>
+            <dtyp:displayterm value="R24">R 24</dtyp:displayterm>
+            <dtyp:displayterm value="R25">R 25</dtyp:displayterm>
+            <dtyp:displayterm value="R30">R 30</dtyp:displayterm>
+            <dtyp:displayterm value="R38">R 38</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Other"/>
+         <xsd:enumeration value="R0"/>
+         <xsd:enumeration value="R11"/>
+         <xsd:enumeration value="R13"/>
+         <xsd:enumeration value="R15"/>
+         <xsd:enumeration value="R19"/>
+         <xsd:enumeration value="R21"/>
+         <xsd:enumeration value="R22"/>
+         <xsd:enumeration value="R23"/>
+         <xsd:enumeration value="R24"/>
+         <xsd:enumeration value="R25"/>
+         <xsd:enumeration value="R30"/>
+         <xsd:enumeration value="R38"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ContinuousInsulationOther">
+      <xsd:annotation>
+         <xsd:documentation>Short phrase descirbing  insulation that is non-standard or unique.</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CrawlSpaceName">
@@ -1776,22 +1822,26 @@ Not Shared</dtyp:displayterm>
             <dtyp:displayterm value="AtticRoof">Attic Roofs</dtyp:displayterm>
             <dtyp:displayterm value="CeilingBelowAttic">Ceilings (below attic)</dtyp:displayterm>
             <dtyp:displayterm value="CeilingCathedral">Cathedral Ceilings</dtyp:displayterm>
+            <dtyp:displayterm value="CeilingInterior">Interior Ceiling</dtyp:displayterm>
             <dtyp:displayterm value="ExteriorFloor">Exterior Floors</dtyp:displayterm>
             <dtyp:displayterm value="ExteriorWall">Exterior Walls</dtyp:displayterm>
             <dtyp:displayterm value="FloorOverCrawlspace">Floors Over Crawlspace</dtyp:displayterm>
             <dtyp:displayterm value="InteriorFloor">Interior Floors</dtyp:displayterm>
             <dtyp:displayterm value="InteriorWall">Interior Walls</dtyp:displayterm>
+            <dtyp:displayterm value="UndergroundWall">Underground Walls</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AtticRoof"/>
          <xsd:enumeration value="CeilingBelowAttic"/>
          <xsd:enumeration value="CeilingCathedral"/>
+         <xsd:enumeration value="CeilingInterior"/>
          <xsd:enumeration value="ExteriorFloor"/>
          <xsd:enumeration value="ExteriorWall"/>
          <xsd:enumeration value="FloorOverCrawlspace"/>
          <xsd:enumeration value="InteriorFloor"/>
          <xsd:enumeration value="InteriorWall"/>
+         <xsd:enumeration value="UndergroundWall"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="OutsideBoundaryCondition">
@@ -2356,7 +2406,7 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="R0">R-0</dtyp:displayterm>
             <dtyp:displayterm value="R10Vertical">R-10 vertical</dtyp:displayterm>
-            <dtyp:displayterm value="R10VR7H">R-10 vertical and R-7 horizontal</dtyp:displayterm>
+            <dtyp:displayterm value="R10VR7H">R10 vertical and R-7 horizontal</dtyp:displayterm>
             <dtyp:displayterm value="R4">R-4</dtyp:displayterm>
             <dtyp:displayterm value="R5">R-5</dtyp:displayterm>
             <dtyp:displayterm value="R7">R-7</dtyp:displayterm>
@@ -2380,36 +2430,44 @@ For selection of NA-6 properties</xsd:documentation>
             <dtyp:displayterm value="Other">Other</dtyp:displayterm>
             <dtyp:displayterm value="R0">none</dtyp:displayterm>
             <dtyp:displayterm value="R10">R10</dtyp:displayterm>
+            <dtyp:displayterm value="R10Vertical">R10 vertical</dtyp:displayterm>
+            <dtyp:displayterm value="R10VR7H">R10 vertical and R-7 horizontal</dtyp:displayterm>
             <dtyp:displayterm value="R15">R15</dtyp:displayterm>
             <dtyp:displayterm value="R20">R20</dtyp:displayterm>
             <dtyp:displayterm value="R25">R25</dtyp:displayterm>
             <dtyp:displayterm value="R30">R30</dtyp:displayterm>
             <dtyp:displayterm value="R35">R35</dtyp:displayterm>
+            <dtyp:displayterm value="R4">R4</dtyp:displayterm>
             <dtyp:displayterm value="R40">R40</dtyp:displayterm>
             <dtyp:displayterm value="R45">R45</dtyp:displayterm>
+            <dtyp:displayterm value="R5">R5</dtyp:displayterm>
             <dtyp:displayterm value="R50">R50</dtyp:displayterm>
             <dtyp:displayterm value="R55">R55</dtyp:displayterm>
-            <dtyp:displayterm value="R5">R5</dtyp:displayterm>
             <dtyp:displayterm value="R7_5">R7.5</dtyp:displayterm>
             <dtyp:displayterm value="R7">R7</dtyp:displayterm>
+            <dtyp:displayterm value="R8">R8</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="Other"/>
          <xsd:enumeration value="R0"/>
          <xsd:enumeration value="R10"/>
+         <xsd:enumeration value="R10Vertical"/>
+         <xsd:enumeration value="R10VR7H"/>
          <xsd:enumeration value="R15"/>
          <xsd:enumeration value="R20"/>
          <xsd:enumeration value="R25"/>
          <xsd:enumeration value="R30"/>
          <xsd:enumeration value="R35"/>
+         <xsd:enumeration value="R4"/>
          <xsd:enumeration value="R40"/>
          <xsd:enumeration value="R45"/>
+         <xsd:enumeration value="R5"/>
          <xsd:enumeration value="R50"/>
          <xsd:enumeration value="R55"/>
-         <xsd:enumeration value="R5"/>
          <xsd:enumeration value="R7_5"/>
          <xsd:enumeration value="R7"/>
+         <xsd:enumeration value="R8"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SlabInsulationUFactorRequired">
@@ -2436,6 +2494,20 @@ For selection of NA-6 properties</xsd:documentation>
          <xsd:documentation>  Units: ft</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SlabSurface">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Carpeted">Carpeted</dtyp:displayterm>
+            <dtyp:displayterm value="DefaultCoverage">Default (80% carpeted/covered, 20% exposed)</dtyp:displayterm>
+            <dtyp:displayterm value="Exposed">Exposed</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Carpeted"/>
+         <xsd:enumeration value="DefaultCoverage"/>
+         <xsd:enumeration value="Exposed"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SlabType">
@@ -2790,7 +2862,7 @@ of exposed exterior glazing at the jamb of a window to the outward edge of a fin
             <dtyp:displayterm>Window Floor Ratio</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WindowFrameAndDividerName">

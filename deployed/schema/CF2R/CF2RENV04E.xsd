@@ -56,12 +56,20 @@
                         </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A05_AtticVentilationComplianceMethod" type="comp:AtticVentilationComplianceMethod">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Minimum Ventilation Method of Compliance</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects 1/150 for 1Per150 or 1/300 for 1Per300</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A05_AtticVentilationComplianceMethod" type="comp:AtticVentilationComplianceMethod">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Minimum Ventilation Method of Compliance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_IsAtticVentered == false result = N/A stored in NotApplicableMessage; Else user selects 1/150 for 1Per150 or 1/300 for 1Per300</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Minimum Ventilation Method of Compliance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A04_IsAtticVentered == false result = N/A stored in NotApplicableMessage; Else user selects 1/150 for 1Per150 or 1/300 for 1Per300</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="AEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
@@ -292,7 +300,7 @@
                   <xsd:element name="F03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">California certified insulation materials</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">The product shall meet all requirements for California certified insulation materials (radiant barriers) of the Department of Consumer Affairs, Bureau of Home Furnishings and Thermal Insulation, as specified by CCR, Title 24, Part 12, Chapter 12-13, Standards for Insulating Material</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The product shall meet all requirements for California certified insulation materials (radiant barriers) of the Department of Consumer Affairs, Bureau of Electronic and Appliance Repair, Home Furnishings and Thermal Insulation, as specified by CCR, Title 24, Part 12, Chapter 12-13, Standards for Insulating Material</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="F04" minOccurs="0">
@@ -370,7 +378,7 @@
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof) Installation Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable unless one of the the following is true:  If the parent is prescriptive CF1R-ADD, ALT or NCB And CoolRoofComplianceMethod == ClimateZoneNotApplicable Then this section is not applicable.  Or  If the parent is performance, CF1R-PRF And E01_SpecialFeatureCategory Not== CoolRoofInstalled  (for 2016 condition was XPath  //Model[@Name='Proposed']/SpeclFtr/CoolRoof = 0 ) Then this section is not applicable.  .</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable unless one of the the following is true:  If the parent is prescriptive CF1R-ADD, ALT or NCB And CoolRoofComplianceMethod == ClimateZoneNotApplicable Then this section is not applicable.  Or  If the parent is performance, CF1R-PRF And L08_CoolRoofToBeInstalled == falseThen this section is not applicable.  .</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -452,24 +460,48 @@
                                           </xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H10_SolarReflectanceAgedLimit" type="env:SolarReflectanceAgedLimit">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="H11_ThermalEmittanceLimit" type="com:ThermalEmittanceLimit">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="H12_SolarReflectanceIndexLimit" type="env:SolarReflectanceIndexLimit">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">SRI</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H10_SolarReflectanceAgedLimit" type="env:SolarReflectanceAgedLimit">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input from CF1R proposed; Note N/A allowed if CF1R= NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Aged Solar Reflectance</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input from CF1R proposed; Note N/A allowed if CF1R= NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H11_ThermalEmittanceLimit" type="com:ThermalEmittanceLimit">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input from CF1R proposed; Note N/A allowed if CF1R= NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H11_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input from CF1R proposed; Note N/A allowed if CF1R= NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H12_SolarReflectanceIndexLimit" type="env:SolarReflectanceIndexLimit">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SRI</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input from CF1R proposed; Note N/A allowed if CF1R= NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H12_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SRI</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input from CF1R proposed; Note N/A allowed if CF1R= NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -482,7 +514,7 @@
          <xsd:element name="Section_I" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof) - Additional Requirements</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable unless one of the the following is true:  If the parent is prescriptive CF1R-ADD, ALT or NCB And CoolRoofComplianceMethod equals ClimateZoneNotApplicable Then this section is not applicable.  Or  If the parent is performance, CF1R-PRF And E01_SpecialFeatureCategory Not== CoolRoofInstalled  (for 2016 condition was:  And XPath  //Model[@Name='Proposed']/SpeclFtr/CoolRoof = 0)  Then  the section is not applicable.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable unless one of the the following is true:  If the parent is prescriptive CF1R-ADD, ALT or NCB And CoolRoofComplianceMethod equals ClimateZoneNotApplicable Then this section is not applicable.  Or  If the parent is performance, CF1R-PRF And And L08_CoolRoofToBeInstalled == false Then this section is not applicable.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -540,7 +572,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV04E"/>
       </xsd:complexType>
    </xsd:element>

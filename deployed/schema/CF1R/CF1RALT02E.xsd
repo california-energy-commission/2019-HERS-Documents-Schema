@@ -281,7 +281,7 @@
                                           <xsd:documentation source="FieldText">Altered Heating Components</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHvacHeatiingComponentType: AllNewHeatingComponents, Boiler, Compressor, FancoilAHU, GasFurnaceAHU, IndoorCoil, NoHeatingComponentsAltered, OutdoorCondensingUnit, RefrigerantLineset, TXV_EXV</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:element name="D04_ResidentialHvacHeatiingComponentType" type="hvac:ResidentialHvacHeatiingComponentType"/>
+                                       <xsd:element name="D04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType"/>
                                     </xsd:sequence>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="D05_EfficiencyType">
@@ -495,7 +495,7 @@
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D04; User should select all components from list that have been altered in this project.</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:element name="E04_ResidentialHvacHeatiingComponentType" type="hvac:ResidentialHvacHeatiingComponentType"/>
+                                       <xsd:element name="E04_ResidentialHvacHeatingComponentType" type="hvac:ResidentialHvacHeatingComponentType"/>
                                     </xsd:sequence>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="E05_EfficiencyType">
@@ -630,7 +630,7 @@
                            <d:line1/> CF2R and CF3R-MCH-22 Fan Efficacy 
                            <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate 
                            <d:line1/> - Compliance: Fan Efficacy 
-                           <d:lte/> 0.58 W per cfm and System Airflow 
+                           <d:lte/> 0.58 W/cfm for non-gas furnaces and 0.45 W/cfm for gas furnaces and System Airflow 
                            <d:gte/> 350 cfm per ton.
                            <d:line1/> - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. 
                            <d:line1/> CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).
@@ -687,13 +687,13 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="F04_ResidentialHvacHeatiingComponentType">
+                                    <xsd:element name="F04_ResidentialHvacHeatingComponentType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: If F03 == N/A, then result is NoHeatingComponentsAltered, Else the result =  AllNewHeatingComponents</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ResidentialHvacHeatiingComponentType">
+                                          <xsd:restriction base="hvac:ResidentialHvacHeatingComponentType">
                                              <xsd:enumeration value="AllNewHeatingComponents"/>
                                              <xsd:enumeration value="NoHeatingComponentsAltered"/>
                                           </xsd:restriction>
@@ -844,7 +844,7 @@ result =  AllNewCoolingComponents,</xsd:documentation>
                            <d:line1/> CF2R and CF3R-MCH-22 Fan Efficacy 
                            <d:line1/> CF2R and CF3R-MCH-23 Airflow Rate Verification 
                            <d:line1/> - Compliance: Fan Efficacy 
-                           <d:lte/> 0.58 W per cfm and System Airflow 
+                           <d:lte/> 0.58 W/cfm for non-gas furnaces and 0.45 W/cfm for gas furnaces and System Airflow 
                            <d:gte/> 350 cfm per ton.
                            <d:line1/> - Alternative Compliance: CF2R and CF3R-MCH-28 Return Duct Design verification is an alternative to MCH-22 and MCH-23 verification. 
                            <d:line1/> CF2R and CF3R-MCH-25-H Refrigerant Charge verification required when refrigerant containing components are installed or altered (applicable in CZ 2, 8-15).
@@ -884,7 +884,7 @@ result =  AllNewCoolingComponents,</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
       </xsd:complexType>
    </xsd:element>
