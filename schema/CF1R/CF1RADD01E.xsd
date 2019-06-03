@@ -641,6 +641,8 @@
                                              <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                        <xsd:element name="E03_InsulationUFactor" type="env:InsulationUFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
@@ -673,6 +675,8 @@
                                              <xsd:documentation source="CalculationsAndRules">If E02_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = R7; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = R8; Else If A09_ClimateZone == InRange(3,10) result = R0; Else If A09_ClimateZone == 12 Or 15 result = R4;  case SlabHeated: If A09_ClimateZone == InRange(1,15) result = R5; Else If A09_ClimateZone == 16, user selects:  R10 vertical  Or  R10 vertical and R7 horizontal</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                        <xsd:element name="E05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>

@@ -817,8 +817,8 @@ value in C05_EfficiencyType or C05_NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="unbounded">
-                                       <xsd:element name="F10_DuctMinimumRValueExceptions" type="comp:DuctMinimumRValueExceptions" >
+                                    <xsd:choice>
+                                       <xsd:element name="F10_DuctMinimumRValueExceptions" type="comp:DuctMinimumRValueExceptions" maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exemption from Min R-Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If F04 == false result = NotApplicable stored in NotApplicableMessage; Else default result = NoExemption.  Allow user to override default and select one or both of the following: UninsulatedInWallCavities display term Uninsulated Ducts In Wall Cavities, UninsulatedInDirectConditioning display term Uninsulated Ducts In directly conditioned space. ALSO If F06_SupplyDuctLocation And F08_ReturnDuctLocation == ConditionedSpace allow user to select  RValueGTE4_2EntirelyInConditioned display term Ducts greater than or equal to R4.2 Entirely in Conditioned Space</xsd:documentation>

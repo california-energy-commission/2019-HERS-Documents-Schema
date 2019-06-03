@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RNCB01E" version="2019.1.000" xmlns="http://www.lmonte.com/besm/CF1RNCB01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RNCB01E" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF1RNCB01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -613,6 +613,8 @@
                                              <xsd:documentation source="CalculationsAndRules">User selects from list of R-values: R0, R4, R5, R7, R8, R10 vertical, R10 vertical and R7 horizontal OR N/A stored in NotApplicableMessage.  If E01_ExteriorFloorType == SlabHeated Or If A09_ClimateZone == 16  N/A is not allowed .  Note: Either R-value or U-factor is required, no both</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                        <xsd:element name="E03_InsulationUFactor" type="env:InsulationUFactor">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
@@ -647,6 +649,8 @@
                                              <xsd:documentation source="CalculationsAndRules">Calculated field: If E02_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else Switch (E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone ==  16 result = R-7; Else If A09_ClimateZone ==  InclusiveRange(1.15) result = N/A stored in NotApplicableMessage; case SlabConcreteRaised:  If A09_ClimateZone == 1, 2, 11, 13, 14 Or 16 result = R-8; Else If A09_ClimateZone ==  InclusiveRange(3,10) result = R-0; Else If A09_ClimateZone ==  12 Or 15 result = R-4;  case SlabHeated: If A09_ClimateZone ==  InclusiveRange(1,15) result =  R-5; Else If A09_ClimateZone ==  16 then user selects either R10Vertical display term R-10 vertical Or R10VR7H display term R-10 vertical and R-7 horizontal</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
                                        <xsd:element name="E05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
@@ -1385,7 +1389,7 @@
                      <xsd:element name="J21_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  ALL J09_UFactor result are LTE I03_UFactorLimit, then result = Largest (ALL J09_UFactor) ; Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  ALL J09_UFactor result are LTE H06_UFactorLimit, then result = Largest (ALL J09_UFactor) ; Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -2127,7 +2131,7 @@
                                     <xsd:element name="O05_PV_ExtraCapacity" type="comp:PV_ExtraCapacity">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating Adjustment</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL ( M12_PV_ExtraCapacity)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calcualted field: result = SUM ALL ( M12_PV_ExtraCapacity)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O06_PV_AdjustedMinimumSize" type="comp:PV_AdjustedMinimumSize">
@@ -2178,7 +2182,7 @@
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: SupplyVent display term Supply, ExhaustVent display term Exhaust, Balanced display term Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, ExhaustCentralVent display term Central Ventilation System - Exhaust, BalancedCentralVent display term Central Ventilation System - Balanced</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="P03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                    <xsd:element name="P03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                        </xsd:annotation>
@@ -2205,7 +2209,7 @@
                         <xsd:documentation source="AdditionalRequirements">The enforcement agency shall pay special attention to the HERS Measures specified in this checklist below.  A registered Certificate of Verification for all the measures specified shall be submitted to the building inspector before final inspection.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_Text1" minOccurs="0">
+                  <xsd:element name="Q_BeginNote" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2215,7 +2219,7 @@
                            </d:l>.EXCEPTION: Multifamily dwelling units in Climate Zone 7.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_Text2" minOccurs="0">
+                  <xsd:element name="Q_BeginNote2" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2227,7 +2231,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_Text3" minOccurs="0">
+                  <xsd:element name="Q_BeginNote3" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2238,7 +2242,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_Text4" minOccurs="0">
+                  <xsd:element name="Q_BeginNote4" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2250,7 +2254,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_Text5" minOccurs="0">
+                  <xsd:element name="Q_BeginNote5" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2263,7 +2267,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_Text6" minOccurs="0">
+                  <xsd:element name="Q_BeginNote6" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
