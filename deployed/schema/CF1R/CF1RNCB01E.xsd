@@ -1389,7 +1389,7 @@
                      <xsd:element name="J21_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  ALL J09_UFactor result are LTE H06_UFactorLimit, then result = Largest (ALL J09_UFactor) ; Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  ALL J09_UFactor result are LTE I03_UFactorLimit, then result = Largest (ALL J09_UFactor) ; Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -2131,7 +2131,7 @@
                                     <xsd:element name="O05_PV_ExtraCapacity" type="comp:PV_ExtraCapacity">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating Adjustment</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calcualted field: result = SUM ALL ( M12_PV_ExtraCapacity)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL ( M12_PV_ExtraCapacity)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O06_PV_AdjustedMinimumSize" type="comp:PV_AdjustedMinimumSize">
@@ -2182,7 +2182,7 @@
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: SupplyVent display term Supply, ExhaustVent display term Exhaust, Balanced display term Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, ExhaustCentralVent display term Central Ventilation System - Exhaust, BalancedCentralVent display term Central Ventilation System - Balanced</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="P03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments">
+                                    <xsd:element name="P03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                        </xsd:annotation>
@@ -2209,7 +2209,7 @@
                         <xsd:documentation source="AdditionalRequirements">The enforcement agency shall pay special attention to the HERS Measures specified in this checklist below.  A registered Certificate of Verification for all the measures specified shall be submitted to the building inspector before final inspection.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote" minOccurs="0">
+                  <xsd:element name="Q_Text1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2219,19 +2219,18 @@
                            </d:l>.EXCEPTION: Multifamily dwelling units in Climate Zone 7.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote2" minOccurs="0">
+                  <xsd:element name="Q_Text2" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
                            <d:b>Duct Leakage Verification- Section 150.0(m)11</d:b>
                            <d:l t="*">
                               <d:list>Duct leakage testing is required (Residential Appendix RA3.1) in all climate zones for ducted heating and cooling systems.</d:list>
-                              <d:list> System is zonally controlled. No bypass ducts are allowed, as confirmed by HERS verification</d:list>
                            </d:l>
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote3" minOccurs="0">
+                  <xsd:element name="Q_Text3" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2242,7 +2241,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote4" minOccurs="0">
+                  <xsd:element name="Q_Text4" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2254,7 +2253,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote5" minOccurs="0">
+                  <xsd:element name="Q_Text5" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">
@@ -2267,7 +2266,7 @@
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote6" minOccurs="0">
+                  <xsd:element name="Q_Text6" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="AdditionalRequirements">

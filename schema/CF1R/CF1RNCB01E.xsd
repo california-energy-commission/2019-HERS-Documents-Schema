@@ -1378,7 +1378,7 @@
                      <xsd:element name="J21_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Proposed Fenestration U-factor (Windows)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  ALL J09_UFactor result are LTE H06_UFactorLimit, then result = Largest (ALL J09_UFactor) ; Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If J02_FenestrationAdditionType != FixedWindow Or OperableWindow result = N/A stored in the NotApplicableMessage;  Else If  ALL J09_UFactor result are LTE I03_UFactorLimit, then result = Largest (ALL J09_UFactor) ; Else enter the weighted average value from the CF1R-ENV-02</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -2084,7 +2084,7 @@
                                     <xsd:element name="O05_PV_ExtraCapacity" type="comp:PV_ExtraCapacity" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating Adjustment</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calcualted field: result = SUM ALL ( M12_PV_ExtraCapacity)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL ( M12_PV_ExtraCapacity)</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O06_PV_AdjustedMinimumSize" type="comp:PV_AdjustedMinimumSize" >
@@ -2135,7 +2135,7 @@
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: SupplyVent display term Supply, ExhaustVent display term Exhaust, Balanced display term Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), SupplyCentralVent display term Central Ventilation System - Supply, ExhaustCentralVent display term Central Ventilation System - Exhaust, BalancedCentralVent display term Central Ventilation System - Balanced</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="P03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" >
+                                    <xsd:element name="P03_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                        </xsd:annotation>
@@ -2162,37 +2162,37 @@
                         <xsd:documentation source="AdditionalRequirements">The enforcement agency shall pay special attention to the HERS Measures specified in this checklist below.  A registered Certificate of Verification for all the measures specified shall be submitted to the building inspector before final inspection.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote" minOccurs="0">
+                  <xsd:element name="Q_Text1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Quality Insulation Installation - Section 150.1(c)1E[/d:b]  [d:l t="*"][d:list]The dwelling unit shall meet all of the requirements of Quality Insulation Installation (QII) as specified in Reference Appendix RA3.5 and be verified by a HERS rater.  [/d:list][/d:l].EXCEPTION: Multifamily dwelling units in Climate Zone 7.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote2" minOccurs="0">
+                  <xsd:element name="Q_Text2" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">[d:b]Duct Leakage Verification- Section 150.0(m)11[/d:b][d:l t="*"][d:list]Duct leakage testing is required (Residential Appendix RA3.1) in all climate zones for ducted heating and cooling systems.[/d:list][d:list] System is zonally controlled. No bypass ducts are allowed, as confirmed by HERS verification[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">[d:b]Duct Leakage Verification- Section 150.0(m)11[/d:b][d:l t="*"][d:list]Duct leakage testing is required (Residential Appendix RA3.1) in all climate zones for ducted heating and cooling systems.[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote3" minOccurs="0">
+                  <xsd:element name="Q_Text3" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Zonally Controlled Systems - Bypass Dampers - Section 150.1(c)13[/d:b]   [d:l t="*"][d:list]If system is zonally controlled, no bypass ducts are allowed, as confirmed by HERS verification  (Residential Appendix  RA 3.4.1.6)[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote4" minOccurs="0">
+                  <xsd:element name="Q_Text4" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Refrigerant Charge Verification Section 150.1(c)7a[/d:b]  [d:l t="*"][d:list]Refrigerant Charge Testing is required (Residential Appendix RA3.2) in climate zones 2 and 8-15 for all air-cooled air conditioners and air source heat pumps, including ducted split systems, ducted packaged systems, small duct high velocity systems, and mini-split systems.[/d:list] [d:list]Some exceptions apply to factory charged package systems[/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote5" minOccurs="0">
+                  <xsd:element name="Q_Text5" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Central System Air Handlers - Air Flow and Fan Efficacy Verification  - Section 150.0(m)13[/d:b]  [d:l t="*"][d:list]Airflow (minimum 350 cfm/ton) and Fan Efficacy (max 0.45 Watts/cfm for gas furnace air handlers /  0.58 Watts/cfm for air handlers that are not gas furnace) on systems with ducted air conditioning as field verified by a HERS rater or Return Duct and Filter System Design according to tables 150.0-C/D will be HERS verified.[/d:list][d:list]Heat-only systems with Central Fan Integrated (CFI) ventilation are required to have less than 0.45 Watts/ cfm as verified by a HERS rater. .[/d:list][d:list] Small duct high velocity systems: airflow (minimum 250 cfm/ton) and fan efficacy (max 0.62 W/cfm) as verified by a HERS rater. [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="Q_BeginNote6" minOccurs="0">
+                  <xsd:element name="Q_Text6" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">[d:b]Indoor Air Quality Mechanical Ventilation - Section 150.0(o) [/d:b]  [d:l t="*"][d:list]Mechanical ventilation airflow rate according to ASHRAE 62.2 is required to be verified by a HERS rater (RA3.7)[/d:list][/d:l]</xsd:documentation>

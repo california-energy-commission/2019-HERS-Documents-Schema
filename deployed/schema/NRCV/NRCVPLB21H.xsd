@@ -342,6 +342,12 @@
                                              <xsd:documentation source="CalculationsAndRules">Reference value from B08</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
+                                       <xsd:element name="C08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Rated Input Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B08 which may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
                                     </xsd:choice>
                                     <xsd:element name="C09_EfficiencyType">
                                        <xsd:annotation>
