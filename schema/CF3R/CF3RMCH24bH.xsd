@@ -470,12 +470,6 @@
                         <xsd:documentation source="CalculationsAndRules">Calculated field:  PRODUCT (C06__NominalCFM50,  D01_AltitudeTemperatureCorrectionFactor)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="D03_ACH50Adjusted" type="comp:ACH50Adjusted" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">ACH50</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  result = PRODUCT (D02_CFM50TempAltCorrected,  60) / Building Volume from CF1R</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
