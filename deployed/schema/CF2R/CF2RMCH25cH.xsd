@@ -543,20 +543,6 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                         <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="TableIndoorUnit">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText"/>
-                     </xsd:annotation>
-                     <xsd:complexType>
-                        <xsd:sequence>
-                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
-                              <xsd:complexType>
-                                 <xsd:sequence/>
-                              </xsd:complexType>
-                           </xsd:element>
-                        </xsd:sequence>
-                     </xsd:complexType>
-                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
