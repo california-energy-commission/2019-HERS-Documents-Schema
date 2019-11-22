@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV04E"/>
       </xsd:complexType>
    </xsd:element>
@@ -116,7 +116,7 @@
                   <xsd:element name="AEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Note: in order to comppy with the 1/300 exception, a Class I or II vapor retarder is required to be installed in climate zone 14 and 16.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note: in order to comply with the 1/300 exception, a Class I or II vapor retarder is required to be installed in climate zone 14 and 16.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -429,7 +429,7 @@
                                     <xsd:element name="H01_PartitionName" type="env:PartitionName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tag/ID</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H02_IsRoofPitchGTE2Run12Rise" type="comp:IsRoofPitchGTE2Run12Rise" >

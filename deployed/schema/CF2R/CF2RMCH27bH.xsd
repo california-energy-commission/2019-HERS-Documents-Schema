@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH27bH" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF2RMCH27bH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH27bH" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RMCH27bH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -101,16 +101,22 @@
                      </xsd:element>
                   </xsd:choice>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="A07_VentilationOperationSchedule" type="hvac:VentilationOperationSchedule">
+                     <xsd:element name="A07_VentilationOperationSchedule">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Ventilation Operation Schedule</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If registered CF1R == CF1R-PRF-01 reference data from CF1R;  Else If A02 == NonDwellingUnit result = N/A stored in NotApplcableMessage; Else If registered CF1R == CF1R-NCB-01 Or CF1R-ADD-01  User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, Scheduled display term Scheduled, ShortTermAverage display term Short Term Average, RealTimeControl display term Real-time Control;  If result  (this field A07) == Continuous And A06_VentilationSystemType ==CentralFanIntegrated, display message: Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If registered CF1R == CF1R-PRF-01 reference data from CF1R;  Else If A02 == NonDwellingUnit result = N/A stored in NotApplcableMessage; Else If registered CF1R == CF1R-NCB-01 Or CF1R-ADD-01  User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, ShortTermAverage display term Short Term Average;  If result = Continuous And A06_VentilationSystemType ==CentralFanIntegrated Display message Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
                         </xsd:annotation>
+                        <xsd:simpleType>
+                           <xsd:restriction base="hvac:VentilationOperationSchedule">
+                              <xsd:enumeration value="Continuous"/>
+                              <xsd:enumeration value="ShortTermAverage"/>
+                           </xsd:restriction>
+                        </xsd:simpleType>
                      </xsd:element>
                      <xsd:element name="A07_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Ventilation Operation Schedule</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If registered CF1R == CF1R-PRF-01 reference data from CF1R;  Else If A02 == NonDwellingUnit result = N/A stored in NotApplcableMessage; Else If registered CF1R == CF1R-NCB-01 Or CF1R-ADD-01  User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, Scheduled display term Scheduled, ShortTermAverage display term Short Term Average, RealTimeControl display term Real-time Control;  If result  (this field A07) == Continuous And A06_VentilationSystemType ==CentralFanIntegrated, display message: Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If registered CF1R == CF1R-PRF-01 reference data from CF1R;  Else If A02 == NonDwellingUnit result = N/A stored in NotApplcableMessage; Else If registered CF1R == CF1R-NCB-01 Or CF1R-ADD-01  User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, ShortTermAverage display term Short Term Average;  If result = Continuous And A06_VentilationSystemType ==CentralFanIntegrated Display message Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -118,7 +124,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Mch-27b Variant</xsd:documentation>
                         <xsd:documentation source="AdditionalRequirements">MCH-27b - Multifamily Ventilation</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02_ResidentialBuildingType == SingleFamilyAttached Or SingleFamilyDetached  And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV, BalancedHRV Or CentralFanIntegrated variant result =  Mch27a Single Family Attached/Detached ventilation; Else If A02_ResidentialBuildingType != NonDwellingUnit And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV Or BalancedHRV And A07_VentilationOperationSchedule == Scheduled Or  RealTimeControl Variant result = Mch27c - Schedule or Real-Time Control Ventilation System; Else If A02_ResidentialBuildingType == Multifamily Variant result = Mch27b Multifamily Ventilation;  Else If A02_ResidentialBuildingType == NonDwellingUnit Variant result = Mch27d - Non-dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02_ResidentialBuildingType == SingleFamilyAttached Or SingleFamilyDetached  And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV, BalancedHRV Or CentralFanIntegrated variant result =  Mch27a Single Family Attached/Detached ventilation; Else If A02_ResidentialBuildingType != NonDwellingUnit And A06_VentilationSystemType == SupplyVent, ExhaustVent, Balanced,BalancedERV Or BalancedHRV And A07_VentilationOperationSchedule == Scheduled Or  RealTimeControl Variant result = Mch27c - Schedule or Real-Time Control Ventilation System; Else If A02_ResidentialBuildingType == Multifamily And A06_VentilationSystemType == SupplyCentralVent Or ExhaustCentralVent Or BalancedCentralVent Variant result = Mch27b Multifamily Ventilation;  Else If A02_ResidentialBuildingType == NonDwellingUnit Variant result = Mch27d - Non-dwelling Unit</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="AEndNote1" minOccurs="0">
@@ -486,7 +492,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH27bH"/>
       </xsd:complexType>
    </xsd:element>

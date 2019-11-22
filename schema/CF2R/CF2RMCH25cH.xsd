@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH25cH"/>
       </xsd:complexType>
    </xsd:element>
@@ -151,8 +151,8 @@
                   </xsd:element>
                   <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated Value: Reference data on MCH-01 for the value to CanRA3_3AirflowProtocolsTestSystem found in MCH-01a section J field 12; or MCH-01b section G field 13; or MCH-01c section I field 11 or MCH01d section L field 13.   If value on MCH-01 for CanRA3_3AirflowProtocolsTestSystem = true, Then result is true and display text is: Yes, this is a ducted system and one of the system airflow rate measurement procedures in RA3.3 or RA3.3.3 can be used to verify system airflow rate requirements.  Else If value on MCH-01 for CanRA3_3AirflowProtocolsTestSystem = false, Then result is false and display text is: No, the airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation of the installer weigh-in charging procedure; Else If values are not available from the Mch01, then user inputs value: true display text Yes, or false, display text No.</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified for all indoor units using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Criterion1 reference value for CanRA3_3AirflowProtocolsTestSystem as follows: MCH-01a section J J12; MCH-01b section F F11 or section G G13; MCH-01c section I  I11; or MCH-01d section K K11 or section L L13.  For Criterion2 reference data as follows: MCH-01a D07 DuctLocation; MCH-01c C06 DuctSystemType; MCH-01d D07 DuctSystemTypePerf.  For Criterion3 reference data as follows: MCH-01b C12 IndoorUnitsCount, C13 DuctedIndoorUnitsCount; MCH-01d D06 IndoorUnitsCount, D13 DuctedIndoorUnitsCount.  Evaluation:  If (Criterion1) CanRA3_3AirflowProtocolsTestSystem == false;  Or If (Criterion2) DuctLocation, DuctSystemType Or DuctSystemTypePerf == DuctedAndDuctlessIndoorUnits Or Ductless;  Or If (Criterion3) DuctedIndoorUnitsCount LT IndoorUnitsCount  result = false, display term No, the system airflow rate measurement procedures in RA3.3 or RA3.3.3 cannot be used to verify system airflow rate requirements for all the indoor units for this system.;  Else result = true display term Yes.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A13_UseRefrigerantChargeApprovedVerificationProcedure" type="comp:UseRefrigerantChargeApprovedVerificationProcedure" >
@@ -170,7 +170,7 @@
                   <xsd:element name="A15_RefrigerantChargeVerificationMethod" type="comp:RefrigerantChargeVerificationMethod" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant charge verification method used.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">user picks one from list: choice Superheat, display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice Subcooling, display text Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInHERS, display text:  Weigh-in with HERS Rater observation; choice WinterSetup  display text: Winter setup (applicable when outdoor temperature is less than 55 degF) choice NewFactoryCharge display text: New package unit factory charge</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user picks one from list: choice Superheat, display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice Subcooling, display text Subcooling (outdoor temperature must be equal to or greater than 55 degF);  choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInHERS, display text:  Weigh-in with HERS Rater observation; choice NewFactoryCharge display text: New package unit factory charge</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A16_RefrigerantChargeVerifier" type="comp:RefrigerantChargeVerifier" >
@@ -264,11 +264,11 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="1">
+         <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Minimum System Airflow Rate Verification</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">Require 1 row of data for each indoor unit listed in the "HERS Verification Requirements for Duct Systems" table in the parent MCH-01for the SC system in A02</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -302,7 +302,7 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                                     <xsd:element name="D03_MinimumAirflowRateVerificationStatus" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A12_UseMinimumAirflowApprovedVerificationProcedure == false,  result = SystemCompliesUsingObservationOfWeighIn display term  The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);  Else If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  then If the system has a registered CF2R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  = SystemCompliesUsingTable150BC display term System complies using Table 150.0-B or C alternative return duct design criteria;   Else result = SystemDoesNotComplyCF2RMCH28Required display term System does not comply.  A registered CF2R-MCH-28 is required (do not allow this MCH-25 to be registered);     ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF2R-MCH-23a or CF2R-MCH-23b that meets the compliance criterion in E01, Then result = SystemComplies display term System complies with minimum airflow rate requirements;     Else If  A10_ImprovementStatus == Alteration Then If the system complies with the alternative airflow compliance method on a registered CF2R-MCH23c;  Then result= SystemCompliesUsingAlternativeRemedialActions display term  system complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for Group Sampling;   Else result = SystemDoesNotComplyCF2RMCH23Required display term  System does not comply. A registered CF2R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If A12_UseMinimumAirflowApprovedVerificationProcedure == false,  result = SystemCompliesUsingObservationOfWeighIn display term  The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);  Else If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  then If the system has a registered CF2R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  = SystemCompliesUsingTable150BC display term System complies using Table 150.0-B or C alternative return duct design criteria;   Else result = SystemDoesNotComplyCF2RMCH28Required display term System does not comply.  A registered CF2R-MCH-28 is required (do not allow this MCH-25 to be registered);     ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF2R-MCH-23a, CF2R-MCH-23b, CF2R-MCH23e Or CF2R-MCH23f that meets the compliance criterion in E01, Then result = SystemComplies display term System complies with minimum airflow rate requirements;     Else If  A10_ImprovementStatus == Alteration Then If the system complies with the alternative airflow compliance method on a registered CF2R-MCH23c;  Then result= SystemCompliesUsingAlternativeRemedialActions display term  system complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for Group Sampling;   Else result = SystemDoesNotComplyCF2RMCH23Required display term  System does not comply. A registered CF2R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:MinimumAirflowRateVerificationStatus">
@@ -351,7 +351,7 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                   <xsd:element name="E01_CondenserEnteringDryBulbTemperature" type="comp:CondenserEnteringDryBulbTemperature" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Measured Condenser Air Entering Dry-bulb Temperature (T[d:sub]condenser, db[/d:sub]) (([d:deg/] F)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric value xxx.x, check range = 0 to 130;  If all of the following condiitons are true:  A12 equals yes, A13 equals yes and A15 equals WeighIn or WeighInHERS And value entered isgreater than 55 degrees F,  Then display message:  "For this system, compliance using Weigh-In with HERS Rater observation is allowed only when outside temperature is [d:lt/] 55[d:deg/] F."   (Do Not Proceed, do not allow this document to be registered)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric value xxx.x, check range = 0 to 130;  If all of the following condiitons are true:  A12 equals yes, A13 equals yes and A15 equals WeighIn or WeighInHERS And value entered is greater than or equal to 55 degrees F,  Then display message:  "For this system, compliance using Weigh-In with HERS Rater observation is allowed only when outside temperature is [d:lt/] 55[d:deg/] F."   (Do Not Proceed, do not allow this document to be registered)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="E02_RefrigerantChargeWeighInMethod" type="comp:RefrigerantChargeWeighInMethod" >
@@ -420,7 +420,7 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                   </xsd:element>
                   <xsd:sequence maxOccurs="unbounded">
                      <xsd:annotation>
-                        <xsd:documentation source="CalculationsAndRules">If RefrigerantChargeWeighInMethod is ChargeAdjustment then report RefrigerantChargeAdjustment value after converting it to lbs and oz,  Else if RefrigerantChargeWeighInMethod is TotalCharge then report the total which is ManufacturerStandardCondenserChargeLbs , ManufacturerStandardCondenserChargeOz plus RefrigerantChargeAdjustment after converting it to lbs and oz</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: use format lbs, oz; Range for lbs: -50 to 50; Range for oz: -15 to 15.  If RefrigerantChargeWeighInMethod == ChargeAdjustment then result = E10_RefrigerantChargeAdjustment value after converting it to lbs and oz,  Else if RefrigerantChargeWeighInMethod == TotalCharge then result = E03_ManufacturerStandardCondenserChargeLbs , E03_ManufacturerStandardCondenserChargeOz + E10_RefrigerantChargeAdjustment after converting it to lbs and oz</xsd:documentation>
                      </xsd:annotation>
                      <xsd:element name="E11_RefrigerantChargeRequiredWeighInLbs" type="comp:RefrigerantChargeRequiredWeighInLbs" >
                         <xsd:annotation>
@@ -430,13 +430,12 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                      <xsd:element name="E11_RefrigerantChargeRequiredWeighInOz" type="comp:RefrigerantChargeRequiredWeighInOz" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Refrigerant Required to be Weighed in by the Installer (lbs, oz)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If RefrigerantChargeWeighInMethod is ChargeAdjustment then report RefrigerantChargeAdjustment value after converting it to lbs and oz,  Else if RefrigerantChargeWeighInMethod is TotalCharge then report the total which is ManufacturerStandardCondenserChargeLbs , ManufacturerStandardCondenserChargeOz plus RefrigerantChargeAdjustment after converting it to lbs and oz</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:sequence>
                   <xsd:sequence maxOccurs="unbounded">
                      <xsd:annotation>
-                        <xsd:documentation source="CalculationsAndRules">Range for lbs is 0 to 50  Range for oz is 0 to 15</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Range for lbs is -50 to 50; Range for oz is -15 to 15</xsd:documentation>
                      </xsd:annotation>
                      <xsd:element name="E12_RefrigerantChargeWeighedInLbs" type="comp:RefrigerantChargeWeighedInLbs" >
                         <xsd:annotation>
@@ -446,14 +445,13 @@ for remainder of this report If RefrigerantChargeVerificationMethod equals  Weig
                      <xsd:element name="E12_RefrigerantChargeWeighedInOz" type="comp:RefrigerantChargeWeighedInOz" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Refrigerant Weighed in by Installer (lbs, oz)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Range for oz is 0 to 15</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:sequence>
                   <xsd:element name="E13_IsRefrigerantChargeWeighInCompliant" type="comp:IsRefrigerantChargeWeighInCompliant" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If Refrigerant required to be weighed reported  E11 equals RefrigerantChargeWeighedInLbs, RefrigerantChargeWeighedInOz in E12 then result is true.  For Boolean true value display text: System complies with the weigh-in charge requirement.   Else result is false.  For Boolean false value display text: System does not comply with the weigh-in charge requirement.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If  E11_RefrigerantChargeRequiredWeighInLbs, E11_RefrigerantChargeRequiredWeighInOz == E12_RefrigerantChargeWeighedInLbs, E12_RefrigerantChargeWeighedInOz  then result = true.  For Boolean true value display term: System complies with the weigh-in charge requirement.   Else result = false.  For Boolean false value display term: System does not comply with the weigh-in charge requirement.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

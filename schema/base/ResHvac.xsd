@@ -6,7 +6,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AdditionalReturnDuctCount">
@@ -85,6 +85,13 @@
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Airflow Measured Rate</dtyp:displayterm>
          </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirflowModeledRate">
+      <xsd:annotation>
+         <xsd:documentation>  Units: ft3 per min</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative">
       </xsd:restriction>
@@ -510,7 +517,7 @@
    <xsd:simpleType name="ArrayType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="FixedArray">Fixed (open rack)</dtyp:displayterm>
+            <dtyp:displayterm value="FixedArray">Fixed (roof mount)</dtyp:displayterm>
             <dtyp:displayterm value="Tracking1Axis">Tracking (one axis)</dtyp:displayterm>
             <dtyp:displayterm value="Tracking2Axis">Tracking (two axis)</dtyp:displayterm>
          </xsd:appinfo>
@@ -923,19 +930,6 @@
          <xsd:enumeration value="SingleSpeed"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="CondenserType">
-      <xsd:annotation>
-         <xsd:documentation>Defines the type condenser used for a chiller, or DX and heat pump coils</xsd:documentation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="Air">Air</dtyp:displayterm>
-            <dtyp:displayterm value="Fluid">Fluid</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="Air"/>
-         <xsd:enumeration value="Fluid"/>
-      </xsd:restriction>
-   </xsd:simpleType>
    <xsd:simpleType name="ContinuousAirflowRateInstalled">
       <xsd:annotation>
          <xsd:documentation>  Units: ft3 per min</xsd:documentation>
@@ -1315,6 +1309,13 @@
          <xsd:enumeration value="RvalueVerifiedDuctSystem"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="DuctRValueNum">
+      <xsd:annotation>
+         <xsd:documentation>  Units: h ft2 F per Btu</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="DuctSpaceType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -1582,7 +1583,7 @@
       <xsd:annotation>
          <xsd:documentation>  Units: none</xsd:documentation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Efficiency AFUE</dtyp:displayterm>
+            <dtyp:displayterm>AFUE</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
@@ -1722,7 +1723,6 @@
    <xsd:simpleType name="EfficiencyMinimumValueCOP">
       <xsd:annotation>
          <xsd:documentation>  Units: none</xsd:documentation>
-         <xsd:documentation source="propertyrules">Value is stored as the fraction expressed as decimal and for display the value is multiplied by 100 and has % sign e.g. .80 stored value and 80% display value</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Efficiency Minimum COP Value</dtyp:displayterm>
          </xsd:appinfo>
@@ -1776,16 +1776,17 @@
             <dtyp:displayterm>Efficiency Type</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AFUE">Annual Fuel Utilization Efficiency (AFUE)</dtyp:displayterm>
-            <dtyp:displayterm value="COP">Coefficient Of Performance (COP)</dtyp:displayterm>
-            <dtyp:displayterm value="EER">Energy Efficiency Ratio (EER)</dtyp:displayterm>
-            <dtyp:displayterm value="EnergyFactor">Energy Factor (EF)</dtyp:displayterm>
-            <dtyp:displayterm value="HSPF">Heating Seasonal Performance Factor (HSPF)</dtyp:displayterm>
-            <dtyp:displayterm value="IEER">Integrated Energy Efficiency Ratio (IEER)</dtyp:displayterm>
+            <dtyp:displayterm value="AFUE">AFUE</dtyp:displayterm>
+            <dtyp:displayterm value="COP">COP</dtyp:displayterm>
+            <dtyp:displayterm value="EER">EER</dtyp:displayterm>
+            <dtyp:displayterm value="EnergyFactor">EF</dtyp:displayterm>
+            <dtyp:displayterm value="HSPF">HSPF</dtyp:displayterm>
+            <dtyp:displayterm value="IEER">IEER</dtyp:displayterm>
             <dtyp:displayterm value="NEEA">NEEA</dtyp:displayterm>
-            <dtyp:displayterm value="SEER">Seasonal Energy Efficiency Ratio (SEER)</dtyp:displayterm>
-            <dtyp:displayterm value="ThermalEfficiency">Thermal Efficiency (TE)</dtyp:displayterm>
-            <dtyp:displayterm value="UniformEnergyFactor">Uniform Energy Factor (UEF)</dtyp:displayterm>
+            <dtyp:displayterm value="SCOP">SCOP</dtyp:displayterm>
+            <dtyp:displayterm value="SEER">SEER</dtyp:displayterm>
+            <dtyp:displayterm value="ThermalEfficiency">TE</dtyp:displayterm>
+            <dtyp:displayterm value="UniformEnergyFactor">UEF</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -1796,6 +1797,7 @@
          <xsd:enumeration value="HSPF"/>
          <xsd:enumeration value="IEER"/>
          <xsd:enumeration value="NEEA"/>
+         <xsd:enumeration value="SCOP"/>
          <xsd:enumeration value="SEER"/>
          <xsd:enumeration value="ThermalEfficiency"/>
          <xsd:enumeration value="UniformEnergyFactor"/>
@@ -1841,6 +1843,10 @@
          <xsd:enumeration value="Direct"/>
          <xsd:enumeration value="DirectIndirect"/>
          <xsd:enumeration value="Indirect"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ExhaustLocation">
+      <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ExteriorTankInsulation">
@@ -1950,6 +1956,13 @@
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Actual Fan Power</dtyp:displayterm>
          </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="FanPowerModeled">
+      <xsd:annotation>
+         <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
@@ -2981,7 +2994,7 @@
             <dtyp:displayterm>Maximum Cooling W per CFM</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal4Places">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="NaturalVentilationHeight">
@@ -3036,7 +3049,7 @@
    </xsd:simpleType>
    <xsd:simpleType name="PipeInsulationThickness">
       <xsd:annotation>
-         <xsd:documentation>Defines how thick insulation on pipes in a heating, cooling, water heating system is.  Units: in</xsd:documentation>
+         <xsd:documentation>  Units: in</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Pipe Insulation Thickness</dtyp:displayterm>
          </xsd:appinfo>
@@ -3321,6 +3334,13 @@
          <xsd:minInclusive value="0"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ResidentialCoolingSystemCount">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ResidentialCoolingSystemName">
       <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
@@ -3362,6 +3382,7 @@
             <dtyp:displayterm value="RoomHP">Room HP</dtyp:displayterm>
             <dtyp:displayterm value="SmallDuctHighVelocityAC">Small Duct High Velocity Air Conditioner</dtyp:displayterm>
             <dtyp:displayterm value="SmallDuctHighVelocityHP">Small Duct High Velocity Heat Pump</dtyp:displayterm>
+            <dtyp:displayterm value="VCHP">VCHP</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDucted">VCHP-ducted</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDuctedAndDuctless">VCHP-ducted+ductless</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDuctless">VCHP-ductless</dtyp:displayterm>
@@ -3401,6 +3422,7 @@
             <dtyp:CBECCresXMLterm value="RoomHP"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="SmallDuctHighVelocityAC"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="SmallDuctHighVelocityHP"></dtyp:CBECCresXMLterm>
+            <dtyp:CBECCresXMLterm value="VCHP"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDucted"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDuctedAndDuctless"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDuctless"></dtyp:CBECCresXMLterm>
@@ -3441,6 +3463,7 @@
          <xsd:enumeration value="RoomHP"/>
          <xsd:enumeration value="SmallDuctHighVelocityAC"/>
          <xsd:enumeration value="SmallDuctHighVelocityHP"/>
+         <xsd:enumeration value="VCHP"/>
          <xsd:enumeration value="VCHP_IndoorUnitDucted"/>
          <xsd:enumeration value="VCHP_IndoorUnitDuctedAndDuctless"/>
          <xsd:enumeration value="VCHP_IndoorUnitDuctless"/>
@@ -3574,14 +3597,16 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BPM_Fan">Brushless Permanent Magnet</dtyp:displayterm>
             <dtyp:displayterm value="FixedSpeed">Fixed speed</dtyp:displayterm>
+            <dtyp:displayterm value="HvacFan">HVAC Fan</dtyp:displayterm>
             <dtyp:displayterm value="IAQStandAloneFan">IAQ stand alone fan</dtyp:displayterm>
-            <dtyp:displayterm value="SingleSpeedPSC">PSC Permanent Split Capacitor</dtyp:displayterm>
+            <dtyp:displayterm value="SingleSpeedPSC">Single speed PSC furnace fan</dtyp:displayterm>
             <dtyp:displayterm value="VariableSpeedFan">Variable speed</dtyp:displayterm>
             <dtyp:displayterm value="WholeHouseFan">Whole house</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="CBECCresXML">
             <dtyp:CBECCresXMLterm value="BPM_Fan">BPM - Brushless Permanent Magnet</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="FixedSpeed"></dtyp:CBECCresXMLterm>
+            <dtyp:CBECCresXMLterm value="HvacFan"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="IAQStandAloneFan"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="SingleSpeedPSC">PSC - Permanent Split Capacitor</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="VariableSpeedFan"></dtyp:CBECCresXMLterm>
@@ -3591,10 +3616,18 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="BPM_Fan"/>
          <xsd:enumeration value="FixedSpeed"/>
+         <xsd:enumeration value="HvacFan"/>
          <xsd:enumeration value="IAQStandAloneFan"/>
          <xsd:enumeration value="SingleSpeedPSC"/>
          <xsd:enumeration value="VariableSpeedFan"/>
          <xsd:enumeration value="WholeHouseFan"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="ResidentialHeatingSystemCount">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialHeatingSystemName">
@@ -3973,6 +4006,7 @@
             <dtyp:displayterm value="ConditionedSpaceExcept12ft">Conditioned space - except 12ft</dtyp:displayterm>
             <dtyp:displayterm value="ControlledVentilationCrawlSpace">Controlled ventilation crawl space</dtyp:displayterm>
             <dtyp:displayterm value="DuctsInMultipleLocations">Ducts located in multiple places</dtyp:displayterm>
+            <dtyp:displayterm value="IndoorsDuctedDuctless">Ducted and ductless indoor unoits</dtyp:displayterm>
             <dtyp:displayterm value="Outdoors">Outdoors</dtyp:displayterm>
             <dtyp:displayterm value="UnconditionedAttic">Unconditioned attic</dtyp:displayterm>
             <dtyp:displayterm value="UnconditionedBasement">Unconditioned basement</dtyp:displayterm>
@@ -3987,6 +4021,7 @@
          <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
          <xsd:enumeration value="ControlledVentilationCrawlSpace"/>
          <xsd:enumeration value="DuctsInMultipleLocations"/>
+         <xsd:enumeration value="IndoorsDuctedDuctless"/>
          <xsd:enumeration value="Outdoors"/>
          <xsd:enumeration value="UnconditionedAttic"/>
          <xsd:enumeration value="UnconditionedBasement"/>
@@ -4243,11 +4278,23 @@
       <xsd:restriction base="dtyp:EnumerationConstant">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="SizeRangeFurnaceAC">
+      <xsd:restriction base="dtyp:EnumerationConstant">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="SizeRangeFurnaceUnitHeater">
       <xsd:restriction base="dtyp:EnumerationConstant">
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="SizeRangeSplitSystemsSPV_ACHP">
+   <xsd:simpleType name="SizeRangeHeatPumpAC">
+      <xsd:restriction base="dtyp:EnumerationConstant">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SizeRangeRoomACHP">
+      <xsd:restriction base="dtyp:EnumerationConstant">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="SizeRangeSPV_ACHP">
       <xsd:restriction base="dtyp:EnumerationConstant">
       </xsd:restriction>
    </xsd:simpleType>
@@ -4351,7 +4398,27 @@
       <xsd:annotation>
          <xsd:documentation>  Units: Btu per h</xsd:documentation>
          <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Stand-by Loss</dtyp:displayterm>
+            <dtyp:displayterm>Standby Loss</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="StandbyLossMaxAllowed">
+      <xsd:annotation>
+         <xsd:documentation>  Units: Btu per h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Maximum Standby Loss</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="StandbyLossMaxAllowedFraction">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Maximum Standby Loss</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
@@ -4444,6 +4511,7 @@
             <dtyp:displayterm value="ConditionedSpaceExcept12ft">Conditioned space - except 12ft</dtyp:displayterm>
             <dtyp:displayterm value="ControlledVentilationCrawlSpace">Controlled ventilation crawl space</dtyp:displayterm>
             <dtyp:displayterm value="DuctsInMultipleLocations">Ducts located in multiple places</dtyp:displayterm>
+            <dtyp:displayterm value="IndoorsDuctedDuctless">Ducted and ductless indoor unoits</dtyp:displayterm>
             <dtyp:displayterm value="Outdoors">Outdoors</dtyp:displayterm>
             <dtyp:displayterm value="UnconditionedAttic">Unconditioned attic</dtyp:displayterm>
             <dtyp:displayterm value="UnconditionedBasement">Unconditioned basement</dtyp:displayterm>
@@ -4457,6 +4525,7 @@
             <dtyp:CBECCresXMLterm value="ConditionedSpaceExcept12ft"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="ControlledVentilationCrawlSpace"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="DuctsInMultipleLocations"></dtyp:CBECCresXMLterm>
+            <dtyp:CBECCresXMLterm value="IndoorsDuctedDuctless"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="Outdoors"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="UnconditionedAttic"></dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="UnconditionedBasement"></dtyp:CBECCresXMLterm>
@@ -4471,6 +4540,7 @@
          <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
          <xsd:enumeration value="ControlledVentilationCrawlSpace"/>
          <xsd:enumeration value="DuctsInMultipleLocations"/>
+         <xsd:enumeration value="IndoorsDuctedDuctless"/>
          <xsd:enumeration value="Outdoors"/>
          <xsd:enumeration value="UnconditionedAttic"/>
          <xsd:enumeration value="UnconditionedBasement"/>
@@ -4703,6 +4773,16 @@
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="VRF_HasHeatRecovery">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterAFUE">
       <xsd:annotation>
          <xsd:documentation>The full load efficiency of a water heater at AFUE rated conditions  Units: none</xsd:documentation>
@@ -4828,6 +4908,14 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterNameCount">
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterRatedInputString">
+      <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterRatedInputUnits">

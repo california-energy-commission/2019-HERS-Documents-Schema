@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RLTG01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -188,7 +188,7 @@
                   <xsd:element name="C01" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">150.0(k)1Cv No screw based sockets</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Cv: Do not contain scree sockets.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1Cv: Do not contain screw sockets.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="C02" minOccurs="0">
@@ -259,7 +259,7 @@
                   <xsd:element name="D04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">150.0(k)1E Night lights</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">150.0(k)1E: [d:b]Night lights, step lights and path lights[/d:b] are rated to consume no more than 5 Watts of power and emit more than 150 lumens, or in compliance with Table 150.0-A, or controlled, or controlled by vacancy sensor.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">150.0(k)1E: [d:b]Night lights, step lights and path lights[/d:b] are rated to consume no more than 5 Watts of power and emit more than 150 lumens, or in compliance with Table 150.0-A, or controlled by vacancy sensor.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D05" minOccurs="0">

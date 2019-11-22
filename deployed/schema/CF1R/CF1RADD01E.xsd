@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RADD01E" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF1RADD01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RADD01E" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF1RADD01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -681,13 +681,13 @@
                                        <xsd:element name="E05_SlabInsulationUFactorRequired" type="env:SlabInsulationUFactorRequired">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 in order to comply.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 (both can be N/A) in order to comply.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Insulation U-factor</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 in order to comply.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If E03_NotApplicablemessage == N/A result = N/A stored in NotApplicablemessage Else Switch ( E01_ExteriorFloorType) case SlabOnGrade: If A09_ClimateZone == 16 result = 0.58; Else If A09_ClimateZone == InRange(1,15) result = N/A stored in NotApplicableMessage;  case SlabConcreteRaised:  If A09_ClimateZone == 1,2,11,13,14 Or 16 result = 0.092; Else If A09_ClimateZone == InRange(3,10) result = 0.269; Else If A09_ClimateZone == 12 Or 15 result = 0.138;  case SlabHeated: result = N/A stored in NotApplicableMessage.  Note: Range check, value in E03 must be less than or equal to E05 (both can be N/A)  in order to comply.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1678,20 +1678,20 @@
                                     <xsd:element name="L04_DwellingUnitCount" type="com:DwellingUnitCount">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Dwelling Units in System</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == SingleFamily result = 1; Else User input integer</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="L05_RecirculationLoopCount" type="hvac:RecirculationLoopCount">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText"># of Recirc. Loops</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If L02_ResidentialWaterHeatingSystemType == Central then user input allowed GTE 2; Else If L04_DwellingUnitCount LTE 8 user input allowed == 1; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L02_ResidentialWaterHeatingSystemType == Central then If  L04_DwellingUnitCount LTE 8 result = 1; Else If L04_DwellingUnitCount GT 8  user input allowed values GTE 2; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="L05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText"># of Recirc. Loops</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If L02_ResidentialWaterHeatingSystemType == Central then user input allowed GTE 2; Else If L04_DwellingUnitCount LTE 8 user input allowed == 1; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If L02_ResidentialWaterHeatingSystemType == Central then If  L04_DwellingUnitCount LTE 8 result = 1; Else If L04_DwellingUnitCount GT 8  user input allowed values GTE 2; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1730,13 +1730,13 @@
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="L10_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input (Range)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  result = 75,000 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="L10_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input (Range)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If L03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  result = 75,000 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1989,7 +1989,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RADD01E"/>
       </xsd:complexType>
    </xsd:element>

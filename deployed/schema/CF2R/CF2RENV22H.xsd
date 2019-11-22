@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV22H" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF2RENV22H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RENV22H" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RENV22H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -204,8 +204,7 @@
                   <xsd:element name="D02" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">Loose-fill and batt insulation is in contact with all six sides of wall cavities (top, bottom, back, left, right, front [to be installed later]) with no gaps, voids or compression.  Exception: Where framing depth is greater than 
-                           <d:u>minimum</d:u> required insulation thickness (e.g., R-19 batts in 2x10 walls).</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Loose-fill and batt insulation is in contact with all six sides of wall cavities (top, bottom, back, left, right, front [to be installed later]) with no gaps, voids or compression.  Special Situation: Where framing depth is greater than required insulation thickness (e.g., double walls or framed bump-outs) a secondary air barrier shall be installed and in contact with the insulation, so that the insulation fills the cavity formed by the additional air barrier.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D03" minOccurs="0">
@@ -235,7 +234,7 @@
                   <xsd:element name="D07" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
-                        <xsd:documentation source="AdditionalRequirements">All single-member window and door headers shall be insulated to a minimum of R-3 for a 2x4 framing, or equivalent width, and a minimum of R-5 for all other assemblies.  If continuous exterior rigid insulation equal to or greater than R-2 is used, an insulated header is not required.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All single-member window and door headers shall be insulated to a minimum of R-3 for a 2x4 framing, or equivalent width, and a minimum of R-5 for all other assemblies. No header insulation is required for single-member headers that are the same width as the wall, provided that the entire wall has at least R-2 insulation.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D08" minOccurs="0">
@@ -627,7 +626,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV22H"/>
       </xsd:complexType>
    </xsd:element>

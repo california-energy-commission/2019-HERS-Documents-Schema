@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RNCB01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -1194,11 +1194,18 @@
                                           <xsd:documentation source="CalculationsAndRules">User selects from list:  FixedWindow  display text: fixed window, OperableWindow display text: operable window, Skylight display text: skylight, TubularSkylight (only allow if A14 contains FenestrationGlazingSkylightTubularLTE3Ft2)  display text: tubular skylight,   GlazedDoor (only allow if A14 contains FenestrationGlazingDoorLTE3Ft2)   display text: glass in door</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J03_FenestrationFraming" type="env:FenestrationFraming" >
+                                    <xsd:element name="J03_FenestrationFraming" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Frame Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Metal,  Metal Thermal Break,  Non-metal</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="env:FenestrationFraming">
+                                             <xsd:enumeration value="MetalFraming"/>
+                                             <xsd:enumeration value="MetalFramingWithThermalBreak"/>
+                                             <xsd:enumeration value="NonMetalFraming"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="J04_DynamicGlazingType" type="env:DynamicGlazingType" >
                                        <xsd:annotation>
@@ -1343,7 +1350,7 @@
                   </xsd:element>
                   <xsd:element name="J18_TotalGlazingAreaWest" type="env:TotalGlazingAreaWest" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Total Propose West-Facing Fenestration Area</xsd:documentation>
+                        <xsd:documentation source="FieldText">Total Proposed West-Facing Fenestration Area</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: SUM ALL ( J08_TotalGlazingAreaWestSameTypeAndFrame)</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1740,7 +1747,7 @@
                   </xsd:element>
                   <xsd:element name="L05_AtticVentFreeAreaInstalled" type="env:AtticVentFreeAreaInstalled" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Attic Free Vent area (in[d:sup]2[/d:sup]</xsd:documentation>
+                        <xsd:documentation source="FieldText">Attic Free Vent area (in[d:sup]2[/d:sup])</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input decimal nonnegative  Check If result GTE L07_AtticVentFreeAreaRequired result complies, Else flag as non-compliant</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -1820,20 +1827,20 @@
                                     <xsd:element name="M04_DwellingUnitCount" type="com:DwellingUnitCount" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Dwelling Units in System</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == SingleFamily result = 1; Else user input integer</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="M05_RecirculationLoopCount" type="hvac:RecirculationLoopCount" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText"># of Recirc. Loops</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If M02_ResidentialWaterHeatingSystemType == Central then user input allowed GTE 2; Else If M04_DwellingUnitCount LTE 8 user input allowed == 1; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M02_ResidentialWaterHeatingSystemType == Central then If M04_DwellingUnitCount LTE 8 result = 1; Else If M04_DwellingUnitCount GT 8 user input allowed values GTE 2; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="M05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText"># of Recirc. Loops</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If M02_ResidentialWaterHeatingSystemType == Central then user input allowed GTE 2; Else If M04_DwellingUnitCount LTE 8 user input allowed == 1; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M02_ResidentialWaterHeatingSystemType == Central then If M04_DwellingUnitCount LTE 8 result = 1; Else If M04_DwellingUnitCount GT 8 user input allowed values GTE 2; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1872,13 +1879,13 @@
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="M10_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input (Range)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If  M03__WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  result = 75,000 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="M10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input (Range)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If  M03__WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  result = 75,000 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>

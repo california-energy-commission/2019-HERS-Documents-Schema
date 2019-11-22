@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 sp2 (http://www.altova.com) by Diane Pepetone (L'Monte Information Services) -->
-<xsd:schema xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.lmonte.com/besm/dtyp" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+<xsd:schema xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.lmonte.com/besm/dtyp" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.000">
 	<xsd:annotation>
 		<xsd:appinfo>
 			<copyright>Copyright 2014, L'Monte Information Services, Inc. This software is distributed under the terms of the GNU General Public License version 3 (the LICENSE).

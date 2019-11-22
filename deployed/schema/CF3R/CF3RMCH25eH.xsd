@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH25eH" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF3RMCH25eH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH25eH" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF3RMCH25eH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -108,7 +108,7 @@
                   </xsd:element>
                   <xsd:element name="A12_UseMinimumAirflowApprovedVerificationProcedure" type="comp:UseMinimumAirflowApprovedVerificationProcedure">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is the system of a type that the minimum airflow can be verified for all indoor units using an approved measurement procedure (RA3.3 or RA3.3.3)?</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are Yes or No.   If installed system does not match this entry, it can be overwritten by rater but it will be flagged as a possible fail.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -129,7 +129,7 @@
                   <xsd:element name="A15_RefrigerantChargeVerificationMethod" type="comp:RefrigerantChargeVerificationMethod">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Refrigerant charge verification method used.</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are NewFactoryCharge display text: New package unit factory charge; choice Subcooling display text: Subcooling (outdoor temperature must be equal to or greater than 55 degF); choice Superheat display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInHERS, display text:  Weigh-in with HERS Rater observation;   choice WinterSetup  display text: Winter setup (applicable when outdoor temperature is less than 55 degF)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from CF2R. Possible entries are NewFactoryCharge display text: New package unit factory charge; choice Subcooling display text: Subcooling (outdoor temperature must be equal to or greater than 55 degF); choice Superheat display text: Superheat (outdoor temperature must be equal to or greater than 55 degF); choice WeighIn, display text:  Weigh-in with Installer independent;  choice WeighInHERS, display text:  Weigh-in with HERS Rater observation;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A16_RefrigerantChargeVerifier" type="comp:RefrigerantChargeVerifier">
@@ -314,7 +314,7 @@
                                     <xsd:element name="E03_MinimumAirflowRateVerificationStatus">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  then If the system has a registered CF3R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  = SystemCompliesUsingTable150BC display term System complies using Table 150.0-B or C alternative return duct design criteria;   Else result = SystemDoesNotComplyCF3RMCH28Required display term System does not comply.  A registered CF3R-MCH-28 is required (do not allow this MCH-25 to be registered);     ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF2R-MCH-23a or CF2R-MCH-23b that meets the compliance criterion in E01, Then result = SystemComplies display term System complies with minimum airflow rate requirements;     Else If  A10_ImprovementStatus == Alteration Then If the system complies with the alternative airflow compliance method on a registered CF3R-MCH23c;  Then result= SystemCompliesUsingAlternativeRemedialActions display term  system complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for Group Sampling;   Else result = SystemDoesNotComplyCF3RMCH23Required display term  System does not comply. A registered CF3R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance:  then If the system has a registered CF3R-MCH-28 that indicates compliance with Table 150.0-B or C return duct design requirements, then result  = SystemCompliesUsingTable150BC display term System complies using Table 150.0-B or C alternative return duct design criteria;   Else result = SystemDoesNotComplyCF3RMCH28Required display term System does not comply.  A registered CF3R-MCH-28 is required (do not allow this MCH-25 to be registered);     ElseIf the CF2R-MCH-01 indicates a MCH-23 is required for minimum airflow rate compliance:  Then If this system has a registered CF2R-MCH-23a, CF2R-MCH-23b, CF2R-MCH23e or CF2R-MCH-23f that meets the compliance criterion in E01, Then result = SystemComplies display term System complies with minimum airflow rate requirements;     Else If  A10_ImprovementStatus == Alteration Then If the system complies with the alternative airflow compliance method on a registered CF3R-MCH23c;  Then result= SystemCompliesUsingAlternativeRemedialActions display term  system complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for Group Sampling;   Else result = SystemDoesNotComplyCF3RMCH23Required display term  System does not comply. A registered CF3R-MCH-23 for this system is required . (do not allow this MCH-25 to be registered).</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:MinimumAirflowRateVerificationStatus">
@@ -569,7 +569,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25eH"/>
       </xsd:complexType>
    </xsd:element>

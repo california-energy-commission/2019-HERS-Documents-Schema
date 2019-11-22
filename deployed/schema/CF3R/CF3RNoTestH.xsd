@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RNoTestH" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF3RNoTestH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RNoTestH" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF3RNoTestH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
    <xsd:element name="ComplianceDocumentPackage">

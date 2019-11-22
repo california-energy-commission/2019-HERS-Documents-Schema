@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH32H" version="2019.1.001" xmlns="http://www.lmonte.com/besm/CF2RMCH32H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH32H" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RMCH32H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -227,7 +227,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                                     <xsd:element name="C11_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If C08_KitchenExhaustOperation == DemandControl And C05_SystemRatedAirflowHVI GTE C09_MinimumAirflowRateRequired And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating  result = true display term Kitchen Exhaust System Complies; Else If  If C08_KitchenExhaustOperation == ContinuousOperation And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating  result = true display term Kitchen Exhaust System Complies;  Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If C08_KitchenExhaustOperation == DemandControl And C05_SystemRatedAirflowHVI GTE C09_MinimumAirflowRateRequired And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating Or C10_NotApplicableMessage == N/A  result = true display term Kitchen Exhaust System Complies; Else If  If C08_KitchenExhaustOperation == ContinuousOperation And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating  Or C10_NotApplicableMessage == N/A result = true display term Kitchen Exhaust System Complies;  Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -376,7 +376,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH32H"/>
       </xsd:complexType>
    </xsd:element>
