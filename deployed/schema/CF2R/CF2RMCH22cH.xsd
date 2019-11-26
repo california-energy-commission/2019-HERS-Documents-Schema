@@ -230,7 +230,7 @@
                   <xsd:element name="D03_FanEfficacyRequired" type="hvac:FanEfficacyRequired">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Fan Efficacy (Watts/cfm)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document == MCH-01a  reference value from Mch01a (Section TBD) Else If parent document == MCH-01d  reference value from Mch01a (Section TBD)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If parent document == MCH-01a  reference value from Mch01a C12_VentilationCoolingFanEfficacy; Else If parent document == MCH-01d  reference value from Mch01d C12_FanEfficacy;</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D04_FanEfficacy" type="hvac:FanEfficacy">
@@ -334,7 +334,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH22cH"/>
       </xsd:complexType>
    </xsd:element>

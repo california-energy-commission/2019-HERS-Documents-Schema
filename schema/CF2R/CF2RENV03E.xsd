@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RENV03E"/>
       </xsd:complexType>
    </xsd:element>
@@ -194,13 +194,19 @@
                                        <xsd:element name="A10_InsulationRValue" type="env:InsulationRValue" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R (string of DecimalNonnegative) but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="A10_ContinuousInsulationString" type="env:ContinuousInsulationString" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R (string of DecimalNonnegative) but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R (string of DecimalNonnegative) but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -332,6 +338,12 @@
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B10_InsulationRValue" type="env:InsulationRValue" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_ContinuousInsulationString" type="env:ContinuousInsulationString" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Continuous Insulation R-value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Auto-filled from CF1R but user can override with value GTE the CF1R value; Else result is N/A stored in the NotApplicableMessage</xsd:documentation>
@@ -478,12 +490,20 @@
                                           <xsd:documentation source="CalculationsAndRules">User input, maximum 28 characters</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D03_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Framing Material</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Data from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D03_PartitionFramingMaterial" type="env:PartitionFramingMaterial" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Framing Material</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data from CF1R:  If parent is a prescriptive CF1R use this property</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D03_RaisedFloorFramingMaterialCBECC_Res" type="env:RaisedFloorFramingMaterialCBECC_Res" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Framing Material</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data from CF1R: If parent is CF1R-PRF use this property</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="D04_FramingDescriptionCBECC_Res" type="env:FramingDescriptionCBECC_Res" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Framing Size and Spacing</xsd:documentation>

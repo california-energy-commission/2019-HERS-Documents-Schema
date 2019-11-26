@@ -26,8 +26,8 @@
                            <d:t24ref h="110.10"/> (b)1A Exception 1 or 6, and 
                            <d:t24ref h="110.10"/> (b)1B Exception 4)  This worksheet applies to: 
                            <d:l t="*">
-                              <d:list> Single family residences without PV that wish to show compliance with the Solar Ready requirements (Section 110.10(b) by providing a solar zone on the roof of the residence.   Note that Exceptions 1,and 6 to Section 110.10(b)1A exempt a residence from the solar ready requirements and are documented on the Certificate of Compliance document  CF2R-SRA-01-E.  Check the exception being used and fill in the relevant details. </d:list>
-                              <d:list> Low-rise multifamily projects without PV that wish to show compliance with the Solar Ready requirements (Section 110.10(b) by providing a solar zone on the roof of the building. Note that Exceptions 4 and 5 to Section 110.10(b)1B exempt a multifamily building from the solar ready requirements and are documented on the Certificate of Compliance document CF2R-SRA-01-E. Check the exception being used and fill in the relevant details. </d:list>
+                              <d:list> Single family residences without PV that wish to show compliance with the Solar Ready requirements (Section 110.10(b) by providing a solar zone on the roof of the residence.   Note that Exceptions 1,and 6 to Section 110.10(b)1A exempt a residence from the solar ready requirements and are documented on the Certificate of Installation document  CF2R-SRA-01-E.  Check the exception being used and fill in the relevant details. </d:list>
+                              <d:list> Low-rise multifamily projects without PV that wish to show compliance with the Solar Ready requirements (Section 110.10(b) by providing a solar zone on the roof of the building. Note that Exceptions 4 and 5 to Section 110.10(b)1B exempt a multifamily building from the solar ready requirements and are documented on the Certificate of Installation document CF2R-SRA-01-E. Check the exception being used and fill in the relevant details. </d:list>
                            </d:l>
                         </xsd:documentation>
                      </xsd:annotation>
@@ -359,7 +359,7 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
       </xsd:complexType>
    </xsd:element>

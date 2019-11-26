@@ -1457,6 +1457,22 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="DuctlessIndoorUnitLocation">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="MountedInside">Indoor unit mounted entirely on the surface of walls, ceilings, or floors</dtyp:displayterm>
+            <dtyp:displayterm value="PartiallyInIndirectlyConditioned">Visually confirmed: Indoor unit protrudes into directly conditioned spaces wholly inside both the thermal boundary and the air barrier of the dwelling</dtyp:displayterm>
+            <dtyp:displayterm value="PartiallyInIndirectlyConditionedInstaller">Not Visually confirmed: Installer certifies the  Indoor unit protrudes into directly conditioned spaces wholly inside both the thermal boundary and the air barrier of the dwelling</dtyp:displayterm>
+            <dtyp:displayterm value="PartiallyInUnconditioned">Indoor unit protrudes through the air barrier into unconditioned spaces</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="MountedInside"/>
+         <xsd:enumeration value="PartiallyInIndirectlyConditioned"/>
+         <xsd:enumeration value="PartiallyInIndirectlyConditionedInstaller"/>
+         <xsd:enumeration value="PartiallyInUnconditioned"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="DwellingUnitDesignHeatingLoad">
       <xsd:annotation>
          <xsd:documentation>This is the calculated design heating load  Units: Btu per h</xsd:documentation>
@@ -2663,6 +2679,12 @@
          <xsd:enumeration value="Removed"/>
          <xsd:enumeration value="Replacement"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="IndoorUnitAreaServed">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="IndoorUnitDucts">
       <xsd:annotation>

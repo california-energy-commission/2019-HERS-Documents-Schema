@@ -37,17 +37,11 @@
                         <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A04_ComplianceMethod">
+                  <xsd:element name="A04_ComplianceCertificateType" type="comp:ComplianceCertificateType">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Method of Compliance:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
                      </xsd:annotation>
-                     <xsd:simpleType>
-                        <xsd:restriction base="comp:ComplianceMethod">
-                           <xsd:enumeration value="Performance"/>
-                           <xsd:enumeration value="PrescriptiveNewConstruction"/>
-                        </xsd:restriction>
-                     </xsd:simpleType>
                   </xsd:element>
                   <xsd:element name="A05_PhotoVoltaicExceptionRes" type="comp:PhotoVoltaicExceptionRes">
                      <xsd:annotation>
@@ -78,7 +72,7 @@
                                     <xsd:element name="B01_ArrayName" type="hvac:ArrayName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF1R</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If available reference value from CF1R; Else user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B02_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
@@ -124,7 +118,7 @@
                                     <xsd:element name="B06_Azimuth" type="dtyp:Azimuth">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance result InclusiveRange(90,300) Else If A04_ComplianceMethod == Performance And B05_CFI_PV == true then result InclusiveRange(150, 270) Else result InclusiveRange(0,359)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If A04_ComplianceCertificateType == Performance Then If  B05_CFI_PV == true user input value that is in range 150 - 270;  Else If  B05_CFI_PV == false reference CF1R value which is in range 0 -359; Else If A04_ComplianceCertificateType = Prescriptive user input value that is in range 90 - 300;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B07_TiltMeasurementType" type="env:TiltMeasurementType">
@@ -161,25 +155,17 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B10_ArrayShadingCF1RPRF" type="comp:ArrayShadingCF1RPRF">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shading Requirement Compliance Path</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Result = string value from CF1R-PRF stored in B10_ArrayShadingCF1RPRF Else result = MinimumShadingCriterion stored in B10_PhotoVoltaicShading</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B10_PhotoVoltaicShading">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Shading Requirement Compliance Path</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Result = string value from CF1R-PRF stored in B10_ArrayShadingCF1RPRF Else result = MinimumShadingCriterion stored in B10_PhotoVoltaicShading</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="comp:PhotoVoltaicShading">
-                                                <xsd:enumeration value="MinimalShadingCritierion"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="B10_PhotoVoltaicShading">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Shading Requirement Compliance Path</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Result = MinimumShadingCriterion</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="comp:PhotoVoltaicShading">
+                                             <xsd:enumeration value="MinimalShadingCritierion"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -198,7 +184,7 @@
          <xsd:element name="Section_C" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Photovoltaic Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes  != NoExceptionsNA</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes  != LimitedSolarAccess</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -221,7 +207,7 @@
                                     <xsd:element name="C02_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">DC System Size (kW)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then result = B03_ArrayAdjustedPowerOutput but allow user to override only if result  GTE B03; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then result = B03_ArrayAdjustedPowerOutput but allow user to override only if result  GTE B03; Else user input which must be GTE B03</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C03_ArrayModuleType" type="hvac:ArrayModuleType">
@@ -286,7 +272,7 @@
          <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Shading Requirement</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is displayed If A05_PhotoVoltaicExceptionRes  != NoExceptionsNA;  
+               <xsd:documentation source="CalculationsAndRules">This section is displayed If A05_PhotoVoltaicExceptionRes  != LimitedSolarAccess;  
  If B10_PhotoVoltaicShading == MinimalShadingCritierion Then display D01a static text for Minimal Shading Criterion Else display D01b static text for PV Array Geometries Performance Input;</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
@@ -460,7 +446,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPVB01E"/>
       </xsd:complexType>
    </xsd:element>

@@ -282,7 +282,7 @@ A02_SolarReadyAreaComplianceMethod ==  TrafficParkingOnRoof</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA01E"/>
       </xsd:complexType>
    </xsd:element>

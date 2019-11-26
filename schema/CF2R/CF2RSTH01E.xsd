@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSTH01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -72,26 +72,26 @@
                         <xsd:documentation source="CalculationsAndRules">Auto-filled from project CF1R</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03_SolarWaterHeatingCertificationType" type="comp:SolarWaterHeatingCertificationType" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Certification Type</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User selects from OG-100 or OG-300</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="A04_ResidentialDHWCentralDistributionType" type="hvac:ResidentialDHWCentralDistributionType" >
+                     <xsd:element name="A03_ResidentialDHWCentralDistributionType" type="hvac:ResidentialDHWCentralDistributionType" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If available result = project CF1R value Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
-                     <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                     <xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Central DHW System Distribution Type</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">If available result = project CF1R value Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
+                  <xsd:element name="A04_SolarWaterHeatingCertificationType" type="comp:SolarWaterHeatingCertificationType" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Certification Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If A03_NotApplicableMessage == N/A user selects from OG100 display term OG-100 or OG300 display term OG-300; Else result = OG100;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A05_ComplianceMethod" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Certificate of Compliance Type</xsd:documentation>

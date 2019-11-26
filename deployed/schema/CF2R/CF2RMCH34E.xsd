@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH34E" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RMCH34E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RMCH34E">
+      <xsd:annotation>
+         <xsd:documentation>Pre-Cooling</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Pre-Cooling Verification</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableSystems">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SC System ID/Name from CF1R</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">auto filled text: from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="A02_ThermostatType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Thermostat Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">auto filled text: referenced from MCH01a D08</xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="hvac:ThermostatType">
+                                             <xsd:enumeration value="EnergyManagementSystem"/>
+                                             <xsd:enumeration value="OccupantControlledSmartThermostat"/>
+                                             <xsd:enumeration value="SetbackThermostat"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
+                                    </xsd:element>
+                                    <xsd:element name="A03_PreCoolingThermostatComplies" type="comp:PreCoolingThermostatComplies">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Pre-Cooling</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF indicates required special feature == Pre-Cooling And A02_ThermostatType == OccupantControlledSmartThermostat result = true dipslay term Complies; Else result = false display term Does Not Comply</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Mandatory Requirements for Occupant Controlled Smart Thermostats</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Below is a list of required functional specifications and behaviors.  Consult Joint Appendix JA 5 for more information.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Setback capabilities.</d:b>  An OCST shall meet the requirements of Section 110.2(c).  Thermostats for heat pumps shall also meet the requirements of Section 110.2(b).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Restart Settings.</d:b>  In the event of a disruption of power to the device that results in power off or restart, upon device restart, the device shall automatically restore the most recently programmed settings, including reconnection to a network, if the device was previously enabled and network connectivity is available.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Automatic Rejoin.</d:b>  An OCST shall connect, and remain connected in its communication path and control end point.  The OCST shall incorporate an automatic rejoin function.  When physical and/or logical communication is lost, the OCST shall trigger its automatic rejoin function to restore the physical and/or logical communication.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Event Responses.</d:b>  Event response, unless overridden by the occupant or modified by an energy management control system or service, may be triggered by price signals or Demand Response Signals.  The OCST shall provide one set of event responses for price signals and one set of responses for Demand Response Signals.  The responses may be common for both types of events.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>User Display and Interface.</d:b>  The OCST shall have the capability to display information to the user.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>Require Functional Behavior.</d:b>
+                           <d:line1/>
+                           <d:tab1/> (a)   
+                           <d:i>Normal Operation.</d:i> Normal operation of an OCST is defined to be the OCST's prevailing mode of operation as determined by the occupant's prior settings and use of features provided by the OCST manufacturer's design.  Aspects of normal operation of an OCST may be modified or interrupted in response to occupant subscribed price signals or when Demand Response Periods are in progress, but only to the extent specified by the occupants or their representatives. 
+                           <d:line1/>
+                           <d:tab1/> (b)   
+                           <d:i>Demand Responsive Control.</d:i>  Upon receiving a price signal or a Demand Response Signal, OCSTs shall be capable of automatic event response by adjusting the currently applicable temperature set point by the number of degrees indicated in the temperature offset (heating or cooling, as appropriate).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:b>HVAC System Interface.</d:b>  HVAC wiring terminal designations shall be clearly labeled.  OCSTs shall use labels that comply with Table 5-1 in NEMA DC 3-2013.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01_PreCoolingCompliance" type="comp:PreCoolingCompliance">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">If all SC systems in Section A has A03_PreCoolingThermostatComplies  == true then result = true display term Building Complies - All SC systems are controlled by occupant controlled smart thermostats which meet the requirements of JA5 in the Reference Appendices; Else result = false display term Building Fails - Pre-cooling verification requirements have not been met</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH34E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Pre-Cooling"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RMCH34E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_E"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH34E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RMCH34E" type="CF2RMCH34E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH34E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
