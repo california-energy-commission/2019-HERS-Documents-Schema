@@ -452,9 +452,9 @@
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="E02_Azimuth" type="dtyp:Azimuth">
+                                    <xsd:element name="E02_ParentSurfaceName" type="env:ParentSurfaceName">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Azimuth</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Parent Surface</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -724,12 +724,20 @@
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="G08_WaterHeaterStandbyLossFraction" type="hvac:WaterHeaterStandbyLossFraction">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Standby Loss Total (Fraction)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="G08_WaterHeaterStandbyLossFraction" type="hvac:WaterHeaterStandbyLossFraction">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss Total (Fraction)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; allow N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="G08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss Total (Fraction)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; allow N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="G09_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Verification</xsd:documentation>
@@ -1012,18 +1020,34 @@
                                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="K03_SupplyDuctLocation" type="hvac:SupplyDuctLocation">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Supply Duct Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="K04_ReturnDuctLocation" type="hvac:ReturnDuctLocation">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Return Duct Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="K03_DuctSpaceType" type="hvac:DuctSpaceType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Supply Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="K03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Supply Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="K04_DuctSpaceType" type="hvac:DuctSpaceType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Return Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="K04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Return Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="K05_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Verification</xsd:documentation>
@@ -1098,7 +1122,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3REXC20H"/>
       </xsd:complexType>
    </xsd:element>

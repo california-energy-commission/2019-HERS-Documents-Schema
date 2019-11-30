@@ -33,7 +33,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH24aH"/>
       </xsd:complexType>
    </xsd:element>
@@ -86,13 +86,13 @@
                      <xsd:element name="A06_FloorArea" type="com:FloorArea">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit floor area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A06_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit floor area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -100,13 +100,13 @@
                      <xsd:element name="A07_CeilingArea" type="env:CeilingArea">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit ceiling area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A07_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit ceiling area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -114,13 +114,13 @@
                      <xsd:element name="A08_ExteriorWallArea" type="env:ExteriorWallArea">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit exterior wall  area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A08_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit exterior wall area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -128,13 +128,13 @@
                      <xsd:element name="A09_DwellingUnitsSharedWallArea" type="com:DwellingUnitsSharedWallArea">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit wall area shared with other dwelling units (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit wall area shared with other dwelling units (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else  result = NRCC-PRF-01  value if available; Else user input numeric xxxxx.x</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else   user input numeric xxxxx.x</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -142,13 +142,13 @@
                      <xsd:element name="A10_DwellingUnitEnclosureArea" type="com:DwellingUnitEnclosureArea">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit enclosure area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else result = NRCC-PRF-01 value if available Else result = SUM (A06_FloorArea, A07_CeilingArea, A08_ExteriorWallArea, A09_DwellingUnitsSharedWallArea ).</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage result = SUM (A06_FloorArea, A07_CeilingArea, A08_ExteriorWallArea, A09_DwellingUnitsSharedWallArea ).</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Total dwelling unit enclosure area (ft<d:sup>2</d:sup>)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else result = NRCC-PRF-01 value if available Else result = SUM (A06_FloorArea, A07_CeilingArea, A08_ExteriorWallArea, A09_DwellingUnitsSharedWallArea ).</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A01_CompartmentilizationLeakageVerificationRequiredHERS == false result  = N/A stored in NotApplicableMessage Else result = SUM (A06_FloorArea, A07_CeilingArea, A08_ExteriorWallArea, A09_DwellingUnitsSharedWallArea ).</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -381,13 +381,13 @@
                               <xsd:element name="Da1_OutdoorAirViscosityCorrection" type="comp:OutdoorAirViscosityCorrection">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Outdoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT (2.629, 10 ^-3, (SUM(A03_TestTemperatureOutdoor, 460))^0.5 / SUM(1, (198.7 / SUM(A03_TestTemperatureOutdoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A03_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A03_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="Da1_NotApplicableMessage" type="comp:NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Outdoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT (2.629, 10 ^-3, (SUM(A03_TestTemperatureOutdoor, 460))^0.5 / SUM(1, (198.7 / SUM(A03_TestTemperatureOutdoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 2.629 * 10^-3 * ((A03_TestTemperatureOutdoor+460)^0.5 / (1+(198.7 /  (A03_TestTemperatureOutdoor+460)))); Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -395,13 +395,13 @@
                               <xsd:element name="Da2_IndoorAirViscosityCorrection" type="comp:IndoorAirViscosityCorrection">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10^ -3, (SUM(A02_TestTemperatureIndoor, 460))^0.5 / SUM(1, (198.7 / SUM(A02_TestTemperatureIndoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A02_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A02_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="Da2_NotApplicableMessage" type="comp:NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Dynamic Viscosity of Air Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (2.629, 10^ -3, (SUM(A02_TestTemperatureIndoor, 460))^0.5 / SUM(1, (198.7 / SUM(A02_TestTemperatureIndoor, 460))))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result =2.629 * 10^-3 * ((A02_TestTemperatureIndoor+460)^0.5 / (1+(198.7 /  (A02_TestTemperatureIndoor+460))));   Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -409,13 +409,13 @@
                               <xsd:element name="Da3_OutdoorAirDensityCorrection" type="comp:OutdoorAirDensityCorrection">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Outdoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT (0.07517, (1- ( PRODUCT(0.0035666, A05_Elevation)/ 528)^5.2553, 528 / SUM(A03_TestTemperatureOutdoor, 460))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A05_Elevation)/528))^(5.2553) * (528/(A03_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="Da3_NotApplicableMessage" type="comp:NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Outdoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT (0.07517, (1- ( PRODUCT(0.0035666, A05_Elevation)/ 528)^5.2553, 528 / SUM(A03_TestTemperatureOutdoor, 460))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Depressurization result = 0.07517 * (1-((0.0035666 * A05_Elevation)/528))^(5.2553) * (528/(A03_TestTemperatureOutdoor+460)); Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -423,13 +423,13 @@
                               <xsd:element name="Da4_IndoorAirDensityCorrection" type="comp:IndoorAirDensityCorrection">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (0.07517, (1- (PRODUCT(0.0035666, A05_Elevation)/ 528)^5.2553, 528 / SUM(A02_TestTemperatureIndoor , 460))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A05_Elevation)/528))^(5.2553) * (528/(A02_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                               <xsd:element name="Da4_NotApplicableMessage" type="comp:NotApplicableMessage">
                                  <xsd:annotation>
                                     <xsd:documentation source="FieldText">Indoor Air Density Correction</xsd:documentation>
-                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT (0.07517, (1- (PRODUCT(0.0035666, A05_Elevation)/ 528)^5.2553, 528 / SUM(A02_TestTemperatureIndoor , 460))  Else result = N/A</xsd:documentation>
+                                    <xsd:documentation source="CalculationsAndRules">Calculated field: If C02_BuildingAirLeakageTestMethod == Pressurization result = 0.07517 * (1-((0.0035666 * A05_Elevation)/528))^(5.2553) * (528/(A02_TestTemperatureIndoor+460)); Else result = N/A</xsd:documentation>
                                  </xsd:annotation>
                               </xsd:element>
                            </xsd:choice>
@@ -439,7 +439,7 @@
                   <xsd:element name="D01_AltitudeTemperatureCorrectionFactor" type="comp:AltitudeTemperatureCorrectionFactor">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Altitude and Temperature Correction Factor</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = PRODUCT ((Da1_OutdoorAirVicosityCorrection / 0.044)^(PRODUCT(2, 0.65) -1))), (Da3_OutdoorAirDensityCorrection / 0.07517)^ (1-0.65))  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result = PRODUCT ((Da1_OutdoorAirVicosityCorrection / 0.044)^( PRODUCT(2, 0.65) -1 ))), (Da4_IndoorAirDensityCorrection / 0.07517)^ (1-0.65))</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field:  If C02_BuildingAirLeakageTestMethod == Depressurization result = (Da1_OutdoorAirVicosityCorrection / 0.044)^(2* 0.65-1) * (Da3_OutdoorAirDensityCorrection / 0.07517) ^(1-(0.65));  Else  If C02_BuildingAirLeakageTestMethod == Pressurization result =  (Da2_IndoorAirVicosityCorrection / 0.044)^(2 * 0.65-1) * (Da4_IndoorAirDensityCorrection / 0.07517)^(1-(0.65))</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D02_CFM50TempAltCorrected" type="comp:CFM50TempAltCorrected">

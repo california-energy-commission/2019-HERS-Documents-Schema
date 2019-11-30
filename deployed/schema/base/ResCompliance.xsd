@@ -3022,8 +3022,8 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    <xsd:simpleType name="DoesKitchenExhaustSystemComply">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Kitchen Exhaust System Complies</dtyp:displayterm>
-            <dtyp:displayterm value="false">Kitchen Exhaust System Does Not Comply</dtyp:displayterm>
+            <dtyp:displayterm value="true">Complies</dtyp:displayterm>
+            <dtyp:displayterm value="false">Does Not Comply</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
@@ -5062,6 +5062,18 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>
             <dtyp:displayterm value="false">NA</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="IsDWHR_Installed">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Drain Water Heat Recovery</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>

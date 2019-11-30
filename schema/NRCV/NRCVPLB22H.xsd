@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVPLB22H"/>
       </xsd:complexType>
    </xsd:element>
@@ -196,6 +196,12 @@
                                           <xsd:documentation source="CalculationsAndRules">Reference values from NRCC  Allowed values are BasicType display term Basic, Expanded display term Expanded, NotCompact display term None</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="B11_IsDWHR_Installed" type="comp:IsDWHR_Installed" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list true result display term Yes; false result display term No</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -324,6 +330,12 @@
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from B10</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C11_IsDWHR_Installed" type="comp:IsDWHR_Installed" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Drain Water Heat Recovery</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B11</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -611,7 +623,7 @@
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Compact Hot Water Distribution (CHWD) (Ra3.6.5)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if any water heating system B10_CompactDistributionType == Expanded.  Require one row for each system in section A where B10_CompactDistributionType == Expanded</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if any water heating system has B10_CompactDistributionType == Expanded.  Require one row for each dwelling identified in section B where B10_CompactDistributionType == Expanded</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -619,7 +631,7 @@
                   <xsd:element name="G_BeginNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">For dwelling units with multiple systems, only allow one value to be entered for both master bath distance and kitchen distance.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For dwelling units with multiple systems, enter the master bath distance and kitchen distance to the closet water heater, and enter the average of the furthest fixture to each water heater.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="TableCompactExpanded" >
@@ -654,31 +666,31 @@
                                     <xsd:element name="G03_WaterHeaterToBath" type="comp:WaterHeaterToBath" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Master Bath distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance result = NRCC value; Else prescriptive compliance,  user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G04_WaterHeaterToKitchen" type="comp:WaterHeaterToKitchen" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Kitchen distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance result = NRCC value; Else prescriptive compliance,  user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G05_WaterHeaterToFurthest3rdFixture" type="comp:WaterHeaterToFurthest3rdFixture" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance result = NRCC value; Else prescriptive compliance,  user input</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet (Avg for multiple water heaters)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance result = NRCC value; Else prescriptive compliance, Else  If B09_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = PRODUCT( PRODUCT (G03, 0.4), ( PRODUCT (G04, 0.4),  PRODUCT (average (G05), 0.2)); Else If B09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = G05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B09_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result =  (G03_WaterHeaterToBath * 0.4)  + (G04_WaterHeaterToKitchen *  0.4)  + (G05_WaterHeaterToFurthest3rdFixture * 0.2); Else If B09_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = G05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="G07_WaterHeaterQuantificationDistance" type="comp:WaterHeaterQuantificationDistance" >
+                                    <xsd:element name="G07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance result = NRCC-PRF  value; Else prescriptive compliance, result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / B04_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent NRCC</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated result = ((CompactDistCoefA + CompactDistCoefB) *  CFA) / B04_WaterHeaterTotalSystemCount; Values for formula are as follows:  CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section G in layout document;   CFA == conditioned floor area of the dwelling unit from CF1R,</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -732,53 +744,115 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1">
+         <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Drain Water Heat Recovery System (DWHR - H)</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If B11_IsDWHR_Installed == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="TableDWHR" >
+                  <xsd:element name="TableDesignDWHR" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="FieldText">Design DWHR System Information</xsd:documentation>
                      </xsd:annotation>
                      <xsd:complexType>
                         <xsd:sequence>
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="H01_DWHR_Manufacturer" type="comp:DWHR_Manufacturer" >
+                                    <xsd:element name="H01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System ID/Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="H02_DWHR_RatedEffectiveness" type="comp:DWHR_RatedEffectiveness" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Rated Effectiveness</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance, user input; Else If prescriptive result = .42   display term greater than or equal to 42%</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H03_DWHR_Configuration" type="comp:DWHR_Configuration" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Installation Configuration</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, user input; Else If prescriptive result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H03_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Installation Configuration</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, user input; Else If prescriptive result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H04_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, user input; Else If prescriptive result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H04_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance, user input; Else If prescriptive result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="TableDWHR" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Installed DWHR System Information</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="H05_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System ID/Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from A01</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="H06_DWHR_Manufacturer" type="comp:DWHR_Manufacturer" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H02_DWHR_ModelNumber" type="comp:DWHR_ModelNumber" >
+                                    <xsd:element name="H07_DWHR_ModelNumber" type="comp:DWHR_ModelNumber" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Model Number</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Model #</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H03_DWHR_RatedEffectiveness" type="comp:DWHR_RatedEffectiveness" >
+                                    <xsd:element name="H08_DWHR_RatedEffectiveness" type="comp:DWHR_RatedEffectiveness" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Rated Effectiveness</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; Check result GTE 0.42 And LT 1.00</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input value GTE H02; Check result GTE 0.42 And LT 1.00</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H04_DWHR_Configuration" type="comp:DWHR_Configuration" >
+                                    <xsd:element name="H09_DWHR_Configuration" type="comp:DWHR_Configuration" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Installation Configuration</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: EqualFlow display term Equal Flow, UnequalFlowShower display term Unequal to Shower, UnequalFlowWaterHeater display term Unequal to Water Heater</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance, reference H03; Else If prescriptive user selects from list: EqualFlow display term Equal Flow, UnequalFlowShower display term Unequal to Shower, UnequalFlowWaterHeater display term Unequal to Water Heater</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H05_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed" >
+                                    <xsd:element name="H10_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input; Result is decimal value no units GT 0 LTE 1.00 and  displayed term is whole number with units of percent = PRODUCT ( result, 100)  Check on displayed term  GT 0 And LT 100</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance, reference H04; Else If prescriptive user input;  Result is decimal value no units GT 0 LTE 1.00 and  displayed term is percent = result * 100;  Check on displayed term is GT 0 And LT 100</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H06_DWHR_CertifiedByCEC" type="comp:DWHR_CertifiedByCEC" >
+                                    <xsd:element name="H11_DWHR_CertifiedByCEC" type="comp:DWHR_CertifiedByCEC" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">DWHR System Certified by CEC (Yes/No)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: Yes (result = true), No (result = false)</xsd:documentation>
@@ -790,13 +864,31 @@
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="H07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
+                  <xsd:element name="H12" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For water heating system serving a single dwelling, the DWHR system shall, at the minimum, recover heat from the master bathroom shower and must at least transfer that heat either back to the respective shower(s) or the water heater.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H13" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">For central water heating system serving multiple dwellings, the DWHR system shall, at the minimum, recover heat from half the showers located above the first floor and must at least transfer that heat either back to all the respective showers or the water heater.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H14" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"></xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The DWHR unit(s) shall be installed within 1 degrees of the rated slope.  Sloped DWHR shall have a minimum lengthwise slope of 1 degree.  The lateral level tolerance shall be within plus or minus 1 degree.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H15_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Display choices: Pass,  Fail  or N/A</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="H08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
+                  <xsd:element name="H16_SectionCorrectionNotes" type="comp:SectionCorrectionNotes"  minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements value is Fail, require that the reason is described in this field</xsd:documentation>
@@ -1193,7 +1285,7 @@
                   <xsd:element name="N01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If all requirements in C02 through C09 And E02 through E06 are met And If DoesSystemComplyWithRequirements in sections G, H, J, K, L and M  != Fail  result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result =s false display term Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If DoesSystemComplyWithRequirements in sections G, H, J, K, L and M  != Fail  result = true display term  Complies: All specified verification protocol requirements on this document are met;  Else result = false display term Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH04cH"/>
       </xsd:complexType>
    </xsd:element>
@@ -82,8 +82,8 @@
                   </xsd:element>
                   <xsd:element name="A04_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verified Low Leakage Air-Handling Unit Credit from NRCC-PRF-01-E</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto-filled from NRCC-PRF-01-E true display term Yes or false display term No</xsd:documentation>
+                        <xsd:documentation source="FieldText">Verified Low Leakage Air-Handling Unit Credit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from true display term Yes or false display term No</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A05_DuctSystemLeakageComplianceCategory" >

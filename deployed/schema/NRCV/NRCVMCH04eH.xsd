@@ -33,7 +33,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20181201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH04eH"/>
       </xsd:complexType>
    </xsd:element>
@@ -69,8 +69,8 @@
                   </xsd:element>
                   <xsd:element name="A04_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Verified Low Leakage Air-Handling Unit Credit from NRCC-PRF-01-E</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">auto-filled from NRCC-PRF-01-E true display term Yes or false display term No</xsd:documentation>
+                        <xsd:documentation source="FieldText">Verified Low Leakage Air-Handling Unit Credit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from true display term Yes or false display term No</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A05_DuctSystemLeakageComplianceCategory">

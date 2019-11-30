@@ -260,7 +260,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                                     <xsd:element name="C11_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If C08_KitchenExhaustOperation == DemandControl And C05_SystemRatedAirflowHVI GTE C09_MinimumAirflowRateRequired And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating Or C10_NotApplicableMessage == N/A  result = true display term Kitchen Exhaust System Complies; Else If  If C08_KitchenExhaustOperation == ContinuousOperation And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating  Or C10_NotApplicableMessage == N/A result = true display term Kitchen Exhaust System Complies;  Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If C08_KitchenExhaustOperation == DemandControl And C05_SystemRatedAirflowHVI GTE C09_MinimumAirflowRateRequired And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating Or C10_NotApplicableMessage == N/A  result = true display term Complies; Else If  If C08_KitchenExhaustOperation == ContinuousOperation And C06_SystemSoundRatingHVI  LTE C10_KitchenExhaustSoundRating  Or C10_NotApplicableMessage == N/A result = true display term Complies;  Else result = false display term Does Not Comply</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -311,7 +311,7 @@ Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentatio
                      <xsd:element name="D03_DoesKitchenExhaustSystemComply" type="comp:DoesKitchenExhaustSystemComply" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If D01_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else If D01_TotalContinuousAirflow GTE D02_MinimumContinuousAirflow result = true display term Kitchen Exhaust System Complies; Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If D01_NotApplicableMessage == N/A result = N/A stored in NotApplicableMessage; Else If D01_TotalContinuousAirflow GTE D02_MinimumContinuousAirflow result = true display term Complies; Else result = false display term Kitchen Exhaust System Does Not Comply</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="D03_NotApplicableMessage" type="comp:NotApplicableMessage" >

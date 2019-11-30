@@ -46,7 +46,7 @@
                   <xsd:element name="A04_DoesMCH25VerifyRefrigCharge" type="comp:DoesMCH25VerifyRefrigCharge">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Status: Refrigerant charge verification from MCH-25</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If the system has a registerd CF2R-MCH-25 that indicates compliance with the refrigerant charge verification requirement, then result = true display term System Complies with Refrigerant Charge verification Requirements; Else result = false display term System does not comply.  A registered MCH-25 for this sytem is required</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the system has a registered CF2R-MCH-25 that indicates compliance with the refrigerant charge verification requirement, then result = true display term System Complies with Refrigerant Charge verification Requirements; Else result = false display term System does not comply.  A registered MCH-25 for this sytem is required</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A05_DoesIndoorUnitSupplyAllRooms" type="comp:DoesIndoorUnitSupplyAllRooms">
@@ -120,12 +120,20 @@
                                           <xsd:documentation source="CalculationsAndRules">Reference value from CF2R-MCH-33 B04 as default and allow the user to override the default value and enter a different numeric value xxxx.x.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B05_DuctSystemAirFilterDeviceCount" type="hvac:DuctSystemAirFilterDeviceCount">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Number of Air Filter Devices on Indoor Unit</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF2R-MCH-33 B05 as default and allow the user to override the default value and enter a different numeric value xx</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B05_DuctSystemAirFilterDeviceCount" type="hvac:DuctSystemAirFilterDeviceCount">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Number of Air Filter Devices on Indoor Unit</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_IndoorUnitDucts == Ductless result = N/A stored in NotApplicableMessage;  Else Auto-fill from MCH01as follows:J11 on MCH01a and L12 on MCH01d</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Number of Air Filter Devices on Indoor Unit</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_IndoorUnitDucts == Ductless result = N/A stored in NotApplicableMessage;  Else Auto-fill from MCH01as follows:J11 on MCH01a and L12 on MCH01d</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B06_AirflowRequiredMinimumTarget" type="hvac:AirflowRequiredMinimumTarget">
                                           <xsd:annotation>
@@ -144,7 +152,7 @@
                                        <xsd:element name="B07_DoesMCH23VerifyAirFlowRate" type="comp:DoesMCH23VerifyAirFlowRate">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Status: Airflow Rate Verification from MCH-23</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B03_IndoorUnitDuct == Ductless  result = N/A stored in NotApplicablemessage; Else If system has registered CF2R-MCH-23 that indicates compliance with minimum airflow rare requirement, result = true display term  System complies with airflow rate verification requirements; Else result = false display term System does not comply.  A registered MCH-23 for this system is required</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B03_IndoorUnitDuct == Ductless  result = N/A stored in NotApplicablemessage; Else If system has registered CF2R-MCH-23 that indicates compliance with minimum airflow rate requirement, result = true display term  System complies with airflow rate verification requirements; Else result = false display term System does not comply.  A registered MCH-23 for this system is required</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage">

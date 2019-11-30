@@ -50,7 +50,7 @@
                                     <xsd:element name="A03_PreCoolingThermostatComplies" type="comp:PreCoolingThermostatComplies">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Pre-Cooling</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF indicates required special feature == Pre-Cooling And A02_ThermostatType == OccupantControlledSmartThermostat result = true dipslay term Complies; Else result = false display term Does Not Comply</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF indicates required special feature == Pre-Cooling And A02_ThermostatType == OccupantControlledSmartThermostat result = true display term Complies; Else result = false display term Does Not Comply</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

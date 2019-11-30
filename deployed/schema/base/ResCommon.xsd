@@ -2034,8 +2034,463 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
    <xsd:simpleType name="WeatherStation">
       <xsd:annotation>
          <xsd:documentation>86 different weather stations that provide weather data for different climate zones.</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ALTURAS725958">Alturas</dtyp:displayterm>
+            <dtyp:displayterm value="ARCATA725945">Arcata Airport</dtyp:displayterm>
+            <dtyp:displayterm value="BAKERSFIELD723840">Bakersfield Meadows Field</dtyp:displayterm>
+            <dtyp:displayterm value="BISHOP724800">Bishop Airport</dtyp:displayterm>
+            <dtyp:displayterm value="BLUE_CANYON725845">Blue Canyon AP</dtyp:displayterm>
+            <dtyp:displayterm value="BLYTHE_RIVERSIDE_CO747188">Blythe Riverside Co Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="BURBANK_GLENDALE722880">Burbank - Glendale - Pasadena AP</dtyp:displayterm>
+            <dtyp:displayterm value="CAMARILLO723926"/>
+            <dtyp:displayterm value="CAMP_PENDLETON722926">Camp Pendleton MCAS</dtyp:displayterm>
+            <dtyp:displayterm value="CARLSBAD722927">Carlsbad/Palomar</dtyp:displayterm>
+            <dtyp:displayterm value="CHINA_LAKE746120">China Lake Naf</dtyp:displayterm>
+            <dtyp:displayterm value="CHINO722899">Chino Airport</dtyp:displayterm>
+            <dtyp:displayterm value="CONCORD724936">Concord - Buchanan Field</dtyp:displayterm>
+            <dtyp:displayterm value="CRESCENT_CITY725946">Crescent City Faa</dtyp:displayterm>
+            <dtyp:displayterm value="DAGGETT_BARSTOW723815">Daggett Barstow-Daggett AP</dtyp:displayterm>
+            <dtyp:displayterm value="EDWARDS_AFB723810">Edwards AFB</dtyp:displayterm>
+            <dtyp:displayterm value="EL_CENTRO722810"/>
+            <dtyp:displayterm value="EUREKA725940"/>
+            <dtyp:displayterm value="FAIRFLD_TRAVIS_AFB745160">Travis Field AFB</dtyp:displayterm>
+            <dtyp:displayterm value="FRESNO723890">Fresno Yosemite Intl AP</dtyp:displayterm>
+            <dtyp:displayterm value="FULLERTON722976">Fullerton Municipal</dtyp:displayterm>
+            <dtyp:displayterm value="HAWTHORNE_NORTHROP_FLD722956">Jack Northrop Fld H</dtyp:displayterm>
+            <dtyp:displayterm value="HAYWARD724935">Hayward Air Term</dtyp:displayterm>
+            <dtyp:displayterm value="IMPERIAL_BEACH722909"/>
+            <dtyp:displayterm value="IMPERIAL747185">Imperial</dtyp:displayterm>
+            <dtyp:displayterm value="INYOKERN723826"/>
+            <dtyp:displayterm value="LANCASTER723816">Lancaster Gen Wm Fox Field</dtyp:displayterm>
+            <dtyp:displayterm value="LEMOORE747020">Lemoore Reeves NAS</dtyp:displayterm>
+            <dtyp:displayterm value="LIVERMORE724927">Livermore Municipal</dtyp:displayterm>
+            <dtyp:displayterm value="LOMPOC722895">Lompoc (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="LONG_BEACH722970">Long Beach Daugherty Fld</dtyp:displayterm>
+            <dtyp:displayterm value="LOS_ALAMITOS722975"/>
+            <dtyp:displayterm value="LOS_ANGELES_DOWNTOWN722874"/>
+            <dtyp:displayterm value="LOS_ANGELES_INTL722950">Los Angeles Intl Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="MARYSVILLE_BEALE_AFB724837">Beale AFB</dtyp:displayterm>
+            <dtyp:displayterm value="MERCED724815">Merced/Macready Fld</dtyp:displayterm>
+            <dtyp:displayterm value="MODESTO724926">Modesto City - County AP</dtyp:displayterm>
+            <dtyp:displayterm value="MOJAVE722953"/>
+            <dtyp:displayterm value="MONTAGUE_SISKIYOU_CO725955">Montague Siskiyou County AP</dtyp:displayterm>
+            <dtyp:displayterm value="MONTEREY724915">Monterey Naf</dtyp:displayterm>
+            <dtyp:displayterm value="MOUNT_SHASTA725957"/>
+            <dtyp:displayterm value="NAPA_CO724955">Napa Co. Airport</dtyp:displayterm>
+            <dtyp:displayterm value="NEEDLES723805">Needles Airport</dtyp:displayterm>
+            <dtyp:displayterm value="OAKLAND724930">Oakland Metropolitan Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="OXNARD723927"/>
+            <dtyp:displayterm value="PALM_SPRINGS_INTL722868">Palm Springs Intl</dtyp:displayterm>
+            <dtyp:displayterm value="PALM_SPRINGS_THERMAL747187">Palm Springs Thermal AP</dtyp:displayterm>
+            <dtyp:displayterm value="PALMDALE723820">Palmdale Airport</dtyp:displayterm>
+            <dtyp:displayterm value="PALO_ALTO724937"/>
+            <dtyp:displayterm value="PASO_ROBLES723965">Pas Robles Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="POINT_MUGU723910"/>
+            <dtyp:displayterm value="PORTERVILLE723895">Porterville (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="RED_BLUFF725910">Red Bluff Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="REDDING725920">Redding Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="RIVERSIDE_MARCH_AFB722860">March AFB</dtyp:displayterm>
+            <dtyp:displayterm value="RIVERSIDE722869">Riverside Muni</dtyp:displayterm>
+            <dtyp:displayterm value="SACRAMENTO_EXECUTIVE724830">Sacramento Executive Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="SACRAMENTO_METRO724839">Sacramento Metropolitan AP</dtyp:displayterm>
+            <dtyp:displayterm value="SALINAS724917">Salinas Municipal AP</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_CARLOS724938"/>
+            <dtyp:displayterm value="SAN_CLEMENTE_IS722925"/>
+            <dtyp:displayterm value="SAN_DIEGO_GILLESPIE722907"/>
+            <dtyp:displayterm value="SAN_DIEGO_LINDBERGH722900">San Diego Lindberg Field</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_DIEGO_MONTGOMER722903">San Diego/Montgomery</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_DIEGO_NORTH_IS722906">San Diego North Island NAS</dtyp:displayterm>
+            <dtyp:displayterm value="SANDBERG723830">Sandberg</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_ANA722977">Santa Ana John Wayne AP</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_BARBARA723925"/>
+            <dtyp:displayterm value="SANTA_MARIA723940">Santa Maria Public Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_MONICA722885">Santa Monica Muni</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_ROSA724957">Santa Rosa (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="SOUTH_LAKE_TAHOE725847">South Lake Tahoe</dtyp:displayterm>
+            <dtyp:displayterm value="STOCKTON724920">Stockton Metropolitan Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="TORRANCE722955"/>
+            <dtyp:displayterm value="TRUCKEE_TAHOE725846">Truckee-Tahoe</dtyp:displayterm>
+            <dtyp:displayterm value="TWENTYNINE_PALMS690150">Twentynine Palms</dtyp:displayterm>
+            <dtyp:displayterm value="UKIAH725905">Ukiah Municipal AP</dtyp:displayterm>
+            <dtyp:displayterm value="VAN_NUYS722886">Van Nuys Airport</dtyp:displayterm>
+            <dtyp:displayterm value="VANDENBERG_AFB723930"/>
+            <dtyp:displayterm value="VISALIA723896">Visalia Muni (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="YUBA_CO724838">Yuba Co</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant"/>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ALTURAS725958"/>
+         <xsd:enumeration value="ARCATA725945"/>
+         <xsd:enumeration value="BAKERSFIELD723840"/>
+         <xsd:enumeration value="BISHOP724800"/>
+         <xsd:enumeration value="BLUE_CANYON725845"/>
+         <xsd:enumeration value="BLYTHE_RIVERSIDE_CO747188"/>
+         <xsd:enumeration value="BURBANK_GLENDALE722880"/>
+         <xsd:enumeration value="CAMARILLO723926"/>
+         <xsd:enumeration value="CAMP_PENDLETON722926"/>
+         <xsd:enumeration value="CARLSBAD722927"/>
+         <xsd:enumeration value="CHINA_LAKE746120"/>
+         <xsd:enumeration value="CHINO722899"/>
+         <xsd:enumeration value="CONCORD724936"/>
+         <xsd:enumeration value="CRESCENT_CITY725946"/>
+         <xsd:enumeration value="DAGGETT_BARSTOW723815"/>
+         <xsd:enumeration value="EDWARDS_AFB723810"/>
+         <xsd:enumeration value="EL_CENTRO722810"/>
+         <xsd:enumeration value="EUREKA725940"/>
+         <xsd:enumeration value="FAIRFLD_TRAVIS_AFB745160"/>
+         <xsd:enumeration value="FRESNO723890"/>
+         <xsd:enumeration value="FULLERTON722976"/>
+         <xsd:enumeration value="HAWTHORNE_NORTHROP_FLD722956"/>
+         <xsd:enumeration value="HAYWARD724935"/>
+         <xsd:enumeration value="IMPERIAL_BEACH722909"/>
+         <xsd:enumeration value="IMPERIAL747185"/>
+         <xsd:enumeration value="INYOKERN723826"/>
+         <xsd:enumeration value="LANCASTER723816"/>
+         <xsd:enumeration value="LEMOORE747020"/>
+         <xsd:enumeration value="LIVERMORE724927"/>
+         <xsd:enumeration value="LOMPOC722895"/>
+         <xsd:enumeration value="LONG_BEACH722970"/>
+         <xsd:enumeration value="LOS_ALAMITOS722975"/>
+         <xsd:enumeration value="LOS_ANGELES_DOWNTOWN722874"/>
+         <xsd:enumeration value="LOS_ANGELES_INTL722950"/>
+         <xsd:enumeration value="MARYSVILLE_BEALE_AFB724837"/>
+         <xsd:enumeration value="MERCED724815"/>
+         <xsd:enumeration value="MODESTO724926"/>
+         <xsd:enumeration value="MOJAVE722953"/>
+         <xsd:enumeration value="MONTAGUE_SISKIYOU_CO725955"/>
+         <xsd:enumeration value="MONTEREY724915"/>
+         <xsd:enumeration value="MOUNT_SHASTA725957"/>
+         <xsd:enumeration value="NAPA_CO724955"/>
+         <xsd:enumeration value="NEEDLES723805"/>
+         <xsd:enumeration value="OAKLAND724930"/>
+         <xsd:enumeration value="OXNARD723927"/>
+         <xsd:enumeration value="PALM_SPRINGS_INTL722868"/>
+         <xsd:enumeration value="PALM_SPRINGS_THERMAL747187"/>
+         <xsd:enumeration value="PALMDALE723820"/>
+         <xsd:enumeration value="PALO_ALTO724937"/>
+         <xsd:enumeration value="PASO_ROBLES723965"/>
+         <xsd:enumeration value="POINT_MUGU723910"/>
+         <xsd:enumeration value="PORTERVILLE723895"/>
+         <xsd:enumeration value="RED_BLUFF725910"/>
+         <xsd:enumeration value="REDDING725920"/>
+         <xsd:enumeration value="RIVERSIDE_MARCH_AFB722860"/>
+         <xsd:enumeration value="RIVERSIDE722869"/>
+         <xsd:enumeration value="SACRAMENTO_EXECUTIVE724830"/>
+         <xsd:enumeration value="SACRAMENTO_METRO724839"/>
+         <xsd:enumeration value="SALINAS724917"/>
+         <xsd:enumeration value="SAN_CARLOS724938"/>
+         <xsd:enumeration value="SAN_CLEMENTE_IS722925"/>
+         <xsd:enumeration value="SAN_DIEGO_GILLESPIE722907"/>
+         <xsd:enumeration value="SAN_DIEGO_LINDBERGH722900"/>
+         <xsd:enumeration value="SAN_DIEGO_MONTGOMER722903"/>
+         <xsd:enumeration value="SAN_DIEGO_NORTH_IS722906"/>
+         <xsd:enumeration value="SANDBERG723830"/>
+         <xsd:enumeration value="SANTA_ANA722977"/>
+         <xsd:enumeration value="SANTA_BARBARA723925"/>
+         <xsd:enumeration value="SANTA_MARIA723940"/>
+         <xsd:enumeration value="SANTA_MONICA722885"/>
+         <xsd:enumeration value="SANTA_ROSA724957"/>
+         <xsd:enumeration value="SOUTH_LAKE_TAHOE725847"/>
+         <xsd:enumeration value="STOCKTON724920"/>
+         <xsd:enumeration value="TORRANCE722955"/>
+         <xsd:enumeration value="TRUCKEE_TAHOE725846"/>
+         <xsd:enumeration value="TWENTYNINE_PALMS690150"/>
+         <xsd:enumeration value="UKIAH725905"/>
+         <xsd:enumeration value="VAN_NUYS722886"/>
+         <xsd:enumeration value="VANDENBERG_AFB723930"/>
+         <xsd:enumeration value="VISALIA723896"/>
+         <xsd:enumeration value="YUBA_CO724838"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ1">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ALTURAS725958">Alturas</dtyp:displayterm>
+            <dtyp:displayterm value="ARCATA725945">Arcata Airport</dtyp:displayterm>
+            <dtyp:displayterm value="CRESCENT_CITY725946">Crescent City Faa</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ALTURAS725958"/>
+         <xsd:enumeration value="ARCATA725945"/>
+         <xsd:enumeration value="CRESCENT_CITY725946"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ10">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CHINO722899">Chino Airport</dtyp:displayterm>
+            <dtyp:displayterm value="RIVERSIDE_MARCH_AFB722860">March AFB</dtyp:displayterm>
+            <dtyp:displayterm value="RIVERSIDE722869">Riverside Muni</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CHINO722899"/>
+         <xsd:enumeration value="RIVERSIDE_MARCH_AFB722860"/>
+         <xsd:enumeration value="RIVERSIDE722869"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ11">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="MARYSVILLE_BEALE_AFB724837">Beale AFB</dtyp:displayterm>
+            <dtyp:displayterm value="RED_BLUFF725910">Red Bluff Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="REDDING725920">Redding Municipal Arpt</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="MARYSVILLE_BEALE_AFB724837"/>
+         <xsd:enumeration value="RED_BLUFF725910"/>
+         <xsd:enumeration value="REDDING725920"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ12">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CONCORD724936">Concord - Buchanan Field</dtyp:displayterm>
+            <dtyp:displayterm value="FAIRFLD_TRAVIS_AFB745160">Travis Field AFB</dtyp:displayterm>
+            <dtyp:displayterm value="LIVERMORE724927">Livermore Municipal</dtyp:displayterm>
+            <dtyp:displayterm value="MERCED724815">Merced/Macready Fld</dtyp:displayterm>
+            <dtyp:displayterm value="MODESTO724926">Modesto City - County AP</dtyp:displayterm>
+            <dtyp:displayterm value="SACRAMENTO_EXECUTIVE724830">Sacramento Executive Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="SACRAMENTO_METRO724839">Sacramento Metropolitan AP</dtyp:displayterm>
+            <dtyp:displayterm value="STOCKTON724920">Stockton Metropolitan Arpt</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CONCORD724936"/>
+         <xsd:enumeration value="FAIRFLD_TRAVIS_AFB745160"/>
+         <xsd:enumeration value="LIVERMORE724927"/>
+         <xsd:enumeration value="MERCED724815"/>
+         <xsd:enumeration value="MODESTO724926"/>
+         <xsd:enumeration value="SACRAMENTO_EXECUTIVE724830"/>
+         <xsd:enumeration value="SACRAMENTO_METRO724839"/>
+         <xsd:enumeration value="STOCKTON724920"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ13">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BAKERSFIELD723840">Bakersfield Meadows Field</dtyp:displayterm>
+            <dtyp:displayterm value="FRESNO723890">Fresno Yosemite Intl AP</dtyp:displayterm>
+            <dtyp:displayterm value="LEMOORE747020">Lemoore Reeves NAS</dtyp:displayterm>
+            <dtyp:displayterm value="PORTERVILLE723895">Porterville (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="VISALIA723896">Visalia Muni (AWOS)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BAKERSFIELD723840"/>
+         <xsd:enumeration value="FRESNO723890"/>
+         <xsd:enumeration value="LEMOORE747020"/>
+         <xsd:enumeration value="PORTERVILLE723895"/>
+         <xsd:enumeration value="VISALIA723896"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ14">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CHINA_LAKE746120">China Lake Naf</dtyp:displayterm>
+            <dtyp:displayterm value="DAGGETT_BARSTOW723815">Daggett Barstow-Daggett AP</dtyp:displayterm>
+            <dtyp:displayterm value="EDWARDS_AFB723810">Edwards AFB</dtyp:displayterm>
+            <dtyp:displayterm value="LANCASTER723816">Lancaster Gen Wm Fox Field</dtyp:displayterm>
+            <dtyp:displayterm value="PALMDALE723820">Palmdale Airport</dtyp:displayterm>
+            <dtyp:displayterm value="SANDBERG723830">Sandberg</dtyp:displayterm>
+            <dtyp:displayterm value="TWENTYNINE_PALMS690150">Twentynine Palms</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CHINA_LAKE746120"/>
+         <xsd:enumeration value="DAGGETT_BARSTOW723815"/>
+         <xsd:enumeration value="EDWARDS_AFB723810"/>
+         <xsd:enumeration value="LANCASTER723816"/>
+         <xsd:enumeration value="PALMDALE723820"/>
+         <xsd:enumeration value="SANDBERG723830"/>
+         <xsd:enumeration value="TWENTYNINE_PALMS690150"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ15">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BLYTHE_RIVERSIDE_CO747188">Blythe Riverside Co Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="IMPERIAL747185">Imperial</dtyp:displayterm>
+            <dtyp:displayterm value="NEEDLES723805">Needles Airport</dtyp:displayterm>
+            <dtyp:displayterm value="PALM_SPRINGS_INTL722868">Palm Springs Intl</dtyp:displayterm>
+            <dtyp:displayterm value="PALM_SPRINGS_THERMAL747187">Palm Springs Thermal AP</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BLYTHE_RIVERSIDE_CO747188"/>
+         <xsd:enumeration value="IMPERIAL747185"/>
+         <xsd:enumeration value="NEEDLES723805"/>
+         <xsd:enumeration value="PALM_SPRINGS_INTL722868"/>
+         <xsd:enumeration value="PALM_SPRINGS_THERMAL747187"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ16">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BISHOP724800">Bishop Airport</dtyp:displayterm>
+            <dtyp:displayterm value="BLUE_CANYON725845">Blue Canyon AP</dtyp:displayterm>
+            <dtyp:displayterm value="MONTAGUE_SISKIYOU_CO725955">Montague Siskiyou County AP</dtyp:displayterm>
+            <dtyp:displayterm value="SOUTH_LAKE_TAHOE725847">South Lake Tahoe</dtyp:displayterm>
+            <dtyp:displayterm value="TRUCKEE_TAHOE725846">Truckee-Tahoe</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BISHOP724800"/>
+         <xsd:enumeration value="BLUE_CANYON725845"/>
+         <xsd:enumeration value="MONTAGUE_SISKIYOU_CO725955"/>
+         <xsd:enumeration value="SOUTH_LAKE_TAHOE725847"/>
+         <xsd:enumeration value="TRUCKEE_TAHOE725846"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ2">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="NAPA_CO724955">Napa Co. Airport</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_ROSA724957">Santa Rosa (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="UKIAH725905">Ukiah Municipal AP</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="NAPA_CO724955"/>
+         <xsd:enumeration value="SANTA_ROSA724957"/>
+         <xsd:enumeration value="UKIAH725905"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ3">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="HAYWARD724935">Hayward Air Term</dtyp:displayterm>
+            <dtyp:displayterm value="MONTEREY724915">Monterey Naf</dtyp:displayterm>
+            <dtyp:displayterm value="OAKLAND724930">Oakland Metropolitan Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="SALINAS724917">Salinas Municipal AP</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_FRANCISCO_INTL724940">San Francisco Intl AP</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="HAYWARD724935"/>
+         <xsd:enumeration value="MONTEREY724915"/>
+         <xsd:enumeration value="OAKLAND724930"/>
+         <xsd:enumeration value="SALINAS724917"/>
+         <xsd:enumeration value="SAN_FRANCISCO_INTL724940"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ4">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="MOUNTAIN_VIEW_MOFFETT745090">Mountain View Moffett Fld NAS</dtyp:displayterm>
+            <dtyp:displayterm value="PASO_ROBLES723965">Pas Robles Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_JOSE_INTL724945">San Jose Intl AP</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="MOUNTAIN_VIEW_MOFFETT745090"/>
+         <xsd:enumeration value="PASO_ROBLES723965"/>
+         <xsd:enumeration value="SAN_JOSE_INTL724945"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ5">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="LOMPOC722895">Lompoc (AWOS)</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_LUIS_CO722897">San Luis Co Rgnl</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_MARIA723940">Santa Maria Public Arpt</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="LOMPOC722895"/>
+         <xsd:enumeration value="SAN_LUIS_CO722897"/>
+         <xsd:enumeration value="SANTA_MARIA723940"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ6">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CAMARILLO723926"/>
+            <dtyp:displayterm value="LOS_ANGELES_INTL722950">Los Angeles Intl Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="OXNARD723927"/>
+            <dtyp:displayterm value="POINT_MUGU723910"/>
+            <dtyp:displayterm value="SANTA_ANA722977">Santa Ana John Wayne AP</dtyp:displayterm>
+            <dtyp:displayterm value="SANTA_BARBARA723925"/>
+            <dtyp:displayterm value="SANTA_MONICA722885">Santa Monica Muni</dtyp:displayterm>
+            <dtyp:displayterm value="TORRANCE722955"/>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CAMARILLO723926"/>
+         <xsd:enumeration value="LOS_ANGELES_INTL722950"/>
+         <xsd:enumeration value="OXNARD723927"/>
+         <xsd:enumeration value="POINT_MUGU723910"/>
+         <xsd:enumeration value="SANTA_ANA722977"/>
+         <xsd:enumeration value="SANTA_BARBARA723925"/>
+         <xsd:enumeration value="SANTA_MONICA722885"/>
+         <xsd:enumeration value="TORRANCE722955"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ7">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CAMP_PENDLETON722926">Camp Pendleton MCAS</dtyp:displayterm>
+            <dtyp:displayterm value="CARLSBAD722927">Carlsbad/Palomar</dtyp:displayterm>
+            <dtyp:displayterm value="CHULA_VISTA_BROWN722904">Chula Vista Brown Field NAAS</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_DIEGO_LINDBERGH722900">San Diego Lindberg Field</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_DIEGO_MIRAMAR722930">San Diego Miramar NAS</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_DIEGO_MONTGOMER722903">San Diego/Montgomery</dtyp:displayterm>
+            <dtyp:displayterm value="SAN_DIEGO_NORTH_IS722906">San Diego North Island NAS</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CAMP_PENDLETON722926"/>
+         <xsd:enumeration value="CARLSBAD722927"/>
+         <xsd:enumeration value="CHULA_VISTA_BROWN722904"/>
+         <xsd:enumeration value="SAN_DIEGO_LINDBERGH722900"/>
+         <xsd:enumeration value="SAN_DIEGO_MIRAMAR722930"/>
+         <xsd:enumeration value="SAN_DIEGO_MONTGOMER722903"/>
+         <xsd:enumeration value="SAN_DIEGO_NORTH_IS722906"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ8">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="FULLERTON722976">Fullerton Municipal</dtyp:displayterm>
+            <dtyp:displayterm value="HAWTHORNE_NORTHROP_FLD722956">Jack Northrop Fld H</dtyp:displayterm>
+            <dtyp:displayterm value="LONG_BEACH722970">Long Beach Daugherty Fld</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="FULLERTON722976"/>
+         <xsd:enumeration value="HAWTHORNE_NORTHROP_FLD722956"/>
+         <xsd:enumeration value="LONG_BEACH722970"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WeatherStationCZ9">
+      <xsd:annotation>
+         <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BURBANK_GLENDALE722880">Burbank - Glendale - Pasadena AP</dtyp:displayterm>
+            <dtyp:displayterm value="VAN_NUYS722886">Van Nuys Airport</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BURBANK_GLENDALE722880"/>
+         <xsd:enumeration value="VAN_NUYS722886"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WeatherStationName">
       <xsd:annotation>
