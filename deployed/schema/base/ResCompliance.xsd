@@ -970,11 +970,16 @@
       <xsd:annotation>
          <xsd:documentation>CF2R-MCH-01a</xsd:documentation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
+            <dtyp:displayterm value="CanNotTest">No</dtyp:displayterm>
+            <dtyp:displayterm value="CanTest">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="ExemptSystem">Exempt System Type</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CanNotTest"/>
+         <xsd:enumeration value="CanTest"/>
+         <xsd:enumeration value="ExemptSystem"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CanRA3_3AirflowProtocolsTestSystem">
       <xsd:annotation>
@@ -3306,7 +3311,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="ExemptDuctSystemNotAllNew">Exempt - Duct System not entirely new</dtyp:displayterm>
             <dtyp:displayterm value="ExemptEvaporativeSystem">Exempt - Evaporative System</dtyp:displayterm>
             <dtyp:displayterm value="ExemptNoCooling">Exempt - No Cooling</dtyp:displayterm>
-            <dtyp:displayterm value="ExemptRA3_3Protocols">Exempt - Approved Protocols are N/A</dtyp:displayterm>
+            <dtyp:displayterm value="ExemptRA3_3Protocols">Exempt - Approved Protocols N/A</dtyp:displayterm>
             <dtyp:displayterm value="HERS_FanEfficacyAirflowRate">HERS verified fan efficacy (W/cfm) and airflow rate (cfm/ton)</dtyp:displayterm>
             <dtyp:displayterm value="HERS_ReturnDuctDesignTable150">HERS verified return duct design per Table 150.0-B, C</dtyp:displayterm>
          </xsd:appinfo>
@@ -3433,7 +3438,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm>Minimum Duct R-value Exceptions</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="NoException">No exceptions</dtyp:displayterm>
+            <dtyp:displayterm value="NoException">No Exception</dtyp:displayterm>
             <dtyp:displayterm value="RValueGTE4_2EntirelyInConditioned">Ducts 
                <d:gte/>R4.2 Entirely in Conditioned Space</dtyp:displayterm>
             <dtyp:displayterm value="UninsulatedInDirectConditioning">Uninsulated Ducts In directly conditioned space</dtyp:displayterm>
@@ -8226,6 +8231,15 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="UtilityRoomLightingControlsInstalled">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
+            <dtyp:displayterm value="false">No</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:boolean"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="VCHP_CreditVerificationRequired">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="true">Yes</dtyp:displayterm>

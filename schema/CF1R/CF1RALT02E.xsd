@@ -217,7 +217,7 @@
          <xsd:element name="Section_C" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Extension of Existing Duct System, Greater Than 40 Feet (Section150.2(b)1Diib)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if  one or more systems in section B has  ResidentialHvacAlterationType == DuctSystemExtended; Require one row of data to be entered for each of these systems that satisfy this requirement.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable only if  one or more systems in section B has  ResidentialHvacAlterationType == DuctSystemExistingExtended; Require one row of data to be entered for each of these systems that satisfy this requirement.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
