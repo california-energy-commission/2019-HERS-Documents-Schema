@@ -30,8 +30,6 @@
             <dtyp:displayterm value="WhirlpoolHPHE2K50">HPHE2K50HD045V 120 (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K50C">HPHE2K50HD045VC 120 (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K50N">HPHE2K50HD045VN 120 (50 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -57,8 +55,6 @@
          <xsd:enumeration value="WhirlpoolHPHE2K50"/>
          <xsd:enumeration value="WhirlpoolHPHE2K50C"/>
          <xsd:enumeration value="WhirlpoolHPHE2K50N"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithHPTU66SimulationGroup">
@@ -86,8 +82,6 @@
             <dtyp:displayterm value="USCraftmasterHPHE2K66UN">HPHE2K66HD045VUN 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K66">HPHE2K66HD045V 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K66C">HPHE2K66HD045VC 120 (66 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -110,8 +104,6 @@
          <xsd:enumeration value="USCraftmasterHPHE2K66UN"/>
          <xsd:enumeration value="WhirlpoolHPHE2K66"/>
          <xsd:enumeration value="WhirlpoolHPHE2K66C"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithHPTU80SimulationGroup">
@@ -141,8 +133,6 @@
             <dtyp:displayterm value="USCraftmasterHPHE2K80UN">HPHE2K80HD045VUN 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80">HPHE2K80HD045V 120 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80C">HPHE2K80HD045VC 120 (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -167,8 +157,6 @@
          <xsd:enumeration value="USCraftmasterHPHE2K80UN"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80C"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithPHPT60SimulationGroup">
@@ -214,8 +202,6 @@
             <dtyp:displayterm value="USCraftmasterHPE2F80U">HPE2F80HD045VU 102  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="USCraftmasterHPE2K80">HPE2K80HD045V  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPE2K80">HPE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -231,8 +217,6 @@
          <xsd:enumeration value="USCraftmasterHPE2F80U"/>
          <xsd:enumeration value="USCraftmasterHPE2K80"/>
          <xsd:enumeration value="WhirlpoolHPE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithSHPT50SimulationGroup">
@@ -2268,8 +2252,6 @@
             <dtyp:displayterm value="WhirlpoolHPHE2K80C">HPHE2K80HD045VC 120 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPSE2K50">HPSE2K50HD045V 100 (WP) (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPSE2K50C">HPSE2K50HD045VC 100 (WP) (50 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2427,8 +2409,6 @@
          <xsd:enumeration value="WhirlpoolHPHE2K80C"/>
          <xsd:enumeration value="WhirlpoolHPSE2K50"/>
          <xsd:enumeration value="WhirlpoolHPSE2K50C"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="HeatPumpWaterHeaterSimulationGroup">
@@ -2600,8 +2580,6 @@
             <dtyp:displayterm value="WhirlpoolHPHE2K66C">HPHE2K66HD045VC 120 (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80">HPHE2K80HD045V 120 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80C">HPHE2K80HD045VC 120 (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2720,8 +2698,6 @@
          <xsd:enumeration value="WhirlpoolHPHE2K66C"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80C"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
-         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="HeatRejectionAirFlowCapacity">
@@ -3393,6 +3369,8 @@
             <dtyp:displayterm value="CentralSplitHP">Central split HP</dtyp:displayterm>
             <dtyp:displayterm value="DuctedDuctlessMultiSplitAC">Multi-Split AC-ducted+ductless</dtyp:displayterm>
             <dtyp:displayterm value="DuctedDuctlessMultiSplitHP">Multi-split HP-ducted+ductless</dtyp:displayterm>
+            <dtyp:displayterm value="DuctedMiniSplitAC">Ducted mini-split AC</dtyp:displayterm>
+            <dtyp:displayterm value="DuctedMiniSplitHP">Ducted mini-split HP</dtyp:displayterm>
             <dtyp:displayterm value="DuctedMultiSplitAC">Multi-Split AC-ducted</dtyp:displayterm>
             <dtyp:displayterm value="DuctedMultiSplitHP">Multi-split HP-ducted</dtyp:displayterm>
             <dtyp:displayterm value="DuctlessMultiSplitAC">Multi-Split AC-ductless</dtyp:displayterm>
@@ -3433,6 +3411,8 @@
             <dtyp:CBECCresXMLterm value="CentralSplitHP">central split HP</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="DuctedDuctlessMultiSplitAC"/>
             <dtyp:CBECCresXMLterm value="DuctedDuctlessMultiSplitHP"/>
+            <dtyp:CBECCresXMLterm value="DuctedMiniSplitAC"/>
+            <dtyp:CBECCresXMLterm value="DuctedMiniSplitHP"/>
             <dtyp:CBECCresXMLterm value="DuctedMultiSplitAC"/>
             <dtyp:CBECCresXMLterm value="DuctedMultiSplitHP"/>
             <dtyp:CBECCresXMLterm value="DuctlessMultiSplitAC"/>
@@ -3474,6 +3454,8 @@
          <xsd:enumeration value="CentralSplitHP"/>
          <xsd:enumeration value="DuctedDuctlessMultiSplitAC"/>
          <xsd:enumeration value="DuctedDuctlessMultiSplitHP"/>
+         <xsd:enumeration value="DuctedMiniSplitAC"/>
+         <xsd:enumeration value="DuctedMiniSplitHP"/>
          <xsd:enumeration value="DuctedMultiSplitAC"/>
          <xsd:enumeration value="DuctedMultiSplitHP"/>
          <xsd:enumeration value="DuctlessMultiSplitAC"/>
@@ -3677,6 +3659,7 @@
             <dtyp:displayterm value="CombinedHydronic">Combined hydronic</dtyp:displayterm>
             <dtyp:displayterm value="CombinedHydronicForcedAir">Combined hydronic  + forced air</dtyp:displayterm>
             <dtyp:displayterm value="DuctedDuctlessMultiSplitHP">Multi-split HP-ducted+ductless</dtyp:displayterm>
+            <dtyp:displayterm value="DuctedMiniSplitHP">Ducted mini-split HP</dtyp:displayterm>
             <dtyp:displayterm value="DuctedMultiSplitHP">Multi-split HP-ducted</dtyp:displayterm>
             <dtyp:displayterm value="DuctlessMiniSplitHP">Ductless MiniSplit HP</dtyp:displayterm>
             <dtyp:displayterm value="DuctlessMultiSplitHP">Multi-split HP-ductless</dtyp:displayterm>
@@ -3713,6 +3696,7 @@
             <dtyp:CBECCresXMLterm value="CombinedHydronic">combined hydronic</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="CombinedHydronicForcedAir">combined hydronic+forced air</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="DuctedDuctlessMultiSplitHP"/>
+            <dtyp:CBECCresXMLterm value="DuctedMiniSplitHP"/>
             <dtyp:CBECCresXMLterm value="DuctedMultiSplitHP"/>
             <dtyp:CBECCresXMLterm value="DuctlessMiniSplitHP"/>
             <dtyp:CBECCresXMLterm value="DuctlessMultiSplitHP"/>
@@ -3750,6 +3734,7 @@
          <xsd:enumeration value="CombinedHydronic"/>
          <xsd:enumeration value="CombinedHydronicForcedAir"/>
          <xsd:enumeration value="DuctedDuctlessMultiSplitHP"/>
+         <xsd:enumeration value="DuctedMiniSplitHP"/>
          <xsd:enumeration value="DuctedMultiSplitHP"/>
          <xsd:enumeration value="DuctlessMiniSplitHP"/>
          <xsd:enumeration value="DuctlessMultiSplitHP"/>
