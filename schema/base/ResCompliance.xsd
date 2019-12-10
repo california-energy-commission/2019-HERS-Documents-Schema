@@ -9226,7 +9226,7 @@ Document Data</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:sequence>
-         <xsd:element name="compMgrRevision" type="comp:CompMgrRevision" ></xsd:element>
+         <xsd:element name="compMgrRevision" type="comp:CompMgrRevision" minOccurs="0" ></xsd:element>
       </xsd:sequence>
       <xsd:attribute name="complianceDocumentGUID" type="comp:ComplianceDocumentGUID" use="required"></xsd:attribute>
       <xsd:attribute name="complianceDocumentSchemaVersion" type="comp:ComplianceDocumentSchemaVersion" use="required"></xsd:attribute>
