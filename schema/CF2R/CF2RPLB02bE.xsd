@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -45,7 +45,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB02bE"/>
       </xsd:complexType>
    </xsd:element>
@@ -57,7 +57,7 @@
          <xsd:element name="Section_A" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design Dwelling Unit  Water Heater System Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each Dwelling Unit Water Heating System name identified on the CF1R report</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -104,7 +104,7 @@
                                     <xsd:element name="A05_TankLocation" type="hvac:TankLocation" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -124,7 +124,7 @@
                                     <xsd:element name="A07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference Cf1R: If parent CF1R == CF1R-PRF values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  Else If parent CF1R == prescriptive allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference Cf1R: If parent CF1R == CF1R-PRF values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  Else If parent CF1R == prescriptive allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control; DemandRecirculation display term Demand Recirculation;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="A08_CompactDistributionType" type="hvac:CompactDistributionType" >
@@ -133,10 +133,10 @@
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R  Allowed values are BasicType display term Basic, NotCompact display term None</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="A09_HeatPumpWaterHeaterSimulationGroup" type="hvac:HeatPumpWaterHeaterSimulationGroup" >
+                                    <xsd:element name="A09_HeatPumpWaterHeaterSimulationGroup" type="hvac:HeatPumpWaterHeaterSimulationGroup"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Simulated Equipment Make and Model</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from XML   This field IS NOT part of the printed report and is not displayed to the user.  It is used for equivalency lookup</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If prescriptive, this field is not required; Else If performance reference values from XML   This field IS NOT part of the printed report and is not displayed to the user.  It is used for equivalency lookup</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -151,6 +151,7 @@
          <xsd:element name="Section_B" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Dwelling Unit Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -179,125 +180,240 @@
                                     <xsd:element name="B02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value in A02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B03_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case:  AOSmithHPTU50,  list = AOSmithHPTU50SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU66 list = AOSmithHPTU66SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU80 list =  AOSmithHPTU80SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_AOSmithPHPT60SimulationGroup" type="hvac:AOSmithPHPT60SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModelas default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT60 list = AOSmithPHPT60SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_AOSmithPHPT80SimulationGroup" type="hvac:AOSmithPHPT80SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT80 list = AOSmithPHPT80SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_AOSmithSHPT50SimulationGroup" type="hvac:AOSmithSHPT50SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT50 list = AOSmithSHPT50SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_AOSmithSHPT80SimulationGroup" type="hvac:AOSmithSHPT80SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT80 list = AOSmithSHPT80SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: GE201450 list = GE201450SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: GE201480 list = GE201480SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHB50SimulationGroup" type="hvac:RheemHB50SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHB50 list = RheemHB50SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2250 list = RheemHBDR2250SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2265 list = RheemHBDR2265SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2280 list = RheemHBDR2280SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4550 list = RheemHBDR4550SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4565 list = RheemHBDR4565SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4580 list = RheemHBDR4580SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Sanden40 list = Sanden40SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Sanden80 list = Sanden80SimulationGroup values;</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B03_Stiebel220ESimulationGroup" type="hvac:Stiebel220ESimulationGroup" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simluated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Stiebel220E list = Stiebel220ESimulationGroup values.</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="B03PerfPrescChoice" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText"></xsd:documentation>
+                                       </xsd:annotation>
+                                       <xsd:complexType>
+                                          <xsd:choice >
+                                             <xsd:element name="B03Perf" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If performance,  reference value from A03_HeatPumpWaterHeaterModel as default which is in the simulation group defined in A09_HeatPumpWaterHeaterSimulationGroup, and allow user to override with an equivalent system from that group</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="B03_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case:  AOSmithHPTU50,  list = AOSmithHPTU50SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU66 list = AOSmithHPTU66SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithHPTU80 list =  AOSmithHPTU80SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithPHPT60SimulationGroup" type="hvac:AOSmithPHPT60SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModelas default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT60 list = AOSmithPHPT60SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithPHPT80SimulationGroup" type="hvac:AOSmithPHPT80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithPHPT80 list = AOSmithPHPT80SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithSHPT50SimulationGroup" type="hvac:AOSmithSHPT50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT50 list = AOSmithSHPT50SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithSHPT80SimulationGroup" type="hvac:AOSmithSHPT80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: AOSmithSHPT80 list = AOSmithSHPT80SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: GE201450 list = GE201450SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: GE201480 list = GE201480SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHB50SimulationGroup" type="hvac:RheemHB50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHB50 list = RheemHB50SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2250 list = RheemHBDR2250SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2265 list = RheemHBDR2265SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows:  Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR2280 list = RheemHBDR2280SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4550 list = RheemHBDR4550SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4565 list = RheemHBDR4565SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4580 list = RheemHBDR4580SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Sanden40 list = Sanden40SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Sanden80 list = Sanden80SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Stiebel220ESimulationGroup" type="hvac:Stiebel220ESimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Stiebel220E list = Stiebel220ESimulationGroup values.</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                             <xsd:element name="B03PrescTier3" >
+                                                <xsd:annotation>
+                                                   <xsd:documentation source="FieldText"></xsd:documentation>
+                                                   <xsd:documentation source="CalculationsAndRules">If prescriptive, user can select  a heat pump water heater from  the entire list of Tier 3 heat pump water heaters OR from a group of  Tier 3 water heaters that are all very similar and in the same simulation group.</xsd:documentation>
+                                                </xsd:annotation>
+                                                <xsd:complexType>
+                                                   <xsd:sequence>
+                                                      <xsd:choice maxOccurs="1">
+                                                         <xsd:element name="B02_HeatPumpWaterHeatersTier3NEEA" type="hvac:HeatPumpWaterHeatersTier3NEEA" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  from all Tier 3 heat pump water heaters in this list</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: AOSmithHPTU50SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: AOSmithHPTU66SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  AOSmithHPTU80SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: Sanden40SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: Sanden80SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: GE201450SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: GE201480SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR4550SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: RheemHBDR4565SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: RheemHBDR4580SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR2250SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR2265SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR2280SimulationGroup</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                      </xsd:choice>
+                                                   </xsd:sequence>
+                                                </xsd:complexType>
+                                             </xsd:element>
+                                          </xsd:choice>
+                                       </xsd:complexType>
+                                    </xsd:element>
                                     <xsd:element name="B04_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
@@ -324,21 +440,11 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B07_ResidentialDHWDwellingUnitDistributionType" >
+                                    <xsd:element name="B07_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from A07</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
-                                             <xsd:enumeration value="DemandRecirculationManualControl"/>
-                                             <xsd:enumeration value="DemandRecirculationSensorControls"/>
-                                             <xsd:enumeration value="PointOfUse"/>
-                                             <xsd:enumeration value="RecirculationNonDemand"/>
-                                             <xsd:enumeration value="StandardDistribution"/>
-                                             <xsd:enumeration value="StandardDistributionCentralParallelPiping"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:element name="B08_CompactDistributionType" type="hvac:CompactDistributionType" >
                                        <xsd:annotation>
@@ -398,7 +504,7 @@
          <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Compact Hot Water Distribution (CHWDS) RA4.4.6</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if any water heating systems have A08_CompactDistributionType == BasicType. Require one row of data for each dwelling unit in A01 that satisfies this requirement.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if any dwelling unit in Section B has B08_CompactDistributionType == BasicType. Require one row of data reporting the longest distances for each dwelling unit in Section B that has B08_CompactDistributionType == BasicType.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -459,13 +565,13 @@
                                     <xsd:element name="D06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A07_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM( PRODUCT (D03, 0.4),  PRODUCT (D04, 0.4),  PRODUCT ( D05, 0.2)); Else If A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = D05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A07_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM( PRODUCT (D03_WaterHeaterToBath, 0.4),  PRODUCT (D04_WaterHeaterToKitchen, 0.4),  PRODUCT ( D05_WaterHeaterToFurthest3rdFixture, 0.2)); Else If A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = D05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D07_WaterHeaterQuantificationDistance" type="comp:WaterHeaterQuantificationDistance" >
+                                    <xsd:element name="D07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A04_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section D.  Value for CFA comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result = SUM(CompactDistCoefA, PRODUCT (CompactDistCoefB, CFA)) / A04_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section D.  Value for CFA comes  from parent CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

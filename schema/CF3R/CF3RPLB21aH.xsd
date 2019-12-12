@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -45,7 +45,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RPLB21aH"/>
       </xsd:complexType>
    </xsd:element>
@@ -73,6 +73,7 @@
          <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design HERS Verified Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -190,7 +191,7 @@
                                        <xsd:element name="B09_EfficiencyType" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF for efficiency type  Allowed values are: AFUE, EnergyFactor, ThermalEfficiency, Uniform Energy Factor; Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF for efficiency type  Allowed values are: AFUE, EnergyFactor, ThermalEfficiency, Uniform Energy Factor; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
@@ -204,7 +205,7 @@
                                        <xsd:element name="B09_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF for efficiency type  Allowed values are: AFUE, EnergyFactor, ThermalEfficiency, Uniform Energy Factor; Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF for efficiency type  Allowed values are: AFUE, EnergyFactor, ThermalEfficiency, Uniform Energy Factor; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -212,31 +213,31 @@
                                        <xsd:element name="B10_WaterHeaterAFUE" type="hvac:WaterHeaterAFUE" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B10_EnergyFactor" type="hvac:EnergyFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B10_UniformEnergyFactor" type="hvac:UniformEnergyFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B10_ThermalEfficiency" type="hvac:ThermalEfficiency" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplcableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If Performance reference values from CF1R-PRF Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -280,6 +281,7 @@
          <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -482,11 +484,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design  HERS Verified Central Water Heating Distribution Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is only required if compliance is performance</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the CF1R-PRF</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -550,6 +552,7 @@
          <xsd:element name="Section_E" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -614,7 +617,7 @@
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Water Heater Manufacturer Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters included in the count in B04</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each of the water heaters identified in Section C</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>

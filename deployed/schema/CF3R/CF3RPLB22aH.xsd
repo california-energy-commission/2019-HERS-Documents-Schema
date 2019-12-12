@@ -15,7 +15,7 @@
          <xsd:element name="Section_A" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design HERS Verified Dwelling Unit Water Heating Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each Dwelling Unit Water Heating System name identified on the CF1R report</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -129,7 +129,7 @@
                                     <xsd:element name="A10_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R == CF1R-PRF, Then If A09_IsDHW_Central == false  allowed CF1R-PRF values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit, StandardDistributionCentralParallelPipingHERS display term HERS Verified Parallel Piping, DemandRecirculationManualControlHERS display term HERS Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERSHERS display term Verified Demand Recirculation Sensor Controls; Else  If A09_IsDHW_Central == true allowed CF1R-PRF values are: StandardDistribution. Display term: Standard Distribution System, StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit;  Else If parent CF1R == prescriptive allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R == CF1R-PRF, Then If A09_IsDHW_Central == false  allowed CF1R-PRF values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control; StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit, StandardDistributionCentralParallelPipingHERS display term HERS Verified Parallel Piping, DemandRecirculationManualControlHERS display term HERS Verified Demand Recirculation Manual Control, DemandRecirculationSensorControlsHERSHERS display term Verified Demand Recirculation Sensor Controls; Else  If A09_IsDHW_Central == true allowed CF1R-PRF values are: StandardDistribution. Display term: Standard Distribution System, StandardDistributionInsulatedPipesHERS display term HERS Verified Pipe Insulation credit;  Else If parent CF1R == prescriptive allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculation display term Demand Recirculation;</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="A11_CompactDistributionType" type="hvac:CompactDistributionType">
@@ -156,7 +156,7 @@
          <xsd:element name="Section_B" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Dwelling Unit Water Heating Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each Dwelling Unit Water Heating System name identified on the CF1R report</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -294,11 +294,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_C" minOccurs="0">
+         <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design HERS Verified Dwelling Unit Water Heating Efficiency Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A09_IsDHW_Central == false</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified in section B</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -436,11 +436,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Dwelling Unit Water Heating Efficiency Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A09_IsDHW_Central == false</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified in section B</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -584,11 +584,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_E" minOccurs="0">
+         <xsd:element name="Section_E" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Water Heater Manufacturer Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if A09_IsDHW_Central == false</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified in section B</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -709,7 +709,7 @@
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS Verified Compact Hot Water Distribution Expanded Credit  (CHWDS-H-EX) RA3.6.5</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if any water heating system A11_CompactDistributionType == Expanded.  Require one row for each dwelling identified in section A where A11_CompactDistributionType == Expanded</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if any dwelling has B11_CompactDistributionType == Expanded.  Require one row of data, reporting the longest distances, for each dwelling unit identified in Section B with B11_CompactDistributionType == Expanded</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -770,13 +770,13 @@
                                     <xsd:element name="G06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM(PRODUCT (G03, 0.4),  PRODUCT (G04, 0.4),  PRODUCT (G05, 0.2)); Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = G05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM(PRODUCT (G03_WaterHeaterToBath, 0.4),  PRODUCT (G04_WaterHeaterToKitchen, 0.4),  PRODUCT (G05_WaterHeaterToFurthest3rdFixture, 0.2)); Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = G05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="G07_WaterHeaterQuantificationDistance" type="comp:WaterHeaterQuantificationDistance">
+                                    <xsd:element name="G07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A05_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result =  SUM(CompactDistCoefA, PRODUCT (CompactDistCoefB, CFA)) / A05_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -834,7 +834,7 @@
          <xsd:element name="Section_H" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Compact Hot Water Distribution (CHWDS) RA4.4.6</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one water heating system has A11_CompactDistributionType == BasicType and require one row for each system that satisfies this requirement.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one dwelling has B11_CompactDistributionType == BasicType.  Require one row of data, reporting the longest distances, for each dwelling unit identified in Section B with  B11_CompactDistributionType == BasicType.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -895,13 +895,13 @@
                                     <xsd:element name="H06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM (PRODUCT (H03, 0.4), PRODUCT (H04, 0.4),  PRODUCT (H05, 0.2)); Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = H05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM (PRODUCT (H03_WaterHeaterToBath, 0.4), PRODUCT (H04_WaterHeaterToKitchen, 0.4),  PRODUCT (H05_WaterHeaterToFurthest3rdFixture, 0.2)); Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = H05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="H07_WaterHeaterQuantificationDistance" type="comp:WaterHeaterQuantificationDistance">
+                                    <xsd:element name="H07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result = PRODUCT (SUM(CompactDistCoefA,CompactDistCoefB), CFA) / A05_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Quantification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result = SUM(CompactDistCoefA, PRODUCT CompactDistCoefB, CFA)) / A05_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -922,7 +922,7 @@
          <xsd:element name="Section_I" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS-Verified Drain Water Heat Recovery System (DWHR-H)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one system in section A has A12_DWHR_Type != NoDWHR</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable if at least one drain water heat recovery system in Section B has B12_DWHR_Type == DWHR. Require one row of data for each drain water heat recovery system with B12_DWHR_Type == DWHR.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1521,7 +1521,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RPLB22aH"/>
       </xsd:complexType>
    </xsd:element>

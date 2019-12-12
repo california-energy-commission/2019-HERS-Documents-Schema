@@ -31,6 +31,7 @@
          <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design HERS Verified Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -238,6 +239,7 @@
          <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -434,11 +436,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design  HERS Verified Central Water Heating Distribution Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is only required if compliance is performance</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the CF1R-PRF</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -502,6 +504,7 @@
          <xsd:element name="Section_E" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -566,7 +569,7 @@
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed HERS Verified Water Heater Manufacturer Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters included in the count in B04</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each of the Water Heaters in Section C</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -640,7 +643,7 @@
                               <d:list>The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). </d:list>
                               <d:list> A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).</d:list>
                               <d:list> A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). </d:list>
-                              <d:list>Isolation valves are installed on both sides of the pump of which te valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).</d:list>
+                              <d:list>Isolation valves are installed on both sides of the pump of which the valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).</d:list>
                               <d:list> The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). </d:list>
                               <d:list> A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   </d:list>
                            </d:l>
@@ -661,7 +664,7 @@
                               <d:list> The first 5 feet (1.5 meters) of hot and cold water pipes from the storage tank. </d:list>
                               <d:list> All piping with a nominal diameter of 3/4 inch (19 millimeter) and less than 1 inch. </d:list>
                               <d:list> All hot water pipes from the heating source to the kitchen fixtures. </d:list>
-                              <d:list> Piping from the heating source to storage tank of between tanks. </d:list>
+                              <d:list> Piping from the heating source to storage tank or between tanks. </d:list>
                               <d:list>  All piping associated with a recirculation system </d:list>
                               <d:list> All underground piping.  </d:list>
                            </d:l>
@@ -748,7 +751,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB21aH"/>
       </xsd:complexType>
    </xsd:element>

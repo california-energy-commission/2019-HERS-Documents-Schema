@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -45,7 +45,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB01aE"/>
       </xsd:complexType>
    </xsd:element>
@@ -61,9 +61,9 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName" >
+                  <xsd:element name="A01_BuildingName" type="com:BuildingName" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Dwelling Unit Name</xsd:documentation>
+                        <xsd:documentation source="FieldText">Building Name</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -73,6 +73,7 @@
          <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -280,6 +281,7 @@
          <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Central Water Heating Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -396,7 +398,7 @@
                                     <xsd:element name="C09_EfficiencyType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from B09_EfficiencyType Else If Prescriptive user selects from list: AFUE, ThermalEfficiency, Uniform Energy Factor;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B09_EfficiencyType Else If Prescriptive user selects from list: AFUE, ThermalEfficiency, Uniform Energy Factor and Energy Factor;</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
@@ -417,7 +419,13 @@
                                        <xsd:element name="C10_UniformEnergyFactor" type="hvac:UniformEnergyFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10_UniformEnergyFactor,it complies N/A is only allowed  If B10_NotApplicableMessage == N/A</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10_UniformEnergyFactor, it complies N/A is only allowed  If B10_NotApplicableMessage == N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_EnergyFactor" type="hvac:EnergyFactor" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input value; If value is GTE B10_EnergyFactor, it complies N/A is only allowed  If B10_NotApplicableMessage == N/A</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C10_ThermalEfficiency" type="hvac:ThermalEfficiency" >
@@ -470,11 +478,11 @@
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_D" minOccurs="0">
+         <xsd:element name="Section_D" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design Central Water Heating Distribution Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required if compliance is performance</xsd:documentation>
-               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the CF1R-PRF</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
@@ -538,6 +546,7 @@
          <xsd:element name="Section_E" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Central Water Heating Distribution Systems Information</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heating system identified on the CF1R-PRF</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -602,7 +611,7 @@
          <xsd:element name="Section_F" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Water Heater Manufacturer Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters included in the count in A04</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data in this table for each of the Water Heaters identified in Section C</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -671,7 +680,7 @@
                   <xsd:element name="G04" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  [d:l t="*"][d:list]The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). [/d:list] [d:list] A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).[/d:list] [d:list] A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). [/d:list] [d:list]Isolation valves are installed on both sides of the pump of which te valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).[/d:list] [d:list] The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). [/d:list][d:list] A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   [/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Recirculation loop shall meet the following requirements:  [d:l t="*"][d:list]The recirculation pump is mounted on a vertical section of the return line, OR an automatic air release valve is installed on a riser at least 12 inches in length, on the inlet side of the recirculation pump, no more than 4 feet from the pump. (Section 110.3(c)4A). [/d:list] [d:list] A check valve is located between the recirculation pump and the water heater. (Section 110.3(c)4B).[/d:list] [d:list] A hose bibb is installed between the pump and the water heating equipment with an isolation valve between the hose bibb and the water heating equipment.  (Section 110.3(c)4C). [/d:list] [d:list]Isolation valves are installed on both sides of the pump of which the valve required in (Section 110.3(c)4C can be one.  (Section 110.3(c)4D).[/d:list] [d:list] The cold water supply piping and the recirculation loop piping is not connected to the hot water storage tank drain port.  (Section 110.3(c)4E). [/d:list][d:list] A check valve is installed on the cold water supply line between the hot water system and the next closest tee on the cold water supply.  (Section 110.3(c)4F).   [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="G05" minOccurs="0">
@@ -759,7 +768,7 @@
                   <xsd:element name="I03" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">A current contract must be available that demonstrate the system will be monitored.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A current contract must be available that demonstrates the system will be monitored.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="IEndNote1" minOccurs="0">
