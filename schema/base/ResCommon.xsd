@@ -2393,7 +2393,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:documentation>Weather stations that are in the same climate zone</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="MOUNTAIN_VIEW_MOFFETT745090">Mountain View Moffett Fld NAS</dtyp:displayterm>
-            <dtyp:displayterm value="PASO_ROBLES723965">Pas Robles Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="PASO_ROBLES723965">Paso Robles Municipal Arpt</dtyp:displayterm>
             <dtyp:displayterm value="SAN_JOSE_INTL724945">San Jose Intl AP</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -2524,6 +2524,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="CARLSBAD722927">Carlsbad/Palomar</dtyp:displayterm>
             <dtyp:displayterm value="CHINA_LAKE746120">China Lake Naf</dtyp:displayterm>
             <dtyp:displayterm value="CHINO722899">Chino Airport</dtyp:displayterm>
+            <dtyp:displayterm value="CHULA_VISTA_BROWN722904">Chula Vista Brown Field NAAS</dtyp:displayterm>
             <dtyp:displayterm value="CONCORD724936">Concord - Buchanan Field</dtyp:displayterm>
             <dtyp:displayterm value="CRESCENT_CITY725946">Crescent City Faa Ai</dtyp:displayterm>
             <dtyp:displayterm value="DAGGETT_BARSTOW723815">Daggett Barstow-Daggett AP</dtyp:displayterm>
@@ -2553,7 +2554,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
             <dtyp:displayterm value="PALM_SPRINGS_INTL722868">Palm Springs Intl</dtyp:displayterm>
             <dtyp:displayterm value="PALM_SPRINGS_THERMAL747187">Palm Springs Thermal AP</dtyp:displayterm>
             <dtyp:displayterm value="PALMDALE723820">Palmdale Airport</dtyp:displayterm>
-            <dtyp:displayterm value="PASO_ROBLES723965">Pas Robles Municipal Arpt</dtyp:displayterm>
+            <dtyp:displayterm value="PASO_ROBLES723965">Paso Robles Municipal Arpt</dtyp:displayterm>
             <dtyp:displayterm value="POINT_MUGU723910">Point Mugu Nf</dtyp:displayterm>
             <dtyp:displayterm value="PORTERVILLE723895">Porterville (AWOS)</dtyp:displayterm>
             <dtyp:displayterm value="RED_BLUFF725910">Red Bluff Municipal Arpt</dtyp:displayterm>
@@ -2599,6 +2600,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          <xsd:enumeration value="CARLSBAD722927"/>
          <xsd:enumeration value="CHINA_LAKE746120"/>
          <xsd:enumeration value="CHINO722899"/>
+         <xsd:enumeration value="CHULA_VISTA_BROWN722904"/>
          <xsd:enumeration value="CONCORD724936"/>
          <xsd:enumeration value="CRESCENT_CITY725946"/>
          <xsd:enumeration value="DAGGETT_BARSTOW723815"/>
