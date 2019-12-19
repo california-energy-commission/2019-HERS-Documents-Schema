@@ -8568,6 +8568,8 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
             <dtyp:displayterm value="Option5Tier3">5</dtyp:displayterm>
             <dtyp:displayterm value="OptionA_CentralMF">A additional solar</dtyp:displayterm>
             <dtyp:displayterm value="OptionB_DrainHeatRecoveryCentralMF">B solar + drain water heat recovery</dtyp:displayterm>
+            <dtyp:displayterm value="OptionC1HPwithSolarThermal">C1 Central heat pump water heater with solar thermal</dtyp:displayterm>
+            <dtyp:displayterm value="OptionC2HPwithPV">C2 Central heat pump water heater with PV</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8581,6 +8583,8 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
          <xsd:enumeration value="Option5Tier3"/>
          <xsd:enumeration value="OptionA_CentralMF"/>
          <xsd:enumeration value="OptionB_DrainHeatRecoveryCentralMF"/>
+         <xsd:enumeration value="OptionC1HPwithSolarThermal"/>
+         <xsd:enumeration value="OptionC2HPwithPV"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WeightedAverageMeasurementType">
