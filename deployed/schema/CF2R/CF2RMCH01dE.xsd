@@ -1697,10 +1697,10 @@
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="L10_DuctMinimumRValueExceptions" type="comp:DuctMinimumRValueExceptions">
+                                    <xsd:element name="L10_DuctMinimumRValueExceptions" type="comp:DuctMinimumRValueExceptions" maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Exception from Min R-Value</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">default result = NoException; Allow user to override and select from list; UninsulatedInWallCavities display term Uninsulated Ducts In Wall Cavities, UninsulatedInDirectConditioning display term Uninsulated Ducts In directly conditioned space, And If L06_SupplyDuctLocation And L08_ReturnDuctLocation == ConditionedSpace add to list   RValueGTE4_2EntirelyInConditioned display term Ducts greater than or equal to R4.2 Entirely in Conditioned Space</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">default result = NoException; Allow user to override and select one or more from list; UninsulatedInWallCavities display term Uninsulated Ducts In Wall Cavities, UninsulatedInDirectConditioning display term Uninsulated Ducts In directly conditioned space, And If L06_SupplyDuctLocation And L08_ReturnDuctLocation == ConditionedSpace add to list   RValueGTE4_2EntirelyInConditioned display term Ducts greater than or equal to R4.2 Entirely in Conditioned Space</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="L11_DuctFilterGrilleSizingComplianceMethod">
