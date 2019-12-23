@@ -172,7 +172,7 @@
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="Method1Materials">Method 1 (Individual Materials)</dtyp:displayterm>
             <dtyp:displayterm value="Method2Assemblies">Method 2 (Assemblies of Materials)</dtyp:displayterm>
-            <dtyp:displayterm value="Method3CompleteBuilding">Method 2 (Complete Building)</dtyp:displayterm>
+            <dtyp:displayterm value="Method3CompleteBuilding">Method 3 (Complete Building)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
