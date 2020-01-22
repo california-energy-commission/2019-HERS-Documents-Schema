@@ -143,7 +143,7 @@
                                     </xsd:element>
                                     <xsd:element name="B03PerfPrescChoice">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText"/>
+                                          <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:complexType>
                                           <xsd:choice>
