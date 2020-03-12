@@ -1,30 +1,37 @@
-"""Check for existence of responsible person."""
+"""
+Check for existence of responsible person
+python3 responsible_person.py
+"""
 
 import glob
 import os
 import sys
-from lxml import etree
 
-# start
-error = 0  # pylint:disable=C0103
+from xml.etree import ElementTree
 
-for filename in glob.glob(os.path.join(sys.argv[1], '**/*.xsd'), recursive=True):
-    # TODO: fix error # pylint:disable=W0511
-    with open(filename, 'r') as schema:
-        data = schema.read()
-        tree = etree.fromstring(str.encode(data))  # pylint:disable=I1101
-        resp = tree.xpath('/xsd:schema/xsd:element[@name="ComplianceDocumentPackage"]//xsd:element[@name="RespPerson"]',  # pylint:disable=C0301
-                          namespaces={'xsd': 'http://www.w3.org/2001/XMLSchema'})
-        if resp:
-            atype = resp[0].xpath('@type')[0].split(':')[1]
-            with open(os.path.join(sys.argv[1], 'base/ResCompliance.xsd'), 'r') as base:
-                bdata = base.read()
-                btree = etree.fromstring(str.encode(bdata))  # pylint:disable=I1101
-                bresp = btree.xpath('/xsd:schema/xsd:complexType[@name="{}"]/@name'.format(atype),
-                                    namespaces={'xsd': 'http://www.w3.org/2001/XMLSchema'})
-                if not bresp:
-                    error = 1
-                    print('{} header {} mismatch with Rescompliance.xsd'.format(os.path.basename(filename), atype))  # pylint:disable=C0301
+hasError = False
+schemaFiles = glob.glob('../deployed/**/*.xsd', recursive=True)
+namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
-if error == 1:
-    exit(1)
+for filename in schemaFiles:
+    try:
+        rootTree = ElementTree.parse(filename)
+        mainRoot = rootTree.getroot()
+        respPersonList = mainRoot.findall('./xsd:element[@name="ComplianceDocumentPackage"]/.//xsd:element[@name="RespPerson"]', namespace)
+
+        for respPerson in respPersonList:
+            resCompTree = ElementTree.parse('../schema/base/ResCompliance.xsd')
+            resCompRoot = resCompTree.getroot()
+
+            name = respPerson.attrib.get('type').split(':')[1]
+            query = resCompRoot.findall('./xsd:complexType[@name="{}"]'.format(name), namespace)
+
+            if len(query) == 0:
+                hasError = True
+                basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
+                print('{} header {} mismatch with ResCompliance.xsd'.format(basePath, name))
+    except ElementTree.ParseError as err:
+        raise err
+
+if hasError == True:
+    sys.exit(1)

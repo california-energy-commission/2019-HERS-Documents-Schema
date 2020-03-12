@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RENV04E" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF1RENV04E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF1RENV04E">
+      <xsd:annotation>
+         <xsd:documentation>Solar Reflectance Index Calculation Worksheet</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Product  Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_PartitionName" type="env:PartitionName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Tag/ID</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Reference value from CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_CRRCProductID" type="env:CRRCProductID">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">CRRC Product ID Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_RoofProductManufacturer" type="comp:RoofProductManufacturer">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Manufacturer</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_RoofProductBrand" type="comp:RoofProductBrand">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Brand</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_RoofProductModel" type="comp:RoofProductModel">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Model</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input: text</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_RoofProductType" type="env:RoofProductType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Product type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from CF-1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_IsRoofPitchGTE2Run12Rise" type="comp:IsRoofPitchGTE2Run12Rise">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Roof Pitch</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from CF-1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">SRI Calculations</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01_IsAgedSolarReflectanceCRRC" type="comp:IsAgedSolarReflectanceCRRC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Aged Reflectance Listed with CRRC</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input; Yes if their product's aged solar reflectance is listed in the CRRC website, and No if it is not.  Store Yes result as Boolean true and No as Boolean false.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B02_CRRC_AgedReflectance" type="env:CRRC_AgedReflectance">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">CRRC Listed Aged Solar Reflectance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01_IsAgedSolarReflectanceCRRC == true, then user enters numeric value 0.xx which must be GT 0 and LT 1 Else enter N/A in the NotApplicableMessage, and display text  N/A</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B02_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">CRRC Listed Aged Solar Reflectance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01_IsAgedSolarReflectanceCRRC == true, then user enters numeric value 0.xx which must be GT 0 and LT 1 Else enter N/A in the NotApplicableMessage, and display text  N/A</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B03_CRRC_InitialReflectance" type="env:CRRC_InitialReflectance">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Initial Solar Reflectance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01_IsAgedSolarReflectanceCRRC == false, then user enters numeric value 0.xx which must be GT 0 and LT 1; Else enter N/A in the NotApplicableMessage  and display text  N/A</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Initial Solar Reflectance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01_IsAgedSolarReflectanceCRRC == false, then user enters numeric value 0.xx which must be GT 0 and LT 1; Else enter N/A in the NotApplicableMessage  and display text  N/A</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B04_SolarReflectanceAged" type="com:SolarReflectanceAged">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Calculated Aged Solar Reflectance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01_IsAgedSolarReflectanceCRRC == false,user enters numeric value 0.xx which must be GT 0 and LT 1; Else enter N/A in the NotApplicableMessage  and display text  N/A</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Calculated Aged Solar Reflectance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If B01_IsAgedSolarReflectanceCRRC == false,user enters numeric value 0.xx which must be GT 0 and LT 1; Else enter N/A in the NotApplicableMessage  and display text  N/A</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="B05_CRRC_AgedEmittance" type="env:CRRC_AgedEmittance">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: numeric value 0.xx which must be GT 0 and LT 1 of either CRRC listed initial thermal emittance stored in CRRC_InitialEmittance or CRRC listed 3-year aged value stored in CRRC_AgedEmittance</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="B05_CRRC_InitialEmittance" type="env:CRRC_InitialEmittance">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Thermal Emittance</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">User input: numeric value 0.xx which must be GT 0 and LT 1 of either CRRC listed initial thermal emittance stored in CRRC_InitialEmittance or CRRC listed 3-year aged value stored in CRRC_AgedEmittance</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Results</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01_SolarReflectanceIndex" type="env:SolarReflectanceIndex">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Solar Reflective Index</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric value which must be GT 0 and LTE 100</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF1RENV04E"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF COMPLIANCE"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Solar Reflectance Index Calculation Worksheet"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF1R"/>
+                     <xsd:element ref="cF1RENV04E"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF1R"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV04E"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF1RENV04E" type="CF1RENV04E">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF1RENV04E compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

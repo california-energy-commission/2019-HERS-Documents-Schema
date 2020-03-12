@@ -1,6 +1,6 @@
 """
-Check for empty schema sections.
-python3 empty_sections.py
+Check for d-list inside d-list markup tags
+python3 d_list_markup.py
 """
 
 import glob
@@ -17,16 +17,17 @@ for filename in schemaFiles:
     try:
         tree = ElementTree.parse(filename)
         root = tree.getroot()
-        sections = root.findall('./xsd:complexType/xsd:sequence/xsd:element', namespace)
+        elements = root.findall('.//xsd:annotation/..', namespace)
+        basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
 
-        for section in sections:
-            name = section.attrib.get('name')
-            query = section.findall('./xsd:complexType/xsd:sequence', namespace)
+        for element in elements:
+            name = element.attrib.get('name')
+            documentation = element.find('xsd:annotation/xsd:documentation', namespace)
 
-            if len(query) == 0:
+            if documentation.findall('.//d:l/d:l', { 'd': 'http://www.lmonte.com/besm/d' }):
                 hasError = True
                 basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} has an empty section: {}'.format(basePath, name))
+                print('List inside list found in {} in embedded markup in element {}'.format(basePath, name))
     except ElementTree.ParseError as err:
         raise err
 

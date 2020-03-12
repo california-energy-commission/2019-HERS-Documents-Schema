@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3REXC20H" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF3REXC20H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF3REXC20H">
+      <xsd:annotation>
+         <xsd:documentation>Existing Conditions For Residential Alterations</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_ProjectName" type="com:ProjectName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_RunDescription" type="comp:RunDescription">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Calculation Description</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_StreetAddress" type="com:StreetAddress">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Location</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_City" type="com:City">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">CA City</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_Title24StandardsVersion" type="comp:Title24StandardsVersion">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Standards Version</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_Zipcode" type="dtyp:Zipcode">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Zip code</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_ComplianceSoftwareVersion" type="comp:ComplianceSoftwareVersion">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Software Version</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_ClimateZone" type="com:ClimateZone">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Climate Zone</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A09_Azimuth" type="dtyp:Azimuth">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Front Orientation (deg/Cardinal)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A09_CardinalOrientation" type="com:CardinalOrientation">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Front Orientation (deg/Cardinal)</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:element name="A10_ResidentialLowriseBuildingType" type="com:ResidentialLowriseBuildingType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A11_DwellingUnitCount" type="com:DwellingUnitCount">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Dwelling Units</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A12_ProjectScopePerformance" type="comp:ProjectScopePerformance" fixed="AdditionAlteration">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A13_BedroomCount" type="com:BedroomCount">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Bedrooms</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A14_NewConditionedFloorArea" type="bld:NewConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">New Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A15_TotalStoryCount" type="com:TotalStoryCount">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Stories in Building</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A16_ExistingConditionedFloorArea" type="bld:ExistingConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Existing Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A17_UFactorFenestrationAverage" type="com:UFactorFenestrationAverage">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Fenestration Average U-factor</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A18_TotalConditionedFloorArea" type="com:TotalConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A19_FenestrationFloorRatio" type="env:FenestrationFloorRatio">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Glazing Percentage (%)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Opaque Surfaces</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableOpaqueSurfaces">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="B01_PartitionName" type="env:PartitionName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B02_ThermalZoneName" type="hvac:ThermalZoneName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Zone</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B03_ConstructionAssemblyNamePerformanceRes" type="comp:ConstructionAssemblyNamePerformanceRes">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Existing Conditions</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="B04_OpaqueSurfaceType" type="env:OpaqueSurfaceType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Surface Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B05_Azimuth" type="dtyp:Azimuth">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Azimuth</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Azimuth</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B06_RelativePosition" type="com:RelativePosition">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Orientation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R;  Value may be one of the following: relative positions of front, back, left or right, or the degrees arc relative to the front being zero if it doesn't align with one of the four relative positions; or the  value may be N/A if the surface is a floor or roof.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B06_RelativePositionDegrees" type="com:RelativePositionDegrees">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Orientation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R;  Value may be one of the following: relative positions of front, back, left or right, or the degrees arc relative to the front being zero if it doesn't align with one of the four relative positions; or the  value may be N/A if the surface is a floor or roof.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Orientation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R;  Value may be one of the following: relative positions of front, back, left or right, or the degrees arc relative to the front being zero if it doesn't align with one of the four relative positions; or the  value may be N/A if the surface is a floor or roof.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_InsulationRValue" type="env:InsulationRValue">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Total Cavity R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Total Cavity R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B08_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="B09_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Attic</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableAttic">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C01_PartitionName" type="env:PartitionName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C02_ConstructionAssemblyNamePerformanceRes" type="comp:ConstructionAssemblyNamePerformanceRes">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Construction</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C03_RoofRise" type="env:RoofRise">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Roof Rise</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C04_SolarReflectanceAged" type="com:SolarReflectanceAged">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Roof Reflectance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C05_ThermalEmittance" type="com:ThermalEmittance">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Roof Emittance</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C06_RadiantBarrierToBeInstalled" type="comp:RadiantBarrierToBeInstalled">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Radiant Barrier</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C07_CoolRoofToBeInstalled" type="comp:CoolRoofToBeInstalled">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Cool Roof</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C08_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="C09_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Windows</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableWindows">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="D01_FenestrationVerticalName" type="env:FenestrationVerticalName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D02_Azimuth" type="dtyp:Azimuth">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Azimuth</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D03_TypeMultiplier" type="comp:TypeMultiplier">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Multiplier</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D04_GlazingArea" type="env:GlazingArea">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D05_UFactor" type="com:UFactor">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">U-factor</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D06_SHGC" type="com:SHGC">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">SHGC</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D07_ExternalShadingObjectType" type="env:ExternalShadingObjectType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Exterior Shading</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="D08_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="D09_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D10_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Doors</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableDoors">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="E01_DoorName" type="env:DoorName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E02_ParentSurfaceName" type="env:ParentSurfaceName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Parent Surface</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E03_DoorArea" type="env:DoorArea">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Area (ft<d:sup>2</d:sup>)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E04_UFactor" type="com:UFactor">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">U-factor</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="E05_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="E06_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Overhangs and Fins</xsd:documentation>
+               <xsd:documentation source="AdditionalRequirements">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableOverhangsFins">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="F01_FenestrationVerticalName" type="env:FenestrationVerticalName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Window</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F01After" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Header for F02 through F06</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Overhang</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F02_OverhangProjection" type="env:OverhangProjection">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Overhang Depth</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F03_OverhangDistanceUp" type="env:OverhangDistanceUp">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Dist. Up</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F04_OverhangLeftExtent" type="env:OverhangLeftExtent">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Left Extended</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F05_OverhangRightExtent" type="env:OverhangRightExtent">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Right Extended</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F06_OverhangFlapHeight" type="env:OverhangFlapHeight">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Flap Ht.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F06After" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Header for F07 through F10</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Left Fin</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F07_FinDepth" type="env:FinDepth">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Depth</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F08_FinTopUp" type="env:FinTopUp">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Top Up</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F09_FinDistanceLeft" type="env:FinDistanceLeft">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Dist. (Left)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F10_FinBottomUp" type="env:FinBottomUp">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Bottom Up</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F10After" minOccurs="0">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Header for F11 through F14</xsd:documentation>
+                                          <xsd:documentation source="AdditionalRequirements">Right Fin</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F11_FinDepth" type="env:FinDepth">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Depth</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F12_FinTopUp" type="env:FinTopUp">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Top Up</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F13_FinDistanceRight" type="env:FinDistanceRight">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Dist. (Right)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F14_FinBottomUp" type="env:FinBottomUp">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Bottom Up</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="F15_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="F16_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="F17_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Water Heaters</xsd:documentation>
+               <xsd:documentation source="AdditionalRequirements">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableWaterHeaters">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="G01_WaterHeaterName" type="hvac:WaterHeaterName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="G02_WaterHeaterFuelSource" type="hvac:WaterHeaterFuelSource">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Heater Element Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="G03_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tank Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="G04_VolumeCapacity" type="hvac:VolumeCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tank Volume (gal)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="G04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tank Volume (gal)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="G05_ThermalEfficiency" type="hvac:ThermalEfficiency">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Energy Factor or Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="G05_EnergyFactor" type="hvac:EnergyFactor">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Energy Factor or Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="G06_WaterHeaterElectricFiredRatedInput" type="hvac:WaterHeaterElectricFiredRatedInput">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Input Rating</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="G06_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Input Rating</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="G07_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Tank Exterior Insulation R-value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="G08_WaterHeaterStandbyLossFraction" type="hvac:WaterHeaterStandbyLossFraction">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss Total (Fraction)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; allow N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="G08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Standby Loss Total (Fraction)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; allow N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="G09_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="G10_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G11_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_H" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Water Heating</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableWaterHeating">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="H01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="H02_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="H03_WaterHeaterCount" type="hvac:WaterHeaterCount">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Number of Heaters</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H04_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Solar Fraction</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Solar Fraction</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="H05_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="H06_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">HVAC - Heating Systems</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableHeating">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="I01_ResidentialHeatingSystemName" type="hvac:ResidentialHeatingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="I02_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="I03_EfficiencyExistingValueAFUE" type="hvac:EfficiencyExistingValueAFUE">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="I03_EfficiencyExistingValueHSPF" type="hvac:EfficiencyExistingValueHSPF">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="I04_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="I05_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I06_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_J" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">HVAC - Cooling Systems</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableCooling">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="J01_ResidentialCoolingSystemName" type="hvac:ResidentialCoolingSystemName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="J02_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">System Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J03_EfficiencyExistingValueEER" type="hvac:EfficiencyExistingValueEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">EER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">EER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="J04_EfficiencyExistingValueSEER" type="hvac:EfficiencyExistingValueSEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="J04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">SEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="J05_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="J06_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="J07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_K" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">HVAC Distribution</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If existing data does not appear in CF1R, then display the Section Does Not Apply message</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="TableDistribution">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="K01_DistributionHERS_VerificationName" type="comp:DistributionHERS_VerificationName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="K02_DuctRValueExisting" type="hvac:DuctRValueExisting">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Duct R-Value</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="K03_DuctSpaceType" type="hvac:DuctSpaceType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Supply Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="K03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Supply Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="K04_DuctSpaceType" type="hvac:DuctSpaceType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Return Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="K04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Return Duct Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Data is loaded from registered CF1R; Value may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="K05_ExistingConditionVerificationStatus" type="comp:ExistingConditionVerificationStatus">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Verification</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If this existing condition has been verified, user selects Pass (Boolean true), Else if any part of this existing condition is not verified, user selects Fail (Boolean false).</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="K06_DoAllExistingConditionsComply" type="comp:DoAllExistingConditionsComply">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If the value for ExistingConditionVerificationStatus in all rows of this section equals true, then result is true.  Else If any values for ExistingConditionVerificationStatus equal false then result is false.  For Boolean true value, display text: Pass - all existing conditions have been verified.  For Boolean false value, display text:   Fail - one or more of the existing conditions not present. Enter reason for failure in correction notes field below</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="K07_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_L" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="L_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="L01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For sections B, C, D, E, F, G, H, I, J,  and K, that are applicable to the project, If the value in  DoAllExistingConditionsComply equals Pass in all of them, then result is true.  Else result is false.  For Boolean true value, display text: : Complies: All specified verification protocol requirements on this document are met.  For Boolean false value, display text: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF3REXC20H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Existing Conditions For Residential Alterations"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF3REXC"/>
+                     <xsd:element ref="cF3REXC20H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF3REXC"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3REXC20H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF3REXC20H" type="CF3REXC20H">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF3REXC20H compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

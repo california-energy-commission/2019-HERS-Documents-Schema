@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH04eH" version="2019.1.002" xmlns="http://www.lmonte.com/besm/NRCVMCH04eH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVMCH04eH"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Duct Leakage Diagnostic Test"/>
+                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH04e Altered Duct System using Smoke Test"/>
+                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="e"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="nRCVMCH04eH"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonNRCV"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH04eH"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="NRCVMCH04eH">
+      <xsd:annotation>
+         <xsd:documentation>Duct Leakage Diagnostic Test - MCH04e Altered Duct System using Smoke Test</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">System Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A01_HvacSystemName" type="hvac:HvacSystemName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Space Conditioning System Identification or Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input, text, maximum 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_HvacSystemAreaServed" type="hvac:HvacSystemAreaServed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Space Conditioning System Location or Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input, text, maximum 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input, text, maximum 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verified Low Leakage Air-Handling Unit Credit</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from true display term Yes or false display term No</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_DuctSystemLeakageComplianceCategory">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Duct System Compliance Category</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from  list: New, Alteration, AlterationUsingSmokeTest</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:DuctSystemLeakageComplianceCategory">
+                           <xsd:enumeration value="Alteration"/>
+                           <xsd:enumeration value="AlterationUsingSmokeTest"/>
+                           <xsd:enumeration value="New"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Duct Leakage Diagnostic Test - MCH-04e - Altered Duct System using Smoke Test</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">If A05_DuctSystemLeakageComplianceCategory == AlterationUsingSmokeTest  Then MCH-04e - Altered Duct System using Smoke Test is the correct version of this document.</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01_CondenserNominalCoolingCapacity" type="hvac:CondenserNominalCoolingCapacity">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Condenser Nominal Cooling Capacity (ton)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input, number xx.xx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B02_HeatingCapacity" type="hvac:HeatingCapacity">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Heating Capacity (kBtu/h)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input, number  xxx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B03_DuctSystemLeakageFactor" type="comp:DuctSystemLeakageFactor" fixed="0.15">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Leakage Factor</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Fixed value LeakageFactor=0.15</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B04_AirflowMethod">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Air Handling Unit Airflow (AHU Airflow) Determination Method</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from two values: CoolingSystemMethod and HeatingSystemMethod</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:AirflowMethod">
+                           <xsd:enumeration value="CoolingSystemMethod"/>
+                           <xsd:enumeration value="HeatingSystemMethod"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="B05_DuctLeakageAllowed" type="comp:DuctLeakageAllowed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Calculated Target Allowable Duct Leakage (cfm25)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field: If B04_AirflowMethod = CoolingSystemMethod result = PRODUCT ( B01_CondenserNominalCoolingCapacity, 400, B03_DuctSystemLeakageFactor)  Else If B04_AirflowMethod == HeatingSystemMethod result   PRODUCT (B02_PlantHeatingCapacity,  21.7,  B03_DuctSystemLeakageFactor)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B06_DuctLeakageTestActual" type="comp:DuctLeakageTestActual">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Actual Duct Leakage Rate from Leakage Test Measurement (cfm25)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">user input: numeric xxx.x</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B07_DuctLeakageTestStatusUsingSmokeTest">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">calculated field: If  B06_DuctLeakageTestActual LTE B05_DuctLeakageAllowed result = PassAllowableDuctLeakageRate, display term  System Passes - System Complies With Allowable Duct Leakage Rate Criterion.   Else If B06_DuctLeakageTestActual GT B05_DuctLeakageAllowed then user selects one of the following two results:   FailUsingSmokeTest display term  System fails the smoke test of an altered HVAC system in an existing building  OR   PassUsingSmokeTestNR  display term System Passes using smoke test on altered HVAC system In existing building</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:DuctLeakageTestStatusUsingSmokeTest">
+                           <xsd:enumeration value="PassAllowableDuctLeakageRate"/>
+                           <xsd:enumeration value="FailUsingSmokeTest"/>
+                           <xsd:enumeration value="PassUsingSmokeTestNR"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Requirements for Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">No visible smoke shall exit the accessible portions of the duct system.</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If method of compliance is by use of smoke testing, then no visible smoke shall exit the accessible portions of the duct system.  Note - Accessible is defined as having access thereto, but which first may require removal or opening of access panels, doors, or moving similar obstructions.  If access to the ducts requires an object to be demolished or deconstructed then sealing of those ducts is not required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Smoke is only emanating from air-handling unit (AHU)</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">If method of compliance is by use of smoke testing, smoke is only emanating from air-handling unit (AHU) cabinet and non accessible portions of the duct system</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Testing under normal operation condition</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">System was tested in its normal operation condition.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C04" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Supply and Return Register Boots</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All supply and return register boots sealed to the surrounding material.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C05" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Cloth Backed Tape</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Cloth backed rubber adhesive duct tape may not be used as the primary air sealing method for duct connections.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C06" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">All Connection Points Sealed</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All connection points between the air handler and the supply and return plenums are completely sealed.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C07_DoesSystemComplyWithRequirements" type="comp:DoesSystemComplyWithRequirements">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Verification Status:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">For Pass choice display text: Pass - all applicable requirements are met.  For Fail choice display text: Fail - one or more applicable requirements are not met. Enter reason for failure in corrections notes field below.  For N/A choice display text: All n/a - This entire table is not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="C08_SectionCorrectionNotes" type="comp:SectionCorrectionNotes" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Correction Notes:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If Verification Status equals Fail, then text entry in this Corrections Notes field is required</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met unless otherwise noted in the Verification Status and the Corrections Notes in this table.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D01_DoesNRCV_Pass" type="comp:DoesNRCV_Pass">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">calculated field: If B07_DuctLeakageTestStatusUsingSmokeTest == PassAllowableDuctLeakageRate Or PassUsingSmokeTestNR  And  C07_DoesSystemComplyWithRequirements == Pass or N/A, the result = true display term Complies: All specified verification protocol requirements on this document are met.  Else the result = false display term  Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="nRCVMCH04eH" type="NRCVMCH04eH">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the NRCVMCH04eH compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>

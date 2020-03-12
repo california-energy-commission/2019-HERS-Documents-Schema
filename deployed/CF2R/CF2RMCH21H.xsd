@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH21H" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RMCH21H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:complexType name="CF2RMCH21H">
+      <xsd:annotation>
+         <xsd:documentation>Duct Location</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">BeginNote1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Note:  Submit one Installation Certificate for each duct system that is taking credit for duct location.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Space Conditioning (SC) System Identification or Name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from the CF2R-MCH-01 registered for this project</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_ResidentialHvacSystemAreaServed" type="hvac:ResidentialHvacSystemAreaServed">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">SC System Location or Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from the CF2R-MCH-01 registered for this project</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_IndoorUnitName" type="hvac:IndoorUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Indoor Unit Name or Description of Area Served</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from the CF2R-MCH-01 registered for this project</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_DuctsLessThan12FtUnConditionedCreditTaken" type="comp:DuctsLessThan12FtUnConditionedCreditTaken">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Less than 12 ft Ducts in Conditioned Space Performance Credit:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If CF1R performance flag indicating less than 12ft ducts are outside conditioned space == 1 (for true) then result = true display term: True.  and section B below should be displayed;   Else result = false display term: Not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_DuctsInConditionedSpaceCreditTaken" type="comp:DuctsInConditionedSpaceCreditTaken">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Ducts Located In Conditioned Space Performance Credit:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If CF1R performance flag indicating a credit was taken for Ducts Located In Conditioned Space Compliance  == 1 (for true) then result = true  display term: True and section C below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_DuctsInConditionedSpaceRValueException" type="comp:DuctsInConditionedSpaceRValueException">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - All Ducts Entirely in Directly Conditioned Space R-value Exception</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH-01 flag for Duct R-value less then the mandatory minimum, == true then result = true display term: True. and section D below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_DuctsInWallCavitiesRValueException" type="comp:DuctsInWallCavitiesRValueException">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Ducts Located In Wall Cavities R-Value Exception:</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH-01 DuctsInWallCavitiesRValueException == true then result = true display term: True and section E below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_DuctsExposedConditionedSpaceRValueException" type="comp:DuctsExposedConditionedSpaceRValueException">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Status - Portions of Exposed Ducts in Directly Conditioned Space R-Value Exception</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If MCH-01 DuctsExposedConditionedSpaceRValueException == true then result = true display term: True and section E below should be displayed;   Else result = false  display term: Not applicable</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">12 Linear Feet or Less of Duct Located Outside of Conditioned Space - RA3.1.4.1.2</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If A04_DuctsLessThan12FtUnConditionedCreditTaken == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Visual Inspection Confirmation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm space conditioning systems with air handlers located outside the conditioned space have 12 linear feet or less of duct located outside the conditioned space including air handler and plenum</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="BEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">EndNote 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Ducts Located In Conditioned Space - RA3.1.4.1.3</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If A05_DuctsInConditionedSpaceCreditTaken == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Visual Inspection Confirmation</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A visual inspection shall confirm the space conditioning system is located entirely in conditioned space.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="CEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">EndNote 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">All Ducts Located Entirely in Directly Conditioned Space R-Value Exception - RA3.1.4.3.8</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If A06_DuctsInConditionedSpaceRValueException == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D01_AreDuctsEntirelyInConditionedSpace" type="comp:AreDuctsEntirelyInConditionedSpace">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">A visual inspection shall confirm the space conditioning distribution system location</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list:  true value display term Entirely in conditioned space;  false value display term Not entirely in conditioned space - does not comply.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D02_DuctSystemLeakageActual" type="comp:DuctSystemLeakageActual">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Actual system duct leakage rate (cfm) measured using RA3.1.4.3.4 Duct Leakage to Outside from Fan Pressurization of Ducts</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric xxx.x</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="D03_AreDuctsInConditionedSpaceRValueExceptionCompliant" type="comp:AreDuctsInConditionedSpaceRValueExceptionCompliant">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: If D02_DuctSystemLeakageActual LTE 25 cfm,  and D01_AreDuctsEntirelyInConditionedSpace ==  true, then result = true display teer The space conditioning space is considered entirely in conditioned space and Duct R-Value less than minimum is allowable.     Else result = false display term The system does meet the criteria for ducts entirely in conditioned space.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="DEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Exceptions to Minimum Duct R-Value Requirement</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Display this section If A07_DuctsInWallCavitiesRValueException Or A08_DuctsExposedConditionedSpaceRValueException == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">
+                           <d:i>The following shall be confirmed by visual inspection when applicable. </d:i>
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E01" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Portions of the duct system with less than minimum R-value insulation located in wall cavities are entirely inside the building's thermal envelope.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Portions of the duct system with less than minimum R-value insulation located in directly conditioned space are completely exposed and surrounded by directly conditioned space.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="E03" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Duct transitions to unconditioned space are air-sealed and insulated to a minimum of R-6.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="EEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="CF2RMCH21H"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF INSTALLATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Duct Location"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="cF2RMCH21H"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonCF2R_H"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH21H"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="cF2RMCH21H" type="CF2RMCH21H">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the CF2RMCH21H compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
