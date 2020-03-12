@@ -1,37 +1,127 @@
 version: 2.1
 
-defaults: &defaults
-  docker:
-    - image: circleci/python:latest
-  working_directory: ~/repo
+orbs:
+  python: circleci/python@0.2.1
+  ruby: circleci/ruby@0.2.1
 
 jobs:
   python-scripts:
-    <<: *defaults
+    executor: python/default
     steps:
       - checkout
-      - restore_cache:
-          key: v1-py-cache-{{ .Branch }}-{{ checksum "scripts/requirements.txt" }}
       - run:
-          name: Activate venv and install requirements
-          command: |
-            python3 -m venv venv
-            source venv/bin/activate
-            cd scripts
-            pip3 install -r requirements.txt
-      - run:
-          name: Check for empty schema sections
+          name: Checking schema well-formedness
           command: |
             cd scripts
-            python3 empty_sections.py ../schema
+            python3 lint_schema.py
       - run:
-          name: Check for responsible person section
+          name: Checking empty schema sections
           command: |
             cd scripts
-            python3 responsible_person.py ../schema
+            python3 empty_sections.py
+      - run:
+          name: Checking responsible person sections
+          command: |
+            cd scripts
+            python3 responsible_person.py
+      - run:
+          name: Checking d:list inside d:list
+          command: |
+            cd scripts
+            python3 d_list_markup.py
+      - run:
+          name: Checking missing schema sections
+          command: |
+            cd scripts
+            python3 missing_sections.py
+
+  oxygen-xml:
+    docker:
+      - image: circleci/openjdk
+    steps:
+      - checkout
+      - run:
+          name: Download and install Oxygen XML
+          command: |
+            wget https://mirror.oxygenxml.com/InstData/Editor/Linux64/VM/oxygen-64bit-openjdk.sh
+            sh oxygen-64bit-openjdk.sh -q -overwrite -console
+
+  ruby-scripts:
+    executor: ruby/default
+    steps:
+      - checkout
+      - ruby/load-cache
+      - ruby/install-deps
+      - ruby/save-cache
+      - run:
+          name: Checking for missing base elements
+          command: |
+            cd scripts
+            bundle exec ruby missing_base_elements.rb -p ../deployed
+      - run:
+          name: Checking for correct XML schema built in datatypes
+          command: |
+            cd scripts
+            bundle exec ruby built_in_datatypes.rb -p ../deployed
+      - run:
+          name: Checking for missing base elements
+          command: |
+            cd scripts
+            bundle exec ruby missing_base_elements.rb -p ../deployed
+      - run:
+          name: Checking for missing namespace declarations
+          command: |
+            cd scripts
+            bundle exec ruby namespace_prefixes.rb -p ../deployed
+      - run:
+          name: Checking for a mismatch between targetNamespace
+          command: |
+            cd scripts
+            bundle exec ruby document_mismatch.rb -p ../deployed
+      - run:
+          name: Checking for incorrect end note naming in the schema
+          command: |
+            cd scripts
+            bundle exec ruby end_notes.rb -p ../deployed
+      - run:
+          name: Checking for duplicate elements in each schema section
+          command: |
+            cd scripts
+            bundle exec ruby duplicate_elements.rb -p ../deployed
+      - run:
+          name: Checking for duplicate elements in each schema section
+          command: |
+            cd scripts
+            bundle exec ruby first_three.rb -p ../deployed
+      - run:
+          name: Checking for mismatched ComplianceDocumentTag
+          command: |
+            cd scripts
+            bundle exec ruby compliance_document_tag.rb -p ../deployed
+      - run:
+          name: Checking for mismatched ComplianceDocumentTitleRes
+          command: |
+            cd scripts
+            bundle exec ruby compliance_document_title_res.rb -p ../deployed
+      - run:
+          name: Checking for mismatched ComplianceDocumentVariantSubtitle
+          command: |
+            cd scripts
+            bundle exec ruby compliance_document_variant_subtitle.rb -p ../deployed
+      - run:
+          name: Checking for mismatched Header
+          command: |
+            cd scripts
+            bundle exec ruby header.rb -p ../deployed
+      - run:
+          name: Checking for mismatched ComplianceDocumentVariant
+          command: |
+            cd scripts
+            bundle exec ruby compliance_document_variant.rb -p ../deployed
 
 workflows:
   version: 2
   build:
     jobs:
       - python-scripts
+      - ruby-scripts

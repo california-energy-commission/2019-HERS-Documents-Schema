@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/NRCVMCH27bH" version="2019.1.002" xmlns="http://www.lmonte.com/besm/NRCVMCH27bH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="../base/DataTypes.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="../base/ResHvac.xsd"/>
+   <xsd:import namespace="http://www.lmonte.com/besm/lit" schemaLocation="../base/ResLighting.xsd"/>
+   <xsd:element name="ComplianceDocumentPackage">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="DocID" minOccurs="0">
+               <xsd:complexType>
+                  <xsd:attribute name="doc" type="comp:ComplianceDocumentTag" fixed="NRCVMCH27bH"/>
+                  <xsd:attribute name="docType" type="comp:ComplianceDocumentType" fixed="CERTIFICATE OF VERIFICATION"/>
+                  <xsd:attribute name="docTitle" type="comp:ComplianceDocumentTitleRes" fixed="Indoor Air Quality and Mechanical Ventilation"/>
+                  <xsd:attribute name="docVariantSubtitle" type="comp:ComplianceDocumentVariantSubtitle" fixed="MCH27b High-rise Residential Multifamily Ventilation"/>
+                  <xsd:attribute name="docVariantLetter" type="comp:ComplianceDocumentVariant" fixed="b"/>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Payload" type="comp:Payload"/>
+            <xsd:element name="DocumentData">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Header" type="comp:HeaderCF2R_3R"/>
+                     <xsd:element ref="nRCVMCH27bH"/>
+                     <xsd:element name="DocAuthor" type="comp:DocumentAuthor"/>
+                     <xsd:element name="RespPerson" type="comp:ResponsiblePersonNRCV"/>
+                     <xsd:element name="Footer" type="comp:Footer"/>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Report" type="xsd:base64Binary"/>
+         </xsd:sequence>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVMCH27bH"/>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="NRCVMCH27bH">
+      <xsd:annotation>
+         <xsd:documentation>Indoor Air Quality and Mechanical Ventilation - MCH27b High-rise Residential Multifamily Ventilation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="Section_A" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Dwelling Mechanical Ventilation - General Information</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="A_BeforeNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Before Section Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Title 24, Part 6, Section 120.1(b)2 
+                           <d:b>Attached Dwelling Unit</d:b> Ventilation. All dwelling units shall meet the requirements of ANSI/ASHRAE Standard 62.2.-2016 Ventilation and Acceptable Indoor Air Quality in Low-Rise Residential Buildings subject to amendments specified by Title 24, Part 6 Section 120.1(b)2.iv</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A01_ResidentialDwellingUnitName" type="com:ResidentialDwellingUnitName">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Dwelling unit name</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input text maximum 50 characters</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A02_WholeBuildingOccupancy" type="com:WholeBuildingOccupancy" fixed="HighRiseResidential">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Building Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Fixed value HighRiseResidential</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A03_ProjectScopeNR">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Project scope</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from list: New, Addition, Alteration</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="ExistingAddition">Addition</dtyp:displayterm>
+                           <dtyp:displayterm value="ExistingAlteration">Alteration</dtyp:displayterm>
+                           <dtyp:displayterm value="NewComplete">New</dtyp:displayterm>
+                        </xsd:appinfo>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="comp:ProjectScopeNR">
+                           <xsd:enumeration value="ExistingAddition"/>
+                           <xsd:enumeration value="ExistingAlteration"/>
+                           <xsd:enumeration value="NewComplete"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A04_DwellingUnitConditionedFloorArea" type="com:DwellingUnitConditionedFloorArea">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Conditioned Floor Area of Dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">(For addition projects the conditioned floor area equals existing area plus addition area. )</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_BedroomCount" type="com:BedroomCount">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Number of Bedrooms in Dwelling Unit</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">(For addition projects the number of bedrooms equals the existing bedrooms plus addition bedrooms)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A06_VentilationSystemType" type="hvac:VentilationSystemType">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Ventilation System Type</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks one from list of following values: Balanced display term Balanced, BalancedCentralVent display term Central Ventilation System - Balanced, BalancedERV display term Balanced ERV, BalancedHRV display term Balanced HRV, CentralFanIntegrated display term Central Fan Integrated (CFI), ExhaustCentralVent display term Central Ventilation System - Exhaust, ExhaustVent display term Exhaust, SupplyCentralVent display term Ventilation System - Supply, SupplyVent display term Supply</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A07_VentilationOperationSchedule">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Ventilation Operation Schedule</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list: ContinuousVentilation, display term: Continuous display term Continuous, ShortTermAverage display term Short Term Average;  If result = Continuous And A06_VentilationSystemType ==CentralFanIntegrated, Display message Central Fan Integrated Ventilation System Not Allowed to Operate Continuously - Do Not Proceed</xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="hvac:VentilationOperationSchedule">
+                           <xsd:enumeration value="Continuous"/>
+                           <xsd:enumeration value="ShortTermAverage"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="A07After" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Mch-27b Variant</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">MCH-27b - High-rise Residential Multifamily Ventilation</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field for Variant result: If A02  == HighRiseResidential And   A07_VentilationOperationSchedule != Scheduled Or  RealTimeControl Variant result = Mch27b Else If A07_VentilationOperationSchedule == Scheduled Or  RealTimeControl Variant result = Mch27c - Schedule or Real-Time Control Ventilation System;</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="AEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">Note: 
+                           <d:line1/>Non-dwelling units do not meet the definition for a dwelling unit as defined in Section 100.1(b).  Non-dwelling units are not designed to provide independent living facilities and do not provide permanent provisions for living, sleeping, eating, cooking and sanitation.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Ventilation - Total Ventilation Rate</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="B_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system or combination thereof shall provide whole-building ventilation with outdoor air each hour at no less than the rate in 120.1(b)2A</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="B01_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Required Ventilation rate, (Q<d:sub>tot</d:sub>)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: (use equation 120.1-B)  result = [PRODUCT(0.03, A04_DwellingUnitConditionedFloorArea ) + PRODUCT (7.5, A05_BedroomCount + 1)], (CFM)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_C" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Installed  Ventilation - Total Ventilation Rate</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="C_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="AdditionalRequirements">A mechanical supply system, exhaust system, or combination thereof shall provide whole-building ventilation with outdoor air each hour at no less than the rate in 120.1(b)2A</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="TableVentilation">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="C01_IAQ_VentilationFanName" type="hvac:IAQ_VentilationFanName">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Name</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C02_IAQ_FanLocation" type="hvac:IAQ_FanLocation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Fan Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C03_VentilationOperationRuntime" type="hvac:VentilationOperationRuntime">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Runtime (min/hr)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If A07__VentilationOperationSchedule == Continuous result = 60; Else If A07__VentilationOperationSchedule == ShortTermAverage, user input postive integer LTE 60.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C04_MechanicalVentilationInstalledRate" type="comp:MechanicalVentilationInstalledRate">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Installed Mechanical Ventilation Rate (CFM)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User input positive integer</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="C05_ContinuousAirflowRateInstalled" type="hvac:ContinuousAirflowRateInstalled">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Equivalent Continuous Ventilation (CFM)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT (C03_VentilationOperationRuntime, (C04_MechanicalVentilationInstalledRate / 60)) CFM.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                 </xsd:sequence>
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="C06_TotalContinuousAirflowRateInstalled" type="hvac:TotalContinuousAirflowRateInstalled">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Installed Continuous Ventilation (CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = SUM ALL (C05_ContinuousAirflowRateInstalled)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_D" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Envelope Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A06_VentilationSystemType  == SupplyVent , ExhaustVent, CentralFanIntegrated, SupplyCentralVent Or ExhaustCentralVent</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="D01_AirLeakageRateMeasuredCFM50" type="comp:AirLeakageRateMeasuredCFM50">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Envelope Leakage</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: Reference data from NRCV-MCH-24 AirLeakageRateMeasuredCFM50</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_E" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Additional Central Ventilation System Balancing Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required if A06_VentilationSystemType  == SupplyCentralVent, ExhaustCentralVent Or BalancedCentralVent</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="E01_MaximumAirflowRate" type="comp:MaximumAirflowRate">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Maximum Ventilation Flow (CFM)</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = PRODUCT (B01_MinimumAirflowRateRequired, 1.20)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_F" minOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="F01_MechanicalVentilationCompliance" type="comp:MechanicalVentilationCompliance">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">If  A06_VentilationSystemType == Balanced, BalancedERV Or  BalancedHRV  And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; Else If  A06_VentilationSystemType == BalancedCentralVent And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired And C06_TotalContinuousAirflowRateInstalled LTE E01_MaximumAirflowRate result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; Else If  A06_VentilationSystemType == SupplyVent, ExhaustVent, CentralFanIntegrated And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired And D01_AirLeakageRateMeasuredCFM50 LTE NRCV-Mch24 CompartmentalizationLeakageTargetCFM50 result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; Else If  A06_VentilationSystemType == SupplyCentralVent Or ExhaustCentralVent And C06_TotalContinuousAirflowRateInstalled GTE B01_MinimumAirflowRateRequired And D01_AirLeakageRateMeasuredCFM50 LTE NRCV-Mch24 CompartmentalizationLeakageTargetCFM50 And C06_TotalContinuousAirflowRateInstalled LTE E01_MaximumAirflowRate result = BuildingPassesRateTest display term Building Passes Mechanical Ventilation RateTest; Else result = BuildingFailsRateTest display term Building Fails Mechanical Ventilation RateTest</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_G" minOccurs="1" maxOccurs="1">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">Determination of HERS Verification Compliance</xsd:documentation>
+               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="G_BeginNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Begin Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">All applicable sections of this document shall indicate compliance with the specified verification protocol requirements in order for this Certificate of Verification as a whole to be determined to be in compliance.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="G01_DoesCF3R_Pass" type="comp:DoesCF3R_Pass">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText"/>
+                        <xsd:documentation source="CalculationsAndRules">If F01_MechanicalVentilationCompliance == BuildingPassesRateTest  result =  true  display term Complies: All specified verification protocol requirements on this document are met. Else result = false display term: Does not comply: One or more specified verification protocol requirements on this document are not met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:element name="nRCVMCH27bH" type="NRCVMCH27bH">
+      <xsd:annotation>
+         <xsd:documentation>This element contains all of the data and text required to generate the NRCVMCH27bH compliance report.</xsd:documentation>
+      </xsd:annotation>
+   </xsd:element>
+</xsd:schema>
