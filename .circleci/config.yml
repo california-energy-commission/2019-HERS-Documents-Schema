@@ -39,6 +39,11 @@ jobs:
           command: |
             cd scripts
             python3 compliance_document.py
+      - run:
+          name: Checking for mismatched Header
+          command: |
+            cd scripts
+            python3 header.py
 
   oxygen-xml:
     docker:
@@ -98,11 +103,6 @@ jobs:
           command: |
             cd scripts
             bundle exec ruby first_three.rb -p ../deployed
-      - run:
-          name: Checking for mismatched Header
-          command: |
-            cd scripts
-            bundle exec ruby header.rb -p ../deployed
 
 workflows:
   version: 2
