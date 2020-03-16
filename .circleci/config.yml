@@ -34,6 +34,11 @@ jobs:
           command: |
             cd scripts
             python3 missing_sections.py
+      - run:
+          name: Checking for mismatched ComplianceDocument tags
+          command: |
+            cd scripts
+            python3 compliance_document.py
 
   oxygen-xml:
     docker:
@@ -94,30 +99,10 @@ jobs:
             cd scripts
             bundle exec ruby first_three.rb -p ../deployed
       - run:
-          name: Checking for mismatched ComplianceDocumentTag
-          command: |
-            cd scripts
-            bundle exec ruby compliance_document_tag.rb -p ../deployed
-      - run:
-          name: Checking for mismatched ComplianceDocumentTitleRes
-          command: |
-            cd scripts
-            bundle exec ruby compliance_document_title_res.rb -p ../deployed
-      - run:
-          name: Checking for mismatched ComplianceDocumentVariantSubtitle
-          command: |
-            cd scripts
-            bundle exec ruby compliance_document_variant_subtitle.rb -p ../deployed
-      - run:
           name: Checking for mismatched Header
           command: |
             cd scripts
             bundle exec ruby header.rb -p ../deployed
-      - run:
-          name: Checking for mismatched ComplianceDocumentVariant
-          command: |
-            cd scripts
-            bundle exec ruby compliance_document_variant.rb -p ../deployed
 
 workflows:
   version: 2

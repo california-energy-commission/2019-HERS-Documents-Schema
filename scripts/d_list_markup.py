@@ -11,7 +11,7 @@ from xml.etree import ElementTree
 
 hasError = False
 schemaFiles = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
-namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'};
+namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
 for filename in schemaFiles:
     try:
