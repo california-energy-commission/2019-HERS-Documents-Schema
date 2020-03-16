@@ -9,16 +9,16 @@ import sys
 
 from xml.etree import ElementTree
 
-hasError = False
-schemaFiles = glob.glob('../deployed/**/*.xsd', recursive=True)
+has_error = False
+schema_files = glob.glob('../deployed/**/*.xsd', recursive=True)
 
-for filename in schemaFiles:
+for filename in schema_files:
     try:
         schema = ElementTree.parse(filename)
     except ElementTree.ParseError:
-        hasError = True
+        has_error = True
         print('{} is not a valid XML schema!'.format(os.path.basename(filename)))
         pass
 
-if hasError == True:
+if has_error == True:
     sys.exit(1)

@@ -1,5 +1,5 @@
 """
-Checking for mismatched ComplianceDocument (Tag/TitleRes/Type/Variant/VariantSubtitle)
+Checking for mismatched ComplianceDocument tags
 python3 compliance_document.py
 """
 
@@ -30,7 +30,7 @@ for filename in schema_files:
 
         for key, value in tag_dict.items():
             tags = root.findall('.//xsd:element[@name="ComplianceDocumentPackage"]/xsd:complexType/xsd:attribute[@name="{}"]/[@fixed]'.format(key), namespace)
-            
+
             for tag in tags:
                 tag_value = tag.attrib.get('fixed')
                 displayterm = base.find("./*[@name='ComplianceDocumentTag'].//dtyp:displayterm[@value='{}']".format(tag_value), dtyp)
@@ -39,8 +39,8 @@ for filename in schema_files:
 
                 if enum_value != tag_value or enum_value != displayterm.text or tag_value != displayterm.text:
                     has_error = True
-                    basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
-                    print('{} mismatch for {} and base/ResCompliance'.format(value, basePath))
+                    base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
+                    print('{} mismatch for {} and base/ResCompliance'.format(value, base_path))
 
     except ElementTree.ParseError as err:
         raise err

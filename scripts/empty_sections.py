@@ -9,11 +9,11 @@ import sys
 
 from xml.etree import ElementTree
 
-hasError = False
-schemaFiles = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
+has_error = False
+schema_files = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
 namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
-for filename in schemaFiles:
+for filename in schema_files:
     try:
         tree = ElementTree.parse(filename)
         root = tree.getroot()
@@ -24,11 +24,11 @@ for filename in schemaFiles:
             query = section.findall('./xsd:complexType/xsd:sequence', namespace)
 
             if len(query) == 0:
-                hasError = True
-                basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} has an empty section: {}'.format(basePath, name))
+                has_error = True
+                base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
+                print('{} has an empty section: {}'.format(base_path, name))
     except ElementTree.ParseError as err:
         raise err
 
-if hasError == True:
+if has_error == True:
     sys.exit(1)

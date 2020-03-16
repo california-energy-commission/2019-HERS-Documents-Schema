@@ -9,27 +9,27 @@ import sys
 
 from xml.etree import ElementTree
 
-hasError = False
-schemaFiles = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
+has_error = False
+schema_files = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
 namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
-for filename in schemaFiles:
+for filename in schema_files:
     try:
         tree = ElementTree.parse(filename)
         root = tree.getroot()
         elements = root.findall('.//xsd:annotation/..', namespace)
-        basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
+        base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
 
         for element in elements:
             name = element.attrib.get('name')
             documentation = element.find('xsd:annotation/xsd:documentation', namespace)
 
             if documentation.findall('.//d:l/d:l', { 'd': 'http://www.lmonte.com/besm/d' }):
-                hasError = True
-                basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('List inside list found in {} in embedded markup in element {}'.format(basePath, name))
+                has_error = True
+                base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
+                print('List inside list found in {} in embedded markup in element {}'.format(base_path, name))
     except ElementTree.ParseError as err:
         raise err
 
-if hasError == True:
+if has_error == True:
     sys.exit(1)

@@ -10,11 +10,11 @@ import string
 
 from xml.etree import ElementTree
 
-hasError = False
-schemaFiles = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
+has_error = False
+schema_files = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
 namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
-for filename in schemaFiles:
+for filename in schema_files:
     try:
         tree = ElementTree.parse(filename)
         root = tree.getroot()
@@ -30,11 +30,11 @@ for filename in schemaFiles:
             expected = chr(index + 65) if ascii > 64 else number
 
             if number != index:
-                hasError = True
-                basePath = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} - Expected: Section_{}, instead got: {}'.format(basePath, expected, name))
+                has_error = True
+                base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
+                print('{} - Expected: Section_{}, instead got: {}'.format(base_path, expected, name))
     except ElementTree.ParseError as err:
         raise err
 
-if hasError == True:
+if has_error == True:
     sys.exit(1)
