@@ -84,6 +84,8 @@ for filename in schema_files:
                     if len(query) == 0:
                         print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResLighting.xsd).".format(base_path, value, type))
                         has_error = True
+
+                print()        
     except ElementTree.ParseError as err:
         raise err
 

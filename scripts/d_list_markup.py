@@ -27,7 +27,7 @@ for filename in schema_files:
             if documentation.findall('.//d:l/d:l', { 'd': 'http://www.lmonte.com/besm/d' }):
                 has_error = True
                 base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('List inside list found in {} in embedded markup in element {}'.format(base_path, name))
+                print('List inside list found in {} in embedded markup in element {}\n'.format(base_path, name))
     except ElementTree.ParseError as err:
         raise err
 

@@ -17,7 +17,7 @@ for filename in schema_files:
         schema = ElementTree.parse(filename)
     except ElementTree.ParseError:
         has_error = True
-        print('{} is not a valid XML schema!'.format(os.path.basename(filename)))
+        print('{} is not a valid XML schema!\n'.format(os.path.basename(filename)))
         pass
 
 if has_error == True:

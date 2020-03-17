@@ -32,7 +32,7 @@ for filename in schema_files:
             if number != index:
                 has_error = True
                 base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} - Expected: Section_{}, instead got: {}'.format(base_path, expected, name))
+                print('{} - Expected: Section_{}, instead got: {}\n'.format(base_path, expected, name))
     except ElementTree.ParseError as err:
         raise err
 

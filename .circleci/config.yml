@@ -44,6 +44,11 @@ jobs:
           command: |
             cd scripts
             python3 header.py
+      - run:
+          name: Checking for duplicate elements in each schema section
+          command: |
+            cd scripts
+            python3 duplicate_elements.py
 
   oxygen-xml:
     docker:
@@ -69,16 +74,6 @@ jobs:
             cd scripts
             bundle exec ruby missing_base_elements.rb -p ../deployed
       - run:
-          name: Checking for correct XML schema built in datatypes
-          command: |
-            cd scripts
-            bundle exec ruby built_in_datatypes.rb -p ../deployed
-      - run:
-          name: Checking for missing base elements
-          command: |
-            cd scripts
-            bundle exec ruby missing_base_elements.rb -p ../deployed
-      - run:
           name: Checking for missing namespace declarations
           command: |
             cd scripts
@@ -93,11 +88,6 @@ jobs:
           command: |
             cd scripts
             bundle exec ruby end_notes.rb -p ../deployed
-      - run:
-          name: Checking for duplicate elements in each schema section
-          command: |
-            cd scripts
-            bundle exec ruby duplicate_elements.rb -p ../deployed
       - run:
           name: Checking for duplicate elements in each schema section
           command: |

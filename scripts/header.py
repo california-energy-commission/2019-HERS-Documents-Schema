@@ -1,5 +1,5 @@
 """
-heck for mismatched Header
+Check for mismatched Header
 python3 header.py
 """
 
@@ -31,7 +31,7 @@ for filename in schema_files:
             if not header and header != name:
                 has_error = True
                 base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print("[{}] Cannot resolve the name 'comp:HeaderC2R_3R' to a 'type definition' component".format(base_path, type))
+                print("[{}] Cannot resolve the name '{}' to a 'type definition' component\n".format(base_path, type))
 
     except ElementTree.ParseError as err:
         raise err

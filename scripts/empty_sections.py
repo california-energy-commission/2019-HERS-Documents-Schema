@@ -26,7 +26,7 @@ for filename in schema_files:
             if len(query) == 0:
                 has_error = True
                 base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} has an empty section: {}'.format(base_path, name))
+                print('{} has an empty section: {}\n'.format(base_path, name))
     except ElementTree.ParseError as err:
         raise err
 

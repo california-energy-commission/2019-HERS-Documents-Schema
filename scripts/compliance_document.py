@@ -40,7 +40,7 @@ for filename in schema_files:
                 if enum_value != tag_value or enum_value != displayterm.text or tag_value != displayterm.text:
                     has_error = True
                     base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                    print('{} mismatch for {} and base/ResCompliance'.format(value, base_path))
+                    print('{} mismatch for {} and base/ResCompliance.xsd\n'.format(value, base_path))
 
     except ElementTree.ParseError as err:
         raise err

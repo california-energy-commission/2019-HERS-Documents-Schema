@@ -29,7 +29,7 @@ for filename in schema_files:
             if len(query) == 0:
                 has_error = True
                 base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} header {} mismatch with ResCompliance.xsd'.format(base_path, name))
+                print('{} header {} mismatch with ResCompliance.xsd\n'.format(base_path, name))
     except ElementTree.ParseError as err:
         raise err
 
