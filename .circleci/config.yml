@@ -73,6 +73,13 @@ jobs:
           command: |
             cd scripts
             python3 missing_base_elements.py
+          when: always
+      - run:
+          name: Checking for missing namespace declarations
+          command: |
+            cd scripts
+            python3 namespace_prefixes.py
+          when: always
 
   oxygen-xml:
     docker:
@@ -92,11 +99,6 @@ jobs:
       - ruby/load-cache
       - ruby/install-deps
       - ruby/save-cache
-      - run:
-          name: Checking for missing namespace declarations
-          command: |
-            cd scripts
-            bundle exec ruby namespace_prefixes.rb -p ../deployed
       - run:
           name: Checking for a mismatch between targetNamespace
           command: |

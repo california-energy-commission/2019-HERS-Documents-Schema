@@ -21,6 +21,37 @@ resEnvelope = ElementTree.parse('../deployed/base/ResEnvelope.xsd').getroot()
 resHvac = ElementTree.parse('../deployed/base/ResHvac.xsd').getroot()
 resLighting = ElementTree.parse('../deployed/base/ResLighting.xsd').getroot()
 
+map = dict({
+    'dtyp': {
+        'root': ElementTree.parse('../deployed/base/DataTypes.xsd').getroot(),
+        'path': 'base/DataTypes.xsd'
+    },
+    'bld': {
+        'root': ElementTree.parse('../deployed/base/ResBuilding.xsd').getroot(),
+        'path': 'base/ResBuilding.xsd'
+    },
+    'com': {
+        'root': ElementTree.parse('../deployed/base/ResCommon.xsd').getroot(),
+        'path': 'base/ResCommon.xsd'
+    },
+    'comp': {
+        'root': ElementTree.parse('../deployed/base/ResCompliance.xsd').getroot(),
+        'path': 'base/ResCompliance.xsd'
+    },
+    'env': {
+        'root': ElementTree.parse('../deployed/base/ResEnvelope.xsd').getroot(),
+        'path': 'base/ResEnvelope.xsd'
+    },
+    'hvac': {
+        'root': ElementTree.parse('../deployed/base/ResHvac.xsd').getroot(),
+        'path': 'base/ResHvac.xsd'
+    },
+    'lit': {
+        'root': ElementTree.parse('../deployed/base/ResLighting.xsd').getroot(),
+        'path': 'base/ResLighting.xsd'
+    },
+})
+
 for filename in schema_files:
     try:
         tree = ElementTree.parse(filename)
@@ -36,56 +67,14 @@ for filename in schema_files:
             for enumeration in enumerations:
                 value = enumeration.attrib.get('value')
 
-                if base == 'dtyp':
-                    query = dataTypes.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
+                if base in map.keys():
+                    query = map[base].get('root').findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
 
                     if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/DataTypes.xsd).".format(base_path, value, type))
+                        basedoc = map[base].get('base_path')
+                        print("[{}]: Enumeration value '{}' is not in the value space of the base type '{}' in '{}'.".format(base_path, value, type, basedoc))
                         has_error = True
 
-                if base == 'bld':
-                    query = resBuilding.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
-
-                    if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResBuilding.xsd).".format(base_path, value, type))
-                        has_error = True
-
-                if base == 'com':
-                    query = resCommon.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
-
-                    if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResCommon.xsd).".format(base_path, value, type))
-                        has_error = True
-
-                if base == 'comp':
-                    query = resCompliance.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
-
-                    if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResCompliance.xsd).".format(base_path, value, type))
-                        has_error = True
-
-                if base == 'env':
-                    query = resEnvelope.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
-
-                    if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResHvac.xsd).".format(base_path, value, type))
-                        has_error = True
-
-                if base == 'hvac':
-                    query = resHvac.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value), namespace)
-
-                    if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResHvac.xsd).".format(base_path, value, type))
-                        has_error = True
-
-                if base == 'lit':
-                    query = resLighting.findall('.//xsd:simpleType[@name="{}"]/.//xsd:enumeration[@value="{}"]'.format(type, value))
-
-                    if len(query) == 0:
-                        print("{} - Enumeration value '{}' is not in the value space of the base type {} (base/ResLighting.xsd).".format(base_path, value, type))
-                        has_error = True
-
-                print()        
     except ElementTree.ParseError as err:
         raise err
 
