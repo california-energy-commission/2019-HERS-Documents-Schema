@@ -49,6 +49,11 @@ jobs:
           command: |
             cd scripts
             python3 duplicate_elements.py
+      - run:
+          name: Checking for incorrect end note naming in each schema section
+          command: |
+            cd scripts
+            python3 end_notes.py
 
   oxygen-xml:
     docker:
@@ -83,11 +88,6 @@ jobs:
           command: |
             cd scripts
             bundle exec ruby document_mismatch.rb -p ../deployed
-      - run:
-          name: Checking for incorrect end note naming in the schema
-          command: |
-            cd scripts
-            bundle exec ruby end_notes.rb -p ../deployed
       - run:
           name: Checking for duplicate elements in each schema section
           command: |
