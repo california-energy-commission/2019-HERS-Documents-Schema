@@ -68,6 +68,11 @@ jobs:
             cd scripts
             python3 empty_displayterm.py
           when: always
+      - run:
+          name: Checking for missing base elements
+          command: |
+            cd scripts
+            python3 missing_base_elements.py
 
   oxygen-xml:
     docker:
@@ -87,11 +92,6 @@ jobs:
       - ruby/load-cache
       - ruby/install-deps
       - ruby/save-cache
-      - run:
-          name: Checking for missing base elements
-          command: |
-            cd scripts
-            bundle exec ruby missing_base_elements.rb -p ../deployed
       - run:
           name: Checking for missing namespace declarations
           command: |
