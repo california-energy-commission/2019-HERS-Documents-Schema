@@ -19,41 +19,49 @@ jobs:
           command: |
             cd scripts
             python3 empty_sections.py
+          when: always
       - run:
           name: Checking responsible person sections
           command: |
             cd scripts
             python3 responsible_person.py
+          when: always
       - run:
           name: Checking d:list inside d:list
           command: |
             cd scripts
             python3 d_list_markup.py
+          when: always
       - run:
           name: Checking missing schema sections
           command: |
             cd scripts
             python3 missing_sections.py
+          when: always
       - run:
           name: Checking for mismatched ComplianceDocument tags
           command: |
             cd scripts
             python3 compliance_document.py
+          when: always
       - run:
           name: Checking for mismatched Header
           command: |
             cd scripts
             python3 header.py
+          when: always
       - run:
           name: Checking for duplicate elements in each schema section
           command: |
             cd scripts
             python3 duplicate_elements.py
+          when: always
       - run:
           name: Checking for incorrect end note naming in each schema section
           command: |
             cd scripts
             python3 end_notes.py
+          when: always
 
   oxygen-xml:
     docker:
