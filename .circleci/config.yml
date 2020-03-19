@@ -62,6 +62,12 @@ jobs:
             cd scripts
             python3 end_notes.py
           when: always
+      - run:
+          name: Checking for empty displayterm tags
+          command: |
+            cd scripts
+            python3 empty_displayterm.py
+          when: always
 
   oxygen-xml:
     docker:
@@ -96,11 +102,6 @@ jobs:
           command: |
             cd scripts
             bundle exec ruby document_mismatch.rb -p ../deployed
-      - run:
-          name: Checking for duplicate elements in each schema section
-          command: |
-            cd scripts
-            bundle exec ruby first_three.rb -p ../deployed
 
 workflows:
   version: 2
