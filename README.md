@@ -40,7 +40,7 @@ can also be opened locally with a web browser.
 - check for empty display term text
 
 On [Ubuntu](https://www.ubuntu.com/) Linux you can use [xmllint](http://xmlsoft.org/xmllint.html)
-to check the well formedness of a directory of XML or even XML schema.  Well formed XML is the first step
+to check the well formedness of a directory of XML or even XML schema. Well formed XML is the first step
 towards full XML validation.
 
 The [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about)
@@ -81,7 +81,7 @@ grep -rnE schema -e '<dtyp:CBECCresXMLterm value=".*?" *?><'
 `deploy-schema.exe` is a command line application executable file that was
 written in [Golang](https://golang.org/). This application deploys the schema (replaces embedded
 square markup, formats, indents, removes whitespace, orders alphabetically)
-to a `deployed` folder.  There is also a `deploy-schema` script that runs
+to a `deployed` folder. There is also a `deploy-schema` script that runs
 on Linux and MacOS.
 
 ### Windows
@@ -210,9 +210,9 @@ cd tools
 - [RubyGems](https://rubygems.org/)
 - [plotly.js](https://plot.ly/javascript/)
 - [Regular expressions](https://www.rexegg.com/)
-- [APT](https://en.wikipedia.org/wiki/APT_\(Debian\))
+- [APT](<https://en.wikipedia.org/wiki/APT_(Debian)>)
 - [xargs](https://en.wikipedia.org/wiki/Xargs)
-- [wc](https://en.wikipedia.org/wiki/Wc_\(Unix\))
+- [wc](<https://en.wikipedia.org/wiki/Wc_(Unix)>)
 - [find](https://linux.die.net/man/1/find)
 - [libxml2-utils](https://packages.ubuntu.com/search?keywords=libxml2-utils)
 - [XML](https://developer.mozilla.org/en-US/docs/Web/XML/XML_introduction)
