@@ -79,7 +79,11 @@ jobs:
           command: |
             cd scripts
             python3 namespace_prefixes.py
-          when: always
+      - run:
+          name: Checking for a mismatch between targetNamespace
+          command: |
+            cd scripts
+            python3 document_mismatch.py
 
   oxygen-xml:
     docker:
@@ -92,22 +96,8 @@ jobs:
             wget https://mirror.oxygenxml.com/InstData/Editor/Linux64/VM/oxygen-64bit-openjdk.sh
             sh oxygen-64bit-openjdk.sh -q -overwrite -console
 
-  ruby-scripts:
-    executor: ruby/default
-    steps:
-      - checkout
-      - ruby/load-cache
-      - ruby/install-deps
-      - ruby/save-cache
-      - run:
-          name: Checking for a mismatch between targetNamespace
-          command: |
-            cd scripts
-            bundle exec ruby document_mismatch.rb -p ../deployed
-
 workflows:
   version: 2
   build:
     jobs:
       - python-scripts
-      - ruby-scripts
