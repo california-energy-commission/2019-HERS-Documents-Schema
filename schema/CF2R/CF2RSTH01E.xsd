@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSTH01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -107,58 +107,77 @@
                   <xsd:element name="A06_SolarWaterHeatingCollectorManufacturer" type="hvac:SolarWaterHeatingCollectorManufacturer" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Manufacturer Name</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A04_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_SolarWaterHeatingCollectorModelNumber" type="hvac:SolarWaterHeatingCollectorModelNumber" >
+                  <xsd:element name="A07_SolarWaterHeatingCollectorBrand" type="hvac:SolarWaterHeatingCollectorBrand" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Collector Brand</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A08_SolarWaterHeatingCollectorModelNumber" type="hvac:SolarWaterHeatingCollectorModelNumber" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Model Number</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A04_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A08_SolarWaterSystemSRCC_CertificationNumber" type="hvac:SolarWaterSystemSRCC_CertificationNumber" >
+                  <xsd:element name="A09_SolarWaterSystemSRCC_CertificationNumber" type="hvac:SolarWaterSystemSRCC_CertificationNumber" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Certification Number</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A04_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+                        <xsd:documentation source="FieldText">SRCC/IAPMO  Number</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_SolarWaterHeatingSavingsFraction" type="comp:SolarWaterHeatingSavingsFraction" >
+                  <xsd:element name="A10_SolarWaterHeatingSavingsFraction" type="comp:SolarWaterHeatingSavingsFraction" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Solar Savings Fraction from calculator or directly from website (annual average value)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If available result = project CF1R-STH-01-E value Else If A04_SolarWaterHeatingCertificationType == OG300, user input</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A10_SolarWaterHeatingSavingsFractionRequired" type="comp:SolarWaterHeatingSavingsFractionRequired" >
+                  <xsd:element name="A11_SolarWaterHeatingSavingsFractionRequired" type="comp:SolarWaterHeatingSavingsFractionRequired" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Required Solar Savings Fraction</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If project CF1R == CF1R-PRF-01  result = value  from CF1R-PRF Else If A02_ClimateZone InclusiveRange(1,9) result = 0.2 Else If A02_ClimateZone InclusiveRange(10,16) result = 0.35</xsd:documentation>
+                        <xsd:documentation source="FieldText">Required solar Savings Fraction</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If project CF1R  is CF1R-PRF load value from CF1R-PRF
+Else If A02_ClimateZone InRange(1,9) result = 0.2
+Else If A02_ClimateZone InRange(10,16) result = 0.35
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
-                     <xsd:element name="A11_SolarWaterHeatingCollectorCount" type="hvac:SolarWaterHeatingCollectorCount" >
+                     <xsd:element name="A12_SolarWaterHeatingCollectorCount" type="hvac:SolarWaterHeatingCollectorCount" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Number of Collectors</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A11_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Number of Collectors</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A12_SolarWaterHeatingCollectorArea" type="hvac:SolarWaterHeatingCollectorArea" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Collector Area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E
+Else If A04_SolarWaterHeatingCertificationType == OG300,  
+ result =  N/A stored in NotApplicableMessage
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A12_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">Collector Area (ft[d:sup]2[/d:sup])</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+                           <xsd:documentation source="FieldText">Number of Collectors</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E
+Else If A04_SolarWaterHeatingCertificationType == OG300,  
+ result =  N/A stored in NotApplicableMessage
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -166,34 +185,31 @@
                      <xsd:element name="A13_StorageCapacity" type="hvac:StorageCapacity" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Water Heater Storage Volume (gallons)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E
+Else If A04_SolarWaterHeatingCertificationType == OG300,  
+ result =  N/A stored in NotApplicableMessage
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="A13_NotApplicableMessage" type="comp:NotApplicableMessage" >
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Water Heater Storage Volume (gallons)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-02-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E
+Else If A04_SolarWaterHeatingCertificationType == OG300,  
+ result =  N/A stored in NotApplicableMessage
+End If</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A14_VolumeCapacity" type="hvac:VolumeCapacity" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Secondary Storage Tank Volume  (gallons)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A14_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Secondary Storage Tank Volume  (gallons)</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else result =  N/A stored in NotApplicableMessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:element name="A15_SolarWaterHeatingCollectorAngleFromNorth" >
+                  <xsd:element name="A14_SolarWaterHeatingCollectorAngleFromNorth" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Collector angle from true north (in degrees)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else user input</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="comp:SolarWaterHeatingCollectorAngleFromNorth">
@@ -202,10 +218,13 @@
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A16_SolarWaterHeatingCollectorSlope" >
+                  <xsd:element name="A15_SolarWaterHeatingCollectorSlope" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Collector slope from horizontal (in degrees)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If A04_SolarWaterHeatingCertificationType ==  OG100 Then result = project CF1R-STH-01-E value Else user input</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If</xsd:documentation>
                      </xsd:annotation>
                      <xsd:simpleType>
                         <xsd:restriction base="hvac:SolarWaterHeatingCollectorSlope">
@@ -214,13 +233,17 @@
                         </xsd:restriction>
                      </xsd:simpleType>
                   </xsd:element>
-                  <xsd:element name="A17_IsSolarWaterHeatingSystemCompliant" type="comp:IsSolarWaterHeatingSystemCompliant" >
+                  <xsd:element name="A16_IsSolarWaterHeatingSystemCompliant" type="comp:IsSolarWaterHeatingSystemCompliant" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: If A09_SolarWaterHeatingSavingsFraction    GTE A10_SolarWaterHeatingSavingsFractionRequired result = true display term Solar water heater system complies  Else result = false display term Solar water heater system does not comply</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If A10_SolarWaterHeatingSavingsFraction    GTE A11_SolarWaterHeatingSavingsFractionRequired 
+result = true display term Solar water heater system complies  
+Else result = false display term Solar water heater system does not comply
+End if</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A17AfterNote" minOccurs="0">
+                  <xsd:element name="A16AfterNote" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Click for SRCC OG-300 Ratings</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">SRRCC OG 300 Ratings has hyper link https://secure.solar-rating.org/Certification/Ratings/RatingsSummaryPage.aspx?type=2</xsd:documentation>

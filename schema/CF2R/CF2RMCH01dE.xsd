@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01dE"/>
       </xsd:complexType>
    </xsd:element>
@@ -223,18 +223,26 @@
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
-                                    <xsd:element name="B07_ThermostatType" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:ThermostatType">
-                                             <xsd:enumeration value="OccupantControlledSmartThermostat"/>
-                                             <xsd:enumeration value="SetbackThermostat"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_ThermostatType" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:ThermostatType">
+                                                <xsd:enumeration value="OccupantControlledSmartThermostat"/>
+                                                <xsd:enumeration value="SetbackThermostat"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B08_ResidentialCoolingZoneType" type="hvac:ResidentialCoolingZoneType" >
                                           <xsd:annotation>
@@ -1097,7 +1105,7 @@
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Split System Indoor Unit ( Coil or Fan Coil) Equipment Information - applicable to DX or hydronic heating or cooling, coils and fan coil units</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only if one or more systems in section D has  D04_ResidentialHeatingSystemType
- Or D05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC), DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativelyCooledCondenser, GasAbsorptionAC, CombinedHydronicForcedAir, HydronicForcedAir, HydronicHP_ForcedAir, IceStorageAC, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, DuctedMiniSplitAC, DuctedMiniSplitHP, AirToWaterHeatPump, GroundSourceHeatPump, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless Or VCHP_IndoorUnitDuctedAndDuctless;   For each SC system listed in Section D that meets both of the following 2 criteria: D11_EAA_SpaceConditionSystemStatus== New, D04 or D05 = one of the systems in the above list, require one row of data for each indoor unit specified in the quantity D06_IndoorUnitCount for that system;   ALSO if Section E applies, for each SC system in Section E that meets ALL of the following 3 criteria: D11_EAA_SpaceConditionSystemStatus== Altered And E05_InstallingNewComponents == true, and E10_ResidentialHvacHeatingComponentType or E11_ResidentialHvacCoolingComponentType == FancoilAHU, IndoorCoil Or NonFurnaceAHU,  require a minimum of one row of data for each indoor unit specified in the quantity D06_IndoorUnitCount for that system</xsd:documentation>
+  Or D05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC), DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativelyCooledCondenser, GasAbsorptionAC, CombinedHydronicForcedAir, HydronicForcedAir, HydronicHP_ForcedAir, IceStorageAC, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, DuctedMiniSplitAC, DuctedMiniSplitHP, AirToWaterHeatPump, GroundSourceHeatPump, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless Or VCHP_IndoorUnitDuctedAndDuctless;   For each SC system listed in Section D that meets both of the following 2 criteria: D11_EAA_SpaceConditionSystemStatus== New, D04 or D05 = one of the systems in the above list, require one row of data for each indoor unit specified in the quantity D06_IndoorUnitCount for that system;   ALSO if Section E applies, for each SC system in Section E that meets ALL of the following 3 criteria: D11_EAA_SpaceConditionSystemStatus== Altered And E05_InstallingNewComponents == true, and E10_ResidentialHvacHeatingComponentType or E11_ResidentialHvacCoolingComponentType == FancoilAHU, IndoorCoil Or NonFurnaceAHU,  require a minimum of one row of data for each indoor unit specified in the quantity D06_IndoorUnitCount for that system</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1494,20 +1502,37 @@
                                     <xsd:element name="K04_NewDuctingInstalled" type="comp:NewDuctingInstalled" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Was Any New Ducting Installed?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If E06_Installing40PlusLinearFeetDucts == true result = true; Else user selects from list; Yes (Boolean true), No (Boolean false)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If E06_Installing40PlusLinearFeetDucts == true 
+user selects from list; SupplyAndReturn display term Both Supply and Return, SupplyOnly display term Supply Only, ReturnOnly display term Return Only
+ 
+Else user selects from list; SupplyAndReturn display term Both Supply and Return, NoNewDucts display term No, SupplyOnly display term Supply Only, ReturnOnly display term Return Only
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="K05_DuctRValueLimit" type="hvac:DuctRValueLimit" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Required New Duct R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false  result = N/A stored in NotApplicableMessage; Else If E06_Installing40PlusLinearFeetDucts == false result = R-6; Else If C10_DuctRvalue GT R6 And If A02_ClimateZone in InclusiveRange(1, 10) Or == 12 Or == 13;  Or C10_DuctRvalue GT R8 And A02_ClimateZone == 11, 14, 15 Or 16 result = C10_DuctRvalue;  Else If A02_ClimateZone in InclusiveRange(1, 10) Or == 12 Or == 13 result = R-6; Else If  A02_ClimateZone == 11, 14, 15 Or 16 result = R-8.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts   
+result = N/A stored in NotApplicableMessage; 
+ 
+Else If E06_Installing40PlusLinearFeetDucts == false 
+result = R6; 
+ 
+Else If C10_DuctRvalue GT R6 And If A02_ClimateZone in InclusiveRange(1, 10) Or == 12 Or == 13;  Or C10_DuctRvalue GT R8 And A02_ClimateZone == 11, 14, 15 Or 16 
+result = C10_DuctRvalue;  
+ 
+Else If A02_ClimateZone in InclusiveRange(1, 10) Or == 12 Or == 13 result = R-6; 
+Else If  A02_ClimateZone == 11, 14, 15 Or 16 
+result = R8.
+End if</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Required New Duct R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F04_NewDuctionInstalled == false  result = N/A stored in NotApplicableMessage; Else If B07_Installing40PlusLinearFeetDucts == false result = R-6; Else If A02_ClimateZone in InclusiveRange(1, 10) Or == 12 Or == 13 result = R-6; Else If  A02_ClimateZone == 11, 14, 15 Or 16 result = R-8.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts   
+result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1515,13 +1540,20 @@
                                        <xsd:element name="K06_SupplyDuctLocation" type="hvac:SupplyDuctLocation" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Supply Duct Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false  result = N/A stored in NotApplicableMessage; Else user selects from list: ConditionedSpace display term Conditioned space-entirely, UnconditionedAttic display term Unconditioned attic, UnconditionedCrawlSpace display term Unconditioned crawl space, ControlledVentilationCrawlSpace display term Controlled ventilation crawl space, UnconditionedGarage display term Unconditioned garage, UnconditionedBasement display term Unconditioned basement, Outdoors display term Outdoors</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or ReturnOnly 
+ result = NotApplicable stored in NotApplicableMessage; 
+ 
+Else If K04_NewDuctingInstalled ==  SupplyAndReturn Or SupplyOnly 
+user selects from list: ConditionedSpace display term Conditioned space-entirely, UnconditionedAttic display term Unconditioned attic, UnconditionedCrawlSpace display term Unconditioned crawl space, ControlledVentilationCrawlSpace display term Controlled ventilation crawl space, UnconditionedGarage display term Unconditioned garage, UnconditionedBasement display term Unconditioned basement, Outdoors display term Outdoors
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Supply Duct Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false  result = N/A stored in NotApplicableMessage; Else user selects from list: ConditionedSpace display term Conditioned space-entirely, UnconditionedAttic display term Unconditioned attic, UnconditionedCrawlSpace display term Unconditioned crawl space, ControlledVentilationCrawlSpace display term Controlled ventilation crawl space, UnconditionedGarage display term Unconditioned garage, UnconditionedBasement display term Unconditioned basement, Outdoors display term Outdoors</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or ReturnOnly 
+ result = NotApplicable stored in NotApplicableMessage; 
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1529,7 +1561,21 @@
                                        <xsd:element name="K07_DuctRValue" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Supply Duct R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false result = N/A stored in NotApplicableMessage; Else User picks from list: R4.2, R-6, R-8, R-10 and R-12.  Check value for compliance:  If result  GTE R4.2 And K10_DuctMinimumRValueExceptions == RValueGTE4_2EntirelyInConditioned result complies; Else If result  GTE K05_DuctRvalueLimit result complies; Else flag result as non-compliance value and report in project status notes field; a revised CF1R or revised installation may be required.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or ReturnOnly 
+result = NotApplicable stored in NotApplicableMessage; 
+ 
+Else If K04_NewDuctingInstalled ==  SupplyAndReturn Or SupplyOnly 
+ User picks from list: R4.2, R6 display term R-6, R8 display term R-8, R10 display term R-10 and R12 display term R-12  
+End If
+ 
+Check value for compliance:  
+If result  GTE R4.2 And K10_DuctMinimumRValueExceptions == RValueGTE4_2EntirelyInConditioned 
+result complies; 
+ 
+Else If result  GTE K05_DuctRvalueLimit 
+result complies; 
+Else flag result as non-compliance value and report in project status notes field; a revised CF1R or revised installation may be required.
+End if</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:DuctRValue">
@@ -1544,7 +1590,9 @@
                                        <xsd:element name="K07_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Supply Duct R-value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false result = N/A stored in NotApplicableMessage; Else User picks from list: R4.2, R-6, R-8, R-10 and R-12.  Check value for compliance:  If result  GTE R4.2 And K10_DuctMinimumRValueExceptions == RValueGTE4_2EntirelyInConditioned result complies; Else If result  GTE K05_DuctRvalueLimit result complies; Else flag result as non-compliance value and report in project status notes field; a revised CF1R or revised installation may be required.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or ReturnOnly 
+result = NotApplicable stored in NotApplicableMessage; 
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1552,13 +1600,20 @@
                                        <xsd:element name="K08_ReturnDuctLocation" type="hvac:ReturnDuctLocation" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Return Duct Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false  result = N/A stored in NotApplicableMessage; Else user selects from list: ConditionedSpace display term Conditioned space-entirely, UnconditionedAttic display term Unconditioned attic, UnconditionedCrawlSpace display term Unconditioned crawl space, ControlledVentilationCrawlSpace display term Controlled ventilation crawl space, UnconditionedGarage display term Unconditioned garage, UnconditionedBasement display term Unconditioned basement, Outdoors display term Outdoors</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or SupplyOnly  
+result = NotApplicable stored in NotApplicableMessage; 
+ 
+Else If K04_NewDuctingInstalled ==  SupplyAndReturn Or  ReturnOnly
+user selects from list: ConditionedSpace display term Conditioned space-entirely, UnconditionedAttic display term Unconditioned attic, UnconditionedCrawlSpace display term Unconditioned crawl space, ControlledVentilationCrawlSpace display term Controlled ventilation crawl space, UnconditionedGarage display term Unconditioned garage, UnconditionedBasement display term Unconditioned basement, Outdoors display term Outdoors
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K08_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Return Duct Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false  result = N/A stored in NotApplicableMessage; Else user selects from list: ConditionedSpace display term Conditioned space-entirely, UnconditionedAttic display term Unconditioned attic, UnconditionedCrawlSpace display term Unconditioned crawl space, ControlledVentilationCrawlSpace display term Controlled ventilation crawl space, UnconditionedGarage display term Unconditioned garage, UnconditionedBasement display term Unconditioned basement, Outdoors display term Outdoors</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or SupplyOnly  
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1566,7 +1621,21 @@
                                        <xsd:element name="K09_DuctRValue" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Return Duct R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled  == false result = N/A stored in NotApplicableMessage; Else User picks from list: R4.2, R-6, R-8, R-10 and R-12.  Check value for compliance:  If result  GTE R4.2 And K10_DuctMinimumRValueExceptions == RValueGTE4_2EntirelyInConditioned result complies; Else If result  GTE K05_DuctRvaluelimit result complies; Else flag  non-compliant values and do not allow registration to proceed if not in compliance..</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or SupplyOnly  
+result = NotApplicable stored in NotApplicableMessage; 
+ 
+Else If K04_NewDuctingInstalled ==  SupplyAndReturn Or  ReturnOnly
+User picks from list: R4.2, R6 display term R-6, R8 display term R-8, R10 display term R-10 and R12 display term R-12
+End If  
+ 
+Check value for compliance:  
+If result  GTE R4.2 And K10_DuctMinimumRValueExceptions == RValueGTE4_2EntirelyInConditioned 
+result complies; 
+ 
+Else If result  GTE K05_DuctRvaluelimit 
+result complies; 
+Else flag  non-compliant values and do not allow registration to proceed if not in compliance..
+End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:DuctRValue">
@@ -1581,7 +1650,9 @@
                                        <xsd:element name="K09_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Installed New Return Duct R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled  == false result = N/A stored in NotApplicableMessage; Else User picks from list: R4.2, R-6, R-8, R-10 and R-12.  Check value for compliance:  If result  GTE R4.2 And K10_DuctMinimumRValueExceptions == RValueGTE4_2EntirelyInConditioned result complies; Else If result  GTE K05_DuctRvaluelimit result complies; Flag  non-compliant values and do not allow registration to proceed if not in compliance..</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled ==  NoNewDucts Or SupplyOnly  
+result = NotApplicable stored in NotApplicableMessage; 
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1589,20 +1660,39 @@
                                        <xsd:element name="K10_DuctMinimumRValueExceptions" type="comp:DuctMinimumRValueExceptions"  maxOccurs="unbounded">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exception from Min R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false result = N/A stored in NotApplicableMessage; Else default result = NoException.  Allow user to override default and select one or both of the following: UninsulatedInWallCavities display term Uninsulated Ducts In Wall Cavities, UninsulatedInDirectConditioning display term Uninsulated Ducts In directly conditioned space. ALSO If K06_SupplyDuctLocation And K08_ReturnDuctLocation == ConditionedSpace allow user to select  RValueGTE4_2EntirelyInConditioned display term Ducts greater than or equal to R4.2 Entirely in Conditioned Space</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled == NoNewDucts 
+result = N/A stored in NotApplicableMessage; 
+ 
+Else default result = NoException.  
+End If
+ 
+Allow user to override default and select one or both of the following: UninsulatedInWallCavities display term Uninsulated Ducts In Wall Cavities, UninsulatedInDirectConditioning display term Uninsulated Ducts In directly conditioned space. 
+ 
+ALSO If K06_SupplyDuctLocation And K08_ReturnDuctLocation == ConditionedSpace allow user to select  RValueGTE4_2EntirelyInConditioned display term Ducts greater than or equal to R4.2 Entirely in Conditioned Space</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K10_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exception from Min R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctionInstalled == false result = N/A stored in NotApplicableMessage; Else default result = NoException.  Allow user to override default and select one or both of the following: UninsulatedInWallCavities display term Uninsulated Ducts In Wall Cavities, UninsulatedInDirectConditioning display term Uninsulated Ducts In directly conditioned space. ALSO If K06_SupplyDuctLocation And K08_ReturnDuctLocation == ConditionedSpace allow user to select  RValueGTE4_2EntirelyInConditioned display term Ducts greater than or equal to R4.2 Entirely in Conditioned Space</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K04_NewDuctingInstalled == NoNewDucts 
+result = N/A stored in NotApplicableMessage; 
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:element name="K11_CanRA3_3AirflowProtocolsTestSystem" type="comp:CanRA3_3AirflowProtocolsTestSystem" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Can Approved Airflow Protocols be used to test this System?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP result = true; Else user selects from list: Yes (Boolean true value), No (Boolean false value).  Compliance check: If result == false then report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
+result = false display term No;
+ 
+Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP
+result = true display term Yes; 
+ 
+Else user selects from list: Yes (Boolean true value), No (Boolean false value).  
+End If
+ 
+Compliance check: If result == false then report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -1761,13 +1851,33 @@
                                     <xsd:element name="L13_CanRA3_3AirflowProtocolsTestSystem" type="comp:CanRA3_3AirflowProtocolsTestSystem" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Can Approved Airflow Protocols be used to test this System?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP result = true; Else user selects from list: Yes (Boolean true value), No (Boolean false value).  Compliance check: If result == false then report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum SEER or EER cannot not be claimed for performance compliance credit if the system cannot comply with the required HERS verification; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
+result = false display term No;
+ 
+Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP
+result = true; display term Yes;
+ 
+Else user selects from list: Yes (Boolean true value), No (Boolean false value). 
+End if
+ 
+ Compliance check: If result == false then report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum SEER or EER cannot not be claimed for performance compliance credit if the system cannot comply with the required HERS verification; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="L14_CanFanEfficacyProtocolsTestSystem" type="comp:CanFanEfficacyProtocolsTestSystem" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Can Approved Fan Efficacy Protocol be used to test this System?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If  D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, Or VCHP_IndoorUnitDuctedAndDuctless    then  result = ExemptSystem, display term Exempt System Type  Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP result = CanTest ; Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless result = CanNotTest; Else  user selects from list: CanTest display term Yes, CanNotTest display term No.  Compliance check: If result == CanNotTest  then report in project status notes field that exemption from mandatory HERS verification of system fan efficacy has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum SEER or EER cannot not be claimed for performance compliance credit if the system cannot comply with the required HERS verification; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If  D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, Or VCHP_IndoorUnitDuctedAndDuctless    then  result = ExemptSystem, display term Exempt System Type  
+ 
+Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
+result = CanNotTest display term No;
+ 
+Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP 
+result = CanTest display term Yes ; 
+ 
+Else  user selects from list: CanTest display term Yes, CanNotTest display term No. 
+End If 
+ 
+Compliance check: If result == CanNotTest  then report in project status notes field that exemption from mandatory HERS verification of system fan efficacy has been claimed.  Enforcement agency confirmation is recommended.   Also report in project status notes field that better than minimum SEER or EER cannot not be claimed for performance compliance credit if the system cannot comply with the required HERS verification; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -2024,7 +2134,7 @@
                                     <xsd:element name="O07_AHU_FanEfficacyVerificationRequired" type="comp:AHU_FanEfficacyVerificationRequired" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-22 [d:line2/]AHU Fan Efficacy (W/cfm)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If L14_CanFanEfficacyProtocolsTestSystem == false result = false; else if L11_DuctFilterGrilleSizingComplianceMethod == HERS_FanEfficacyAirflowRate then result = true; else if F04_DoesUnitProvideCFI_IAQ  Or H06_DoesUnitProvideCFI_IAQ     == true result = true;  else result = false.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If L14_CanFanEfficacyProtocolsTestSystem == ExemptSystem result = false; else if L11_DuctFilterGrilleSizingComplianceMethod == HERS_FanEfficacyAirflowRate then result = true; else if F04_DoesUnitProvideCFI_IAQ  Or H06_DoesUnitProvideCFI_IAQ == true result = true;  else result = false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O08_AHU_AirflowRateVerificationRequired" type="comp:AHU_AirflowRateVerificationRequired" >
@@ -2099,7 +2209,7 @@
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-25 [d:line3/]Refrigerant Charge</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated Field: If B11_EAA_SpaceConditionSystemStatus == New Or ExistingAlteration And If the CF1R reports that  HERS verification of Refrigerant Charge is required then result = true; Else If CF1R reports that  HERS verification of Refrigerant Charge is not required then result = false; Else If section E applies and the following conditions are true: D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And E04_ IncludesComponentWithRefrigerant == true
- result = true;  Else result = false. Display Yes and No to represent Boolean values true and false.</xsd:documentation>
+  result = true;  Else result = false. Display Yes and No to represent Boolean values true and false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="P04_SEER_EER_VerificationRequired" type="comp:SEER_EER_VerificationRequired" >

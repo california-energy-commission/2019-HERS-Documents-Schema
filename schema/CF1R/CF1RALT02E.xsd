@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
       </xsd:complexType>
    </xsd:element>
@@ -195,7 +195,7 @@
                                     </xsd:element>
                                     <xsd:element name="B09_AllNewOrReplacedHvacSystem" type="comp:AllNewOrReplacedHvacSystem" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Installing entirely new ducted SC system?</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Installing entirely new SC system?</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Display Yes and No to represent Boolean values True and False</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -293,20 +293,12 @@
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from B02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="D03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHeatingSystemType: N/A (for no heating) stored in the NotApplicableMessage if there is no heating; otherwise one of these values is entered: BoilerSystem,  CentralGasFurnace   CentralLargePackagedHP,  CentralPackagedHP, CentralSplitHP,  CombinedHydronic, CombinedHydronicForcedAir,  DuctlessHP,  Electric, GasPackagedFurnace, GasSpaceHeater,  GasWallFurnace, Hydronic, HydronicForcedAir, HydronicHP, HydronicHP_ForcedAir, RoomHP, Wood Heat</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="D03_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHeatingSystemType: N/A (for no heating) stored in the NotApplicableMessage if there is no heating; otherwise one of these values is entered: BoilerSystem,  CentralGasFurnace   CentralLargePackagedHP,  CentralPackagedHP, CentralSplitHP,  CombinedHydronic, CombinedHydronicForcedAir,  DuctlessHP,  Electric, GasPackagedFurnace, GasSpaceHeater,  GasWallFurnace, Hydronic, HydronicForcedAir, HydronicHP, HydronicHP_ForcedAir, RoomHP, Wood Heat</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="D03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP,  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, DuctedMiniSplitHP and NoHeating.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Components</xsd:documentation>
@@ -365,7 +357,8 @@
                                     <xsd:element name="D07_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessAC, DuctlessHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect , EvaporativelyCooledCondenser, GasAbsorptionAC, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  list: 
+CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless. DuctedMiniSplitAC, DuctedMiniSplitHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
@@ -494,20 +487,12 @@
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from B02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="E03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D03</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="E03_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D03</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="E03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP)  RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, NoHeating</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
@@ -521,7 +506,7 @@
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E04_ResidentialHvacHeatiingComponentType 
-== NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else choices are AFUE, COP, HSPF.</xsd:documentation>
+ == NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else choices are AFUE, COP, HSPF.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
@@ -535,7 +520,7 @@
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Type</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If E04_ResidentialHvacHeatiingComponentType 
-== NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else choices are AFUE, COP, HSPF.</xsd:documentation>
+ == NoHeatingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else choices are AFUE, COP, HSPF.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -568,7 +553,8 @@
                                     <xsd:element name="E07_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D07</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  list: 
+CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP,</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
@@ -675,24 +661,16 @@
                                           <xsd:documentation source="CalculationsAndRules">Auto-filled from B02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="F03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D03</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="F03_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D03</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
+                                    <xsd:element name="F03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP),  RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, NoHeating</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:element name="F04_ResidentialHvacHeatingComponentType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Heating Component</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If F03 == N/A, then result is NoHeatingComponentsAltered, Else the result =  AllNewHeatingComponents</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If F03 == NoHeating, then result is NoHeatingComponentsAltered, Else the result =  AllNewHeatingComponents</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ResidentialHvacHeatingComponentType">
@@ -751,14 +729,15 @@
                                     <xsd:element name="F07_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices same as those listed in D07</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  list: 
+CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="F08_ResidentialHvacCoolingComponentType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Altered Cooling Component</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Calculated field: If ResidentialCoolingSystemType == NoCooling then result = NoCoolingComponentsAltered Else 
-result =  AllNewCoolingComponents,</xsd:documentation>
+ result =  AllNewCoolingComponents,</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ResidentialHvacCoolingComponentType">
