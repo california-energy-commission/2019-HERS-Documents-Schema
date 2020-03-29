@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RNCB01E" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF1RNCB01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF1RNCB01E" version="2019.1.003" xmlns="http://www.lmonte.com/besm/CF1RNCB01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -1383,7 +1383,7 @@
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If J18_TotalGlazingAreaWest LTE J19_GlazingAreaLimitWest or J19_NotApplicableMessage
- == N/A, result = true display term Design complies with the Total Allowed West-facing  Fenestration Area.  Else result = false display term Total Proposed West-facing Fenestration Area Exceeds Allowable.  Do Not Proceed.</xsd:documentation>
+  == N/A, result = true display term Design complies with the Total Allowed West-facing  Fenestration Area.  Else result = false display term Total Proposed West-facing Fenestration Area Exceeds Allowable.  Do Not Proceed.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -1505,14 +1505,14 @@
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field: If J30_NotApplicableMessage ==  N/A result = N/A stored in the NotApplicableMessage, Else If J30_ProposedAllSkylightFenestrationSHGC LTE J31_SHGC_LimitSkylight. 
- result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
+  result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="J32_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
                            <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">Calculated field: If J30_NotApplicableMessage ==  N/A result = N/A stored in the NotApplicableMessage, Else If J30_ProposedAllSkylightFenestrationSHGC LTE J31_SHGC_LimitSkylight. 
- result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
+  result = true display term Design complies with the Maximum Allowed Fenestration SHGC.  Else result = false display term  Fenestration SHGC Exceeds Allowable. Do Not Proceed.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
@@ -1902,7 +1902,7 @@
                                     </xsd:element>
                                     <xsd:element name="M09_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Number of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="FieldText"># of Water Heaters/ Compressors in System</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -2093,7 +2093,97 @@
                                        </xsd:annotation>
                                        <xsd:element name="N05_ResidentialSpaceConditioningSystemName" type="hvac:ResidentialSpaceConditioningSystemName"/>
                                     </xsd:sequence>
-                                    <xsd:element name="N06_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="N06_StorageCapacity" type="hvac:StorageCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption == OptionC1HPwithSolarThermal Or OptionC2HPwithP
+result = 80 * M09_WaterHeaterTotalSystemCount;
+Else 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="N06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption == OptionC1HPwithSolarThermal Or OptionC2HPwithP
+result = 80 * M09_WaterHeaterTotalSystemCount;
+Else 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="N07_LoopTankCapacity" type="hvac:LoopTankCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption == OptionC1HPwithSolarThermal Or OptionC2HPwithP Then
+If A06_DwellingUnitCount LTE 7
+result = 40;
+Else If A06_DwellingUnitCount GTE 8 And LTE 11
+result = 80;
+Else If A06_DwellingUnitCount GTE 12 And LTE 23
+result = 96;
+Else If A06_DwellingUnitCount GTE 24 And LTE 47
+result = 168;
+Else If A06_DwellingUnitCount GTE 48 And LTE 95
+result = 288;
+Else If A06_DwellingUnitCount GTE 96 
+result = 480;
+End If
+Else
+result = NotApplicableMessage stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="N07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption == OptionC1HPwithSolarThermal Or OptionC2HPwithP Then
+If A06_DwellingUnitCount LTE 7
+result = 40;
+Else If A06_DwellingUnitCount GTE 8 And LTE 11
+result = 80;
+Else If A06_DwellingUnitCount GTE 12 And LTE 23
+result = 96;
+Else If A06_DwellingUnitCount GTE 24 And LTE 47
+result = 168;
+Else If A06_DwellingUnitCount GTE 48 And LTE 95
+result = 288;
+Else If A06_DwellingUnitCount GTE 96 
+result = 480;
+End If
+Else
+result = NotApplicableMessage stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="N08_LoopTankHeaterType" type="hvac:LoopTankHeaterType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption == OptionC1HPwithSolarThermal Or OptionC2HPwithP
+result = ElectricResistance
+Else
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="N08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If M03_WaterHeatingSystemOption == OptionC1HPwithSolarThermal Or OptionC2HPwithP
+result = ElectricResistance
+Else
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="N09_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments" minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input: Text</xsd:documentation>
@@ -2326,7 +2416,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191221"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RNCB01E"/>
       </xsd:complexType>
    </xsd:element>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB02aE" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RPLB02aE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB02aE" version="2019.1.003" xmlns="http://www.lmonte.com/besm/CF2RPLB02aE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -15,7 +15,7 @@
          <xsd:element name="Section_A" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design Dwelling Unit Water Heating Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each Dwelling Unit DHW System name identified on the CF1R report that has one of the following values for its ResidentialDHWDwellingUnitDistributionType:  StandardDistribution,    StandardDistributionCentralParallelPiping, DemandRecirculationManualControl , DemandRecirculationSensorControls, RecirculationNonDemand</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each non-HERS water heater identified on the CF1R</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -44,7 +44,7 @@
                                     <xsd:element name="A02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R (see header for rules)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="A03_ResidentialWaterHeatingSystemType">
@@ -120,18 +120,61 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="A09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R == CF1R-PRF, allowed CF1R-PRF values are: StandardDistribution display term: Standard Distribution System; PointOfUse display term: Point Of Use, StandardDistributionCentralParallelPiping display term: Parallel Piping;  RecirculationNonDemand display term:  Recirculation System Non-Demand Control; DemandRecirculationManualControl display term: Demand Recirculation Manual Control;  DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  Else If parent CF1R == prescriptive allowed values are: StandardDistribution display term: Standard Distribution System; DemandRecirculationManualControl display term: Demand Recirculation Manual Control, DemandRecirculation display term Demand Recirculation;</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="A10_CompactDistributionType" type="hvac:CompactDistributionType">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R  Allowed values are BasicType display term Basic, NotCompact display term None</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="A09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R as follows: If parent CF1R == performance (CF1R-PRF) values are: 
+StandardDistribution display term: Standard Distribution System; 
+PointOfUse display term: Point Of Use, 
+StandardDistributionCentralParallelPiping display term: Parallel Piping; 
+ RecirculationNonDemand display term:  Recirculation System Non-Demand Control; 
+DemandRecirculationManualControl display term: Demand Recirculation Manual Control; 
+ DemandRecirculationSensorControls display term: Demand Recirculation Sensor Control;  
+ 
+Else If parent CF1R == prescriptive Then
+If parent CF1R is CF1R-ALT
+result = NotApplicable stored in NotApplicableMessage
+ 
+Else allowed values are: 
+StandardDistribution display term: Standard Distribution System; 
+DemandRecirculationManualControl display term: Demand Recirculation Manual Control, 
+DemandRecirculation display term Demand Recirculation;
+End if
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R is prescriptive CF1R-ALT
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="A10_CompactDistributionType" type="hvac:CompactDistributionType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R as folows:
+If parent CF1R is prescriptive CF1R-ALT
+result = NotApplicable stored in NotApplicableMessage
+Else allowed values are 
+BasicType display term Basic, 
+NotCompact display term None
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="A10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R is prescriptive CF1R-ALT
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -144,7 +187,7 @@
          <xsd:element name="Section_B" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Dwelling Unit Water Heating Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each Dwelling Unit DHW System name identified on the CF1R report that has one of the following values for its ResidentialDHWDwellingUnitDistributionType:  StandardDistribution,    StandardDistributionCentralParallelPiping, DemandRecirculationManualControl , DemandRecirculationSensorControls, RecirculationNonDemand</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each non-HERS water heater identified on the CF1R</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -249,18 +292,34 @@
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from A09</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:element name="B10_CompactDistributionType" type="hvac:CompactDistributionType">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from A10</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B09_ResidentialDHWDwellingUnitDistributionType" type="hvac:ResidentialDHWDwellingUnitDistributionType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A09</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Dwelling Unit DHW System Distribution Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A09 which may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B10_CompactDistributionType" type="hvac:CompactDistributionType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A10</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Compact Distrib.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from A10 which may be N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1026,7 +1085,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB02aE"/>
       </xsd:complexType>
    </xsd:element>

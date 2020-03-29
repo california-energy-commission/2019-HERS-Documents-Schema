@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB01bE" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF2RPLB01bE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB01bE" version="2019.1.003" xmlns="http://www.lmonte.com/besm/CF2RPLB01bE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -31,7 +31,7 @@
          <xsd:element name="Section_B" minOccurs="1" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design Central Water Heater System Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -57,26 +57,71 @@
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B02_HeatPumpWaterHeaterModel" type="hvac:HeatPumpWaterHeaterModel">
+                                    <xsd:element name="B02_HeatPumpWaterHeaterBrand" type="hvac:HeatPumpWaterHeaterBrand">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Modeled Equipment Make and Model</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF-01 Else user input.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance CF1R reference value from CF1R-PRF-01 
+ 
+Else If prescriptive default value = Sanden
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Number of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Number of Water Heaters/ Compressors</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B04_TankLocation" type="hvac:TankLocation">
+                                       <xsd:element name="B04_StorageCapacity" type="hvac:StorageCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R; Allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B05_LoopTankCapacity" type="hvac:LoopTankCapacity">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R; Allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B06_LoopTankHeaterType" type="hvac:LoopTankHeaterType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R; Allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_TankLocation" type="hvac:TankLocation">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
@@ -84,24 +129,18 @@
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B05_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                       <xsd:element name="B08_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                       <xsd:element name="B08_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B06_HeatPumpWaterHeaterSimulationGroup" type="hvac:HeatPumpWaterHeaterSimulationGroup" minOccurs="0">
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Simulated Equipment Make and Model</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If prescriptive, this field is not required; Else If performance, reference values from XML   This field IS NOT part of the printed report and is not displayed to the user.  It is used for equivalency lookup if user overrides default value in section C</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -114,7 +153,7 @@
          <xsd:element name="Section_C" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Central Water Heater System Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R-PRF</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">Require one row of data for each water heater identified on the CF1R</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -140,269 +179,93 @@
                                           <xsd:documentation source="CalculationsAndRules">Reference value from B01</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C02PerfPrescChoice">
+                                    <xsd:element name="C02_HeatPumpWaterHeaterBrand" type="hvac:HeatPumpWaterHeaterBrand">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText"/>
+                                          <xsd:documentation source="FieldText">Modeled Equipment Make and Model</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B02</xsd:documentation>
                                        </xsd:annotation>
-                                       <xsd:complexType>
-                                          <xsd:choice>
-                                             <xsd:element name="C02Perf">
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText"/>
-                                                   <xsd:documentation source="CalculationsAndRules">If performance,  reference value from B02_HeatPumpWaterHeaterModel as default which is in the simulation group defined in B06_HeatPumpWaterHeaterSimulationGroup, and allow user to override with an equivalent system from that group</xsd:documentation>
-                                                </xsd:annotation>
-                                                <xsd:complexType>
-                                                   <xsd:sequence>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="C02_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If performance reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06
-_HeatPumpWaterHeaterSimulationGroup == AOSmithHPTU50,  list = AOSmithHPTU50SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup ==  AOSmithHPTU66 list = AOSmithHPTU66SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == AOSmithHPTU80 list =  AOSmithHPTU80SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithPHPT60SimulationGroup" type="hvac:AOSmithPHPT60SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup ==  AOSmithPHPT60 list = AOSmithPHPT60SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithPHPT80SimulationGroup" type="hvac:AOSmithPHPT80SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == AOSmithPHPT80 list = AOSmithPHPT80SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithSHPT50SimulationGroup" type="hvac:AOSmithSHPT50SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == AOSmithSHPT50 list = AOSmithSHPT50SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithSHPT80SimulationGroup" type="hvac:AOSmithSHPT80SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == AOSmithSHPT80 list = AOSmithSHPT80SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == GE201450 list = GE201450SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == GE201480 list = GE201480SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHB50SimulationGroup" type="hvac:RheemHB50SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows:  If B06_HeatPumpWaterHeaterSimulationGroup == RheemHB50 list = RheemHB50SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows:  If B06_HeatPumpWaterHeaterSimulationGroup == RheemHBDR2250 list = RheemHBDR2250SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows:  If B06_HeatPumpWaterHeaterSimulationGroup == RheemHBDR2265 list = RheemHBDR2265SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows:  If B06_HeatPumpWaterHeaterSimulationGroup == RheemHBDR2280 list = RheemHBDR2280SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == RheemHBDR4550 list = RheemHBDR4550SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == RheemHBDR4565 list = RheemHBDR4565SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == RheemHBDR4580 list = RheemHBDR4580SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows:  If B06_HeatPumpWaterHeaterSimulationGroup == Sanden40 list = Sanden40SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == Sanden80 list = Sanden80SimulationGroup values;</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_Stiebel220ESimulationGroup" type="hvac:Stiebel220ESimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">Reference value from B02_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in B06 as follows: If B06_HeatPumpWaterHeaterSimulationGroup == Stiebel220E list = Stiebel220ESimulationGroup values.</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                      </xsd:choice>
-                                                   </xsd:sequence>
-                                                </xsd:complexType>
-                                             </xsd:element>
-                                             <xsd:element name="C02PrescTier3">
-                                                <xsd:annotation>
-                                                   <xsd:documentation source="FieldText"/>
-                                                   <xsd:documentation source="CalculationsAndRules">If prescriptive, user can select  a heat pump water heater from  the entire list of Tier 3 heat pump water heaters OR from a group of  Tier 3 water heaters that are all very similar and in the same simulation group.</xsd:documentation>
-                                                </xsd:annotation>
-                                                <xsd:complexType>
-                                                   <xsd:sequence>
-                                                      <xsd:choice maxOccurs="1">
-                                                         <xsd:element name="C02_HeatPumpWaterHeatersTier3NEEA" type="hvac:HeatPumpWaterHeatersTier3NEEA">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  from all Tier 3 heat pump water heaters in this list</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithHPTU50SimulationGroup" type="hvac:AOSmithHPTU50SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: AOSmithHPTU50SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithHPTU66SimulationGroup" type="hvac:AOSmithHPTU66SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: AOSmithHPTU66SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_AOSmithHPTU80SimulationGroup" type="hvac:AOSmithHPTU80SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  AOSmithHPTU80SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: Sanden40SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_Sanden80SimulationGroup" type="hvac:Sanden80SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: Sanden80SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_GE201450SimulationGroup" type="hvac:GE201450SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: GE201450SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_GE201480SimulationGroup" type="hvac:GE201480SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: GE201480SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR4550SimulationGroup" type="hvac:RheemHBDR4550SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR4550SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR4565SimulationGroup" type="hvac:RheemHBDR4565SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: RheemHBDR4565SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR4580SimulationGroup" type="hvac:RheemHBDR4580SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group: RheemHBDR4580SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR2250SimulationGroup" type="hvac:RheemHBDR2250SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR2250SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR2265SimulationGroup" type="hvac:RheemHBDR2265SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR2265SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                         <xsd:element name="C02_RheemHBDR2280SimulationGroup" type="hvac:RheemHBDR2280SimulationGroup">
-                                                            <xsd:annotation>
-                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
-                                                               <xsd:documentation source="CalculationsAndRules">If prescriptive user can select  a heat pump water heater from this Tier 3 group:  RheemHBDR2280SimulationGroup</xsd:documentation>
-                                                            </xsd:annotation>
-                                                         </xsd:element>
-                                                      </xsd:choice>
-                                                   </xsd:sequence>
-                                                </xsd:complexType>
-                                             </xsd:element>
-                                          </xsd:choice>
-                                       </xsd:complexType>
                                     </xsd:element>
                                     <xsd:element name="C03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Number of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="FieldText">Number of Water Heaters/ Compressors</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input;  Check that result == B03 value</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C04_TankLocation" type="hvac:TankLocation">
+                                       <xsd:element name="C04_StorageCapacity" type="hvac:StorageCapacity">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from B04_TankLocation; (allow N/A if B04_NotApplicableMessage == N/A)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B04</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from B04_TankLocation; (allow N/A if B04_NotApplicableMessage == N/A)</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B04; Allow NA</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C05_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                       <xsd:element name="C05_LoopTankCapacity" type="hvac:LoopTankCapacity">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result GTE  B05_ExteriorTankInsulation; Else If B05_NotApplicableMessage == N/A result = N/A</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B05</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B05; Allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C06_LoopTankHeaterType" type="hvac:LoopTankHeaterType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B06</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B06; Allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C07_TankLocation" type="hvac:TankLocation">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B07; allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B07; allow NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C08_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
+                                          <xsd:annotation>
                                              <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result GTE B05_ExteriorTankInsulation; Else If B05_NotApplicableMessage == N/A result = N/A</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result GTE  B08_ExteriorTankInsulation; 
+ 
+Else If B08 is NA
+result = N/A
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result GTE  B08_ExteriorTankInsulation; 
+ 
+Else If B08 is NA
+result = N/A
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -829,7 +692,7 @@ _HeatPumpWaterHeaterSimulationGroup == AOSmithHPTU50,  list = AOSmithHPTU50Simul
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB01bE"/>
       </xsd:complexType>
    </xsd:element>
