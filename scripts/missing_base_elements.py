@@ -10,36 +10,36 @@ import sys
 from xml.etree import ElementTree
 
 has_error = False
-schema_files = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
+schema_files = glob.glob('../schema/**[!base]/*.xsd', recursive=True) # exclude base schemas
 namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
 map = dict({
     'dtyp': {
-        'root': ElementTree.parse('../deployed/base/DataTypes.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/DataTypes.xsd').getroot(),
         'path': 'base/DataTypes.xsd'
     },
     'bld': {
-        'root': ElementTree.parse('../deployed/base/ResBuilding.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/ResBuilding.xsd').getroot(),
         'path': 'base/ResBuilding.xsd'
     },
     'com': {
-        'root': ElementTree.parse('../deployed/base/ResCommon.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/ResCommon.xsd').getroot(),
         'path': 'base/ResCommon.xsd'
     },
     'comp': {
-        'root': ElementTree.parse('../deployed/base/ResCompliance.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/ResCompliance.xsd').getroot(),
         'path': 'base/ResCompliance.xsd'
     },
     'env': {
-        'root': ElementTree.parse('../deployed/base/ResEnvelope.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/ResEnvelope.xsd').getroot(),
         'path': 'base/ResEnvelope.xsd'
     },
     'hvac': {
-        'root': ElementTree.parse('../deployed/base/ResHvac.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/ResHvac.xsd').getroot(),
         'path': 'base/ResHvac.xsd'
     },
     'lit': {
-        'root': ElementTree.parse('../deployed/base/ResLighting.xsd').getroot(),
+        'root': ElementTree.parse('../schema/base/ResLighting.xsd').getroot(),
         'path': 'base/ResLighting.xsd'
     },
 })

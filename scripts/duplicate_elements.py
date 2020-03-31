@@ -11,7 +11,7 @@ from xml.etree import ElementTree
 from collections import Counter
 
 has_error = False
-schema_files = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
+schema_files = glob.glob('../schema/**[!base]/*.xsd', recursive=True) # exclude base schemas
 namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
 '''

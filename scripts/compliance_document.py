@@ -10,11 +10,11 @@ import sys
 from xml.etree import ElementTree
 
 has_error = False
-schema_files = glob.glob('../deployed/**[!base]/*.xsd', recursive=True) # exclude base schemas
+schema_files = glob.glob('../schema/**[!base]/*.xsd', recursive=True) # exclude base schemas
 namespace = { 'xsd': 'http://www.w3.org/2001/XMLSchema' }
 dtyp = { 'dtyp': 'http://www.lmonte.com/besm/dtyp' }
 
-base = ElementTree.parse('../deployed/base/ResCompliance.xsd').getroot()
+base = ElementTree.parse('../schema/base/ResCompliance.xsd').getroot()
 tag_dict = {
     'doc': 'ComplianceDocumentTag',
     'docTitle': 'ComplianceDocumentTitleRes',

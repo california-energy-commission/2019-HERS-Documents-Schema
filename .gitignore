@@ -1,6 +1,5 @@
 .idea
-*.xpr
 *.iml
 *.iws
 *.ipr
-venv/
+scripts/go.*

@@ -10,7 +10,7 @@ import sys
 from xml.etree import ElementTree
 
 has_error = False
-schema_files = glob.glob('../deployed/**/*.xsd', recursive=True)
+schema_files = glob.glob('../schema/**/*.xsd', recursive=True)
 namespace = {'xsd': 'http://www.w3.org/2001/XMLSchema'}
 
 for filename in schema_files:

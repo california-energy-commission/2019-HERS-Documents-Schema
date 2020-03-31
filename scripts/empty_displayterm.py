@@ -9,7 +9,7 @@ import sys
 from xml.etree import ElementTree
 
 has_error = False
-schema_files = glob.glob('../deployed/**/*.xsd', recursive=True) # exclude base schemas
+schema_files = glob.glob('../schema/**/*.xsd', recursive=True) # exclude base schemas
 namespace = {'dtyp': 'http://www.lmonte.com/besm/dtyp'}
 
 for filename in schema_files:
