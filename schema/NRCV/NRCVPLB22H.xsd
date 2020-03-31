@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="NRCVPLB22H"/>
       </xsd:complexType>
    </xsd:element>
@@ -849,7 +849,12 @@
                                     <xsd:element name="H10_DWHR_PercentShowerServed" type="comp:DWHR_PercentShowerServed" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Percent of shower served by the DWHR device</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If performance, reference H04; Else If prescriptive user input;  Result is decimal value no units GT 0 LTE 1.00 and  displayed term is percent = result * 100;  Check on displayed term is GT 0 And LT 100</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If performance, reference H04_DWHR_PercentShowerServed; 
+Else If prescriptive user input;  
+End If
+ 
+If result is user input, check that user value is  GT 0 and LTE 1.00 and  displayed term is percent = result * 100;  Check on displayed term is GT 0 And LTE 100
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H11_DWHR_CertifiedByCEC" type="comp:DWHR_CertifiedByCEC" >

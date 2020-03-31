@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01cE"/>
       </xsd:complexType>
    </xsd:element>
@@ -645,7 +645,7 @@
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Cooling System Outdoor Condensing Unit or Package Unit Equipment Information (not heat pumps)</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This Section is applicable only if  one or more systems in section C has  C05_ResidentialCoolingSystemType
- != NoCooling And  != CentralLargePackagedHP, CentralPackagedHP, CentralSplitHP,  DuctlessSplitHP (display term Ductless mini-split HP), DuctedMiniSplitHP, AirToWaterHeatPump, GroundSourceHeatPump, DuctedMultiSplitHP, DuctlessMultiSplitHP,  DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, SmallDuctHighVelocityHP, HydronicHP, HydronicHP_ForcedAir, RoomHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless or VCHP_IndoorUnitDuctedAndDuctless;    Require one row of data in this table for each of the SC Systems listed in Section C where C05_ResidentialCoolingSystemType satisfies both of these conditions</xsd:documentation>
+  != NoCooling And  != CentralLargePackagedHP, CentralPackagedHP, CentralSplitHP,  DuctlessSplitHP (display term Ductless mini-split HP), DuctedMiniSplitHP, AirToWaterHeatPump, GroundSourceHeatPump, DuctedMultiSplitHP, DuctlessMultiSplitHP,  DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, SmallDuctHighVelocityHP, HydronicHP, HydronicHP_ForcedAir, RoomHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless or VCHP_IndoorUnitDuctedAndDuctless;    Require one row of data in this table for each of the SC Systems listed in Section C where C05_ResidentialCoolingSystemType satisfies both of these conditions</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1253,13 +1253,29 @@
                                     <xsd:element name="I11_CanRA3_3AirflowProtocolsTestSystem" type="comp:CanRA3_3AirflowProtocolsTestSystem" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Can Approved Airflow Protocols be used to test this System?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If system type in C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP,   CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC Or CentralLargePackagedHP result = true display term yes  Else user selects from list: Yes (Boolean true display text) or No  (Boolean false display text).  Check: if result == false, report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed. Enforcement agency confirmation is recommended.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If system type in C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
+result = false display term No;
+ 
+Else  If system type in C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP,   CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC Or CentralLargePackagedHP 
+result = true display term Yes  
+ 
+Else user selects from list: Yes (Boolean true display text) or No  (Boolean false display text).  
+End if
+Check: if result == false, report in project status notes field that exemption from mandatory HERS verification of system airflow has been claimed. Enforcement agency confirmation is recommended.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="I12_CanFanEfficacyProtocolsTestSystem" type="comp:CanFanEfficacyProtocolsTestSystem" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Can Approved Fan Efficacy Protocol be used to test this System?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If system type in C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP,   CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC Or CentralLargePackagedHP result = CanTest display term Yes; Else user selects from list: CanTest display term Yes or CanNotTest display term  No.  Check: if result == CanNotTest report in project status notes field that exemption from mandatory HERS verification of Fan  Efficacy has been claimed. Enforcement agency confirmation is recommended.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If system type in C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
+result = CanNotTest display term No;
+ 
+Else If system type in C04_ResidentialHeatingSystemType Or C05_ResidentialCoolingSystemType == CentralSplitAC, CentralSplitHP,   CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC Or CentralLargePackagedHP 
+result = CanTest display term Yes; 
+ 
+Else user selects from list: CanTest display term Yes or CanNotTest display term  No.  
+ 
+Check: if result == CanNotTest report in project status notes field that exemption from mandatory HERS verification of Fan  Efficacy has been claimed. Enforcement agency confirmation is recommended.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="I13_IndoorUnitDucts" type="hvac:IndoorUnitDucts" >

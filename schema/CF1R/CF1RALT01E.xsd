@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT01E"/>
       </xsd:complexType>
    </xsd:element>
@@ -135,7 +135,34 @@
                   <xsd:element name="A13_ProjectScopeAlterations" type="comp:ProjectScopeAlterations"  minOccurs="1" maxOccurs="unbounded">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Project Scope</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from list.  InsulationAlteration display term Insulation (show section B, C, D); RoofAlterationGT50Percent display term Roof Replacement greater than 50 percent (Show section E and possibly B);    HeatingSystemAlteration display text:  Space Heating System (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section I; else display Section K); CoolingSystemAlteration display term Space Cooling System (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section I; else display Section K); DuctSystemAlteration display term Space Conditioning Duct System (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section I; else display Section K); WaterHeatingAlteration display term  Water Heating  (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section J; else display Section J and K);        User may select 2 from the following:  FenestrationGlazingAddition  display term Adding Fenestration/Glazing (Show tables J and G, and if selected do not allow user to also select FenestrationGlazingWindowMinimumFt2Addition ); FenestrationGlazingWindowMinimumFt2Addition  display term Adding Fenestration/Glazing less than or equal to 75 ft2 Windows (Show tables F and G, and if selected do not allow user to also FenestrationGlazingAddition);  FenestrationGlazingSkylightMinimumFt2Addition display term Adding Fenestration/Glazing less than or equal to 16 ft2 Skylight (Show tables F and G).                    User may also select 2 from the following list:  FenestrationGlazingReplacement display term Replacing Fenestration/Glazing (Show tables F and H, and if selected do not allow user to also select FenestrationGlazingWindowMinimumFt2Replacement); FenestrationGlazingWindowMinimumFt2Replacement display term Replacing Fenestration/Glazing less than or equal to  75 ft2 Windows (Show tables F and H, and if selected do not allow user to also select FenestrationGlazingReplacement);  FenestrationGlazingSkylightMinimumFt2Replacement,  display term Replacing Fenestration/Glazing Skylight (Show tables F and H).</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User can select as many as are applicable from this list.  
+InsulationAlteration display term Insulation (show section B, C, D); 
+ 
+RoofAlterationGT50Percent display term Roof Replacement greater than 50 percent (Show section E and possibly B);    
+ 
+KitchenHoodNewReplace display term Kitchen Range Hood Installation (new or reploacement);
+ 
+HeatingSystemAlteration display text:  Space Heating System (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section I; Else display Section K End If); 
+ 
+CoolingSystemAlteration display term Space Cooling System (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section I; Else display Section K End If); 
+ 
+DuctSystemAlteration display term Space Conditioning Duct System (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section I; Else display Section K  End If); 
+ 
+WaterHeatingAlteration display term  Water Heating  (If A11_ResidentialLowriseBuildingType == SingleFamily then display Section J; Else display Section J and K  End if);       
+ 
+User may select 2 from the following:  
+FenestrationGlazingAddition  display term Adding Fenestration/Glazing (Show tables J and G;  If selected do not allow user to also select FenestrationGlazingWindowMinimumFt2Addition End if ); 
+ 
+FenestrationGlazingWindowMinimumFt2Addition  display term Adding Fenestration/Glazing less than or equal to 75 ft2 Windows (Show tables F and G; If selected do not allow user to also FenestrationGlazingAddition End If);  
+ 
+FenestrationGlazingSkylightMinimumFt2Addition display term Adding Fenestration/Glazing less than or equal to 16 ft2 Skylight (Show tables F and G).                    
+ 
+User may also select 2 from the following list:  
+FenestrationGlazingReplacement display term Replacing Fenestration/Glazing (Show tables F and H; If selected do not allow user to also select FenestrationGlazingWindowMinimumFt2Replacement End If); 
+ 
+FenestrationGlazingWindowMinimumFt2Replacement display term Replacing Fenestration/Glazing less than or equal to  75 ft2 Windows (Show tables F and H; If selected do not allow user to also select FenestrationGlazingReplacement  End If);  
+ 
+FenestrationGlazingSkylightMinimumFt2Replacement,  display term Replacing Fenestration/Glazing Skylight (Show tables F and H).</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:choice maxOccurs="1">
@@ -152,6 +179,11 @@
                         </xsd:annotation>
                      </xsd:element>
                   </xsd:choice>
+                  <xsd:element name="AEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Note: If *Kitchen Range Hood Installation (new or replacement) is selected in A13, HERS verification and a CF2R/3R-MCH-32 is required.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
@@ -254,12 +286,20 @@
                                           <xsd:documentation source="FieldText">[d:b] Required[/d:b]</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B10_UFactorLimit" type="com:UFactorLimit" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">U-Factor from Table 150.1-A or B</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B10_UFactorLimit" type="com:UFactorLimit" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">U-Factor Or R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_InsulationRValue" type="env:InsulationRValue" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">U-Factor Or R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="B11_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
@@ -285,7 +325,7 @@
             <xsd:annotation>
                <xsd:documentation source="FieldText">Building Insulation Details - Non-Framed</xsd:documentation>
                <xsd:documentation source="CalculationsAndRules">This section is applicable if if the project has at least one opaque non-framed roof or wall
-and A13_ProjectScopeAlterations includes Insulation</xsd:documentation>
+ and A13_ProjectScopeAlterations includes Insulation</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -379,12 +419,20 @@ and A13_ProjectScopeAlterations includes Insulation</xsd:documentation>
                                           <xsd:documentation source="FieldText">Required</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C10_UFactorLimit" type="com:UFactorLimit" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">U-Factor from Table 150.1-A or B</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C10_UFactorLimit" type="com:UFactorLimit" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">U-Factor Or R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_InsulationRValue" type="env:InsulationRValue" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">U-Factor Or R-value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input: DecimalNonnegative</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="C11_ComplianceDocumentTableComments" type="comp:ComplianceDocumentTableComments"  minOccurs="0">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Comments</xsd:documentation>
@@ -892,14 +940,14 @@ and A13_ProjectScopeAlterations includes Insulation</xsd:documentation>
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else if  F01_ProjectScopeAlteration contains 
-FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result is 0.23,</xsd:documentation>
+ FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result is 0.23,</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F06a_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Maximum Allowed SHGC (Windows)</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == 1,3, 5 Or 16 result = N/A stored in the NotApplicableMessage;  Else if  F01_ProjectScopeAlteration contains 
-FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result is 0.23,</xsd:documentation>
+ FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result is 0.23,</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1782,6 +1830,12 @@ FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result 
                         <xsd:documentation source="AdditionalRequirements">List water heaters and boilers for both domestic hot water (DHW) heaters and hydronic space heating.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="J01_WaterHeaterHasNaturalGas" type="hvac:WaterHeaterHasNaturalGas" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Is natural gas connected to the existing water heater?</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User selects from Yes (result = true) or No (result = false)</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="TableWaterHeating" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"></xsd:documentation>
@@ -1791,153 +1845,92 @@ FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result 
                            <xsd:element name="Row" minOccurs="1" maxOccurs="unbounded">
                               <xsd:complexType>
                                  <xsd:sequence>
-                                    <xsd:element name="J01_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
+                                    <xsd:element name="J02_WaterHeatingSystemName" type="hvac:WaterHeatingSystemName" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating System ID or Name</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input text</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J02_ResidentialWaterHeatingSystemType" type="hvac:ResidentialWaterHeatingSystemType" >
+                                    <xsd:element name="J03_ResidentialWaterHeatingSystemType" type="hvac:ResidentialWaterHeatingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heating System Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: DHW,  Hydronic,  Combined Hydronic, and Central</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J03_WaterHeatingSystemOption" type="comp:WaterHeatingSystemOption" >
+                                    <xsd:element name="J04_WaterHeatingSystemAlteredOption" type="comp:WaterHeatingSystemAlteredOption" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">System Option (from [d:t24ref/]150.1(c)8</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH user selects from this list: Option1InstantaneousGas display term 1, Option2CompactDrainRecovery55Gal display term 2, Option3StorageGT55Gal display term 3, Option4A_CompactDistDrainHeatRecovery display term 4A, Option4B_HeatPumpWithExtraPV display term 4B, Option5Tier3 display term 5,  Option5A_Tier3WithExtraPV display term, Option5B_Tier3CompactDist display term 5B; Else A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH user selects from list: OptionA_CentralMF display term A additional solar, OptionB_DrainHeatRecoveryCentralMF display term B solar + drain water heat recovery</xsd:documentation>
+                                          <xsd:documentation source="FieldText">System Option (from [d:t24ref/]150.2(b)1H)</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list as follows: 
+If  A09_ClimateZone InRange(1, 15) Then 
+If J01_WaterHeaterHasNaturalGas == false 
+List  Option2HP display term 2, Option3Tier3HP display term 3, and Option4NoGasElectric display term 4;
+Else 
+List Option1GasPropane display term 1, Option2HP display term 2, and Option3Tier3HP display term 3 
+End If 
+ 
+Else If A09_ClimateZone == 16 Then
+If J01_WaterHeaterHasNaturalGas == false 
+List Option4NoGasElectric display term 4;
+Else 
+List Option1GasPropane display term 1;
+End If 
+End if</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J04_DwellingUnitCount" type="com:DwellingUnitCount" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText"># of Dwelling Units in System</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == SingleFamily result = 1; Else user input integer</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J05_RecirculationLoopCount" type="hvac:RecirculationLoopCount" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText"># of Recirc. Loops</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_ResidentialWaterHeatingSystemType == Central then If J04_DwellingUnitCount LTE 8  result = 1; Else If J04_DwellingUnitCount GT 8 user input allowed values GTE 2; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J05_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText"># of Recirc. Loops</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_ResidentialWaterHeatingSystemType == Central then If J04_DwellingUnitCount LTE 8  result = 1; Else If J04_DwellingUnitCount GT 8 user input allowed values GTE 2; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:element name="J06_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType" >
+                                    <xsd:element name="J05_ResidentialWaterHeaterType" type="hvac:ResidentialWaterHeaterType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Water Heater Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH then If  J03_WaterHeatingSystemOption == Option1InstantaneousGas result = InstantaneousConsumer; Else If  J03_WaterHeatingSystemOption == Option2CompactDrainRecovery55Gal, Option3StorageGT55Gal, Option4A_CompactDistDrainHeatRecovery Or  Option4B_HeatPumpWithExtraPV result =  StorageConsumer; Else If J03_WaterHeatingSystemOption == Option5Tier3, Option5A_Tier3WithExtraPV Or  Option5B_Tier3CompactDist   result = NEEA_Tier3HP;  Else If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH user selects from list: BoilerWaterHeater,  IndirectWaterHeating, StorageConsumer, StorageCommercial, InstantaneousConsumer, InstantaneousCommercial  and StorageResDutyCommercial;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If J04_WaterHeatingSystemAlteredOption == Option1GasPropane 
+User selects from InstantaneousConsumer, StorageConsumer; 
+ 
+Else If  J04_WaterHeatingSystemAlteredOption == Option2HP Or  Option4NoGasElectric 
+result = StorageConsumer; 
+ 
+Else If J04_WaterHeatingSystemAlteredOption == Option3Tier3HP
+result = NEEA_Tier3HP;  
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J07_StorageCapacity" type="hvac:StorageCapacity" >
+                                       <xsd:element name="J06_StorageCapacity" type="hvac:StorageCapacity" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH then If  J03_WaterHeatingSystemOption == Option1InstantaneousGas user input allowed LTE 55 gallons; Else If J03_WaterHeatingSystemOption  ==  Option3StorageGT55Gal  user input allowed GT 55 gallons; Else result = N/A stored in NotApplicableMessage;  Else If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH user inputs number.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J05_ResidentialWaterHeaterType ==  InstantaneousConsumer 
+result = N/A stored in NotApplicableMessage;  
+Else user inputs number.
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
-                                       <xsd:element name="J07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                       <xsd:element name="J06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType != MultiFamilyCentralWH then If  J03_WaterHeatingSystemOption == Option1InstantaneousGas user input allowed LTE 55 gallons; Else If J03_WaterHeatingSystemOption  ==  Option3StorageGT55Gal  user input allowed GT 55 gallons; Else result = N/A stored in NotApplicableMessage;  Else If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH user inputs number.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If J05_ResidentialWaterHeaterType ==  InstantaneousConsumer 
+result = N/A stored in NotApplicableMessage;  
+Else user inputs number.
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="J08_WaterHeaterFuelSource" type="hvac:WaterHeaterFuelSource" >
+                                    <xsd:element name="J07_WaterHeaterFuelSource" type="hvac:WaterHeaterFuelSource" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Fuel Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If A11_ResidentialLowriseBuildingType == MultiFamilyCentralWH Or J03_WaterHeatingSystemOption == Option1InstantaneousGas, Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  user selects from list: NaturalGas; PropaneGas; Else If J03__WaterHeatingSystemOption == Option4A_CompactDistDrainHeatRecovery, Option4B_HeatPumpWithExtraPV, Option5Tier3, Option5A_Tier3WithExtraPV Or  Option5B_Tier3CompactDist result = WaterHeatingHP</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If J04_WaterHeatingSystemAlteredOption == Option1GasPropane 
+user selects from list: NaturalGas; PropaneGas; 
+ 
+Else If J04__WaterHeatingSystemAlteredOption == Option2HP  Or  Option3Tier3HP
+result = WaterHeatingHP
+ 
+Else If J04__WaterHeatingSystemAlteredOption ==Option4NoGasElectric 
+result = Electricity
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="J09_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
+                                    <xsd:element name="J08_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Number of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input integer</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J10_WaterHeaterGasFiredRatedInput" type="hvac:WaterHeaterGasFiredRatedInput" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  result = 75,000 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J10_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Rated Input</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal Or  Option3StorageGT55Gal  result = 75,000 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J11_WaterHeatingSolarFraction" type="hvac:WaterHeatingSolarFraction" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Solar Savings Fraction</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == value in  InclusiveRange(1,9) then If J03_WaterHeatingSystemOption ==  OptionA_CentralMF result = 0.20; Else If J03_WaterHeatingSystemOption == OptionB_DrainHeatRecoveryCentralMF  result = 0.15; Else If A09_ClimateZone == value in  InclusiveRange(10,16) then If J03_WaterHeatingSystemOption ==  OptionA_CentralMF result = 0.35; Else If J03_WaterHeatingSystemOption == OptionB_DrainHeatRecoveryCentralMF  result = 0.30; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J11_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Solar Savings Fraction</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A09_ClimateZone == value in  InclusiveRange(1,9) then If J03_WaterHeatingSystemOption ==  OptionA_CentralMF result = 0.20; Else If J03_WaterHeatingSystemOption == OptionB_DrainHeatRecoveryCentralMF  result = 0.15; Else If A09_ClimateZone == value in  InclusiveRange(10,16) then If J03_WaterHeatingSystemOption ==  OptionA_CentralMF result = 0.35; Else If J03_WaterHeatingSystemOption == OptionB_DrainHeatRecoveryCentralMF  result = 0.30; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:element name="J12_PV_ExtraCapacity" type="comp:PV_ExtraCapacity" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Additional PV Capacity</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If J03_WaterHeatingSystemOption ==  Option4B_HeatPumpWithExtraPV then If A09_ClimateZone == value in  InclusiveRange(2, 15)   result = 0.3 kWdc; Else If A09_ClimateZone == 1 Or 16 result = 1.1 kWdc; Else If J03__WaterHeatingSystemOption ==  Option5A_Tier3WithExtraPV  then If A09_ClimateZone == 1 Or 16 result = 0.30 kWdc; Else result = 0.</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J13_TankLocation" type="hvac:TankLocation" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery, Option4B_HeatPumpWithExtraPV, Option5Tier3, Option5A_Tier3WithExtraPV Or  Option5B_Tier3CompactDist user selects from list: Conditioned Or Garage; Else result = N/A stored in NotApplicableMessage.</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="J13_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery, Option4B_HeatPumpWithExtraPV, Option5Tier3, Option5A_Tier3WithExtraPV Or  Option5B_Tier3CompactDist user selects from list: Conditioned Or Garage; Else result = N/A stored in NotApplicableMessage.</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="J14_ResidentialDHWCentralDistributionType" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_ResidentialWaterHeatingSystemType == Central result = RecirculatingDemandControlMF stored in ResidentialDHWCentralDistributionType; Else If J02_ResidentialWaterHeatingSystemType != Central (results stored in ResidentialDHWDwellingUnitDistributionType ) If J03_WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution and    DemandRecirculation; Else If J03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If J03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  J03_WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="hvac:ResidentialDHWCentralDistributionType">
-                                                <xsd:enumeration value="RecirculatingDemandControlMF"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                       <xsd:element name="J14_ResidentialDHWDwellingUnitDistributionType" >
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Distribution Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If J02_ResidentialWaterHeatingSystemType == Central result = RecirculatingDemandControlMF stored in ResidentialDHWCentralDistributionType; Else If J02_ResidentialWaterHeatingSystemType != Central (results stored in ResidentialDHWDwellingUnitDistributionType ) If J03_WaterHeatingSystemOption ==  Option1InstantaneousGas Or  Option3StorageGT55Gal user selects from list: StandardDistribution and    DemandRecirculation; Else If J03_WaterHeatingSystemOption ==  Option2CompactDrainRecovery55Gal user selects from CompactHotWaterDistributionSystemHERS and  DrainWaterHeatRecoveryHERS; Else  If J03_WaterHeatingSystemOption ==  Option4A_CompactDistDrainHeatRecovery result = CompactDistributionDrainHeatRecoveryHERS; Else If A09_ClimateZone == 1 Or 16 And  J03_WaterHeatingSystemOption ==  Option5B_Tier3CompactDist result = CompactHotWaterDistributionSystemHERS; Else user select from list: StandardDistribution, DemandRecirculationManualControl.</xsd:documentation>
-                                          </xsd:annotation>
-                                          <xsd:simpleType>
-                                             <xsd:restriction base="hvac:ResidentialDHWDwellingUnitDistributionType">
-                                                <xsd:enumeration value="CompactDistributionDrainHeatRecoveryHERS"/>
-                                                <xsd:enumeration value="CompactHotWaterDistributionSystemHERS"/>
-                                                <xsd:enumeration value="DemandRecirculation"/>
-                                                <xsd:enumeration value="DemandRecirculationManualControl"/>
-                                                <xsd:enumeration value="DrainWaterHeatRecoveryHERS"/>
-                                                <xsd:enumeration value="StandardDistribution"/>
-                                             </xsd:restriction>
-                                          </xsd:simpleType>
-                                       </xsd:element>
-                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -1947,7 +1940,7 @@ FenestrationGlazingWindowMinimumFt2Replacement, Then result is 0.35 Else result 
                   <xsd:element name="JEndNote1" minOccurs="0">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
-                        <xsd:documentation source="AdditionalRequirements">Options: [d:line1/] Single Family &amp; Multifamily with Individual Water Heaters [d:l t="#"][d:list] Gas or propane instantaneous [/d:list][d:list] 55 gallons or less storage tank with 75,000 Btu or less rated input  [/d:list][d:list]  Greater than 55 gallons with 75,000 Btu or less rated input.  Distribution either compact hot water distribution (HERS) or drain water heat recovery (HERS).  [/d:list][d:list] Heat pump water heater installed in conditioned space or garage with either: [d:l t="A"][d:list] Compact hot water distribution basic and drain water heat recovery (HERS) or [/d:list][d:list] If climate zone 8-15, a PV system 0.3 kWdc larger than system required, or If climate zone 1 or 16, a PV system 1.1 kWdc larger than system required. [/d:list][/d:l] [/d:list][d:list] Tier 3 water heater (as rated by Northwest Energy Efficiency Alliance (NEEA)) installed in conditioned space or garage.  If climate zone is 1 or 16 either [d:l t="A"][d:list] A PV system that is 0.3kWdc larger than required or [/d:list][d:list] Compact hot water distribution basic  [/d:list][/d:l] [/d:list][/d:l] [d:line1/] Multifamily with Central Water Heating [d:l t="A"][d:list]  Gas or propane water heating system, a recirculation  system, and a minimum solar savings fraction of 0.20 in climate zones 1 through 9, or a minimum solar savings fraction of 0.35 in climate zones 10 through 16.  [/d:list][d:list] Gas or propane water heating system, a recirculation  system, a minimum solar savings fraction of 0.15 in climate zones 1 through 9, or a minimum solar savings fraction of 0.30 in climate zones 10 through 16, and drain water heat recovery system.[/d:list][/d:l]</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">Options: [d:line1/] Single Family &amp; Multifamily with Individual Water Heaters [d:l t="#"][d:list] Gas or propane water heating system. [/d:list] [d:list] For Climate Zones 1 through 15, a single heat pump water heater, storage tank shall not be located outdoors and placed on a incompressible, rigid insulated surface with a minimum thermal resistance of R-10 [/d:list] [d:list]For Climate Zones 1 through 15, a single Tier 3 heater as rated by Northwest Energy Efficiency Alliance (NEEA)  [/d:list] [d:list]  If no natural gas is connected to the existing water heater location, a consumer electric water heater [/d:list][/d:l]</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH32H"/>
       </xsd:complexType>
    </xsd:element>
@@ -78,50 +78,24 @@
                         <xsd:documentation source="CalculationsAndRules">Referenced data from CF1R, Values MultiFamily display term Multifamily, SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A03_FloorArea" type="com:FloorArea" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A04_FloorToCeilingHeight" type="com:FloorToCeilingHeight" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx or N/A stored in NotApplicablemessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">User inpupt numeric xx.xx or N/A stored in NotAppicablemessage</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
-                  <xsd:choice maxOccurs="1">
-                     <xsd:element name="A05_Volume" type="com:Volume" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated field: If A03_NotApplicableMessage Or A04_NotApplicableMessage == N/A result = N/A stored in NotApplicablemessage
-Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                     <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage" >
-                        <xsd:annotation>
-                           <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
-                           <xsd:documentation source="CalculationsAndRules">Calculated fiel: If A03_NotApplicableMessage Or A04_NotApplicableMessage == N/A result = N/A stored in NotApplicablemessage
-Else result = PRODUCT(A03_FloorArea, A04_FloorToCeilingHeight)</xsd:documentation>
-                        </xsd:annotation>
-                     </xsd:element>
-                  </xsd:choice>
+                  <xsd:element name="A03_FloorArea" type="com:FloorArea" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A04_FloorToCeilingHeight" type="com:FloorToCeilingHeight" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="A05_Volume" type="com:Volume" >
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: result = A03_FloorArea *  A04_FloorToCeilingHeight</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
                   <xsd:element name="A06_EnclosedSpace" type="com:EnclosedSpace" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Kitchen  Type</xsd:documentation>

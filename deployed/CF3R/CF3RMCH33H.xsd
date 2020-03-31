@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH33H" version="2019.1.002" xmlns="http://www.lmonte.com/besm/CF3RMCH33H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF3RMCH33H" version="2019.1.003" xmlns="http://www.lmonte.com/besm/CF3RMCH33H" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -301,7 +301,7 @@
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Indoor Unit Installation Location Verification</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User selects from list: MountedInside display term Indoor unit mounted entirely on the surface of walls, ceilings, or floors, 
-PartiallyInUnconditioned display term Indoor unit protrudes through the air barrier into unconditioned spaces, PartiallyInIndirectlyConditioned display term Visually confirmed: Indoor unit protrudes into directly conditioned spaces wholly inside both the thermal boundary and the air barrier of the dwelling, PartiallyInIndirectlyConditionedInstaller display term Not Visually confirmed: Installer certifies the  Indoor unit protrudes into directly conditioned spaces wholly inside both the thermal boundary and the air barrier of the dwelling</xsd:documentation>
+ PartiallyInUnconditioned display term Indoor unit protrudes through the air barrier into unconditioned spaces, PartiallyInIndirectlyConditioned display term Visually confirmed: Indoor unit protrudes into directly conditioned spaces wholly inside both the thermal boundary and the air barrier of the dwelling, PartiallyInIndirectlyConditionedInstaller display term Not Visually confirmed: Installer certifies the  Indoor unit protrudes into directly conditioned spaces wholly inside both the thermal boundary and the air barrier of the dwelling</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D03_DuctlessEntirelyConditionedCompliance" type="comp:DuctlessEntirelyConditionedCompliance">
@@ -502,7 +502,13 @@ PartiallyInUnconditioned display term Indoor unit protrudes through the air barr
                                     <xsd:element name="G04_AirFilterDeviceAirflowRate" type="hvac:AirFilterDeviceAirflowRate">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Design Airflow Rate for Air Filter Device (cfm)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If B05_DuctSystemAirFilterDeviceCount == 1 then auto-fill from B06_AirflowRequiredMinimumTarget; Else If B05_DuctSystemAirFilterDeviceCount GT 1 reference value from parent MCH01 as follows: K06 from MCH01a or M06 from MCH01d</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B05_DuctSystemAirFilterDeviceCount == 1 then 
+result = B06_AirflowRequiredMinimumTarget; 
+ 
+Else If B05_DuctSystemAirFilterDeviceCount GT 1 reference value from parent MCH01 as follows: K06 from MCH01a or M06 from MCH01d
+End If
+ 
+Check results:  Require sum of all G04_AirFilterDeviceAirflowRate values to be greater than or equal to B06_AirflowRequiredMinimumTarget  as a condition of completion of this document.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G05_AirFilterDeviceDepth" type="hvac:AirFilterDeviceDepth">
@@ -586,7 +592,7 @@ PartiallyInUnconditioned display term Indoor unit protrudes through the air barr
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">For all fields that are present, if all these fields  == true: A04_DoesMCH25VerifyRefrigCharge,  
-A05_DoesIndoorUnitSupplyAllRooms, B07_DoesMCH23VerifyAirFlowRate, B09_IsUnitCertifiedLowStatic, C04_DuctedEntirelyConditionedComply,  E05_IndoorUnitThermostatCompliance, And G12_AirFilterPressureDropCompliance And If D03_DuctlessEntirelyConditionedComply != DuctlessUnitDoesNotComply And If G10_AirFilterDeviceFaceAreaCompliance != FaceAreaDoesNotComply result = true display term VCHP System Complies; Else result = false display term VCHP System Does Not Comply</xsd:documentation>
+ A05_DoesIndoorUnitSupplyAllRooms, B07_DoesMCH23VerifyAirFlowRate, B09_IsUnitCertifiedLowStatic, C04_DuctedEntirelyConditionedComply,  E05_IndoorUnitThermostatCompliance, And G12_AirFilterPressureDropCompliance And If D03_DuctlessEntirelyConditionedComply != DuctlessUnitDoesNotComply And If G10_AirFilterDeviceFaceAreaCompliance != FaceAreaDoesNotComply result = true display term VCHP System Complies; Else result = false display term VCHP System Does Not Comply</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                </xsd:sequence>
@@ -618,7 +624,7 @@ A05_DoesIndoorUnitSupplyAllRooms, B07_DoesMCH23VerifyAirFlowRate, B09_IsUnitCert
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH33H"/>
       </xsd:complexType>
    </xsd:element>
