@@ -22,13 +22,16 @@ for filename in schema_files:
         for section in sections:
             section_name = section.attrib.get('name')
             section_letter = section_name.split('_')[1]
-            last_element = section.find('./xsd:complexType/xsd:sequence/*[last()]', namespace)
-            elem_name = last_element.attrib.get('name') or ""
+            last_element = section.find('./xsd:complexType/.//xsd:sequence/*[last()]', namespace)
+            _, _, type = last_element.tag.rpartition('}')
 
-            if len(last_element) > 0 and 'endnote' in elem_name.lower() and elem_name[:1] != section_letter:
-                has_error = True
-                base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('[{}]: {} end note name mismatch in {}\n'.format(base_path, section_name, elem_name))
+            if type == 'element':
+                elem_name = last_element.attrib.get('name')
+
+                if len(last_element) > 0 and 'endnote' in elem_name.lower() and elem_name[:1] != section_letter:
+                    has_error = True
+                    base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
+                    print('[{}]: {} end note name mismatch in {}\n'.format(base_path, section_name, elem_name))
     except ElementTree.ParseError as err:
         raise err
 
