@@ -7208,6 +7208,7 @@
             <dtyp:displayterm value="HeatingSystemAlteration">Space heating system</dtyp:displayterm>
             <dtyp:displayterm value="InsulationAlteration">Insulation</dtyp:displayterm>
             <dtyp:displayterm value="KitchenHoodNewReplace">Kitchen Range Hood Installation (new or reploacement)</dtyp:displayterm>
+            <dtyp:displayterm value="KitchenRemodelAlteration">Kitchen Remodel</dtyp:displayterm>
             <dtyp:displayterm value="RoofAlterationGT50Percent">Roof replacement greater than 50 %</dtyp:displayterm>
             <dtyp:displayterm value="WaterHeatingAlteration">Water heating</dtyp:displayterm>
          </xsd:appinfo>
@@ -7224,6 +7225,7 @@
          <xsd:enumeration value="HeatingSystemAlteration"/>
          <xsd:enumeration value="InsulationAlteration"/>
          <xsd:enumeration value="KitchenHoodNewReplace"/>
+         <xsd:enumeration value="KitchenRemodelAlteration"/>
          <xsd:enumeration value="RoofAlterationGT50Percent"/>
          <xsd:enumeration value="WaterHeatingAlteration"/>
       </xsd:restriction>

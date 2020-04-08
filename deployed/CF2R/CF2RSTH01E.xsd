@@ -72,15 +72,28 @@ Else If A04_SolarWaterHeatingCertificationType == OG300, user input
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A07_SolarWaterHeatingCollectorBrand" type="hvac:SolarWaterHeatingCollectorBrand">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Collector Brand</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A07_SolarWaterHeatingCollectorBrand" type="hvac:SolarWaterHeatingCollectorBrand">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Collector Brand</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
 Else If prescriptive, load value from project CF1R-STH-01-E 
 Else If A04_SolarWaterHeatingCertificationType == OG300, user input
 End If</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A07_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Collector Brand</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
+Else If prescriptive, load value from project CF1R-STH-01-E 
+Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+End If
+ 
+Allow NA</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="A08_SolarWaterHeatingCollectorModelNumber" type="hvac:SolarWaterHeatingCollectorModelNumber">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Model Number</xsd:documentation>
