@@ -180,53 +180,77 @@
                                     <xsd:element name="B03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;   Note: assuming the VCHP and multisplit system types will be included in CBECC, thus included in the allowed value in this field: VCHP-ducted, VCHP-ductless, VCHP- ducted + ductless,  multisplit HP-ducted, multisplit HP-ductless, multisplit HP-ducted+ductless, ducted mini-split HP</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF Y02_ResidentialHeatingSystemType == VCHP, 
+allow user to select from list: VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless
+Else  auto fill from CF1R;   
+End If
+Note: assuming the VCHP and multisplit system types will be included in CBECC, thus included in the allowed value in this field: VCHP-ducted, VCHP-ductless, VCHP- ducted + ductless,  multisplit HP-ducted, multisplit HP-ductless, multisplit HP-ducted+ductless, ducted mini-split HP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B04_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;   Note: assuming the VCHP and multisplit system types will be included in CBECC, thus included in the allowed value in this field: VCHP-ducted, VCHP-ductless, VCHP- ducted + ductless, multisplit AC-ducted, multisplit AC-ductless, multisplit AC-ducted+ductless,  multisplit HP-ducted, multisplit HP-ductless, multisplit HP-ducted+ductless, ducted mini-split AC, ducted mini-split HP</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF Y02_ResidentialHeatingSystemType == VCHP, 
+allow user to select from list: VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless
+Else  auto fill from CF1R;   
+End If
+ Note: assuming the VCHP and multisplit system types will be included in CBECC, thus included in the allowed value in this field: VCHP-ducted, VCHP-ductless, VCHP- ducted + ductless, multisplit AC-ducted, multisplit AC-ductless, multisplit AC-ducted+ductless,  multisplit HP-ducted, multisplit HP-ductless, multisplit HP-ducted+ductless, ducted mini-split AC, ducted mini-split HP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B05_CFVCS_Type" type="comp:CFVCS_Type" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If CF1R VentilationCoolingCreditVerificationRequire == false result = N/A stored in the  NotAppplicableMessage; Else autofill from CF1R;  Allowed values are FixedCFVCS and  VariableCFVCS</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If CF1R Central Fan Vent Cooling credit is not claimed for this system Or If value is not available from CF1R,   
+result = N/A stored in the  NotAppplicableMessage; 
+Else 
+autofill value from CF1R;  Allowed values are FixedCFVCS and  VariableCFVCS
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If CF1R VentilationCoolingCreditVerificationRequire == false result = N/A stored in the  NotAppplicableMessage; Else autofill from CF1R;  Allowed values are FixedCFVCS and  VariableCFVCS</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If CF1R Central Fan Vent Cooling credit is not claimed for this system Or If value is not available from CF1R,   
+result = N/A stored in the  NotAppplicableMessage; 
+Else 
+autofill value from CF1R;  Allowed values are FixedCFVCS and  VariableCFVCS
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B06_DuctSystemTypePerf" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:DuctSystemTypePerf">
-                                             <xsd:enumeration value="ConditionedSpace"/>
-                                             <xsd:enumeration value="ConditionedSpaceDuctsVLL"/>
-                                             <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
-                                             <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
-                                             <xsd:enumeration value="Ductless"/>
-                                             <xsd:enumeration value="DuctsInMultipleLocations"/>
-                                             <xsd:enumeration value="Outdoors"/>
-                                             <xsd:enumeration value="UnconditionedAttic"/>
-                                             <xsd:enumeration value="UnconditionedCrawlSpace"/>
-                                             <xsd:enumeration value="UnconditionedGarage"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B06_DuctSystemTypePerf" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:DuctSystemTypePerf">
+                                                <xsd:enumeration value="ConditionedSpace"/>
+                                                <xsd:enumeration value="ConditionedSpaceDuctsVLL"/>
+                                                <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
+                                                <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
+                                                <xsd:enumeration value="Ductless"/>
+                                                <xsd:enumeration value="DuctsInMultipleLocations"/>
+                                                <xsd:enumeration value="Outdoors"/>
+                                                <xsd:enumeration value="UnconditionedAttic"/>
+                                                <xsd:enumeration value="UnconditionedCrawlSpace"/>
+                                                <xsd:enumeration value="UnconditionedGarage"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="B07_ThermostatType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Required Thermostat Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:ThermostatType">
@@ -238,13 +262,20 @@
                                     <xsd:element name="B08_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Low Leakage Air-Handling Unit (LLAHU) Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If value from CF1R LowLkgAH == true then result = true display term Has Low Leakage Air Handler.   Else result = false display term  None</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If value from CF1R LowLkgAH == true 
+result = true display term Has Low Leakage Air Handler.   
+Else If value from CF1R LowLkgAH == false Or If value is not available from CF1R 
+result = false display term  None</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B09_HasBypassDuct" type="hvac:HasBypassDuct" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Bypass Duct Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;  For Boolean true value, display text: Has Bypass Duct   For Boolean false value, display text: None.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R HasBypassDuct == true 
+result = true display term: Has Bypass Duct 
+Else If HasBypassDuct == false Or If value is not available from CF1R
+result = false display term: None
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">

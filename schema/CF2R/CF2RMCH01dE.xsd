@@ -180,49 +180,73 @@
                                     <xsd:element name="B03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;   Note: assuming new VCHP  and multisplit system types: VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless and VCHP_IndoorUnitDuctedAndDuctless, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMiniSplitHP  will be  implemented in CBECC and available in teh CF1R-PRF schema.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF Y02_ResidentialHeatingSystemType == VCHP, 
+allow user to select from list: VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless
+Else  auto fill from CF1R;   
+End If
+Note: assuming new VCHP  and multisplit system types: VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless and VCHP_IndoorUnitDuctedAndDuctless, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMiniSplitHP  will be  implemented in CBECC and available in teh CF1R-PRF schema.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B04_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R;   Note: assuming new VCHP and multisplit system types:  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP DuctedMiniSplitAC, DuctedMiniSplitHP will be  implemented in CBECC and available in the CF1R-PRF schema.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF Y02_ResidentialHeatingSystemType == VCHP, 
+allow user to select from list: VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless
+Else  auto fill from CF1R;   
+End If
+Note: assuming new VCHP and multisplit system types:  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP DuctedMiniSplitAC, DuctedMiniSplitHP will be  implemented in CBECC and available in the CF1R-PRF schema.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B05_CFVCS_Type" type="comp:CFVCS_Type" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If CF1R VentilationCoolingCreditVerificationRequire == true result =  CF1R value (FixedCFVCS, or VariableCFVCS) from CF1R Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If CF1R Central Fan Vent Cooling credit is not claimed for this system Or If value is not available from CF1R,   
+result = N/A stored in the  NotAppplicableMessage; 
+Else 
+autofill value from CF1R;  Allowed values are FixedCFVCS and  VariableCFVCS
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Central Fan Ventilation Cooling System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If CF1R VentilationCoolingCreditVerificationRequire == true result = CF1R value (FixedCFVCS, VariableCFVCS) from CF1R Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If CF1R Central Fan Vent Cooling credit is not claimed for this system Or If value is not available from CF1R,   
+result = N/A stored in the  NotAppplicableMessage; 
+Else 
+autofill value from CF1R;  Allowed values are FixedCFVCS and  VariableCFVCS
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B06_DuctSystemTypePerf" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                       <xsd:simpleType>
-                                          <xsd:restriction base="hvac:DuctSystemTypePerf">
-                                             <xsd:enumeration value="ConditionedSpace"/>
-                                             <xsd:enumeration value="ConditionedSpaceDuctsVLL"/>
-                                             <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
-                                             <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
-                                             <xsd:enumeration value="Ductless"/>
-                                             <xsd:enumeration value="DuctsInMultipleLocations"/>
-                                             <xsd:enumeration value="Outdoors"/>
-                                             <xsd:enumeration value="UnconditionedAttic"/>
-                                             <xsd:enumeration value="UnconditionedCrawlSpace"/>
-                                             <xsd:enumeration value="UnconditionedGarage"/>
-                                          </xsd:restriction>
-                                       </xsd:simpleType>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B06_DuctSystemTypePerf" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R; Allow N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                          <xsd:simpleType>
+                                             <xsd:restriction base="hvac:DuctSystemTypePerf">
+                                                <xsd:enumeration value="ConditionedSpace"/>
+                                                <xsd:enumeration value="ConditionedSpaceDuctsVLL"/>
+                                                <xsd:enumeration value="ConditionedSpaceExcept12ft"/>
+                                                <xsd:enumeration value="DuctedAndDuctlessIndoorUnits"/>
+                                                <xsd:enumeration value="Ductless"/>
+                                                <xsd:enumeration value="DuctsInMultipleLocations"/>
+                                                <xsd:enumeration value="Outdoors"/>
+                                                <xsd:enumeration value="UnconditionedAttic"/>
+                                                <xsd:enumeration value="UnconditionedCrawlSpace"/>
+                                                <xsd:enumeration value="UnconditionedGarage"/>
+                                             </xsd:restriction>
+                                          </xsd:simpleType>
+                                       </xsd:element>
+                                       <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R; Allow N/A</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B07_ThermostatType" >
                                           <xsd:annotation>
@@ -274,7 +298,11 @@
                                     <xsd:element name="B10_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Low Leakage Air-Handling Unit Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If value from CF1R LowLkgAH == true then result = true.  For Boolean true value display text: Has Low Leakage Air Handler.   Else result = false.  For Boolean false value  display text: None</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If value from CF1R LowLkgAH == true 
+result = true display term: Has Low Leakage Air Handler   
+Else If value from CF1R LowLkgAH == false Or If value not available from CF1R 
+result = false display term None
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="B11_EAA_SpaceConditionSystemStatus" type="comp:EAA_SpaceConditionSystemStatus" >
@@ -291,7 +319,10 @@
                                        <xsd:element name="B12_EAA_DuctSystemStatus" type="comp:EAA_DuctSystemStatus" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Duct System Status</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If B06_DuctsystemTypePerf = Ductless then result is N/A stored in the NotAppplicableMessage, else reference value from CF1R; Values are: New display text New, ExistingAlteration display text Altered, ExistingUnchanged display text Existing, ExistingPlusNew display text Existing + New.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B06_DuctsystemTypePerf = Ductless Or If value is not available from CF1R
+result = N/A stored in the NotAppplicableMessage, 
+Else reference value from CF1R; Values are: New display text New, ExistingAlteration display text Altered, ExistingUnchanged display text Existing, ExistingPlusNew display text Existing + New.
+End If</xsd:documentation>
                                              <xsd:appinfo source="displayterm">
                                                 <dtyp:displayterm value="ExistingAlteration">Altered</dtyp:displayterm>
                                              </xsd:appinfo>
@@ -301,7 +332,10 @@
                                        <xsd:element name="B12_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Duct System Status</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Calculated field: If B06_DuctsystemTypePerf = Ductless then result is N/A stored in the NotAppplicableMessage, else reference value from CF1R; Values are: New display text New, ExistingAlteration display text Altered, ExistingUnchanged display text Existing, ExistingPlusNew display text Existing + New.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B06_DuctsystemTypePerf = Ductless Or If value is not available from CF1R
+result = N/A stored in the NotAppplicableMessage, 
+Else reference value from CF1R; Values are: New display text New, ExistingAlteration display text Altered, ExistingUnchanged display text Existing, ExistingPlusNew display text Existing + New.
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -755,7 +789,12 @@
                                     <xsd:element name="E06_Installing40PlusLinearFeetDucts" type="comp:Installing40PlusLinearFeetDucts" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Installing more than 40 feet of ducts?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: As default If CF1R value == GT40 ft the result = true;  Else If CF1R value == N/A Or is LT 40 ft result = false; Else If no CF1R value available And D07_DuctSystemTypePerf == Ductless result = false.  Allow user to override default and select from list: Yes (true value)  and No (false value).</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: As default If CF1R value is GT40 ft  
+result = true;  
+Else If CF1R value is LTE 40 ft Or value == N/A no ducts  
+result = false; 
+Else If no CF1R value available 
+result = false.  Allow user to override default and select from list: Yes (true value)  and No (false value).</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="E07_DuctSystemAllAccessibleForSealingWithPlus75PercentNewReplaced" type="comp:DuctSystemAllAccessibleForSealingWithPlus75PercentNewReplaced" >
