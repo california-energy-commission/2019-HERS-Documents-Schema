@@ -21,12 +21,15 @@ for filename in schema_files:
 
         for section in sections:
             name = section.attrib.get('name')
-            query = section.findall('./xsd:complexType/xsd:sequence', namespace)
+            query = section.find('./xsd:complexType/xsd:sequence', namespace)
 
-            if len(query) == 0:
-                has_error = True
-                base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
-                print('{} has an empty section: {}\n'.format(base_path, name))
+            if query:
+                _, _, type = query.tag.rpartition('}')
+
+                if type == 'element':
+                    has_error = True
+                    base_path = os.path.join(*(filename.split(os.path.sep)[2:]))
+                    print('{} has an empty section: {}\n'.format(base_path, name))
     except ElementTree.ParseError as err:
         raise err
 
