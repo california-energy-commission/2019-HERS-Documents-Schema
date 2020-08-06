@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2019.1.003" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2019.1.004" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AOSmithHPTU50SimulationGroup">
@@ -362,9 +362,51 @@
    <xsd:simpleType name="AirSystemCoolingSetPointScheduleName">
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
+   <xsd:simpleType name="AirSystemCoolingSizingRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="AirSystemCoolingSupplyAirStageTemperatureDifference">
       <xsd:annotation>
          <xsd:documentation>Units: F</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirSystemDesignAirFlowMinimumRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirSystemDesignPrecoolHumidityRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirSystemDesignPrecoolTemperature">
+      <xsd:annotation>
+         <xsd:documentation>Units: F</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirSystemDesignPreheatHumidityRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirSystemDesignPreheatTemperature">
+      <xsd:annotation>
+         <xsd:documentation>Units: F</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="AirSystemHeatingSizingRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -483,7 +525,7 @@
    <xsd:simpleType name="ArrayType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="FixedArray">Fixed (roof mount)</dtyp:displayterm>
+            <dtyp:displayterm value="FixedArray">Fixed</dtyp:displayterm>
             <dtyp:displayterm value="Tracking1Axis">Tracking (one axis)</dtyp:displayterm>
             <dtyp:displayterm value="Tracking2Axis">Tracking (two axis)</dtyp:displayterm>
          </xsd:appinfo>
@@ -2155,7 +2197,11 @@
             <dtyp:displayterm value="AOSmithPHPT60">PHPT 60  (60 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithPHPT80">PHPT 80  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H50">RE2H50R10B-1NCWT  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H50S61NCWT">RE2H50S6-1NCWT (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H65T101NCWT">RE2H65T10-1NCWT  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H65T61NCWT">RE2H65T6-1NCWT (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80">RE2H80R10B-1NCWT  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H80T61NCWT">RE2H80T6-1NCWT (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="EcoSenseHB50ES">HB50ES  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BEH50DCEJSB">BEH50DCEJSB  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BEH80DCEJSB">BEH80DCEJSB  (80 gal)</dtyp:displayterm>
@@ -2193,53 +2239,109 @@
             <dtyp:displayterm value="RheemHPLD50">HPLD50  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemHPLD65">HPLD65  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemHPLD80">HPLD80  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH40T2RH310BM">PROH40 T2 RH310BM  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH50T2RH310BM">PROH50 T2 RH310BM  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH65T2RH310BM">PROH65 T2 RH310BM  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH80T2RH310BM">PROH80 T2 RH310BM  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH37515">PROPH40 T2 RH37515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH37530">PROPH40 T2 RH37530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH375SO">PROPH40 T2 RH375SO  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH245">PROPH50 T2 RH245  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH350">PROPH50 T2 RH350 D  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH350DC">PROPH50 T2 RH350 DC  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH350DCB">PROPH50 T2 RH350 DCB  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH37515">PROPH50 T2 RH37515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH37530">PROPH50 T2 RH37530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH375SO">PROPH50 T2 RH375SO  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350D">PROPH65 T2 RH350 D  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350D15">PROPH65 T2 RH350 D15  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350DC">PROPH65 T2 RH350 DC  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350DCB">PROPH65 T2 RH350 DCB  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH37515">PROPH65 T2 RH37515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH37530">PROPH65 T2 RH37530 (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH375SO">PROPH65 T2 RH375SO (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH80RH245">PROPH80 T2 RH245  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH80RH350">PROPH80 T2 RH350 D  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH80RH350D15">PROPH80 T2 RH350 D15  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH80RH350DC">PROPH80 T2 RH350 DC  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH80RH350DCB">PROPH80 T2 RH350 DCB  (80gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH37515">PROPH80 T2 RH37515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH37530">PROPH80 T2 RH37530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH375SO">PROPH80 T2 RH375SO (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10H22U0">XE40T10H22U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10H45U0">XE40T10H45U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10HS45U0">XE40T10HS45U0  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T10">XE50T10HD50U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10H22U0">XE50T10H22U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10H45U0">XE50T10H45U0  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T10HD22U0">XE50T10HD22U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10HS45U0">XE50T10HS45U0  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T10U1">XE50T10HD50U1  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T12">XE50T12EH45U0  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T12W">XE50T12EH45U0W  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE65T10">XE65T10HD50U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10H22U0">XE65T10H22U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10H45U0">XE65T10H45U0  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE65T10HD22U0">XE65T10HD22U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10HS45U0">XE65T10HS45U0  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE65T10U1">XE65T10HD50U1  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T10">XE80T10HD50U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10H22U0">XE80T10H22U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10H45U0">XE80T10H45U0  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T10HD22U0">XE80T10HD22U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10HS45U0">XE80T10HS45U0  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T10U1">XE80T10HD50U1  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T12">XE80T12EH45U0  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T12W">XE80T12EH45U0W  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP515">10E40-HP515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP530">10E40-HP530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP5S30">10E40-HP5S30  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E50HP4D">10E50-HP4D  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E50HP4D15">10E50-HP4D15  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP515">10E50-HP515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP530">10E50-HP530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP5S30">10E50-HP5S30  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E65HP4D">10E65-HP4D  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E65HP4D15">10E65-HP4D15  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP515">10E65-HP515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP530">10E65-HP530  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP5S30">10E65-HP5S30  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E80HP4D">10E80-HP4D  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E80HP4D15">10E80-HP4D15  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP515">10E80-HP515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP530">10E80-HP530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP5S30">10E80-HP5S30  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond12E50HP">12E50-HP  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond12E80HP">12E80-HP  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RichmondHB50RM">HB50RM  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudHB50RU">HB50RU  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH40T2RU310BM">PROH40 T2 RU310BM  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH50T2RU310BM">PROH50 T2 RU310BM  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH65T2RU310BM">PROH65 T2 RU310BM  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH80T2RU310BM">PROH80 T2 RU310BM  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU37515">PROUH40 T2 RU37515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU37530">PROUH40 T2 RU37530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU375SO">PROUH40 T2 RU375SO  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU245">PROUH50 T2 RU245  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU350D">PROUH50 T2 RU350 D  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU350D15">PROUH50 T2 RU350 D15  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU350DCB">PROUH50 T2 RU350 DCB  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU37515">PROUH50 T2 RU37515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU37530">PROUH50 T2 RU37530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU375SO">PROUH50 T2 RU375SO  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH65RU350D">PROUH65 T2 RU350 D  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH65RU350D15">PROUH65 T2 RU350 D15  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH65RU350DCB">PROUH65 T2 RU350 DCB  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU37515">PROUH65 T2 RU37515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU37530">PROUH65 T2 RU37530  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU375SO">PROUH65 T2 RU375SO  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU245">PROUH80 T2 RU245  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU350D">PROUH80 T2 RU350 D  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU350D15">PROUH80 T2 RU350 D15  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU350DCB">PROUH80 T2 RU350 DCB  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU37515">PROUH80 T2 RU37515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU37530">PROUH80 T2 RU37530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU375SO">PROUH80 T2 RU375SO  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS160QTA">GS3-45HPA-US &amp;amp; GAUS-160QTA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS315EQTD">GS3-45HPA-US &amp;amp; GAUS-315EQTD  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_SAN43SSAQA">GS3-45HPA-US &amp;amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
@@ -2312,7 +2414,11 @@
          <xsd:enumeration value="AOSmithPHPT60"/>
          <xsd:enumeration value="AOSmithPHPT80"/>
          <xsd:enumeration value="BradfordWhiteRE2H50"/>
+         <xsd:enumeration value="BradfordWhiteRE2H50S61NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2H65T101NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2H65T61NCWT"/>
          <xsd:enumeration value="BradfordWhiteRE2H80"/>
+         <xsd:enumeration value="BradfordWhiteRE2H80T61NCWT"/>
          <xsd:enumeration value="EcoSenseHB50ES"/>
          <xsd:enumeration value="BEH50DCEJSB"/>
          <xsd:enumeration value="BEH80DCEJSB"/>
@@ -2350,53 +2456,109 @@
          <xsd:enumeration value="RheemHPLD50"/>
          <xsd:enumeration value="RheemHPLD65"/>
          <xsd:enumeration value="RheemHPLD80"/>
+         <xsd:enumeration value="RheemPROH40T2RH310BM"/>
+         <xsd:enumeration value="RheemPROH50T2RH310BM"/>
+         <xsd:enumeration value="RheemPROH65T2RH310BM"/>
+         <xsd:enumeration value="RheemPROH80T2RH310BM"/>
+         <xsd:enumeration value="RheemPROPH40T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH40T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH40T2RH375SO"/>
          <xsd:enumeration value="RheemPROPH50RH245"/>
          <xsd:enumeration value="RheemPROPH50RH350"/>
          <xsd:enumeration value="RheemPROPH50RH350DC"/>
          <xsd:enumeration value="RheemPROPH50RH350DCB"/>
+         <xsd:enumeration value="RheemPROPH50T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH50T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH50T2RH375SO"/>
          <xsd:enumeration value="RheemPROPH65RH350D"/>
          <xsd:enumeration value="RheemPROPH65RH350D15"/>
          <xsd:enumeration value="RheemPROPH65RH350DC"/>
          <xsd:enumeration value="RheemPROPH65RH350DCB"/>
+         <xsd:enumeration value="RheemPROPH65T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH65T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH65T2RH375SO"/>
          <xsd:enumeration value="RheemPROPH80RH245"/>
          <xsd:enumeration value="RheemPROPH80RH350"/>
          <xsd:enumeration value="RheemPROPH80RH350D15"/>
          <xsd:enumeration value="RheemPROPH80RH350DC"/>
          <xsd:enumeration value="RheemPROPH80RH350DCB"/>
+         <xsd:enumeration value="RheemPROPH80T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH80T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH80T2RH375SO"/>
+         <xsd:enumeration value="RheemXE40T10H22U0"/>
+         <xsd:enumeration value="RheemXE40T10H45U0"/>
+         <xsd:enumeration value="RheemXE40T10HS45U0"/>
          <xsd:enumeration value="RheemXE50T10"/>
+         <xsd:enumeration value="RheemXE50T10H22U0"/>
+         <xsd:enumeration value="RheemXE50T10H45U0"/>
          <xsd:enumeration value="RheemXE50T10HD22U0"/>
+         <xsd:enumeration value="RheemXE50T10HS45U0"/>
          <xsd:enumeration value="RheemXE50T10U1"/>
          <xsd:enumeration value="RheemXE50T12"/>
          <xsd:enumeration value="RheemXE50T12W"/>
          <xsd:enumeration value="RheemXE65T10"/>
+         <xsd:enumeration value="RheemXE65T10H22U0"/>
+         <xsd:enumeration value="RheemXE65T10H45U0"/>
          <xsd:enumeration value="RheemXE65T10HD22U0"/>
+         <xsd:enumeration value="RheemXE65T10HS45U0"/>
          <xsd:enumeration value="RheemXE65T10U1"/>
          <xsd:enumeration value="RheemXE80T10"/>
+         <xsd:enumeration value="RheemXE80T10H22U0"/>
+         <xsd:enumeration value="RheemXE80T10H45U0"/>
          <xsd:enumeration value="RheemXE80T10HD22U0"/>
+         <xsd:enumeration value="RheemXE80T10HS45U0"/>
          <xsd:enumeration value="RheemXE80T10U1"/>
          <xsd:enumeration value="RheemXE80T12"/>
          <xsd:enumeration value="RheemXE80T12W"/>
+         <xsd:enumeration value="Richmond10E40HP515"/>
+         <xsd:enumeration value="Richmond10E40HP530"/>
+         <xsd:enumeration value="Richmond10E40HP5S30"/>
          <xsd:enumeration value="Richmond10E50HP4D"/>
          <xsd:enumeration value="Richmond10E50HP4D15"/>
+         <xsd:enumeration value="Richmond10E50HP515"/>
+         <xsd:enumeration value="Richmond10E50HP530"/>
+         <xsd:enumeration value="Richmond10E50HP5S30"/>
          <xsd:enumeration value="Richmond10E65HP4D"/>
          <xsd:enumeration value="Richmond10E65HP4D15"/>
+         <xsd:enumeration value="Richmond10E65HP515"/>
+         <xsd:enumeration value="Richmond10E65HP530"/>
+         <xsd:enumeration value="Richmond10E65HP5S30"/>
          <xsd:enumeration value="Richmond10E80HP4D"/>
          <xsd:enumeration value="Richmond10E80HP4D15"/>
+         <xsd:enumeration value="Richmond10E80HP515"/>
+         <xsd:enumeration value="Richmond10E80HP530"/>
+         <xsd:enumeration value="Richmond10E80HP5S30"/>
          <xsd:enumeration value="Richmond12E50HP"/>
          <xsd:enumeration value="Richmond12E80HP"/>
          <xsd:enumeration value="RichmondHB50RM"/>
          <xsd:enumeration value="RuudHB50RU"/>
+         <xsd:enumeration value="RuudPROH40T2RU310BM"/>
+         <xsd:enumeration value="RuudPROH50T2RU310BM"/>
+         <xsd:enumeration value="RuudPROH65T2RU310BM"/>
+         <xsd:enumeration value="RuudPROH80T2RU310BM"/>
+         <xsd:enumeration value="RuudPROUH40T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH40T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH40T2RU375SO"/>
          <xsd:enumeration value="RuudPROUH50RU245"/>
          <xsd:enumeration value="RuudPROUH50RU350D"/>
          <xsd:enumeration value="RuudPROUH50RU350D15"/>
          <xsd:enumeration value="RuudPROUH50RU350DCB"/>
+         <xsd:enumeration value="RuudPROUH50T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH50T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH50T2RU375SO"/>
          <xsd:enumeration value="RuudPROUH65RU350D"/>
          <xsd:enumeration value="RuudPROUH65RU350D15"/>
          <xsd:enumeration value="RuudPROUH65RU350DCB"/>
+         <xsd:enumeration value="RuudPROUH65T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH65T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH65T2RU375SO"/>
          <xsd:enumeration value="RuudPROUH80RU245"/>
          <xsd:enumeration value="RuudPROUH80RU350D"/>
          <xsd:enumeration value="RuudPROUH80RU350D15"/>
          <xsd:enumeration value="RuudPROUH80RU350DCB"/>
+         <xsd:enumeration value="RuudPROUH80T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH80T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH80T2RU375SO"/>
          <xsd:enumeration value="SandenGS3_GAUS160QTA"/>
          <xsd:enumeration value="SandenGS3_GAUS315EQTD"/>
          <xsd:enumeration value="SandenGS3_SAN43SSAQA"/>
@@ -2453,9 +2615,35 @@
             <dtyp:displayterm value="AOSmithPHPT80">AO Smith PHPT 80</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithSHPT50">AO Smith SHPT 50</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithSHPT80">AO Smith SHPT 80</dtyp:displayterm>
+            <dtyp:displayterm value="BWC202065">BWC 2020 65</dtyp:displayterm>
+            <dtyp:displayterm value="ColmacCxA10_SP">Colmac Cx A10-SP</dtyp:displayterm>
+            <dtyp:displayterm value="ColmacCxA15_SP">Colmac Cx A15-SP</dtyp:displayterm>
+            <dtyp:displayterm value="ColmacCxA20_SP">Colmac Cx A20-SP</dtyp:displayterm>
+            <dtyp:displayterm value="ColmacCxA25_SP">Colmac Cx A25-SP</dtyp:displayterm>
+            <dtyp:displayterm value="ColmacCxA30_SP">Colmac Cx A30-SP</dtyp:displayterm>
+            <dtyp:displayterm value="ColmacCxV5_SP">Colmac Cx V5-SP</dtyp:displayterm>
             <dtyp:displayterm value="GE201250">GE 2012 50</dtyp:displayterm>
             <dtyp:displayterm value="GE201450">GE 2014 50</dtyp:displayterm>
             <dtyp:displayterm value="GE201480">GE 2014 80</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC125A_CWP_SP">Nyle C125A-CWP-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC125A_SP">Nyle C125A-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC185A_CWP_SP">Nyle C185A-CWP-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC185A_SP">Nyle C185A-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC250A_CWP_SP">Nyle C250A-CWP-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC250A_SP">Nyle C250A-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC25A_SP">Nyle C25A-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC60A_CWP_SP">Nyle C60A-CWP-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC60A_SP">Nyle C60A-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC90A_CWP_SP">Nyle C90A-CWP-SP</dtyp:displayterm>
+            <dtyp:displayterm value="NyleC90A_SP">Nyle C90A-SP</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Build40">Rheem 2020 Build 40</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Build50">Rheem 2020 Build 50</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Build65">Rheem 2020 Build 65</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Build80">Rheem 2020 Build 80</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Prem40">Rheem 2020 Prem 40</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Prem50">Rheem 2020 Prem 50</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Prem65">Rheem 2020 Prem 65</dtyp:displayterm>
+            <dtyp:displayterm value="Rheem2020Prem80">Rheem 2020 Prem 80</dtyp:displayterm>
             <dtyp:displayterm value="RheemHB50">Rheem HB 50</dtyp:displayterm>
             <dtyp:displayterm value="RheemHBDR2250">Rheem HBDR-22-50</dtyp:displayterm>
             <dtyp:displayterm value="RheemHBDR2265">Rheem HBDR-22-65</dtyp:displayterm>
@@ -2465,6 +2653,7 @@
             <dtyp:displayterm value="RheemHBDR4580">Rheem HBDR-45-80</dtyp:displayterm>
             <dtyp:displayterm value="Sanden40">Sanden 40</dtyp:displayterm>
             <dtyp:displayterm value="Sanden80">Sanden 80</dtyp:displayterm>
+            <dtyp:displayterm value="SandenGS3">Sanden GS 3</dtyp:displayterm>
             <dtyp:displayterm value="Stiebel220E">Stiebel 220E</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -2476,9 +2665,35 @@
          <xsd:enumeration value="AOSmithPHPT80"/>
          <xsd:enumeration value="AOSmithSHPT50"/>
          <xsd:enumeration value="AOSmithSHPT80"/>
+         <xsd:enumeration value="BWC202065"/>
+         <xsd:enumeration value="ColmacCxA10_SP"/>
+         <xsd:enumeration value="ColmacCxA15_SP"/>
+         <xsd:enumeration value="ColmacCxA20_SP"/>
+         <xsd:enumeration value="ColmacCxA25_SP"/>
+         <xsd:enumeration value="ColmacCxA30_SP"/>
+         <xsd:enumeration value="ColmacCxV5_SP"/>
          <xsd:enumeration value="GE201250"/>
          <xsd:enumeration value="GE201450"/>
          <xsd:enumeration value="GE201480"/>
+         <xsd:enumeration value="NyleC125A_CWP_SP"/>
+         <xsd:enumeration value="NyleC125A_SP"/>
+         <xsd:enumeration value="NyleC185A_CWP_SP"/>
+         <xsd:enumeration value="NyleC185A_SP"/>
+         <xsd:enumeration value="NyleC250A_CWP_SP"/>
+         <xsd:enumeration value="NyleC250A_SP"/>
+         <xsd:enumeration value="NyleC25A_SP"/>
+         <xsd:enumeration value="NyleC60A_CWP_SP"/>
+         <xsd:enumeration value="NyleC60A_SP"/>
+         <xsd:enumeration value="NyleC90A_CWP_SP"/>
+         <xsd:enumeration value="NyleC90A_SP"/>
+         <xsd:enumeration value="Rheem2020Build40"/>
+         <xsd:enumeration value="Rheem2020Build50"/>
+         <xsd:enumeration value="Rheem2020Build65"/>
+         <xsd:enumeration value="Rheem2020Build80"/>
+         <xsd:enumeration value="Rheem2020Prem40"/>
+         <xsd:enumeration value="Rheem2020Prem50"/>
+         <xsd:enumeration value="Rheem2020Prem65"/>
+         <xsd:enumeration value="Rheem2020Prem80"/>
          <xsd:enumeration value="RheemHB50"/>
          <xsd:enumeration value="RheemHBDR2250"/>
          <xsd:enumeration value="RheemHBDR2265"/>
@@ -2488,6 +2703,7 @@
          <xsd:enumeration value="RheemHBDR4580"/>
          <xsd:enumeration value="Sanden40"/>
          <xsd:enumeration value="Sanden80"/>
+         <xsd:enumeration value="SandenGS3"/>
          <xsd:enumeration value="Stiebel220E"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -2734,6 +2950,9 @@
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="HeatRejectionBypassClosedTowerChecks">
+      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="HeatRejectionWaterFlowCapacity">
       <xsd:annotation>
@@ -3461,10 +3680,14 @@
             <dtyp:displayterm value="NoCooling">No Cooling</dtyp:displayterm>
             <dtyp:displayterm value="NonAirCooledAC">Non-air-cooled Air Conditioner</dtyp:displayterm>
             <dtyp:displayterm value="NonAirSourceHP">Non-air-source Heat Pump</dtyp:displayterm>
+            <dtyp:displayterm value="PTAC">Package Terminal Air Conditioner</dtyp:displayterm>
+            <dtyp:displayterm value="PTHP">Package Terminal Heat Pump</dtyp:displayterm>
             <dtyp:displayterm value="RoomAC">Room AC</dtyp:displayterm>
             <dtyp:displayterm value="RoomHP">Room HP</dtyp:displayterm>
             <dtyp:displayterm value="SmallDuctHighVelocityAC">Small Duct High Velocity Air Conditioner</dtyp:displayterm>
             <dtyp:displayterm value="SmallDuctHighVelocityHP">Small Duct High Velocity Heat Pump</dtyp:displayterm>
+            <dtyp:displayterm value="SPVAC">Single package vertical A/C system</dtyp:displayterm>
+            <dtyp:displayterm value="SPVHP">Single package vertical heat pump</dtyp:displayterm>
             <dtyp:displayterm value="VCHP">VCHP</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDucted">VCHP-ducted</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDuctedAndDuctless">VCHP-ducted+ductless</dtyp:displayterm>
@@ -3503,10 +3726,14 @@
             <dtyp:CBECCresXMLterm value="NoCooling">no cooling</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="NonAirCooledAC"/>
             <dtyp:CBECCresXMLterm value="NonAirSourceHP"/>
+            <dtyp:CBECCresXMLterm value="PTAC"/>
+            <dtyp:CBECCresXMLterm value="PTHP"/>
             <dtyp:CBECCresXMLterm value="RoomAC">room AC</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="RoomHP"/>
             <dtyp:CBECCresXMLterm value="SmallDuctHighVelocityAC"/>
             <dtyp:CBECCresXMLterm value="SmallDuctHighVelocityHP"/>
+            <dtyp:CBECCresXMLterm value="SPVAC"/>
+            <dtyp:CBECCresXMLterm value="SPVHP"/>
             <dtyp:CBECCresXMLterm value="VCHP"/>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDucted"/>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDuctedAndDuctless"/>
@@ -3546,10 +3773,14 @@
          <xsd:enumeration value="NoCooling"/>
          <xsd:enumeration value="NonAirCooledAC"/>
          <xsd:enumeration value="NonAirSourceHP"/>
+         <xsd:enumeration value="PTAC"/>
+         <xsd:enumeration value="PTHP"/>
          <xsd:enumeration value="RoomAC"/>
          <xsd:enumeration value="RoomHP"/>
          <xsd:enumeration value="SmallDuctHighVelocityAC"/>
          <xsd:enumeration value="SmallDuctHighVelocityHP"/>
+         <xsd:enumeration value="SPVAC"/>
+         <xsd:enumeration value="SPVHP"/>
          <xsd:enumeration value="VCHP"/>
          <xsd:enumeration value="VCHP_IndoorUnitDucted"/>
          <xsd:enumeration value="VCHP_IndoorUnitDuctedAndDuctless"/>
@@ -3655,7 +3886,7 @@
             <dtyp:displayterm>Residential DHW System Distribution Type</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="DemandControlNR">Demand Control (Standard Design for new construction)</dtyp:displayterm>
+            <dtyp:displayterm value="DemandControlNR">Demand Control</dtyp:displayterm>
             <dtyp:displayterm value="NoLoopsNoCentralPump">No Loops or Central System Pump</dtyp:displayterm>
             <dtyp:displayterm value="NoControlContinuousPumping">No Control (continuous pumping)</dtyp:displayterm>
             <dtyp:displayterm value="TemperatureModulationMonitoring">Temperature modulation and monitoring</dtyp:displayterm>
@@ -3747,8 +3978,10 @@
             <dtyp:displayterm value="HydronicHP_ForcedAir">Hydronic HP + forced air</dtyp:displayterm>
             <dtyp:displayterm value="NoHeating">No Heating</dtyp:displayterm>
             <dtyp:displayterm value="NonAirSourceHP">Non-air-source Heat Pump</dtyp:displayterm>
+            <dtyp:displayterm value="PTHP">Package Terminal Heat Pump</dtyp:displayterm>
             <dtyp:displayterm value="RoomHP">Room HP</dtyp:displayterm>
             <dtyp:displayterm value="SmallDuctHighVelocityHP">Small Duct High Velocity Heat Pump</dtyp:displayterm>
+            <dtyp:displayterm value="SPVHP">Single package vertical heat pump</dtyp:displayterm>
             <dtyp:displayterm value="VCHP">VCHP</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDucted">VCHP-ducted</dtyp:displayterm>
             <dtyp:displayterm value="VCHP_IndoorUnitDuctedAndDuctless">VCHP-ducted+ductless</dtyp:displayterm>
@@ -3784,8 +4017,10 @@
             <dtyp:CBECCresXMLterm value="HydronicHP_ForcedAir">hydronic HP+forced air</dtyp:CBECCresXMLterm>
             <dtyp:CBECCresXMLterm value="NoHeating"/>
             <dtyp:CBECCresXMLterm value="NonAirSourceHP"/>
+            <dtyp:CBECCresXMLterm value="PTHP"/>
             <dtyp:CBECCresXMLterm value="RoomHP"/>
             <dtyp:CBECCresXMLterm value="SmallDuctHighVelocityHP">Small Duct High Velocity Heat Pump</dtyp:CBECCresXMLterm>
+            <dtyp:CBECCresXMLterm value="SPVHP"/>
             <dtyp:CBECCresXMLterm value="VCHP"/>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDucted"/>
             <dtyp:CBECCresXMLterm value="VCHP_IndoorUnitDuctedAndDuctless"/>
@@ -3822,8 +4057,10 @@
          <xsd:enumeration value="HydronicHP_ForcedAir"/>
          <xsd:enumeration value="NoHeating"/>
          <xsd:enumeration value="NonAirSourceHP"/>
+         <xsd:enumeration value="PTHP"/>
          <xsd:enumeration value="RoomHP"/>
          <xsd:enumeration value="SmallDuctHighVelocityHP"/>
+         <xsd:enumeration value="SPVHP"/>
          <xsd:enumeration value="VCHP"/>
          <xsd:enumeration value="VCHP_IndoorUnitDucted"/>
          <xsd:enumeration value="VCHP_IndoorUnitDuctedAndDuctless"/>
@@ -4630,6 +4867,15 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="ThermalZoneCoolingDesignFlow">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft3 per min</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ThermalZoneCoolingDesignSizingFactor">
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="ThermalZoneDescription">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -4648,6 +4894,15 @@
             <dtyp:displayterm>Thermal Zone Floor Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ThermalZoneHeatingDesignFlow">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft3 per min</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ThermalZoneHeatingDesignSizingFactor">
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="ThermalZoneName">
@@ -5067,5 +5322,20 @@
          <xsd:documentation>Units: W</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ZoneSystemCoolingSizingRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ZoneSystemHeatingSizingRatio">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ZoneSystemOptimumStart">
+      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
 </xsd:schema>

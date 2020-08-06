@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPVB01E" version="2019.1.003" xmlns="http://www.lmonte.com/besm/CF2RPVB01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPVB01E" version="2019.1.004" xmlns="http://www.lmonte.com/besm/CF2RPVB01E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -46,16 +46,32 @@
                   <xsd:element name="A05_PhotoVoltaicExceptionRes" type="comp:PhotoVoltaicExceptionRes">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Qualifying Exceptions</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User picks from list.  Enum values are BatteryStorage, CZ15ReducedSize, HabitableStories2, HabitableStories3, NoExceptionsNA, LimitedSolarAccess, PlansBefore2020</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">User picks from list.  Enum values are BatteryStorage, CZ15ReducedSize, HabitableStories2, HabitableStories3, NoExceptionsNA, LimitedSolarAccess, PlansBefore2020, CommunitySolar</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A06_PVExceptionString" type="comp:PVExceptionString">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Community Solar</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A05_PhotoVoltaicExceptionRes == ComunitySolar, load field from CF1R-PRF if available
+Or allow user input; Else result = NotApplicable store in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A06_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Community Solar</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A05_PhotoVoltaicExceptionRes == ComunitySolar, load field from CF1R-PRF if available
+Or allow user input; Else result = NotApplicable store in NotApplicableMessage</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
          <xsd:element name="Section_B" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Design Photovoltaic Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes Not==  LimitedSolarAccess</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes !=  LimitedSolarAccess And A05_PhotoVoltaicExceptionRes != CommunitySolar;</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -127,18 +143,23 @@ End If</xsd:documentation>
                                           <xsd:documentation source="FieldText">Azimuth (deg)</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceCertificateType == Performance Then 
 If  B05_CFI_PV == true Then
-If CF1R-PRF Da07_AzimuthRange == 150To270 for CFI1
+If CF1R-PRF XML  Da07_AzimuthRange data Not Present
+user input value that is in range 150 - 270;
+Else If CF1R-PRF Da07_AzimuthRange == 150To270 for CFI1
 user input value that is in range 150 - 270;  
 Else If CF1R-PRF Da07_AzimuthRange == 105To300 for CFI2
 user input value that is in range 105 - 300
 End If
  
 Else If  B05_CFI_PV == false 
-result = CF1R-PRF Da07_Azimuth value which is in range 0 -359; 
+If CF1R-PRF XML  Da07_AzimuthRange data Not Present
+user input value that is in range 0 - 359;
+Else result = CF1R-PRF Da07_Azimuth value which is in range 0 -359; 
+End If
 End If
  
 Else If A04_ComplianceCertificateType = Prescriptive 
-user input value that is in range 90 - 300;
+user input value that is in range 0 - 359;
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -166,13 +187,53 @@ End If</xsd:documentation>
                                        <xsd:element name="B08_Tilt" type="dtyp:Tilt">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance  If  B07_TiltMeasurementType = TiltDegrees, user inputs value that must be  InclusiveRange(0,10) stored in B08_Tilt  Else If B07_TiltMeasurementType = TiltPitch user inputs value that must be InclusiveRange(0,2) stored in B08_RoofRise; Else If A04_ComplianceMethod == Performance Then If B05_CFI_PV == true then value from CF1R-PRF that is LTE 7 stored in  B08_RoofRise; Else  value from CF1R-PRF</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance  
+ 
+If  B07_TiltMeasurementType = TiltDegrees 
+If B06_Azimuth LTE 59 Or  GTE 301 
+user inputs value that must be  InclusiveRange(0,10) stored in B08_Tilt  
+Else If B06_Azimuth  InclusiveRange(90, 300) 
+user inputs value that must be  InclusiveRange(0,90) stored in B08_Tilt  
+ 
+ 
+Else If B07_TiltMeasurementType = TiltPitch 
+If B06_Azimuth LTE 59 Or   GTE 301 
+user inputs value that must be InclusiveRange(0,2) stored in B08_RoofRise; 
+Else If B06_Azimuth  InclusiveRange(90, 300) 
+user inputs value that must be InclusiveRange(0,50) stored in B08_RoofRise;
+End If
+End If
+ 
+Else If A04_ComplianceMethod == Performance Then 
+If B05_CFI_PV == true 
+result is value from CF1R-PRF that is LTE 7 stored in  B08_RoofRise; 
+Else  value from CF1R-PRF</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B08_RoofRise" type="env:RoofRise">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance  If  B07_TiltMeasurementType = TiltDegrees, user inputs value that must be  InclusiveRange(0,10) stored in B08_Tilt  Else If B07_TiltMeasurementType = TiltPitch user inputs value that must be InclusiveRange(0,2) stored in B08_RoofRise; Else If A04_ComplianceMethod == Performance Then If B05_CFI_PV == true then value from CF1R-PRF that is LTE 7 stored in  B08_RoofRise; Else  value from CF1R-PRF</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If A04_ComplianceMethod Not== Performance  
+ 
+If  B07_TiltMeasurementType = TiltDegrees 
+If B06_Azimuth LTE 59 Or  GTE 301 
+user inputs value that must be  InclusiveRange(0,10) stored in B08_Tilt  
+Else If B06_Azimuth  InclusiveRange(90, 300) 
+user inputs value that must be  InclusiveRange(0,90) stored in B08_Tilt  
+ 
+ 
+Else If B07_TiltMeasurementType = TiltPitch 
+If B06_Azimuth LTE 59 Or   GTE 301 
+user inputs value that must be InclusiveRange(0,2) stored in B08_RoofRise; 
+Else If B06_Azimuth  InclusiveRange(90, 300) 
+user inputs value that must be InclusiveRange(0,50) stored in B08_RoofRise;
+End If
+End If
+ 
+Else If A04_ComplianceMethod == Performance Then 
+If B05_CFI_PV == true 
+result is value from CF1R-PRF that is LTE 7 stored in  B08_RoofRise; 
+Else  value from CF1R-PRF</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -211,13 +272,41 @@ End If</xsd:documentation>
                                           </xsd:restriction>
                                        </xsd:simpleType>
                                     </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B12_ArrayType" type="hvac:ArrayType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Array Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Value from CF1R-PRF Else NA stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B12_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Array Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Value from CF1R-PRF Else NA stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B13_PowerElectronics" type="hvac:PowerElectronics">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Module Level Power Eletronics</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Value from CF1R-PRF Else NA stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B13_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Module Level Power Eletronics</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Value from CF1R-PRF Else NA stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="B12_PV_SystemPowerOutput" type="hvac:PV_SystemPowerOutput">
+                  <xsd:element name="B14_PV_SystemPowerOutput" type="hvac:PV_SystemPowerOutput">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total DC System Size (kW)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Caculated field: Sum All (B03_ArrayAdjustedPowerOutput)</xsd:documentation>
@@ -229,7 +318,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_C" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed Photovoltaic Systems Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes  != LimitedSolarAccess</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes !=  LimitedSolarAccess And A05_PhotoVoltaicExceptionRes != CommunitySolar;  For each record in Section B TableDesign, require a record in TableInstalled.  If an array has B05_CFI_PV == true, allow user to add a new record for that array in the TableInstalled.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -246,13 +335,13 @@ End If</xsd:documentation>
                                     <xsd:element name="C01_ArrayName" type="hvac:ArrayName">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">PV Array ID or Name</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF1R</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Auto-filled: reference value from CF1R; else user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C02_ArrayPowerOutput" type="hvac:ArrayPowerOutput">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">DC System Size (kW)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then result = B03_ArrayAdjustedPowerOutput but allow user to override only if result  GTE B03; Else user input which must be GTE B03</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then result = B03_ArrayAdjustedPowerOutput but allow user to override only if result  GTE B03; Else user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -319,24 +408,50 @@ Else user input value for the measurement type in C05. Value must be GT 0 and LT
                                     <xsd:element name="C07_AnnualSolarAccess" type="hvac:AnnualSolarAccess">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Annual Solar Access (%)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Result = B09_AnnualSolarAccess as default but allow user to override only if result GTE B09_AnnualSolarAccess</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Result = B09_AnnualSolarAccess as default but allow user to override</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C08_InverterEfficiencyPercent" type="hvac:InverterEfficiencyPercent">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Inverter Efficiency (%)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If there is a value in B10_InverterEfficiencyPercent reference default but allow user to override If result GTE B10_InverterEfficiencyPercent
-Else allow user input
-End If</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value in B10_InverterEfficiencyPercent as default but allow user to override</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C09_ArrayType" type="hvac:ArrayType">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Array Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B12</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Array Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B12 which may be NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C10_PowerElectronics" type="hvac:PowerElectronics">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Module Level Power Eletronics</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B13 as default;  If B13_PowerElectronics == NoPowerElectronics, then allow user to override and select from list: Microinverters display term Microinverters and PowerOptimizers display term DC Power Optimizers</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Module Level Power Eletronics</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from B13 which may be NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
                         </xsd:sequence>
                      </xsd:complexType>
                   </xsd:element>
-                  <xsd:element name="C09_PV_SystemPowerOutput" type="hvac:PV_SystemPowerOutput">
+                  <xsd:element name="C11_PV_SystemPowerOutput" type="hvac:PV_SystemPowerOutput">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Total DC System Size (kW)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Caculated field: Sum All (C02_ArrayPowerOutput)</xsd:documentation>
@@ -354,7 +469,7 @@ End If</xsd:documentation>
          <xsd:element name="Section_D" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Shading Requirement</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is displayed If A05_PhotoVoltaicExceptionRes  != LimitedSolarAccess;  Display of text is controlled as follows:
+               <xsd:documentation source="CalculationsAndRules">This section is displayed If A05_PhotoVoltaicExceptionRes !=  LimitedSolarAccess And A05_PhotoVoltaicExceptionRes != CommunitySolar;  Display of text is controlled as follows:
  
 If B10_PhotoVoltaicShading == MinimalShadingCritierion 
 display D01a static text for Minimal Shading Criterion 
@@ -390,6 +505,7 @@ Else display D01b static text for Annual Solae Access  Input;</xsd:documentation
          <xsd:element name="Section_E" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Solar Access Verification</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is displayed If A05_PhotoVoltaicExceptionRes !=  LimitedSolarAccess And A05_PhotoVoltaicExceptionRes != CommunitySolar;</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -412,6 +528,7 @@ Else display D01b static text for Annual Solae Access  Input;</xsd:documentation
          <xsd:element name="Section_F" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">System Monitoring Requirements</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This seciton is displayed If A05_PhotoVoltaicExceptionRes !=  LimitedSolarAccess And A05_PhotoVoltaicExceptionRes != CommunitySolar;</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -470,7 +587,7 @@ Else display D01b static text for Annual Solae Access  Input;</xsd:documentation
          <xsd:element name="Section_G" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Qualifying Exception Verification</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes Not== NoExceptionsNA</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes != NoExceptionsNA Or A05_PhotoVoltaicExceptionRes == CommunitySolar</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -490,18 +607,46 @@ Else display D01b static text for Annual Solae Access  Input;</xsd:documentation
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_H" minOccurs="1">
+         <xsd:element name="Section_H" minOccurs="0">
+            <xsd:annotation>
+               <xsd:documentation source="FieldText">SMUD Solar Share Program</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If A05_PhotoVoltaicExceptionRes == CommunitySolar</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="H01_PV_SystemTotalRatedPowerDC" type="hvac:PV_SystemTotalRatedPowerDC">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Required kW</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Value loaded from CF1R-PRF</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="H02" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">Attach a copy of SMUD Attestation of Premise Registration in Neighborhood SolarShares (Attestation).</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="HEndNote1" minOccurs="0">
+                     <xsd:annotation>
+                        <xsd:documentation source="FieldText">End Note 1</xsd:documentation>
+                        <xsd:documentation source="AdditionalRequirements">The responsible person's signature on this compliance document affirms that all applicable requirements in this table have been met.</xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Section_I" minOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Compliance Statement</xsd:documentation>
                <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="H01_DoesDwellingComplyWithPV_Requirements" type="comp:DoesDwellingComplyWithPV_Requirements">
+                  <xsd:element name="I01_DoesDwellingComplyWithPV_Requirements" type="comp:DoesDwellingComplyWithPV_Requirements">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText"/>
                         <xsd:documentation source="CalculationsAndRules">Calculated Field: 
-If C09_PV_SystemPowerOutput GTE B12_PV_SystemPowerOutput Or A05_PhotoVoltaicExceptionRes == LimitedSolarAccess
+If C11_PV_SystemPowerOutput GTE B14_PV_SystemPowerOutput Or A05_PhotoVoltaicExceptionRes == LimitedSolarAccess Or CommunitySolar 
 result = true display term  Pass - dwelling does comply with the Photovoltaic System requirements; 
  
 Else result = false  display term  Fail - dwelling does not comply with the Photovoltaic System requirements
@@ -537,7 +682,7 @@ End If.</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPVB01E"/>
       </xsd:complexType>
    </xsd:element>

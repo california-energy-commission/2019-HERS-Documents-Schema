@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/com" version="2019.1.003" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/com" version="2019.1.004" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="ResHvac.xsd"/>
    <xsd:simpleType name="ADUBedroomCount">
@@ -9,7 +9,9 @@
             <dtyp:displayterm>ADU Bedroom Count</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:IntegerNonnegative"/>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+         <xsd:minInclusive value="1"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ADUConditionedFloorArea">
       <xsd:annotation>
@@ -36,6 +38,15 @@
          <xsd:enumeration value="Detached"/>
          <xsd:enumeration value="None"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="AdditionConditionedFloorArea">
+      <xsd:annotation>
+         <xsd:documentation>Units: ft2</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Addition Conditioned Floor Area</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="AdditionTotalConditionedFloorArea">
       <xsd:annotation>
@@ -84,6 +95,21 @@
          <xsd:enumeration value="Manufactured"/>
          <xsd:enumeration value="SiteBuilt"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="AzimuthRange">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="105To300">105-300</dtyp:displayterm>
+            <dtyp:displayterm value="150To270">150-270</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="105To300"/>
+         <xsd:enumeration value="150To270"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="AzimuthRangeString">
+      <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="BedroomCount">
       <xsd:annotation>
@@ -1368,6 +1394,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
             <dtyp:displayterm value="CrawlSpace">Crawl space</dtyp:displayterm>
             <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
             <dtyp:displayterm value="Kitchen">Kitchen</dtyp:displayterm>
+            <dtyp:displayterm value="LaundryRoom">Laundry room</dtyp:displayterm>
             <dtyp:displayterm value="LivingRoom">Living room</dtyp:displayterm>
             <dtyp:displayterm value="StorageResidential">Storage room</dtyp:displayterm>
          </xsd:appinfo>
@@ -1380,6 +1407,7 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="CrawlSpace"/>
          <xsd:enumeration value="Garage"/>
          <xsd:enumeration value="Kitchen"/>
+         <xsd:enumeration value="LaundryRoom"/>
          <xsd:enumeration value="LivingRoom"/>
          <xsd:enumeration value="StorageResidential"/>
       </xsd:restriction>
@@ -1927,7 +1955,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:annotation>
          <xsd:documentation>Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="UFactorLimit">
       <xsd:annotation>

@@ -6,7 +6,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AirInfiltrationRate">
@@ -690,9 +690,9 @@ Not Shared</dtyp:displayterm>
    <xsd:simpleType name="FenestrationCertificationMethod">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="CECDefaultPerformance">Tables 110.6-A and 110.6-B</dtyp:displayterm>
+            <dtyp:displayterm value="CECDefaultPerformance">Default 110.6</dtyp:displayterm>
             <dtyp:displayterm value="CF1R_ENV_02">Area-weighted Average Worksheet (CF1R-ENV-02)</dtyp:displayterm>
-            <dtyp:displayterm value="NA6Equations">Equations NA 6-1 and NA 6 -2</dtyp:displayterm>
+            <dtyp:displayterm value="NA6Equations">Equatio NA 6-1 and NA 6 -2</dtyp:displayterm>
             <dtyp:displayterm value="NFRCRated">NFRC</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -1686,6 +1686,13 @@ Not Shared</dtyp:displayterm>
          <xsd:enumeration value="SolidUnit"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="MassLayerThickness">
+      <xsd:annotation>
+         <xsd:documentation>  Units: in</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="MassWallThickness">
       <xsd:annotation>
          <xsd:documentation>  Units: in</xsd:documentation>
@@ -1804,6 +1811,10 @@ Not Shared</dtyp:displayterm>
          <xsd:enumeration value="SIP2x"/>
          <xsd:enumeration value="SIP4x"/>
          <xsd:enumeration value="StrawBaleWall"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="NonStdSprayFoam">
+      <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="OpaqueSurfaceType">
@@ -2065,6 +2076,10 @@ Not Shared</dtyp:displayterm>
          <xsd:enumeration value="WoodFramedFloor"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="RaisedHeelTruss">
+      <xsd:restriction base="xsd:string">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ResidentialFenestrationType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -2271,6 +2286,10 @@ Not Shared</dtyp:displayterm>
          <xsd:documentation>This is the distance in inches that a roof rises vertically for the roof run of 12 inches to its ridge and is used in calculating the roof pitch or slope.  This is sometimes also referred to as pitch when the run is assumed to be 12 inches.  Units: in</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="RoofRiseString">
+      <xsd:restriction base="xsd:string">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RoofRiseToRun">
@@ -2843,7 +2862,7 @@ of exposed exterior glazing at the jamb of a window to the outward edge of a fin
             <dtyp:displayterm>Window Floor Ratio</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative">
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WindowFrameAndDividerName">

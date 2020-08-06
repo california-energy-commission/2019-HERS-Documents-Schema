@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/comp" version="2019.1.003" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/comp" version="2019.1.004" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
@@ -6388,6 +6388,9 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="PVExceptionString">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="PV_AdjustedMinimumSize">
       <xsd:annotation>
          <xsd:documentation>Units: kWdc</xsd:documentation>
@@ -6679,6 +6682,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BatteryStorage">Battery storage (Trigger CF2R-PVB-02)</dtyp:displayterm>
+            <dtyp:displayterm value="CommunitySolar">CommunitySolar</dtyp:displayterm>
             <dtyp:displayterm value="CZ15ReducedSize">CZ15 reduced PV size</dtyp:displayterm>
             <dtyp:displayterm value="DeclaredEmergencyArea">AB-178 - Declared emergency area</dtyp:displayterm>
             <dtyp:displayterm value="HabitableStories2">2 habitable stories</dtyp:displayterm>
@@ -6690,6 +6694,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="BatteryStorage"/>
+         <xsd:enumeration value="CommunitySolar"/>
          <xsd:enumeration value="CZ15ReducedSize"/>
          <xsd:enumeration value="DeclaredEmergencyArea"/>
          <xsd:enumeration value="HabitableStories2"/>
@@ -7866,6 +7871,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="BalancedIAQVentilation">Indoor air quality, balanced fan</dtyp:displayterm>
             <dtyp:displayterm value="BatterySystem">Battery System</dtyp:displayterm>
             <dtyp:displayterm value="BatteryWithSelfUtilCredit">Battery System (Self Utilization Credit Taken)</dtyp:displayterm>
+            <dtyp:displayterm value="CentralHeatPumpWaterHeater">Central Heat Pump Water Heater</dtyp:displayterm>
             <dtyp:displayterm value="CentralParallelPiping">Central parallel piping</dtyp:displayterm>
             <dtyp:displayterm value="CompactDesignBasic">Compact distribution system basic credit</dtyp:displayterm>
             <dtyp:displayterm value="ComplianceOptionVCHP">Variable capacity heat pump compliance option (verification details from VCHP Staff report, Appendix B, and RA3)</dtyp:displayterm>
@@ -7893,6 +7899,19 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="PointOfUseDHW">Point of use</dtyp:displayterm>
             <dtyp:displayterm value="PrecoolingCreditTaken">Precooling Credit Taken</dtyp:displayterm>
             <dtyp:displayterm value="PV2kWSystem">PV System: 2.0 kW</dtyp:displayterm>
+            <dtyp:displayterm value="PVArrayTrackingOneAxis">PV Array Type: Tracking (one axis)</dtyp:displayterm>
+            <dtyp:displayterm value="PVArrayTrackingTwoAxis">PV Array Type: Tracking (two axis)</dtyp:displayterm>
+            <dtyp:displayterm value="PVCommunitySolar">PV Community Solar</dtyp:displayterm>
+            <dtyp:displayterm value="PVException2HabitableStories">PV Exception: 2 Habitable Stories</dtyp:displayterm>
+            <dtyp:displayterm value="PVException3HabitableStories">PV Exception: 3 Habitable Stories</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionAB178EmergencyArea">PV Exception: AB178 Emergency Area</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionEffectSolarAccess">PV Exception: Effective Solar Access</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionPriorSolarReadyZone">PV Exception: Prior Solar Ready Zone</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionSolarAccessAndHomeArea">PV Exception: Solar Access and Home area</dtyp:displayterm>
+            <dtyp:displayterm value="PVModuleTypePremium">PV Module Type: Premium</dtyp:displayterm>
+            <dtyp:displayterm value="PVModuleTypeThinFilm">PV Module Type: Thin Film</dtyp:displayterm>
+            <dtyp:displayterm value="PVPowerElecDCPowerOptimizer">PV Power Electric DC Power Optimizer</dtyp:displayterm>
+            <dtyp:displayterm value="PVPowerElecMicroinverters">PV Power Electric Microinverters</dtyp:displayterm>
             <dtyp:displayterm value="RaisedHeelTruss">Raised heel truss (height above top plate)</dtyp:displayterm>
             <dtyp:displayterm value="RecirculationDemandControlMF">Multifamily: Recirculating demand control</dtyp:displayterm>
             <dtyp:displayterm value="RecirculationDemandControlOccup">Recirculating with demand control, occupancy/motion sensor</dtyp:displayterm>
@@ -7916,6 +7935,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="BalancedIAQVentilation"/>
          <xsd:enumeration value="BatterySystem"/>
          <xsd:enumeration value="BatteryWithSelfUtilCredit"/>
+         <xsd:enumeration value="CentralHeatPumpWaterHeater"/>
          <xsd:enumeration value="CentralParallelPiping"/>
          <xsd:enumeration value="CompactDesignBasic"/>
          <xsd:enumeration value="ComplianceOptionVCHP"/>
@@ -7943,6 +7963,19 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="PointOfUseDHW"/>
          <xsd:enumeration value="PrecoolingCreditTaken"/>
          <xsd:enumeration value="PV2kWSystem"/>
+         <xsd:enumeration value="PVArrayTrackingOneAxis"/>
+         <xsd:enumeration value="PVArrayTrackingTwoAxis"/>
+         <xsd:enumeration value="PVCommunitySolar"/>
+         <xsd:enumeration value="PVException2HabitableStories"/>
+         <xsd:enumeration value="PVException3HabitableStories"/>
+         <xsd:enumeration value="PVExceptionAB178EmergencyArea"/>
+         <xsd:enumeration value="PVExceptionEffectSolarAccess"/>
+         <xsd:enumeration value="PVExceptionPriorSolarReadyZone"/>
+         <xsd:enumeration value="PVExceptionSolarAccessAndHomeArea"/>
+         <xsd:enumeration value="PVModuleTypePremium"/>
+         <xsd:enumeration value="PVModuleTypeThinFilm"/>
+         <xsd:enumeration value="PVPowerElecDCPowerOptimizer"/>
+         <xsd:enumeration value="PVPowerElecMicroinverters"/>
          <xsd:enumeration value="RaisedHeelTruss"/>
          <xsd:enumeration value="RecirculationDemandControlMF"/>
          <xsd:enumeration value="RecirculationDemandControlOccup"/>
