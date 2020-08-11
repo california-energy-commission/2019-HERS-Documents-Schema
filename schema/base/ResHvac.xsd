@@ -722,6 +722,22 @@
          <xsd:enumeration value="NoContainer"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="BWC202065SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="BradfordWhiteRE2H65T101NCWT">RE2H65T10-1NCWT  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H65T61NCWT">RE2H65T6-1NCWT (65 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="BradfordWhiteRE2H65T101NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2H65T61NCWT"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="CapacityRated">
       <xsd:annotation>
          <xsd:documentation>The cooling or heating capacity of HVAC equipment at prescribed rating conditions.  Units: Btu per h</xsd:documentation>
@@ -1748,6 +1764,16 @@
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="EfficiencyInstalledValueCEER">
+      <xsd:annotation>
+         <xsd:documentation>  Units: Btu per W h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Efficiency Installed CEER Value</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="EfficiencyInstalledValueCOP">
       <xsd:annotation>
          <xsd:documentation>  Units: none</xsd:documentation>
@@ -1794,6 +1820,16 @@
          <xsd:documentation source="propertyrules">Value is stored as the fraction expressed as decimal and for display the value is multiplied by 100 and has % sign e.g. .80 stored value and 80% display value</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Efficiency Minimum AFUE Value</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="EfficiencyMinimumValueCEER">
+      <xsd:annotation>
+         <xsd:documentation>  Units: Btu per W h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Efficiency Minimum CEER Value</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
@@ -1856,6 +1892,7 @@
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AFUE">AFUE</dtyp:displayterm>
+            <dtyp:displayterm value="CEER">CEER</dtyp:displayterm>
             <dtyp:displayterm value="COP">COP</dtyp:displayterm>
             <dtyp:displayterm value="EER">EER</dtyp:displayterm>
             <dtyp:displayterm value="EnergyFactor">EF</dtyp:displayterm>
@@ -1870,6 +1907,7 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AFUE"/>
+         <xsd:enumeration value="CEER"/>
          <xsd:enumeration value="COP"/>
          <xsd:enumeration value="EER"/>
          <xsd:enumeration value="EnergyFactor"/>
@@ -2230,6 +2268,7 @@
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BradfordWhiteRE2H50">RE2H50R10B-1NCWT  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H50S61NCWT">RE2H50S6-1NCWT (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BEH50DCEJSB">BEH50DCEJSB  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="GEH50DEEJSC">GEH50DEEJSC  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="GEH50DEEJXXX">GEH50DEEJXXX  (50 gal)</dtyp:displayterm>
@@ -2239,6 +2278,7 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="BradfordWhiteRE2H50"/>
+         <xsd:enumeration value="BradfordWhiteRE2H50S61NCWT"/>
          <xsd:enumeration value="BEH50DCEJSB"/>
          <xsd:enumeration value="GEH50DEEJSC"/>
          <xsd:enumeration value="GEH50DEEJXXX"/>
@@ -2254,6 +2294,7 @@
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="BradfordWhiteRE2H80">RE2H80R10B-1NCWT  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H80T61NCWT">RE2H80T6-1NCWT (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BEH80DCEJSB">BEH80DCEJSB  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="GEH80DEEJSC">GEH80DEEJSC  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="GEH80DFEJSR">GEH80DFEJSR  (80 gal)</dtyp:displayterm>
@@ -2262,6 +2303,7 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="BradfordWhiteRE2H80"/>
+         <xsd:enumeration value="BradfordWhiteRE2H80T61NCWT"/>
          <xsd:enumeration value="BEH80DCEJSB"/>
          <xsd:enumeration value="GEH80DEEJSC"/>
          <xsd:enumeration value="GEH80DFEJSR"/>
@@ -2955,7 +2997,11 @@
             <dtyp:displayterm value="AOSmithHPTU80">HPTU 80 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithHPTU80N">HPTU 80N 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H50">RE2H50R10B-1NCWT  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H50S61NCWT">RE2H50S6-1NCWT (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H65T101NCWT">RE2H65T10-1NCWT  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H65T61NCWT">RE2H65T6-1NCWT (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BradfordWhiteRE2H80">RE2H80R10B-1NCWT  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="BradfordWhiteRE2H80T61NCWT">RE2H80T6-1NCWT (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BEH50DCEJSB">BEH50DCEJSB  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="BEH80DCEJSB">BEH80DCEJSB  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="GEH50DEEJSC">GEH50DEEJSC  (50 gal)</dtyp:displayterm>
@@ -2987,38 +3033,94 @@
             <dtyp:displayterm value="RheemHPLD50">HPLD50  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemHPLD65">HPLD65  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemHPLD80">HPLD80  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH40T2RH310BM">PROH40 T2 RH310BM  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH50T2RH310BM">PROH50 T2 RH310BM  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH65T2RH310BM">PROH65 T2 RH310BM  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROH80T2RH310BM">PROH80 T2 RH310BM  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH37515">PROPH40 T2 RH37515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH37530">PROPH40 T2 RH37530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH375SO">PROPH40 T2 RH375SO  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH350">PROPH50 T2 RH350 D  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH350DC">PROPH50 T2 RH350 DC  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH50RH350DCB">PROPH50 T2 RH350 DCB  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH37515">PROPH50 T2 RH37515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH37530">PROPH50 T2 RH37530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH375SO">PROPH50 T2 RH375SO  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350D">PROPH65 T2 RH350 D  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350D15">PROPH65 T2 RH350 D15  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350DC">PROPH65 T2 RH350 DC  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH65RH350DCB">PROPH65 T2 RH350 DCB  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH37515">PROPH65 T2 RH37515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH37530">PROPH65 T2 RH37530 (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH375SO">PROPH65 T2 RH375SO (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH80RH350D15">PROPH80 T2 RH350 D15  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH37515">PROPH80 T2 RH37515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH37530">PROPH80 T2 RH37530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH375SO">PROPH80 T2 RH375SO (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10H22U0">XE40T10H22U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10H45U0">XE40T10H45U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10HS45U0">XE40T10HS45U0  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T10">XE50T10HD50U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10H22U0">XE50T10H22U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10H45U0">XE50T10H45U0  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T10HD22U0">XE50T10HD22U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10HS45U0">XE50T10HS45U0  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE50T10U1">XE50T10HD50U1  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE65T10">XE65T10HD50U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10H22U0">XE65T10H22U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10H45U0">XE65T10H45U0  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE65T10HD22U0">XE65T10HD22U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10HS45U0">XE65T10HS45U0  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE65T10U1">XE65T10HD50U1  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T10">XE80T10HD50U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10H22U0">XE80T10H22U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10H45U0">XE80T10H45U0  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T10HD22U0">XE80T10HD22U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10HS45U0">XE80T10HS45U0  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemXE80T10U1">XE80T10HD50U1  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP515">10E40-HP515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP530">10E40-HP530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP5S30">10E40-HP5S30  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E50HP4D">10E50-HP4D  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E50HP4D15">10E50-HP4D15  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP515">10E50-HP515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP530">10E50-HP530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP5S30">10E50-HP5S30  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E65HP4D">10E65-HP4D  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E65HP4D15">10E65-HP4D15  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP515">10E65-HP515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP530">10E65-HP530  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP5S30">10E65-HP5S30  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E80HP4D">10E80-HP4D  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="Richmond10E80HP4D15">10E80-HP4D15  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP515">10E80-HP515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP530">10E80-HP530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP5S30">10E80-HP5S30  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH40T2RU310BM">PROH40 T2 RU310BM  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH50T2RU310BM">PROH50 T2 RU310BM  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH65T2RU310BM">PROH65 T2 RU310BM  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH80T2RU310BM">PROH80 T2 RU310BM  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU37515">PROUH40 T2 RU37515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU37530">PROUH40 T2 RU37530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU375SO">PROUH40 T2 RU375SO  (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU350D">PROUH50 T2 RU350 D  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU350D15">PROUH50 T2 RU350 D15  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH50RU350DCB">PROUH50 T2 RU350 DCB  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU37515">PROUH50 T2 RU37515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU37530">PROUH50 T2 RU37530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU375SO">PROUH50 T2 RU375SO  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH65RU350D">PROUH65 T2 RU350 D  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH65RU350D15">PROUH65 T2 RU350 D15  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH65RU350DCB">PROUH65 T2 RU350 DCB  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU37515">PROUH65 T2 RU37515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU37530">PROUH65 T2 RU37530  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU375SO">PROUH65 T2 RU375SO  (65 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU350D">PROUH80 T2 RU350 D  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU350D15">PROUH80 T2 RU350 D15  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RuudPROUH80RU350DCB">PROUH80 T2 RU350 DCB  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU37515">PROUH80 T2 RU37515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU37530">PROUH80 T2 RU37530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU375SO">PROUH80 T2 RU375SO  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS160QTA">GS3-45HPA-US &amp; GAUS-160QTA  (43 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_GAUS315EQTD">GS3-45HPA-US &amp; GAUS-315EQTD  (83 gal)</dtyp:displayterm>
             <dtyp:displayterm value="SandenGS3_SAN43SSAQA">GS3-45HPA-US &amp; SAN-43SSAQA  (43 gal)</dtyp:displayterm>
@@ -3073,7 +3175,11 @@
          <xsd:enumeration value="AOSmithHPTU80"/>
          <xsd:enumeration value="AOSmithHPTU80N"/>
          <xsd:enumeration value="BradfordWhiteRE2H50"/>
+         <xsd:enumeration value="BradfordWhiteRE2H50S61NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2H65T101NCWT"/>
+         <xsd:enumeration value="BradfordWhiteRE2H65T61NCWT"/>
          <xsd:enumeration value="BradfordWhiteRE2H80"/>
+         <xsd:enumeration value="BradfordWhiteRE2H80T61NCWT"/>
          <xsd:enumeration value="BEH50DCEJSB"/>
          <xsd:enumeration value="BEH80DCEJSB"/>
          <xsd:enumeration value="GEH50DEEJSC"/>
@@ -3105,38 +3211,94 @@
          <xsd:enumeration value="RheemHPLD50"/>
          <xsd:enumeration value="RheemHPLD65"/>
          <xsd:enumeration value="RheemHPLD80"/>
+         <xsd:enumeration value="RheemPROH40T2RH310BM"/>
+         <xsd:enumeration value="RheemPROH50T2RH310BM"/>
+         <xsd:enumeration value="RheemPROH65T2RH310BM"/>
+         <xsd:enumeration value="RheemPROH80T2RH310BM"/>
+         <xsd:enumeration value="RheemPROPH40T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH40T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH40T2RH375SO"/>
          <xsd:enumeration value="RheemPROPH50RH350"/>
          <xsd:enumeration value="RheemPROPH50RH350DC"/>
          <xsd:enumeration value="RheemPROPH50RH350DCB"/>
+         <xsd:enumeration value="RheemPROPH50T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH50T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH50T2RH375SO"/>
          <xsd:enumeration value="RheemPROPH65RH350D"/>
          <xsd:enumeration value="RheemPROPH65RH350D15"/>
          <xsd:enumeration value="RheemPROPH65RH350DC"/>
          <xsd:enumeration value="RheemPROPH65RH350DCB"/>
+         <xsd:enumeration value="RheemPROPH65T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH65T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH65T2RH375SO"/>
          <xsd:enumeration value="RheemPROPH80RH350D15"/>
+         <xsd:enumeration value="RheemPROPH80T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH80T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH80T2RH375SO"/>
+         <xsd:enumeration value="RheemXE40T10H22U0"/>
+         <xsd:enumeration value="RheemXE40T10H45U0"/>
+         <xsd:enumeration value="RheemXE40T10HS45U0"/>
          <xsd:enumeration value="RheemXE50T10"/>
+         <xsd:enumeration value="RheemXE50T10H22U0"/>
+         <xsd:enumeration value="RheemXE50T10H45U0"/>
          <xsd:enumeration value="RheemXE50T10HD22U0"/>
+         <xsd:enumeration value="RheemXE50T10HS45U0"/>
          <xsd:enumeration value="RheemXE50T10U1"/>
          <xsd:enumeration value="RheemXE65T10"/>
+         <xsd:enumeration value="RheemXE65T10H22U0"/>
+         <xsd:enumeration value="RheemXE65T10H45U0"/>
          <xsd:enumeration value="RheemXE65T10HD22U0"/>
+         <xsd:enumeration value="RheemXE65T10HS45U0"/>
          <xsd:enumeration value="RheemXE65T10U1"/>
          <xsd:enumeration value="RheemXE80T10"/>
+         <xsd:enumeration value="RheemXE80T10H22U0"/>
+         <xsd:enumeration value="RheemXE80T10H45U0"/>
          <xsd:enumeration value="RheemXE80T10HD22U0"/>
+         <xsd:enumeration value="RheemXE80T10HS45U0"/>
          <xsd:enumeration value="RheemXE80T10U1"/>
+         <xsd:enumeration value="Richmond10E40HP515"/>
+         <xsd:enumeration value="Richmond10E40HP530"/>
+         <xsd:enumeration value="Richmond10E40HP5S30"/>
          <xsd:enumeration value="Richmond10E50HP4D"/>
          <xsd:enumeration value="Richmond10E50HP4D15"/>
+         <xsd:enumeration value="Richmond10E50HP515"/>
+         <xsd:enumeration value="Richmond10E50HP530"/>
+         <xsd:enumeration value="Richmond10E50HP5S30"/>
          <xsd:enumeration value="Richmond10E65HP4D"/>
          <xsd:enumeration value="Richmond10E65HP4D15"/>
+         <xsd:enumeration value="Richmond10E65HP515"/>
+         <xsd:enumeration value="Richmond10E65HP530"/>
+         <xsd:enumeration value="Richmond10E65HP5S30"/>
          <xsd:enumeration value="Richmond10E80HP4D"/>
          <xsd:enumeration value="Richmond10E80HP4D15"/>
+         <xsd:enumeration value="Richmond10E80HP515"/>
+         <xsd:enumeration value="Richmond10E80HP530"/>
+         <xsd:enumeration value="Richmond10E80HP5S30"/>
+         <xsd:enumeration value="RuudPROH40T2RU310BM"/>
+         <xsd:enumeration value="RuudPROH50T2RU310BM"/>
+         <xsd:enumeration value="RuudPROH65T2RU310BM"/>
+         <xsd:enumeration value="RuudPROH80T2RU310BM"/>
+         <xsd:enumeration value="RuudPROUH40T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH40T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH40T2RU375SO"/>
          <xsd:enumeration value="RuudPROUH50RU350D"/>
          <xsd:enumeration value="RuudPROUH50RU350D15"/>
          <xsd:enumeration value="RuudPROUH50RU350DCB"/>
+         <xsd:enumeration value="RuudPROUH50T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH50T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH50T2RU375SO"/>
          <xsd:enumeration value="RuudPROUH65RU350D"/>
          <xsd:enumeration value="RuudPROUH65RU350D15"/>
          <xsd:enumeration value="RuudPROUH65RU350DCB"/>
+         <xsd:enumeration value="RuudPROUH65T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH65T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH65T2RU375SO"/>
          <xsd:enumeration value="RuudPROUH80RU350D"/>
          <xsd:enumeration value="RuudPROUH80RU350D15"/>
          <xsd:enumeration value="RuudPROUH80RU350DCB"/>
+         <xsd:enumeration value="RuudPROUH80T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH80T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH80T2RU375SO"/>
          <xsd:enumeration value="SandenGS3_GAUS160QTA"/>
          <xsd:enumeration value="SandenGS3_GAUS315EQTD"/>
          <xsd:enumeration value="SandenGS3_SAN43SSAQA"/>
@@ -3502,6 +3664,10 @@
       <xsd:restriction base="xsd:boolean">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="LoopTankBrandModel">
+      <xsd:restriction base="xsd:token">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="LoopTankCapacity">
       <xsd:annotation>
          <xsd:documentation>  Units: gal</xsd:documentation>
@@ -3512,11 +3678,56 @@
    <xsd:simpleType name="LoopTankHeaterType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ElectricResistance">Commercial Electric Resistance</dtyp:displayterm>
+            <dtyp:displayterm value="ElectricResistance">Electric Resistance</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="ElectricResistance"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LoopTankLocation">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Loop Tank Location</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Conditioned">Conditioned</dtyp:displayterm>
+            <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
+            <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
+            <dtyp:displayterm value="TankZone">Tank Zone</dtyp:displayterm>
+            <dtyp:displayterm value="Unconditioned">Unconditioned</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Conditioned"/>
+         <xsd:enumeration value="Garage"/>
+         <xsd:enumeration value="Outside"/>
+         <xsd:enumeration value="TankZone"/>
+         <xsd:enumeration value="Unconditioned"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LoopTankTotalInsulation">
+      <xsd:annotation>
+         <xsd:documentation>  Units: h ft2 F per Btu</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Loop Tank Total Insulation</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="LoopTankType">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ElectricResistance">Electric Resistance</dtyp:displayterm>
+            <dtyp:displayterm value="LargeCompressor">Large Compressor</dtyp:displayterm>
+            <dtyp:displayterm value="NEEA">NEEA</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ElectricResistance"/>
+         <xsd:enumeration value="LargeCompressor"/>
+         <xsd:enumeration value="NEEA"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="LowRatedCFM_ASRE">
@@ -3602,6 +3813,25 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="PipeLocation">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Pipe Location</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="ConditionedSpace">Conditioned Space</dtyp:displayterm>
+            <dtyp:displayterm value="SemiConditionedSpace">Semi-conditioned Space</dtyp:displayterm>
+            <dtyp:displayterm value="UnconditionedSpace">Unconditioned Space</dtyp:displayterm>
+            <dtyp:displayterm value="Underground">Underground</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="ConditionedSpace"/>
+         <xsd:enumeration value="SemiConditionedSpace"/>
+         <xsd:enumeration value="UnconditionedSpace"/>
+         <xsd:enumeration value="Underground"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PipeNominalDiameter">
@@ -3750,6 +3980,17 @@
          <xsd:enumeration value="Microinverters"/>
          <xsd:enumeration value="NoPowerElectronics"/>
          <xsd:enumeration value="PowerOptimizer"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="PrimaryTankTotalInsulation">
+      <xsd:annotation>
+         <xsd:documentation>  Units: h ft2 F per Btu</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Primary Tank Total Insulation
+</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PumpCount">
@@ -4618,6 +4859,214 @@
       <xsd:restriction base="dtyp:IntegerNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Build40SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROH40T2RH310BM">PROH40 T2 RH310BM  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH40T2RU310BM">PROH40 T2 RU310BM  (40 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROH40T2RH310BM"/>
+         <xsd:enumeration value="RuudPROH40T2RU310BM"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Build50SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROH50T2RH310BM">PROH50 T2 RH310BM  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH50T2RU310BM">PROH50 T2 RU310BM  (50 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROH50T2RH310BM"/>
+         <xsd:enumeration value="RuudPROH50T2RU310BM"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Build65SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROH65T2RH310BM">PROH65 T2 RH310BM  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH65T2RU310BM">PROH65 T2 RU310BM  (65 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROH65T2RH310BM"/>
+         <xsd:enumeration value="RuudPROH65T2RU310BM"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Build80SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROH80T2RH310BM">PROH80 T2 RH310BM  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROH80T2RU310BM">PROH80 T2 RU310BM  (80 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROH80T2RH310BM"/>
+         <xsd:enumeration value="RuudPROH80T2RU310BM"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Prem40SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROPH40T2RH37515">PROPH40 T2 RH37515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH37530">PROPH40 T2 RH37530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH40T2RH375SO">PROPH40 T2 RH375SO  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10H22U0">XE40T10H22U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10H45U0">XE40T10H45U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE40T10HS45U0">XE40T10HS45U0  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP515">10E40-HP515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP530">10E40-HP530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E40HP5S30">10E40-HP5S30  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU37515">PROUH40 T2 RU37515  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU37530">PROUH40 T2 RU37530  (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH40T2RU375SO">PROUH40 T2 RU375SO  (40 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROPH40T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH40T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH40T2RH375SO"/>
+         <xsd:enumeration value="RheemXE40T10H22U0"/>
+         <xsd:enumeration value="RheemXE40T10H45U0"/>
+         <xsd:enumeration value="RheemXE40T10HS45U0"/>
+         <xsd:enumeration value="Richmond10E40HP515"/>
+         <xsd:enumeration value="Richmond10E40HP530"/>
+         <xsd:enumeration value="Richmond10E40HP5S30"/>
+         <xsd:enumeration value="RuudPROUH40T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH40T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH40T2RU375SO"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Prem50SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROPH50T2RH37515">PROPH50 T2 RH37515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH37530">PROPH50 T2 RH37530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH50T2RH375SO">PROPH50 T2 RH375SO  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10H22U0">XE50T10H22U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10H45U0">XE50T10H45U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE50T10HS45U0">XE50T10HS45U0  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP515">10E50-HP515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP530">10E50-HP530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E50HP5S30">10E50-HP5S30  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU37515">PROUH50 T2 RU37515  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU37530">PROUH50 T2 RU37530  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH50T2RU375SO">PROUH50 T2 RU375SO  (50 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROPH50T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH50T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH50T2RH375SO"/>
+         <xsd:enumeration value="RheemXE50T10H22U0"/>
+         <xsd:enumeration value="RheemXE50T10H45U0"/>
+         <xsd:enumeration value="RheemXE50T10HS45U0"/>
+         <xsd:enumeration value="Richmond10E50HP515"/>
+         <xsd:enumeration value="Richmond10E50HP530"/>
+         <xsd:enumeration value="Richmond10E50HP5S30"/>
+         <xsd:enumeration value="RuudPROUH50T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH50T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH50T2RU375SO"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Prem65SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROPH65T2RH37515">PROPH65 T2 RH37515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH37530">PROPH65 T2 RH37530 (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH65T2RH375SO">PROPH65 T2 RH375SO (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10H22U0">XE65T10H22U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10H45U0">XE65T10H45U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE65T10HS45U0">XE65T10HS45U0  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP515">10E65-HP515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP530">10E65-HP530  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E65HP5S30">10E65-HP5S30  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU37515">PROUH65 T2 RU37515  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU37530">PROUH65 T2 RU37530  (65 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH65T2RU375SO">PROUH65 T2 RU375SO  (65 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROPH65T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH65T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH65T2RH375SO"/>
+         <xsd:enumeration value="RheemXE65T10H22U0"/>
+         <xsd:enumeration value="RheemXE65T10H45U0"/>
+         <xsd:enumeration value="RheemXE65T10HS45U0"/>
+         <xsd:enumeration value="Richmond10E65HP515"/>
+         <xsd:enumeration value="Richmond10E65HP530"/>
+         <xsd:enumeration value="Richmond10E65HP5S30"/>
+         <xsd:enumeration value="RuudPROUH65T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH65T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH65T2RU375SO"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="Rheem2020Prem80SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group Rheem HBDR-45-80
+</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RheemPROPH80T2RH37515">PROPH80 T2 RH37515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH37530">PROPH80 T2 RH37530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemPROPH80T2RH375SO">PROPH80 T2 RH375SO (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10H22U0">XE80T10H22U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10H45U0">XE80T10H45U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemXE80T10HS45U0">XE80T10HS45U0  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP515">10E80-HP515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP530">10E80-HP530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="Richmond10E80HP5S30">10E80-HP5S30  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU37515">PROUH80 T2 RU37515  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU37530">PROUH80 T2 RU37530  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RuudPROUH80T2RU375SO">PROUH80 T2 RU375SO  (80 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RheemPROPH80T2RH37515"/>
+         <xsd:enumeration value="RheemPROPH80T2RH37530"/>
+         <xsd:enumeration value="RheemPROPH80T2RH375SO"/>
+         <xsd:enumeration value="RheemXE80T10H22U0"/>
+         <xsd:enumeration value="RheemXE80T10H45U0"/>
+         <xsd:enumeration value="RheemXE80T10HS45U0"/>
+         <xsd:enumeration value="Richmond10E80HP515"/>
+         <xsd:enumeration value="Richmond10E80HP530"/>
+         <xsd:enumeration value="Richmond10E80HP5S30"/>
+         <xsd:enumeration value="RuudPROUH80T2RU37515"/>
+         <xsd:enumeration value="RuudPROUH80T2RU37530"/>
+         <xsd:enumeration value="RuudPROUH80T2RU375SO"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="RheemHB50SimulationGroup">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -5146,13 +5595,22 @@
          <xsd:enumeration value="UnconditionedSpace"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="TankCountCHPWH">
+      <xsd:annotation>
+         <xsd:documentation>  Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:IntegerNonnegative">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="TankLocation">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Tank Location</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Attic">Attic</dtyp:displayterm>
             <dtyp:displayterm value="Conditioned">Conditioned</dtyp:displayterm>
+            <dtyp:displayterm value="CrawlSpace">Crawl Space</dtyp:displayterm>
             <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
             <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
             <dtyp:displayterm value="TankZone">Tank Zone</dtyp:displayterm>
@@ -5160,7 +5618,9 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Attic"/>
          <xsd:enumeration value="Conditioned"/>
+         <xsd:enumeration value="CrawlSpace"/>
          <xsd:enumeration value="Garage"/>
          <xsd:enumeration value="Outside"/>
          <xsd:enumeration value="TankZone"/>
@@ -5410,6 +5870,31 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal3Places">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="WaterHeaterAirSource">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Air Source</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Attic">Attic</dtyp:displayterm>
+            <dtyp:displayterm value="Conditioned">Conditioned</dtyp:displayterm>
+            <dtyp:displayterm value="CrawlSpace">Crawl Space</dtyp:displayterm>
+            <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
+            <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
+            <dtyp:displayterm value="TankZone">Tank Zone</dtyp:displayterm>
+            <dtyp:displayterm value="Unconditioned">Unconditioned</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Attic"/>
+         <xsd:enumeration value="Conditioned"/>
+         <xsd:enumeration value="CrawlSpace"/>
+         <xsd:enumeration value="Garage"/>
+         <xsd:enumeration value="Outside"/>
+         <xsd:enumeration value="TankZone"/>
+         <xsd:enumeration value="Unconditioned"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterCount">

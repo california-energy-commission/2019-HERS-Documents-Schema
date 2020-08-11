@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH25dH"/>
       </xsd:complexType>
    </xsd:element>
@@ -316,16 +316,40 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value in  "HERS Verification Requirements for Duct Systems" table in the parent MCH-01 for value in A02_ResidentialHvacSystemAreaServed</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="D02_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: numeric value reference value from applicable MCH23 field for the indoor unit in E01 as follows:  
-Mch23a, Mch23e and Mch23f field D02
-Mch23b field E03
-Mch23c field E02,
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D02_MinimumAirflowRateRequired" type="comp:MinimumAirflowRateRequired" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
+result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative; 
+ 
+Else reference numeric value  from applicable MCH23 field for the indoor unit in D01 and store result in MinimumAirflowRateRequired.   
+ 
+Applicable MCH23 field as follows:  
+Mch23a, Mch23e and Mch23f  - field D02
+Mch23b -  field E03
+Mch23c  - field E02
 (Mch23d not applicable)</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D02_MinimumAirflowRateAlternative" type="comp:MinimumAirflowRateAlternative" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Minimum Required System Airflow Rate (cfm)</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If the CF2R-MCH-01 indicates a MCH-28 is required for alternate minimum airflow rate compliance
+result = RequiredVerificationTable150BC stored in MinimumAirflowRateAlternative; 
+ 
+Else reference numeric value  from applicable MCH23 field for the indoor unit in D01 and store result in MinimumAirflowRateRequired.   
+ 
+Applicable MCH23 field as follows:  
+Mch23a, Mch23e and Mch23f  - field D02
+Mch23b -  field E03
+Mch23c  - field E02
+(Mch23d not applicable)</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:element name="D03_MinimumAirflowRateVerificationStatus" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Airflow Rate Verification Status</xsd:documentation>

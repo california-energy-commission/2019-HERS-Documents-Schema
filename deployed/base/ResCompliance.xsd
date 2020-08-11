@@ -4112,12 +4112,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="EnergyUseStandard">
-      <xsd:annotation>
-         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="EnergyUseStandardDesign">
       <xsd:annotation>
          <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
@@ -4191,6 +4185,12 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="EnergyUseStandardSpaceHeatingEast">
+      <xsd:annotation>
+         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="EnergyUseStandardSpaceHeatingNorth">
       <xsd:annotation>
          <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
       </xsd:annotation>
@@ -6169,6 +6169,16 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="MinimumAirflowRateAlternative">
+      <xsd:annotation>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="RequiredVerificationTable150BC">Verification of Table 150.0-B or C Alternative Return Duct Design Criteria is Required</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="RequiredVerificationTable150BC"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="MinimumAirflowRateRequired">
       <xsd:annotation>
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
@@ -8025,7 +8035,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    </xsd:simpleType>
    <xsd:simpleType name="StreetAddress">
       <xsd:annotation>
-         <xsd:documentation>This value is a string to hold street information in an address associated with a project or a person on the project.</xsd:documentation>
+         <xsd:documentation>This value is a string to hold address information associated with a project or a person on the project.</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Street address</dtyp:displayterm>
          </xsd:appinfo>
