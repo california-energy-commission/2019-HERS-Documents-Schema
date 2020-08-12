@@ -40,24 +40,68 @@
                         <xsd:documentation source="CalculationsAndRules">Referenced data from CF1R, Values MultiFamily display term Multifamily, SingleFamilyAttached display term Single family attached, SingleFamilyDetached display term Single family detached</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A03_FloorArea" type="com:FloorArea">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A04_FloorToCeilingHeight" type="com:FloorToCeilingHeight">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">User input numeric xx.xx</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="A05_Volume" type="com:Volume">
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field:  result = A03_FloorArea *  A04_FloorToCeilingHeight</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A03_FloorArea" type="com:FloorArea">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (C03_KitchenExhaustSystemType  == VentedRangeHood And C08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A03_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Total Kitchen Floor Area</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (C03_KitchenExhaustSystemType  == VentedRangeHood And C08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A04_FloorToCeilingHeight" type="com:FloorToCeilingHeight">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (C03_KitchenExhaustSystemType  == VentedRangeHood And C08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A04_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Average Ceiling Height</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">If A06_EnclosedSpace == false And (C03_KitchenExhaustSystemType  == VentedRangeHood And C08_KitchenExhaustOperation == DemandControl for ALL systems)
+allow NotApplicable stored in NotApplicableMessage
+Else User input numeric xx.xx 
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A05_Volume" type="com:Volume">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A03_NotApplicableMessage   Or A04_NotApplicableMessage == NotApplicable
+result = NotApplicable stored in NotApplicableMessage
+Else 
+ result = A03_FloorArea *  A04_FloorToCeilingHeight
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A05_NotApplicableMessage" type="comp:NotApplicableMessage">
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">Kitchen Total Conditioned Volume</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Calculated field:  If A03_NotApplicableMessage   Or A04_NotApplicableMessage == NotApplicable
+result = NotApplicable stored in NotApplicableMessage
+Else 
+ result = A03_FloorArea *  A04_FloorToCeilingHeight
+End If</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="A06_EnclosedSpace" type="com:EnclosedSpace">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Kitchen  Type</xsd:documentation>
@@ -350,7 +394,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH32H"/>
       </xsd:complexType>
    </xsd:element>

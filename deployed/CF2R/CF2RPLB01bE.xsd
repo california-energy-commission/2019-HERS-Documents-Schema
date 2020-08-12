@@ -66,81 +66,100 @@ Else If prescriptive default value = Sanden
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
+                                    <xsd:element name="B03_CompressorCountCHPWH" type="hvac:CompressorCountCHPWH">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Number of Water Heaters/ Compressors</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="B04_TankLocation" type="hvac:TankLocation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Primary Tank Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B04_StorageCapacity" type="hvac:StorageCapacity">
+                                       <xsd:element name="B05_StorageCapacity" type="hvac:StorageCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R; Allow NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B05_LoopTankCapacity" type="hvac:LoopTankCapacity">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R; Allow NA</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B06_LoopTankHeaterType" type="hvac:LoopTankHeaterType">
+                                       <xsd:element name="B06_PrimaryTankTotalInsulation" type="hvac:PrimaryTankTotalInsulation">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from registered CF1R; Allow NA</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:element name="B07_TankLocation" type="hvac:TankLocation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B07_TankLocation" type="hvac:TankLocation">
+                                       <xsd:element name="B08_LoopTankCapacity" type="hvac:LoopTankCapacity">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="B08_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R-PRF-01 Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B08_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B09_LoopTankTotalInsulation" type="hvac:LoopTankTotalInsulation">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B10_PipeInsulationThickness" type="hvac:PipeInsulationThickness">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Pipe Insulation Thickness</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Pipe Insulation Thickness</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="B11_LoopTankType" type="hvac:LoopTankType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -185,90 +204,100 @@ End If</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from B02</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="C03_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount">
+                                    <xsd:element name="C03_CompressorCountCHPWH" type="hvac:CompressorCountCHPWH">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Number of Water Heaters/ Compressors</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">User input;  Check that result == B03 value</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
+                                    <xsd:element name="C04_TankLocation" type="hvac:TankLocation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Primary Tank Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from B04_TankLocation</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C04_StorageCapacity" type="hvac:StorageCapacity">
+                                       <xsd:element name="C05_StorageCapacity" type="hvac:StorageCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B04</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B04; Allow NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C05_LoopTankCapacity" type="hvac:LoopTankCapacity">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B05</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; If B05_StorageCapacity IsPresent, result must be GTE to B05_StorageCapacity</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C05_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input; result must be GTE B05; Allow NA</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B05_NotApplicableMessage if present</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C06_LoopTankHeaterType" type="hvac:LoopTankHeaterType">
+                                       <xsd:element name="C06_PrimaryTankTotalInsulation" type="hvac:PrimaryTankTotalInsulation">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from B06</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; If B06_PrimaryTankTotalInsulation IsPresent, result must be GTE to B06_PrimaryTankTotalInsulation</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Loop Tank Heater Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from B06; Allow NA</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Primary Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B06_NotApplicableMessage if present</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:element name="C07_TankLocation" type="hvac:TankLocation">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from B07_TankLocation</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                     <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C07_TankLocation" type="hvac:TankLocation">
+                                       <xsd:element name="C08_LoopTankCapacity" type="hvac:LoopTankCapacity">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from B07; allow NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                       <xsd:element name="C07_NotApplicableMessage" type="comp:NotApplicableMessage">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Tank Location</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from B07; allow NA</xsd:documentation>
-                                          </xsd:annotation>
-                                       </xsd:element>
-                                    </xsd:choice>
-                                    <xsd:choice maxOccurs="1">
-                                       <xsd:element name="C08_ExteriorTankInsulation" type="hvac:ExteriorTankInsulation">
-                                          <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result GTE  B08_ExteriorTankInsulation; 
- 
-Else If B08 is NA
-result = N/A
-End If</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; If B08_LoopTankCapacity IsPresent, result must be GTE to B08_LoopTankCapacity</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C08_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Exterior Tank Insulation R-Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result GTE  B08_ExteriorTankInsulation; 
- 
-Else If B08 is NA
-result = N/A
-End If</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Loop Tank Volume</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B08_NotApplicableMessage if present</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C09_LoopTankTotalInsulation" type="hvac:LoopTankTotalInsulation">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; If B09_LoopTankTotalInsulation IsPresent result must be GTE to B09_LoopTankTotalInsulation</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C09_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Total Insulation</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B09_NotApplicableMessage if present</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C10_PipeInsulationThickness" type="hvac:PipeInsulationThickness">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Pipe Insulation Thickness</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input; If B10_PipeInsulationThickness IsPresent, result must be GTE to B10_PipeInsulationThickness</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Pipe Insulation Thickness</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B10_NotApplicableMessage if present</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="C11_LoopTankType" type="hvac:LoopTankType">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference values from B11_LoopTankType</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -692,7 +721,7 @@ End If</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB01bE"/>
       </xsd:complexType>
    </xsd:element>
