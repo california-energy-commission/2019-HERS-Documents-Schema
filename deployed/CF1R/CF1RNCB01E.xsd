@@ -1591,10 +1591,11 @@
                                        <xsd:element name="K06_EfficiencyType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else user selects from list:  EER, SEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else user selects from list:  EER, SEER, CEER</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="SEER"/>
                                              </xsd:restriction>
@@ -1603,7 +1604,7 @@
                                        <xsd:element name="K06_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else user selects from list:  EER, SEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else user selects from list:  EER, SEER, CEER</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1611,19 +1612,25 @@
                                        <xsd:element name="K07_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Proposed Cooling Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER or EER value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER, EER or CEER value</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K07_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Proposed Cooling Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER or EER value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER, EER or CEER value</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="K07_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Proposed Cooling Efficiency</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER, EER or CEER value</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="K07_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Proposed Cooling Efficiency</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER or EER value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If K05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage; Else User input DecimalNonnegative SEER, EER or CEER value</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -2416,7 +2423,7 @@ End If</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RNCB01E"/>
       </xsd:complexType>
    </xsd:element>

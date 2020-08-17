@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF3RMCH31cH"/>
       </xsd:complexType>
    </xsd:element>
@@ -229,7 +229,7 @@
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
-                  <xsd:element name="E_DoesWHF_AirFlowEfficacyComply" type="comp:DoesWHF_AirFlowEfficacyComply" >
+                  <xsd:element name="E01_DoesWHF_AirFlowEfficacyComply" type="comp:DoesWHF_AirFlowEfficacyComply" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Compliance Result</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">Calculated field: If D02_WHFsTotalMeasuredAirFlow GTE D01_WHFsMinimumRequiredAirflow And D03_FanEfficacyRequired  GTE  D04_WHFsInstalledFanEfficacy  result = true display term System passes whole house fan verification requirement; Else result = false display term System fails whole house fan verification requirement</xsd:documentation>

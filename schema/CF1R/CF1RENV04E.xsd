@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.001">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -44,7 +44,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RENV04E"/>
       </xsd:complexType>
    </xsd:element>
@@ -114,7 +114,7 @@
                <xsd:sequence>
                   <xsd:element name="B01_IsAgedSolarReflectanceCRRC" type="comp:IsAgedSolarReflectanceCRRC" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Aged Reflectance Listed with CRRC</xsd:documentation>
+                        <xsd:documentation source="FieldText">Is Aged Reflectance Listed with CRRC? (Yes or No)</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input; Yes if their product's aged solar reflectance is listed in the CRRC website, and No if it is not.  Store Yes result as Boolean true and No as Boolean false.</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -186,7 +186,7 @@
                <xsd:sequence>
                   <xsd:element name="C01_SolarReflectanceIndex" type="env:SolarReflectanceIndex" >
                      <xsd:annotation>
-                        <xsd:documentation source="FieldText">Solar Reflective Index</xsd:documentation>
+                        <xsd:documentation source="FieldText">Solar Reflectance Index</xsd:documentation>
                         <xsd:documentation source="CalculationsAndRules">User input numeric value which must be GT 0 and LTE 100</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01dE"/>
       </xsd:complexType>
    </xsd:element>
@@ -190,7 +190,7 @@ Note: assuming new VCHP  and multisplit system types: VCHP_IndoorUnitDucted, VCH
                                     <xsd:element name="B04_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF Y02_ResidentialHeatingSystemType == VCHP, 
+                                          <xsd:documentation source="CalculationsAndRules">If CF1R-PRF Y02_ResidentialCoolingSystemType == VCHP, 
 allow user to select from list: VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless
 Else  auto fill from CF1R;   
 End If
@@ -607,13 +607,13 @@ End If</xsd:documentation>
                                     <xsd:element name="D04_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If SC system is not shown in section B, then user selects one from list A or list B below;   Else reference value from B03 as default; If B03  is in List A do not allow user to override with value from List A;   List A:   DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless, SmallDuctHighVelocityHP,  DuctlessSplitHP (display term Ductless mini-split HP),   DuctedMiniSplitHP, AirToWaterHeatPump, GroundSourceHeatPump,  RoomHP;       List B: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric,  WoodHeat;    Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If SC system is not shown in section B, then user selects one from list A or list B below;   Else reference value from B03 as default; If B03  is in List A do not allow user to override with value from List A;   List A:   DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless, SmallDuctHighVelocityHP,  DuctlessSplitHP (display term Ductless mini-split HP),   DuctedMiniSplitHP, AirToWaterHeatPump, GroundSourceHeatPump,  RoomHP, SPVHP, PTHP;       List B: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric,  WoodHeat;    Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D05_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If SC system is not listed in section B, allow user to selects one from List A; Else reference value from B04 as default, If B04_ResidentialCoolingSystemType == NoCooling then allow user to override default and pick CentralSplitAC. Flag non-default values and report in project status notes field; a revised CF1R may be required.      List A:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctedMiniSplitAC, DuctedMiniSplitHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If SC system is not listed in section B, allow user to selects one from List A; Else reference value from B04 as default, If B04_ResidentialCoolingSystemType == NoCooling then allow user to override default and pick CentralSplitAC. Flag non-default values and report in project status notes field; a revised CF1R may be required.      List A:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctedMiniSplitAC, DuctedMiniSplitHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, SPVAC, SPVHP, PTAC, PTHP.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
@@ -633,7 +633,23 @@ End If</xsd:documentation>
                                     <xsd:element name="D07_DuctSystemTypePerf" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If SC system is not listed in section B, then user selects from list below; Else If D04_ ResidentialHeatingSystemType == VCHP_IndoorUnitDucted result = ConditionedSpaceDuctsVLL; Else If D04_ ResidentialHeatingSystemType ==  VCHP_IndoorUnitDuctless; result = Ductless; Else If D04_ ResidentialHeatingSystemType == VCHP_IndoorUnitDuctedAndDuctless: result = DuctedAndDuctlessIndoorUnits;   Else reference value for DuctSystemTypePerf from B06 as default but allow user to override  and select from list below if default equals UnconditionedAttic, UnconditionedGarage, or Outdoor. List for DuctSystemTypePerf and display text:   ConditionedSpace display text: HVAC system(s) with all HVAC ducts located in conditioned space.  ConditionedSpaceDuctsVLL display text: Verified low-leakage ducts in conditioned space.  ConditionedSpaceExcept12ft display text: Ducts located within the conditioned space (except less than 12 lineal ft).   Ductless - display: Air distribution systems without ducts.   DuctsInMultipleLocations display text: Ducts located in multiple places.   Outdoors display text: Ducts located in exposed outdoor locations.  UnconditionedAttic display text:   Ducts located overhead in unconditioned attic.  UnconditionedCrawlSpace display text: Ducts located underfloor in unconditioned crawl space.  UnconditionedGarage display text: Ducts located in an unconditioned garage, DuctedAndDuctlessIndoorUnits display term  Multiple split Indoor Units combined Ducted and Ductless.  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If SC system is not listed in section B, then user selects from list below; 
+Else If D04_ ResidentialHeatingSystemType == VCHP_IndoorUnitDucted 
+result = ConditionedSpaceDuctsVLL; 
+ 
+Else If D04_ ResidentialHeatingSystemType ==  VCHP_IndoorUnitDuctless 
+result = Ductless; 
+ 
+Else If D04_ ResidentialHeatingSystemType == VCHP_IndoorUnitDuctedAndDuctless 
+result = DuctedAndDuctlessIndoorUnits;   
+ 
+Else reference value for DuctSystemTypePerf from B06_DuctSystemTypePerf: as default but allow user to override  and select from list below if B06_DuctSystemTypePerf: UnconditionedAttic, UnconditionedGarage, Outdoor or B06_NotApplicableMessage value.  
+ 
+End If
+ 
+List for DuctSystemTypePerf and display text:   ConditionedSpace display text: HVAC system(s) with all HVAC ducts located in conditioned space.  ConditionedSpaceDuctsVLL display text: Verified low-leakage ducts in conditioned space.  ConditionedSpaceExcept12ft display text: Ducts located within the conditioned space (except less than 12 lineal ft).   Ductless - display: Air distribution systems without ducts.   DuctsInMultipleLocations display text: Ducts located in multiple places.   Outdoors display text: Ducts located in exposed outdoor locations.  UnconditionedAttic display text:   Ducts located overhead in unconditioned attic.  UnconditionedCrawlSpace display text: Ducts located underfloor in unconditioned crawl space.  UnconditionedGarage display text: Ducts located in an unconditioned garage, DuctedAndDuctlessIndoorUnits display term  Multiple split Indoor Units combined Ducted and Ductless.  
+ 
+Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:DuctSystemTypePerf">
@@ -1506,7 +1522,23 @@ result = false.  Allow user to override default and select from list: Yes (true 
          <xsd:element name="Section_K" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Altered Space Conditioning System Duct Information ([d:lt/] 75% of duct system is altered; or duct system is not altered)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This Section is applicable if  section E is applicable.  For each SC system in section E for which has E03_DuctedSystem == true And E09_ResidentialHvacAlterationType  == DuctSystemExistingExtended Or SpaceConditioningSystemAltered require one row of data for the following:  A. each space conditioning system in section F field F02 for which D04_ResidentialHeatingSystemType  == GasPackagedFurnace; B. each indoor unit in section F field F03 that meets both of the following two conditions: D04_ResidentialHeatingSystemType == CentralGasFurnace And F03 != H03;  C. each space conditioning system in section G field G02 that meets both of the following two conditions: D05_ResidentialCoolingSystemType == CentralPackagedAC Or CentralLargePackagedAC  And the same packaged unit is not already listed in section F thus F02 != G02;  D.  each space conditioning system in Section I field I02 that meets both of the following two conditions: D05 == CentralPackagedHP Or CentralLargePackagedHP  And the same packaged unit is not already listed in section F thus F02 != I02;  E. each of the indoor units in F03_SpaceConditioningIndoorUnitName for which the value in F05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;  F.   each of the indoor units in H03_SpaceConditioningIndoorUnitName for which H05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;   G.  each indoor unit in the quantity specified by D13 _DuctedIndoorUnitsCount for  systems where D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And D13 GTE 1 .</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable if  section E is applicable.  For each SC system in section E for which has E03_DuctedSystem == true And E09_ResidentialHvacAlterationType  == DuctSystemExistingExtended Or SpaceConditioningSystemAltered  do the following:  
+ 
+A. require one row of data for each space conditioning system in section F field F02 for which D04_ResidentialHeatingSystemType  == GasPackagedFurnace; 
+ 
+B. For each system where D04_ResidentialHeatingSystemType == CentralGasFurnace 
+If F03 != H03 then require one row of data in this table for each indoor unit in section F field F03; 
+Else If no corresponding records exist in F03 or H03 And a corresponding record exists in G01 Then require one row of data in this table for that system. 
+ 
+C. require one row of data for each space conditioning system in section G field G02 that meets both of the following two conditions: D05_ResidentialCoolingSystemType == CentralPackagedAC Or CentralLargePackagedAC  And the same packaged unit is not already listed in section F thus F02 != G02;  
+ 
+D.  require one row of data for each space conditioning system in Section I field I02 that meets both of the following two conditions: D05 == CentralPackagedHP Or CentralLargePackagedHP  And the same packaged unit is not already listed in section F thus F02 != I02;  
+ 
+E. require one row of data for each of the indoor units in F03_SpaceConditioningIndoorUnitName for which the value in F05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;  
+ 
+F. require one row of data for each of the indoor units in H03_SpaceConditioningIndoorUnitName for which H05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;   
+ 
+G.  require one row of data for each indoor unit in the quantity specified by D13 _DuctedIndoorUnitsCount for  systems where D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And D13 GTE 1 .</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1765,7 +1797,23 @@ Compliance check: If result == false then report in project status notes field t
          <xsd:element name="Section_L" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Installed New or Complete  Replacement Duct System Information</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This Section is applicable if at least one SC system in section D has D07_DuctSystemTypePerf != Ductless And either at least one system has D12_EAA_DuctSystemStatus == New Or Section E applies and at least one system has E07_ DuctSystemAllAccessibleForSealingWithPlus75PercentNewReplaced == true.  For all systems that satisfy these conditions require one row of data for the following:  A. each space conditioning system in section F field F02 for which D04_ResidentialHeatingSystemType  == GasPackagedFurnace; B. each indoor unit in section F field F03 that meets both of the following two conditions: D04_ResidentialHeatingSystemType == CentralGasFurnace And F03 != H03;  C. each space conditioning system in section G field G02 that meets both of the following two conditions: D05_ResidentialCoolingSystemType == CentralPackagedAC Or CentralLargePackagedAC  And the same packaged unit is not already listed in section F thus F02!= G02;  D.  each space conditioning system in Section I field I02 that meets both of the following two conditions: D05 == CentralPackagedHP Or CentralLargePackagedHP  And the same packaged unit is not already listed in section F thus F02 != I02;  E. each of the indoor units in F03_SpaceConditioningIndoorUnitName for which F05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;  F.   each of the indoor units in H03_SpaceConditioningIndoorUnitName for which H05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;   G.  each indoor unit in the quantity specified by D13 _DuctedIndoorUnitsCount for  systems where D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And D13 GTE 1 .</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This Section is applicable if at least one SC system in section D has D07_DuctSystemTypePerf != Ductless And either at least one system has D12_EAA_DuctSystemStatus == New Or Section E applies and at least one system has E07_ DuctSystemAllAccessibleForSealingWithPlus75PercentNewReplaced == true.  For all systems that satisfy these conditions require one row of data for the following:  
+ 
+A.  require one row of data for each space conditioning system in section F field F02 for which D04_ResidentialHeatingSystemType  == GasPackagedFurnace; 
+ 
+B. For each system where D04_ResidentialHeatingSystemType == CentralGasFurnace 
+If F03 != H03 then require one row of data in this table for each indoor unit in section F field F03; 
+Else If no corresponding records exist in F03 or H03 And a corresponding record exists in G01 Then require one row of data in this table for that system.
+ 
+C.  require one row of data for each space conditioning system in section G field G02 that meets both of the following two conditions: D05_ResidentialCoolingSystemType == CentralPackagedAC Or CentralLargePackagedAC  And the same packaged unit is not already listed in section F thus F02!= G02;  
+ 
+D.   require one row of data for each space conditioning system in Section I field I02 that meets both of the following two conditions: D05 == CentralPackagedHP Or CentralLargePackagedHP  And the same packaged unit is not already listed in section F thus F02 != I02;  
+ 
+E.  require one row of data for each of the indoor units in F03_SpaceConditioningIndoorUnitName for which F05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;  
+ 
+F.  enter one row of data for  each of the indoor units in H03_SpaceConditioningIndoorUnitName for which H05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;   
+ 
+G.   enter one row of data for each indoor unit in the quantity specified by D13 _DuctedIndoorUnitsCount for  systems where D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And D13 GTE 1 .</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
@@ -1868,7 +1916,29 @@ Compliance check: If result == false then report in project status notes field t
                                     <xsd:element name="L11_DuctFilterGrilleSizingComplianceMethod" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Method of compliance with Airflow and Fan Efficacy Req's in 150.0(m)13</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If D05_ResidentialCoolingSystemType == NoCooling, then  result = ExemptNoCooling, display term Exempt - No Cooling,  Else If  D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == EvaporativeDirect,  EvaporativeIndirect, EvaporativeIndirectDirect, VCHP_IndoorUnitDucted, Or VCHP_IndoorUnitDuctedAndDuctless    then  result = SystemExempt, display term System is exempt; Else If CanRA3_3AirflowProtocolsTestSystem in L13 == false Then result = ExemptRA3_3Protocols display term Exempt - RA3.3 Protocols are N/A;    Else If B10=New or ExistingAlteration AND one or more of the following seven conditions are true:   (1) C09_ MaximumCoolingWperCFM LT 0.58 And D04_ResidentialHeatingSystemType != CentralGasFurnace Or GasPackagedFurnace   (2) C09_ MaximumCoolingWperCFM LT 0.62 And D05_ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP  (3) C09_ MaximumCoolingWperCFM LT 0.45 And D04_ResidentialHeatingSystemType == CentralGasFurnace Or GasPackagedFurnace  (4) C08_AirflowPerUnitCoolingCapacity GTE 350 And D05_ResidentialCoolingSystemType != SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP  (5) C08_AirflowPerUnitCoolingCapacity GT 250 And D05_ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP (6) D09_ResidentialCoolingZoneType == ZoneControlled, (7) If F04 Or H06 == true  then result = HERS_FanEfficacyAirflowRate, display text: HERS Verified Fan Efficacy and Airflow Rate  Else If CF1R-PRF indicates that verification is required, user selects from  list: HERS_FanEfficacyAirflowRate, display text: HERS Verified Fan Efficacy and Airflow Rate, or HERS_ReturnDuctDesignTable150, display text:  HERS verified Return Duct Design per Table 150.0</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If D05_ResidentialCoolingSystemType == NoCooling, then  
+result = ExemptNoCooling, display term Exempt - No Cooling,  
+ 
+Else If  D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == EvaporativeDirect,  EvaporativeIndirect, EvaporativeIndirectDirect
+result = ExemptEvaporativeSystem display term Exempt - Evaporative System
+ 
+Else If D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType ==  VCHP_IndoorUnitDucted, Or VCHP_IndoorUnitDuctedAndDuctless    then  
+result = ExemptVCHP display term Exempt - VCHP System; 
+ 
+Else If CanRA3_3AirflowProtocolsTestSystem in L13 == false Then 
+result = ExemptRA3_3Protocols display term Exempt - RA3.3 Protocols are N/A;    
+ 
+Else If B10=New or ExistingAlteration AND one or more of the following seven conditions are true:   (1) C09_ MaximumCoolingWperCFM LT 0.58 And D04_ResidentialHeatingSystemType != CentralGasFurnace Or GasPackagedFurnace   
+(2) C09_ MaximumCoolingWperCFM LT 0.62 And D05_ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP  
+(3) C09_ MaximumCoolingWperCFM LT 0.45 And D04_ResidentialHeatingSystemType == CentralGasFurnace Or GasPackagedFurnace  
+(4) C08_AirflowPerUnitCoolingCapacity GTE 350 And D05_ResidentialCoolingSystemType != SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP  
+(5) C08_AirflowPerUnitCoolingCapacity GT 250 And D05_ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or SmallDuctHighVelocityHP 
+(6) D09_ResidentialCoolingZoneType == ZoneControlled, 
+(7) If F04 Or H06 == true  then 
+result = HERS_FanEfficacyAirflowRate, display text: HERS Verified Fan Efficacy and Airflow Rate  
+ 
+Else If CF1R-PRF indicates that verification is required, user selects from  list: HERS_FanEfficacyAirflowRate, display text: HERS Verified Fan Efficacy and Airflow Rate, or HERS_ReturnDuctDesignTable150, display text:  HERS verified Return Duct Design per Table 150.0
+End If</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="comp:DuctFilterGrilleSizingComplianceMethod">
@@ -1876,6 +1946,7 @@ Compliance check: If result == false then report in project status notes field t
                                              <xsd:enumeration value="ExemptEvaporativeSystem"/>
                                              <xsd:enumeration value="ExemptNoCooling"/>
                                              <xsd:enumeration value="ExemptRA3_3Protocols"/>
+                                             <xsd:enumeration value="ExemptVCHP"/>
                                              <xsd:enumeration value="HERS_FanEfficacyAirflowRate"/>
                                              <xsd:enumeration value="HERS_ReturnDuctDesignTable150"/>
                                           </xsd:restriction>
@@ -2179,7 +2250,20 @@ Compliance check: If result == CanNotTest  then report in project status notes f
                                     <xsd:element name="O08_AHU_AirflowRateVerificationRequired" type="comp:AHU_AirflowRateVerificationRequired" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-23 [d:line2/]AHU Airflow Rate (cfm/ton)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If D04_ResidentialHeatingSystemType  Or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless   result = true; Else If L11_DuctFilterGrilleSizingComplianceMethod ==  HERS_FanEfficacyAirflowRate   result = true;  Else If P03_RefrigerantChargeVerificationRequired == true And O09_ReturnDuctDesignVerificaitonRequired  == false then result = true; else If F04_DoesUnitProvideCFI_IAQ  Or H06_DoesUnitProvideCFI_IAQ  == true result = true;  else result is false.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: 
+If K11_CanRA3_3AirflowProtocolsTestSystem  Or L13_CanRA3_3AirflowProtocolsTestSystem  == false
+result = false;
+ 
+Else If D04_ResidentialHeatingSystemType  Or D05_ResidentialCoolingSystemType == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless  
+ result = true; 
+Else If L11_DuctFilterGrilleSizingComplianceMethod ==  HERS_FanEfficacyAirflowRate   
+result = true;  
+Else If P03_RefrigerantChargeVerificationRequired == true And O09_ReturnDuctDesignVerificaitonRequired  == false then 
+result = true; 
+Else If F04_DoesUnitProvideCFI_IAQ  Or H06_DoesUnitProvideCFI_IAQ  == true 
+result = true;  
+Else
+result is false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O09_ReturnDuctDesignVerificationRequired" type="comp:ReturnDuctDesignVerificationRequired" >
@@ -2254,7 +2338,24 @@ Compliance check: If result == CanNotTest  then report in project status notes f
                                     <xsd:element name="P04_SEER_EER_VerificationRequired" type="comp:SEER_EER_VerificationRequired" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-26 [d:line1/]Rated SC System Equipment Verification</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field: Calculated field:  If B03_ResidentialHeatingSystemType Or B04_ResidentialCoolingSystemType == DuctedMiniSplitHP, DuctedMiniSplitAC, DuctlessMultiSplitHP, DuctlessMultiSplitAC, DuctlessSplitHP,  DuctlessSplitAC, DuctlessVRF_HP, DuctlessVRF_AC result = false; Else If B04_ResidentialCoolingSystemType == SmallDuctHighVelocityAC And C06_EfficiencyMinimumValueSEER IsPresent And GT 12 result = true; Else If C06_EfficiencyMinimumValueSEER IsPresent And GT 14, result = true; Else If  P01_ResidentialSpaceConditioningSystemName is an HP system listed in I01_ResidentialSpaceConditioningSystemName result = true;  Else If B04_ResidentialCoolingSystemType == CentralPackagedAC And If  C07_EfficiencyMinimumValueEER IsPresent And GT 11.0 result = true; Else If B04_ResidentialCoolingSystemType == CentralSplitAC And C07_EfficiencyMinimumValueEER IsPresent And GT 11.7  And G10_ CondenserRatedCoolingCapacity GTE 45000 result = true Else If   C07_EfficiencyMinimumValueEER IsPresent And GT 12.2 And G10_ CondenserRatedCoolingCapacity LT 45000  result = true, Else result = false.  Display Yes and No to represent Boolean values true and false</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: Calculated field:  
+If  P01_ResidentialSpaceConditioningSystemName is an HP system listed in I01_ResidentialSpaceConditioningSystemName 
+result = true;
+Else If B03_ResidentialHeatingSystemType Or B04_ResidentialCoolingSystemType ==  DuctedMiniSplitAC, DuctlessMultiSplitAC,  DuctlessSplitAC,  DuctlessVRF_AC 
+result = false; 
+Else If B04_ResidentialCoolingSystemType == SmallDuctHighVelocityAC And C06_EfficiencyMinimumValueSEER IsPresent And GT 12 
+result = true; 
+Else If C06_EfficiencyMinimumValueSEER IsPresent And GT 14, 
+result = true;   
+Else If B04_ResidentialCoolingSystemType == CentralPackagedAC And If  C07_EfficiencyMinimumValueEER IsPresent And GT 11.0 
+result = true; 
+Else If B04_ResidentialCoolingSystemType == CentralSplitAC And C07_EfficiencyMinimumValueEER IsPresent And GT 11.7  And G10_ CondenserRatedCoolingCapacity GTE 45000 
+result = true 
+Else If   C07_EfficiencyMinimumValueEER IsPresent And GT 12.2 And G10_ CondenserRatedCoolingCapacity LT 45000  
+result = true, 
+Else result = false.  
+End If
+Display Yes and No to represent Boolean values true and false</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="P05_VCHP_CreditVerificationRequired" type="comp:VCHP_CreditVerificationRequired" >

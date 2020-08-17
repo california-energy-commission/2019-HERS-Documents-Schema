@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01cE"/>
       </xsd:complexType>
    </xsd:element>
@@ -238,6 +238,7 @@
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="SEER"/>
                                              </xsd:restriction>
@@ -260,7 +261,13 @@
                                        <xsd:element name="B07_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto fill text referenced from CF1R for this system name If B06_EfficiencyType ==SEER store result in EfficiencyMinimumValueSEER   Else  If data is not available on the CF1R Or B05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto fill text referenced from CF1R for this system name If B06_EfficiencyType ==EER store result in EfficiencyMinimumValueEER   Else  If data is not available on the CF1R Or B05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B07_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto fill text referenced from CF1R for this system name If B06_EfficiencyType == CEER store result in EfficiencyMinimumValueCEER   Else  If data is not available on the CF1R Or B05_ResidentialCoolingSystemType == NoCooling result = N/A stored in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage" >
@@ -391,13 +398,13 @@
                                     <xsd:element name="C04_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from B02 as default;   allow user to override the default and select one from choices for ResidentialHeatingSystemType:   CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, DuctedMiniSplitHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless and NoHeating.  If result == NoHeating check that there is at least one heating system entered in this section in C04 to comply; Else flag non-compliant condition (no heating installed) and do not allow registration to continue.     Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B02 as default;   allow user to override the default and select one from choices for ResidentialHeatingSystemType:   CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP, DuctedMiniSplitHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless, SPVHP, PTHP and NoHeating.  If result == NoHeating check that there is at least one heating system entered in this section in C04 to comply; Else flag non-compliant condition (no heating installed) and do not allow registration to continue.     Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C05_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from B05 as default;   allow user to override the default and select one from choices for ResidentialCoolingSystemType:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, GroundSourceHeatPump, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC.  DuctedMiniSplitAC, DuctedMiniSplitHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless;  Note: NoCooling value indicates a heating-only system.  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from B05 as default;   allow user to override the default and select one from choices for ResidentialCoolingSystemType:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctlessMultiSplitAC, DuctedDuctlessMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, GroundSourceHeatPump, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC.  DuctedMiniSplitAC, DuctedMiniSplitHP, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless,  VCHP_IndoorUnitDuctedAndDuctless SPVAC, SPVHP, PTAC, PTHP;  Note: NoCooling value indicates a heating-only system.  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="C06_DuctSystemType" type="hvac:DuctSystemType" >
@@ -674,10 +681,11 @@
                                     <xsd:element name="E03_EfficiencyType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">As default result = B06_EfficiencyType.  Allow user to override the default and pick from list: EER, SEER;  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">As default result = B06_EfficiencyType.  Allow user to override the default and pick from list: EER, SEER, CEER;  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
+                                             <xsd:enumeration value="CEER"/>
                                              <xsd:enumeration value="EER"/>
                                              <xsd:enumeration value="SEER"/>
                                           </xsd:restriction>
@@ -694,6 +702,12 @@
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input numeric xx.x  stored in  EfficiencyInstalledValueEER.   Check value: If  result  GTE B07_EfficiencyMinimumValueEER, result complies;  Flag non-compliant values and do not let registration proceed if not in compliance.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E04_EfficiencyInstalledValueCEER" type="hvac:EfficiencyInstalledValueCEER" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric xx.x  stored in  EfficiencyInstalledValueEER.   Check value: If  result  GTE B07_EfficiencyMinimumValueCEER, result complies;  Flag non-compliant values and do not let registration proceed if not in compliance.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1074,10 +1088,11 @@
                                     <xsd:element name="H07_EfficiencyType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">System Cooling Efficiency Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">As default reference value in  B06;  Allow user to override default and select from list: EER, SEER;  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">As default reference value in  B06;  Allow user to override default and select from list: EER, SEER, CEER;  Flag non-default values and report in project status notes field; a revised CF1R may be required.</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
+                                             <xsd:enumeration value="CEER"/>
                                              <xsd:enumeration value="EER"/>
                                              <xsd:enumeration value="SEER"/>
                                           </xsd:restriction>
@@ -1087,13 +1102,19 @@
                                        <xsd:element name="H08_EfficiencyInstalledValueSEER" type="hvac:EfficiencyInstalledValueSEER" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">System Rated Cooling Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">User input numeric xx.x within InclusiveRange(0.0, 100.0).   Check result: If E03_EfficiencyType == SEER If B07_NotApplicableMessage has a value result must be GTE 14 to comply; Else If result  GTE B07_EfficiencyMinimumValueSEER, result complies;  Flag non-compliant values and do not let registration proceed if not in compliance.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric xx.x within InclusiveRange(0.0, 100.0).   Check result: If E03_EfficiencyType == SEER Then If B07_NotApplicableMessage has a value If result GTE 14 result complies; Else If B07_EfficiencyMinimumValueSEER has a value If result  GTE B07_EfficiencyMinimumValueSEER, result complies;  Flag non-compliant values and do not let registration proceed if not in compliance.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="H08_EfficiencyInstalledValueEER" type="hvac:EfficiencyInstalledValueEER" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">System Rated Cooling Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input numeric xx.x within InclusiveRange(0.0, 100.0).   Check result: If result  GTE B07_EfficiencyMinimumValueEER, result complies;  Flag non-compliant values and do not allow registration to proceed if not in compliance.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H08_EfficiencyInstalledValueCEER" type="hvac:EfficiencyInstalledValueCEER" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">System Rated Cooling Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input numeric xx.x within InclusiveRange(0.0, 100.0).   Check result: If result  GTE B07_EfficiencyMinimumValueCEER, result complies;  Flag non-compliant values and do not allow registration to proceed if not in compliance.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>

@@ -222,7 +222,7 @@
                                     <xsd:element name="C03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; allow user to override the default and pick one from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP,  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, DuctedMiniSplitHP  and NoHeating.  
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; allow user to override the default and pick one from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP,  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, DuctedMiniSplitHP, SPVHP, PTHP  and NoHeating.  
  
 If result == NoHeating then check: there must be at least one heating system entered in this section C04 to comply, 
  
@@ -287,7 +287,7 @@ End If</xsd:documentation>
                                     <xsd:element name="C07_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; allow user to override the default and pick one from list: CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, GroundSourceHeatPump, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless. DuctedMiniSplitAC, DuctedMiniSplitHP.    Flag non-default values and report in project status notes field; a revised CF1R may be required</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; allow user to override the default and pick one from list: CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, GroundSourceHeatPump, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless. DuctedMiniSplitAC, DuctedMiniSplitHP, SPVAC, SPVHP, PTAC, PTHP.    Flag non-default values and report in project status notes field; a revised CF1R may be required</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
@@ -301,10 +301,11 @@ End If</xsd:documentation>
                                        <xsd:element name="C09_EfficiencyType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; If C08_ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered, then result is NotApplicable stored in NotApplicableMessage, Else allow user to override the default by picking from list:  SEER, EER.  Flag non-default values and report in project status notes field; a revised CF1R may be required</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; If C08_ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered, then result is NotApplicable stored in NotApplicableMessage, Else allow user to override the default by picking from list:  SEER, EER, CEER.  Flag non-default values and report in project status notes field; a revised CF1R may be required</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="SEER"/>
                                              </xsd:restriction>
@@ -325,6 +326,12 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C10_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; if C08_ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered, then result  is NotApplicable stored in NotApplicableMessage, Else allow user to override the default to enter value: xx.x;  default minimum value for SEER=13;  allow user to overwrite default value, but flag non-default values and report in project status notes field a revised CF1R may be required</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C10_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference value from CF1R as default; if C08_ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered, then result  is NotApplicable stored in NotApplicableMessage, Else allow user to override the default to enter value: xx.x;  default minimum value for SEER=13;  allow user to overwrite default value, but flag non-default values and report in project status notes field a revised CF1R may be required</xsd:documentation>
@@ -916,7 +923,7 @@ End If</xsd:documentation>
                                     <xsd:element name="F11_CanRA3_3AirflowProtocolsTestSystem" type="comp:CanRA3_3AirflowProtocolsTestSystem">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Can Approved Airflow Protocols be used to test this System?</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType  == == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
+                                          <xsd:documentation source="CalculationsAndRules">If C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType  == DuctedMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctedMultiSplitAC, DuctedDuctlessMultiSplitAC 
 result = false display term No;
  
 Else If C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType  == CentralSplitAC, CentralSplitHP, CentralPackagedAC, CentralPackagedHP CentralLargePackagedAC, Or  CentralLargePackagedHP 
@@ -932,13 +939,39 @@ Compliance check: If result == false then report in project status notes field t
                                        <xsd:element name="F12_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling capacity (ton)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  And one of the following is true: J08_AHU_AirflowRateVerificationRequired == true Or If responses in B04, B05, B06, B07. B08 and B09 result in DctLk in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements Then user input numeric value x.xx; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 
+ 
+And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  
+ 
+And one of the following is true: 
+(F11_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
+Or 
+(Responses in B04, B05, B06, B07. B08 and B09 result in "DctLk" in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements)
+ 
+Then user input numeric value x.xx; 
+ 
+Else 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F12_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling capacity (ton)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  And one of the following is true: J08_AHU_AirflowRateVerificationRequired == true Or If responses in B04, B05, B06, B07. B08 and B09 result in DctLk in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements Then user input numeric value x.xx; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 
+ 
+And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  
+ 
+And one of the following is true: 
+(F11_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
+Or 
+(Responses in B04, B05, B06, B07. B08 and B09 result in "DctLk" in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements)
+ 
+Then user input numeric value x.xx; 
+ 
+Else 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1120,13 +1153,35 @@ Check: if result == CanNotTest, report in project status notes field that exempt
                                        <xsd:element name="G15_IndoorUnitNominalCoolingCapacity" type="hvac:IndoorUnitNominalCoolingCapacity">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling capacity (ton)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  And one of the following is true: J08_AHU_AirflowRateVerificationRequired == true Or If responses in B04, B05, B06, B07. B08 and B09 result in DctLk in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements Then user input numeric value x.xx; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 
+And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  
+ 
+And one of the following is true: 
+(F11_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
+Or 
+(Responses in B04, B05, B06, B07. B08 and B09 result in "DctLk" in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements)
+ 
+ Then user input numeric value x.xx; 
+ 
+Else result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G15_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Indoor Unit Nominal Cooling capacity (ton)</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  And one of the following is true: J08_AHU_AirflowRateVerificationRequired == true Or If responses in B04, B05, B06, B07. B08 and B09 result in DctLk in the HERS column of the Logic Table for Determining Alteration type and HERS Verification Requirements then user input numeric value x.xx; Else result = NotApplicable stored in NotApplicableMessage</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If C12_IndoorUnitsCount GT 1 
+And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  
+ 
+And one of the following is true: 
+(F11_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
+Or 
+(Responses in B04, B05, B06, B07. B08 and B09 result in "DctLk" in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements)
+ 
+ Then user input numeric value x.xx; 
+ 
+Else result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -1383,7 +1438,21 @@ Check: if result == CanNotTest, report in project status notes field that exempt
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-23 
                                              <d:line2/>AHU Airflow Rate (cfm/ton)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:   If G11_DuctFilterGrilleSizingComplianceMethod == HERS_FanEfficacyAirflowRate then result = true;  Else If K03_RefrigerantChargeVerificationRequired  == true And J09_ReturnDuctDesignVerificationRequired == false; then result = true;  else if B09 AllNewOrReplacedHvacSystem == true And C07_ResidentialCoolingSystemType == NoCooling  And C14 IsVentialationSystemCFI == true, And G13_CanRA3_3AirflowProtocolsTestSystem == true And, G14_CanFanEfficacyProtocolsTestSystem== true then result = true;  Else result is false. Display Yes if result ==  true and No if result == false.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:   If G13_CanRA3_3AirflowProtocolsTestSystem
+ == false Or F11_CanRA3_3AirflowProtocolsTestSystem == false  
+result = false
+ 
+Else If G11_DuctFilterGrilleSizingComplianceMethod == HERS_FanEfficacyAirflowRate result = true;  
+ 
+Else If K03_RefrigerantChargeVerificationRequired  == true And J09_ReturnDuctDesignVerificationRequired == false 
+result = true;  
+ 
+Else If B09 AllNewOrReplacedHvacSystem == true And C07_ResidentialCoolingSystemType == NoCooling  And C14 IsVentialationSystemCFI == true, And G13_CanRA3_3AirflowProtocolsTestSystem == true And, G14_CanFanEfficacyProtocolsTestSystem== true 
+result = true;  
+ 
+Else result is false. 
+ 
+Display Yes if result ==  true and No if result == false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="J09_ReturnDuctDesignVerificationRequired" type="comp:ReturnDuctDesignVerificationRequired">
@@ -1631,7 +1700,7 @@ Check: if result == CanNotTest, report in project status notes field that exempt
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01bE"/>
       </xsd:complexType>
    </xsd:element>

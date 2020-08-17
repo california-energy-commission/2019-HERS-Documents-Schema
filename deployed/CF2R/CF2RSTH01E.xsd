@@ -115,9 +115,13 @@ End If</xsd:documentation>
                   <xsd:element name="A10_SolarWaterHeatingSavingsFraction" type="comp:SolarWaterHeatingSavingsFraction">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Solar Savings Fraction from calculator or directly from website (annual average value)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">If parent CF1R-PRF load value from CF1R-PRF
-Else If prescriptive, load value from project CF1R-STH-01-E 
-Else If A04_SolarWaterHeatingCertificationType == OG300, user input
+                        <xsd:documentation source="CalculationsAndRules">If performance compliance Then
+If A04_SolarWaterHeatingCertificationType == OG100 load value from CF1R-PRF
+Else If A04_SolarWaterHeatingCertificationType == OG300
+user input; 
+End If
+ 
+Else If prescriptive compliance, load value from project CF1R-STH-01-E 
 End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
@@ -415,7 +419,7 @@ End if</xsd:documentation>
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSTH01E"/>
       </xsd:complexType>
    </xsd:element>

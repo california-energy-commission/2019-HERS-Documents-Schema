@@ -340,10 +340,11 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="D09_EfficiencyType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage;   Else choices are EER, SEER.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage;   Else choices are EER, SEER, CEER.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="SEER"/>
                                              </xsd:restriction>
@@ -352,7 +353,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="D09_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage;   Else choices are EER, SEER.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage;   Else choices are EER, SEER, CEER.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -360,19 +361,25 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="D10_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric; Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D10_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == CEER user input numeric; Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="D10_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric; Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="D10_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric; Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -549,10 +556,11 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="E09_EfficiencyType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result is N/A stored in the NotApplicableMessage;  Else choices are EER, SEER.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result is N/A stored in the NotApplicableMessage;  Else choices are EER, SEER, CEER.</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="SEER"/>
                                              </xsd:restriction>
@@ -561,7 +569,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="E09_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result is N/A stored in the NotApplicableMessage;  Else choices are EER, SEER.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result is N/A stored in the NotApplicableMessage;  Else choices are EER, SEER, CEER.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -569,19 +577,25 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="E10_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum  Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric; Else If EfficiencyType == CEER user input numeric;    Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E10_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Minimum  Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == CEER user input numeric;   Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E10_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum  Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric; Else If EfficiencyType == CEER user input numeric;    Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E10_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum  Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric; Else If EfficiencyType == CEER user input numeric;    Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -748,10 +762,11 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="F09_EfficiencyType">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType ==  NoCoolingComponents, then result = N/A stored in NotApplicableMessage, Else choices are SEER, EER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType ==  NoCoolingComponents, then result = N/A stored in NotApplicableMessage, Else choices are SEER, EER, CEER</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:EfficiencyType">
+                                                <xsd:enumeration value="CEER"/>
                                                 <xsd:enumeration value="EER"/>
                                                 <xsd:enumeration value="SEER"/>
                                              </xsd:restriction>
@@ -760,7 +775,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="F09_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType ==  NoCoolingComponents, then result = N/A stored in NotApplicableMessage, Else choices are SEER, EER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType ==  NoCoolingComponents, then result = N/A stored in NotApplicableMessage, Else choices are SEER, EER, CEER</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -768,19 +783,25 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:element name="F10_EfficiencyMinimumValueSEER" type="hvac:EfficiencyMinimumValueSEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If  F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If  F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F10_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F10_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F10_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Minimum Efficiency Value</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If F08 ResidentialHvacCoolingComponentType == NoCoolingComponentsAltered then result = N/A stored in the NotApplicableMessage; Else If EfficiencyType == EER user input numeric;  Else If EfficiencyType == CEER user input numeric;  Else If EfficiencyType == SEER,  default minimum result = 14 and allow user overwrites the default minimum value, but flag it as a non-default value and report it in project status notes field.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -863,7 +884,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF1RALT02E"/>
       </xsd:complexType>
    </xsd:element>
