@@ -636,10 +636,11 @@ End If</xsd:documentation>
                                     <xsd:element name="E03_EfficiencyType" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling Efficiency Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference to Cooling C09_EfficiencyType in section C</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Reference to Cooling C09_EfficiencyType in section C  Values include EER, SEER, CEER;</xsd:documentation>
                                        </xsd:annotation>
                                        <xsd:simpleType>
                                           <xsd:restriction base="hvac:EfficiencyType">
+                                             <xsd:enumeration value="CEER"/>
                                              <xsd:enumeration value="EER"/>
                                              <xsd:enumeration value="SEER"/>
                                           </xsd:restriction>
@@ -653,6 +654,12 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E04_EfficiencyInstalledValueEER" type="hvac:EfficiencyInstalledValueEER" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">User input;  Check that result  is GTE C10_EfficiencyMinimumValue in section C; Else  flag as a non-compliant value and do not allow this document to be registered.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E04_EfficiencyInstalledValueCEER" type="hvac:EfficiencyInstalledValueCEER" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">User input;  Check that result  is GTE C10_EfficiencyMinimumValue in section C; Else  flag as a non-compliant value and do not allow this document to be registered.</xsd:documentation>

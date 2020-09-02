@@ -402,14 +402,20 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="C07_EfficiencyMinimumValueEER" type="hvac:EfficiencyMinimumValueEER">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Cooling Efficiency EER</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R for this system name if the data is available;  Else if the system type on the CF1R does not provide this data, then result = N/A stored in the  NotAppplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Minimum Cooling Efficiency EER/CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R for this system name if the data for EER is available;  Else if the system type on the CF1R does not provide this data, then result = N/A stored in the  NotAppplicableMessage;</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C07_EfficiencyMinimumValueCEER" type="hvac:EfficiencyMinimumValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Minimum Cooling Efficiency EER/CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R for this system name if the data for CEER is available;  Else if the system type on the CF1R does not provide this data, then result = N/A stored in the  NotAppplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C07_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Minimum Cooling Efficiency EER</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R for this system name if the data is available;  Else if the system type on the CF1R does not provide this data, then result = N/A stored in the  NotAppplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Minimum Cooling Efficiency EER/CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R for this system name if the data for EER or CEER is available;  Else if the system type on the CF1R does not provide this data, then result = N/A stored in the  NotAppplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -849,13 +855,19 @@ Flag non-default values and report in project status notes field; a revised CF1R
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="F04_EfficiencyInstalledValueEER" type="hvac:EfficiencyInstalledValueEER">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Cooling Efficiency EER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Cooling Efficiency EER/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value for C07_NotApplicableMessage == NotApplicable result = N/A stored in the  NotAppplicableMessage; Else user input numeric xx.x.   Check that result is compliant: If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, then result must be in InclusiveRange (11, 12.2) to comply; Else If B04_ResidentialCoolingSystemType == CentralSplitAC And F10_CondenserRatedCoolingCapacity LT 45000 then result must be GTE 12.2 to comply; Else result must be GTE C07_ EfficiencyMinimumValueEER to comply;   If result is a non-compliant value, flag it and do not let registration proceed.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="F04_EfficiencyInstalledValueCEER" type="hvac:EfficiencyInstalledValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Cooling Efficiency EER/CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If value for C07_NotApplicableMessage == NotApplicable result = N/A stored in the  NotAppplicableMessage; Else user input numeric xx.x.   Check that result is compliant:  result must be GTE C07_ EfficiencyMinimumValueCEER to comply;   If result is a non-compliant value, flag it and do not let registration proceed.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F04_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Cooling Efficiency EER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Cooling Efficiency EER/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value for C07_NotApplicableMessage == NotApplicable result = N/A stored in the  NotAppplicableMessage; Else user input numeric xx.x.   Check that result is compliant: If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, then result must be in InclusiveRange (11, 12.2) to comply; Else If B04_ResidentialCoolingSystemType == CentralSplitAC And F10_CondenserRatedCoolingCapacity LT 45000 then result must be GTE 12.2 to comply; Else result must be GTE C07_ EfficiencyMinimumValueEER to comply;   If result is a non-compliant value, flag it and do not let registration proceed.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1280,8 +1292,14 @@ Flag non-default values and report in project status notes field; a revised CF1R
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="I08_EfficiencyInstalledValueEER" type="hvac:EfficiencyInstalledValueEER">
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">System Rated Cooling Efficiency EER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">System Rated Cooling Efficiency EER/CEER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in C07 == NotApplicable then result = N/A stored in the  NotAppplicableMessage;  Else user input numeric xx.x.   For all systems except D04__ResidentialHeatingSystemType Or D05__ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless or VCHP_IndoorUnitDuctedAndDuctless, Check:  If result  GTE C07_EfficiencyMinimumValueEER result complies Else flag the non-compliant value and do not allow registration to proceed.</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="I08_EfficiencyInstalledValueCEER" type="hvac:EfficiencyInstalledValueCEER">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">System Rated Cooling Efficiency EER/CEER</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If value in C07 == NotApplicable then result = N/A stored in the  NotAppplicableMessage;  Else user input numeric xx.x.   For all systems except D04__ResidentialHeatingSystemType Or D05__ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless or VCHP_IndoorUnitDuctedAndDuctless, Check:  If result  GTE C07_EfficiencyMinimumValueCEER result complies Else flag the non-compliant value and do not allow registration to proceed.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="I08_NotApplicableMessage" type="comp:NotApplicableMessage">
