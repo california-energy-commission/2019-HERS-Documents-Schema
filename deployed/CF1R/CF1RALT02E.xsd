@@ -265,7 +265,7 @@
                                     <xsd:element name="D03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP,  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, DuctedMiniSplitHP and NoHeating.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP), RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, NonAirSourceHP, WoodHeat, SmallDuctHighVelocityHP, DuctedMultiSplitHP, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitHP, DuctlessVRF_HP,  VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless, DuctedMiniSplitHP, PTHP, SPVHP  and NoHeating.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
@@ -326,7 +326,7 @@
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  list: 
-CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless. DuctedMiniSplitAC, DuctedMiniSplitHP</xsd:documentation>
+CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctedMultiSplitAC, DuctedMultiSplitHP, DuctlessMultiSplitAC, DuctlessMultiSplitHP, DuctedDuctlessMultiSplitAC, DuctedDuctlessMultiSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), DuctlessVRF_AC, DuctlessVRF_HP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, NonAirCooledAC, NonAirSourceHP, RoomAC, RoomHP, SmallDuctHighVelocityHP, SmallDuctHighVelocityAC, VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctedAndDuctless, VCHP_IndoorUnitDuctless. DuctedMiniSplitAC, DuctedMiniSplitHP,  PTAC, PTHP, SPVAC, SPVHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
@@ -479,7 +479,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                     <xsd:element name="E03_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP)  RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, NoHeating</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">User selects from list: CentralGasFurnace, CentralSplitHP, CentralPackagedHP, CentralLargePackagedHP, DuctlessSplitHP (display term Ductless mini-split HP)  RoomHP, Boiler, Hydronic, CombinedHydronic, HydronicForcedAir, CombinedHydronicForcedAir, HydronicHP,  HydronicHP_ForcedAir, GasPackagedFurnace, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, PTHP, SPVHP and NoHeating</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">
@@ -542,7 +542,7 @@ CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackag
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  list: 
-CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP,</xsd:documentation>
+CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessSplitAC (display term Ductless mini-split AC) , DuctlessSplitHP (display term Ductless mini-split HP), EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser, GasAbsorptionAC, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, PTAC, PTHP, SPVAC, SPVHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:sequence maxOccurs="unbounded">

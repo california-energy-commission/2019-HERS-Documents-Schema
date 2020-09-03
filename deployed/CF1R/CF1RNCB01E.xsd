@@ -1545,7 +1545,7 @@
                                     <xsd:element name="K02_ResidentialHeatingSystemType" type="hvac:ResidentialHeatingSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Heating System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHeatingSystemType:  BoilerSystem,  CentralGasFurnace   CentralLargePackagedHP,  CentralPackagedHP, CentralSplitHP,  CombinedHydronic, CombinedHydronicForcedAir,  DuctlessHP,  Electric, GasPackagedFurnace,   GasSpaceHeater  GasWallFurnace, Hydronic, HydronicForcedAir, HydronicHP, HydronicHP_ForcedAir, RoomHP, WoodHeat, SmallDuctHighVelocityHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialHeatingSystemType:  BoilerSystem,  CentralGasFurnace   CentralLargePackagedHP,  CentralPackagedHP, CentralSplitHP,  CombinedHydronic, CombinedHydronicForcedAir,  DuctlessHP,  Electric, GasPackagedFurnace,   GasSpaceHeater  GasWallFurnace, Hydronic, HydronicForcedAir, HydronicHP, HydronicHP_ForcedAir, RoomHP, WoodHeat, SmallDuctHighVelocityHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless, PTHP, SPVHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="K03_EfficiencyType">
@@ -1584,7 +1584,7 @@
                                     <xsd:element name="K05_ResidentialCoolingSystemType" type="hvac:ResidentialCoolingSystemType">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Cooling System Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessAC, DuctlessHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect , EvaporativelyCooledCondenser, GasAbsorptionAC, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Choices for ResidentialCoolingSystemType:  CentralLargePackagedAC, CentralLargePackagedHP, CentralPackagedAC, CentralPackagedHP, CentralSplitAC, CentralSplitHP, DuctlessAC, DuctlessHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect , EvaporativelyCooledCondenser, GasAbsorptionAC, Hydronic, HydronicHP, HydronicHP_ForcedAir, IceStorageAC, NoCooling, RoomAC, RoomHP, VCHP_IndoorUnitDucted,  VCHP_IndoorUnitDuctless, VCHP_IndoorUnitDuctedAndDuctless, PTAC, PTHP, SPVAC, SPVHP</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
