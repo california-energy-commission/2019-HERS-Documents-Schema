@@ -92,8 +92,8 @@ jobs:
           name: Running deploy-schema script
           command: |
             cd scripts
-            chmod a+x deploy-schema
-            ./deploy-schema -d ../deployed -s ../schema -v 2019.1.000
+            chmod a+x deploy-schema-linux-amd64
+            ./deploy-schema-linux-amd64 -d ../deployed -s ../schema -v 2019.1.000
 
   oxygen-xml:
     docker:
