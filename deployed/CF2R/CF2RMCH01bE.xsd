@@ -1164,7 +1164,7 @@ Check: if result == CanNotTest, report in project status notes field that exempt
 And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  
  
 And one of the following is true: 
-(F11_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
+(G13_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
 Or 
 (Responses in B04, B05, B06, B07. B08 and B09 result in "DctLk" in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements)
  
@@ -1181,7 +1181,7 @@ End If</xsd:documentation>
 And C03_ResidentialHeatingSystemType Or C07_ResidentialCoolingSystemType   == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless  
  
 And one of the following is true: 
-(F11_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
+(G13_CanRA3_3AirflowProtocolsTestSystem == true And K03_RefrigerantChargeVerificationRequired == true) 
 Or 
 (Responses in B04, B05, B06, B07. B08 and B09 result in "DctLk" in the HERS column of the Logic Table for Determining Alteration type and HERS Verfication Requirements)
  
