@@ -148,12 +148,20 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B07_TankLocation" type="hvac:TankLocation" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B07_TankLocation" type="hvac:TankLocation" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B08_LoopTankCapacity" type="hvac:LoopTankCapacity" >
                                           <xsd:annotation>
@@ -196,12 +204,20 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="B11_LoopTankType" type="hvac:LoopTankType" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="B11_LoopTankType" type="hvac:LoopTankType" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="B11_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from CF1R which may be NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -286,12 +302,20 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="C07_TankLocation" type="hvac:TankLocation" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from B07_TankLocation</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C07_TankLocation" type="hvac:TankLocation" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B07</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C07_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Location</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B07 which may be NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="C08_LoopTankCapacity" type="hvac:LoopTankCapacity" >
                                           <xsd:annotation>
@@ -334,12 +358,20 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="C11_LoopTankType" type="hvac:LoopTankType" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Reference values from B11_LoopTankType</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="C11_LoopTankType" type="hvac:LoopTankType" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B11</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C11_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Loop Tank Type</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference values from B11 which may be NA</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
