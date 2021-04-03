@@ -1,0 +1,50 @@
+name: Remote Dispatch Action Dispatcher
+
+on: [push, repository_dispatch]
+
+jobs:
+  update-branch:
+    if: ${{ github.event.client_payload.message.type != 'response' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: everlytic/branch-merge@1.1.0
+        with:
+          github_token: ${{ secrets.CROSS_REPO_ACCESS_TOKEN }}
+          source_ref: 'master'
+          target_branch: ${{ github.ref }}
+          commit_message_template: '[RasentBot] Merged {source_ref} into {target_branch}'
+
+  dispatch:
+    if: ${{ github.event.client_payload.message.type != 'response' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dispatch to Scripts repo
+        uses: mvasigh/dispatch-action@main
+        with:
+          token: ${{ secrets.CROSS_REPO_ACCESS_TOKEN }}
+          repo: Scripts
+          owner: california-energy-commission
+          event_type: Dispatch from ${{ github.event.repository.name }}
+          message: |
+            {
+              "owner": "${{ github.repository_owner }}",
+              "repo": "${{ github.event.repository.name }}",
+              "type": "schema"
+            }
+
+  receive:
+    if: ${{ github.event.client_payload.message.type == 'response' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking response from Scripts repo
+        if: ${{ github.event.client_payload.message.schema != 'success' }}
+        run: |
+          echo "Workflow has failed."
+          exit 1
+
+      - name: Receive response from Scripts repo
+        run: 'echo "Workflow finished successfully!"'

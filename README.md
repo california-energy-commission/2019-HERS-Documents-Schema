@@ -1,6 +1,6 @@
 # 2019 HERS Documents Schema
 
-[![CircleCI](https://circleci.com/gh/california-energy-commission/2019-HERS-Documents-Schema.svg?style=svg&circle-token=fafa16192916d06faad268bdc4b1df5b490f8aec)](california-energy-commission/2019-HERS-Documents-Schema)
+[![Remote Dispatch Action Dispatcher](https://github.com/california-energy-commission/2019-HERS-Documents-Schema/actions/workflows/dispatch.yml/badge.svg)](https://github.com/california-energy-commission/2019-HERS-Documents-Schema/actions/workflows/dispatch.yml)
 
 - [Documentation](#documentation)
 - [Contributing](#contributing)
