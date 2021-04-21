@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.003">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -45,7 +45,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200401"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20210501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RPLB02aE"/>
       </xsd:complexType>
    </xsd:element>
@@ -110,7 +110,7 @@
                                     </xsd:element>
                                     <xsd:element name="A05_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="FieldText"># of Like (or Identical) Water Heaters in System</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference values from CF1R</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -282,7 +282,7 @@ End If</xsd:documentation>
                                     </xsd:element>
                                     <xsd:element name="B05_WaterHeaterTotalSystemCount" type="hvac:WaterHeaterTotalSystemCount" >
                                        <xsd:annotation>
-                                          <xsd:documentation source="FieldText"># of Water Heaters in System</xsd:documentation>
+                                          <xsd:documentation source="FieldText"># of Like (or Identical) Water Heaters in System</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">Reference value from A05</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -423,6 +423,12 @@ End If</xsd:documentation>
                                     </xsd:choice>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="C03_UniformEnergyFactor" type="hvac:UniformEnergyFactor" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-PRF; Else result = N/A stored in NotApplicableMessage</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="C03_EnergyFactor" type="hvac:EnergyFactor" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Heating Efficiency Value</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Reference value from CF1R-PRF; Else result = N/A stored in NotApplicableMessage</xsd:documentation>

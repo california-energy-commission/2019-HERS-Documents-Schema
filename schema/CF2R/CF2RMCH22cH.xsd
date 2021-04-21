@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20210501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH22cH"/>
       </xsd:complexType>
    </xsd:element>
@@ -141,12 +141,20 @@
                         <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF2R-MCH23</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="A09_HasBypassDuct" type="hvac:HasBypassDuct" >
-                     <xsd:annotation>
-                        <xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF2R-MCH23</xsd:documentation>
-                     </xsd:annotation>
-                  </xsd:element>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="A09_HasBypassDuct" type="hvac:HasBypassDuct" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF2R-MCH23</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                     <xsd:element name="A09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                        <xsd:annotation>
+                           <xsd:documentation source="FieldText">System Bypass Duct Status</xsd:documentation>
+                           <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF2R-MCH23 which allows NotApplicable</xsd:documentation>
+                        </xsd:annotation>
+                     </xsd:element>
+                  </xsd:choice>
                   <xsd:element name="A10_AirflowRateMeasurementDate" type="comp:AirflowRateMeasurementDate" >
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Date of System Airflow Rate Measurement</xsd:documentation>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/env" version="2019.1.004" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/env" version="2019.1.005" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AirInfiltrationRate">
@@ -1502,8 +1502,23 @@ Not Shared</dtyp:displayterm>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Log Thickness</dtyp:displayterm>
          </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="10Log">10 in</dtyp:displayterm>
+            <dtyp:displayterm value="12Log">12 in</dtyp:displayterm>
+            <dtyp:displayterm value="14Log">14 in</dtyp:displayterm>
+            <dtyp:displayterm value="16Log">16 in</dtyp:displayterm>
+            <dtyp:displayterm value="6Log">6 in</dtyp:displayterm>
+            <dtyp:displayterm value="8Log">8 in</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant"/>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="10Log"/>
+         <xsd:enumeration value="12Log"/>
+         <xsd:enumeration value="14Log"/>
+         <xsd:enumeration value="16Log"/>
+         <xsd:enumeration value="6Log"/>
+         <xsd:enumeration value="8Log"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ManufacturerBrand">
       <xsd:annotation>
@@ -1685,6 +1700,7 @@ Not Shared</dtyp:displayterm>
             <dtyp:displayterm value="FloorOverCrawlspace">Floors Over Crawlspace</dtyp:displayterm>
             <dtyp:displayterm value="InteriorFloor">Interior Floors</dtyp:displayterm>
             <dtyp:displayterm value="InteriorWall">Interior Walls</dtyp:displayterm>
+            <dtyp:displayterm value="UndergroundFloor">Underground Floors</dtyp:displayterm>
             <dtyp:displayterm value="UndergroundWall">Underground Walls</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -1698,6 +1714,7 @@ Not Shared</dtyp:displayterm>
          <xsd:enumeration value="FloorOverCrawlspace"/>
          <xsd:enumeration value="InteriorFloor"/>
          <xsd:enumeration value="InteriorWall"/>
+         <xsd:enumeration value="UndergroundFloor"/>
          <xsd:enumeration value="UndergroundWall"/>
       </xsd:restriction>
    </xsd:simpleType>
@@ -2170,7 +2187,7 @@ Not Shared</dtyp:displayterm>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="SkylightCurbType">
+   <xsd:simpleType name="SkylightCurb">
       <xsd:annotation>
          <xsd:documentation>Curb or No Curb.
 For selection of NA-6 properties</xsd:documentation>

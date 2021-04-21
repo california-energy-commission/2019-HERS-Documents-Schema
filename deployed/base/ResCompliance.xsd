@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/comp" version="2019.1.004" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/comp" version="2019.1.005" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
@@ -498,7 +498,7 @@
             <dtyp:displayterm>Area Weighted Average Ufactor</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:Decimal4PlacesNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="ArrayShadingCF1RPRF">
       <xsd:restriction base="xsd:token"/>
@@ -557,6 +557,7 @@
             <dtyp:displayterm value="CentralFanIAQVentilationHERS">Central Fan IAQ ventilation</dtyp:displayterm>
             <dtyp:displayterm value="CentralFanVentilationCoolingHERS">Central fan ventilation cooling, fixed speed</dtyp:displayterm>
             <dtyp:displayterm value="CentralFanVentilationCoolingVariableHERS">Central fan ventilation cooling, variable speed</dtyp:displayterm>
+            <dtyp:displayterm value="DwellingUnitEnclosureLeakageHERS">Enclosure air leakage for each dwelling unit</dtyp:displayterm>
             <dtyp:displayterm value="EnvelopeAirLeakageHERS">Building air leakage/reduced infiltration</dtyp:displayterm>
             <dtyp:displayterm value="IAQ_MechanicalVentilationHERS">Indoor air quality ventilation</dtyp:displayterm>
             <dtyp:displayterm value="InsulationSprayFoamHighRvalueHERS">High R-value Spray Foam Insulation</dtyp:displayterm>
@@ -572,6 +573,7 @@
          <xsd:enumeration value="CentralFanIAQVentilationHERS"/>
          <xsd:enumeration value="CentralFanVentilationCoolingHERS"/>
          <xsd:enumeration value="CentralFanVentilationCoolingVariableHERS"/>
+         <xsd:enumeration value="DwellingUnitEnclosureLeakageHERS"/>
          <xsd:enumeration value="EnvelopeAirLeakageHERS"/>
          <xsd:enumeration value="IAQ_MechanicalVentilationHERS"/>
          <xsd:enumeration value="InsulationSprayFoamHighRvalueHERS"/>
@@ -964,9 +966,7 @@
       <xsd:annotation>
          <xsd:documentation>This is a documentation tag for instructions on how to calculate a property or the rules for applying it.</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="xsd:string">
-         <xsd:whiteSpace value="preserve"/>
-      </xsd:restriction>
+      <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="CanFanEfficacyProtocolsTestSystem">
       <xsd:annotation>
@@ -1421,6 +1421,12 @@ Document Data</dtyp:displayterm>
    </xsd:simpleType>
    <xsd:simpleType name="ComplianceDocumentSchemaVersion">
       <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ComplianceDocumentStandardsTitle">
+      <xsd:annotation>
+         <xsd:documentation>This is the title that appears in the footer of every compliance document defining the year and the standards that apply</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="ComplianceDocumentT24P6Coverage">
       <xsd:annotation>
@@ -2090,12 +2096,6 @@ Document Data</dtyp:displayterm>
    <xsd:simpleType name="ComplianceDocumentsPublicationMonthYear">
       <xsd:annotation>
          <xsd:documentation>This is month and year that the compliance documents were officially published</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:token"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ComplianceDocumentsStandardsTitle">
-      <xsd:annotation>
-         <xsd:documentation>This is the title that appears in the footer of every compliance document defining the year and the standards that apply</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
@@ -3385,7 +3385,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="DuctLessThan40Feet">Altered duct system has less than 40 ft of duct</dtyp:displayterm>
-            <dtyp:displayterm value="DuctLessThan40FeetInUnconditionedSpaces">Less Than 40Feet of Ducts in Unconditioned Spaces</dtyp:displayterm>
             <dtyp:displayterm value="DuctsSealedHERS_TestedCertified">Existing ducts have previously been sealed, tested, and certified by a HERS rater</dtyp:displayterm>
             <dtyp:displayterm value="DuctSystemAsbestos">Existing duct system is insulated or sealed with asbestos</dtyp:displayterm>
             <dtyp:displayterm value="NoExemptions">None</dtyp:displayterm>
@@ -3394,7 +3393,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="DuctLessThan40Feet"/>
-         <xsd:enumeration value="DuctLessThan40FeetInUnconditionedSpaces"/>
          <xsd:enumeration value="DuctsSealedHERS_TestedCertified"/>
          <xsd:enumeration value="DuctSystemAsbestos"/>
          <xsd:enumeration value="NoExemptions"/>
@@ -3815,6 +3813,12 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:documentation>Units: percent</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal1Place"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="EnergyUseMarginFlexibility">
+      <xsd:annotation>
+         <xsd:documentation>Units: kTDV per ft2 per yr</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal"/>
    </xsd:simpleType>
    <xsd:simpleType name="EnergyUseMarginIAQ_Ventilation">
       <xsd:annotation>
@@ -4562,9 +4566,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="DuctSealing"/>
          <xsd:enumeration value="HighQualityInsulationInstallation"/>
       </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="HERS_VerificationRequired">
-      <xsd:restriction base="dtyp:EnumerationConstantPermissive"/>
    </xsd:simpleType>
    <xsd:simpleType name="HSPP_PSPP_ComplianceMethod">
       <xsd:annotation>
@@ -6001,6 +6002,9 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
    <xsd:simpleType name="ManometerSerialNumber">
       <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
+   <xsd:simpleType name="Manufacturer">
+      <xsd:restriction base="dtyp:String50Char"/>
+   </xsd:simpleType>
    <xsd:simpleType name="ManufacturerStandardCondenserChargeLbs">
       <xsd:annotation>
          <xsd:documentation>Units: lb</xsd:documentation>
@@ -6219,6 +6223,9 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ModelNumber">
+      <xsd:restriction base="dtyp:String50Char"/>
    </xsd:simpleType>
    <xsd:simpleType name="MultifamilySubdivisionName">
       <xsd:restriction base="xsd:string"/>
@@ -6501,6 +6508,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:sequence>
       <xsd:attribute name="complianceDocumentGUID" type="comp:ComplianceDocumentGUID" use="required"/>
       <xsd:attribute name="complianceDocumentSchemaVersion" type="comp:ComplianceDocumentSchemaVersion" use="required"/>
+      <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="optional"/>
       <xsd:attribute name="displayTag" type="comp:ComplianceDocumentDisplayTag" use="required"/>
       <xsd:attribute name="payloadDocument" type="comp:ComplianceDocumentTag" use="required"/>
       <xsd:attribute name="processedDate" type="comp:ComplianceApplicationDate" use="required"/>
@@ -6696,12 +6704,14 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="BatteryStorage">Battery storage (Trigger CF2R-PVB-02)</dtyp:displayterm>
             <dtyp:displayterm value="CommunitySolar">CommunitySolar</dtyp:displayterm>
             <dtyp:displayterm value="CZ15ReducedSize">CZ15 reduced PV size</dtyp:displayterm>
-            <dtyp:displayterm value="DeclaredEmergencyArea">AB-178 - Declared emergency area</dtyp:displayterm>
+            <dtyp:displayterm value="DeclaredEmergencyArea">Declared emergency area before 1/1/20</dtyp:displayterm>
             <dtyp:displayterm value="HabitableStories2">2 habitable stories</dtyp:displayterm>
             <dtyp:displayterm value="HabitableStories3">3 habitable stories</dtyp:displayterm>
             <dtyp:displayterm value="LimitedSolarAccess">No PV - limited solar access (Trigger CF2R-SRA-01)</dtyp:displayterm>
             <dtyp:displayterm value="NoExceptionsNA">NA</dtyp:displayterm>
             <dtyp:displayterm value="PlansBefore2020">Plan approved before 1/1/20</dtyp:displayterm>
+            <dtyp:displayterm value="Section10_109k">Section 10-109(k) determination</dtyp:displayterm>
+            <dtyp:displayterm value="SnowLoad">Excessive snow load</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6714,6 +6724,8 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:enumeration value="LimitedSolarAccess"/>
          <xsd:enumeration value="NoExceptionsNA"/>
          <xsd:enumeration value="PlansBefore2020"/>
+         <xsd:enumeration value="Section10_109k"/>
+         <xsd:enumeration value="SnowLoad"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="PhotoVoltaicExceptionSRA">
@@ -6901,7 +6913,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="FenestrationGlazingWindowMinimumFt2Replacement">Replacing Fenestration/Glazing less than or equal to 75 ft2  Windows</dtyp:displayterm>
             <dtyp:displayterm value="HeatingSystemAlteration">Space heating system</dtyp:displayterm>
             <dtyp:displayterm value="InsulationAlteration">Insulation</dtyp:displayterm>
-            <dtyp:displayterm value="KitchenHoodNewReplace">Kitchen Range Hood Installation (new or reploacement)</dtyp:displayterm>
+            <dtyp:displayterm value="KitchenHoodNewReplace">Kitchen Range Hood Installation (new or replacement)</dtyp:displayterm>
             <dtyp:displayterm value="KitchenRemodelAlteration">Kitchen Remodel</dtyp:displayterm>
             <dtyp:displayterm value="RoofAlterationGT50Percent">Roof replacement greater than 50 %</dtyp:displayterm>
             <dtyp:displayterm value="WaterHeatingAlteration">Water heating</dtyp:displayterm>
@@ -7520,7 +7532,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    </xsd:simpleType>
    <xsd:simpleType name="RunDateTime">
       <xsd:annotation>
-         <xsd:documentation>In performance compliance, this is the date that the compliance analysis was performed  Units: none</xsd:documentation>
+         <xsd:documentation>In performance compliance, this is the date that the compliance analysis was performed.  This value is an xsd:dateTime data type recording when compliance report was generated.  The format is yyyy-mm-ddThh:mm:ss.sss The T indicates the beginning of the time part of the value and all parts are required except the second decimals which are optional.   For example 2013-12-17T15:03:00 is valid XML entry.  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="xsd:dateTime"/>
    </xsd:simpleType>
@@ -7817,12 +7829,6 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="SolarWaterSystemManufacturer">
-      <xsd:restriction base="dtyp:String50Char"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="SolarWaterSystemModelNumber">
-      <xsd:restriction base="dtyp:String50Char"/>
-   </xsd:simpleType>
    <xsd:simpleType name="SolarZoneAreaNetRoofAreaMethod">
       <xsd:annotation>
          <xsd:documentation>Units: ft2</xsd:documentation>
@@ -7916,9 +7922,11 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="PVCommunitySolar">PV Community Solar</dtyp:displayterm>
             <dtyp:displayterm value="PVException2HabitableStories">PV Exception: 2 Habitable Stories</dtyp:displayterm>
             <dtyp:displayterm value="PVException3HabitableStories">PV Exception: 3 Habitable Stories</dtyp:displayterm>
-            <dtyp:displayterm value="PVExceptionAB178EmergencyArea">PV Exception: AB178 Emergency Area</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionAB178EmergencyArea">Declared emergency area (prior to 1/1/20)</dtyp:displayterm>
             <dtyp:displayterm value="PVExceptionEffectSolarAccess">PV Exception: Effective Solar Access</dtyp:displayterm>
             <dtyp:displayterm value="PVExceptionPriorSolarReadyZone">PV Exception: Prior Solar Ready Zone</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionSection10_109k">PV Exception: Section 10-109(k) determination</dtyp:displayterm>
+            <dtyp:displayterm value="PVExceptionSnowLoad">PV Exception: Excessive snow load</dtyp:displayterm>
             <dtyp:displayterm value="PVExceptionSolarAccessAndHomeArea">PV Exception: Solar Access and Home area</dtyp:displayterm>
             <dtyp:displayterm value="PVModuleTypePremium">PV Module Type: Premium</dtyp:displayterm>
             <dtyp:displayterm value="PVModuleTypeThinFilm">PV Module Type: Thin Film</dtyp:displayterm>
@@ -7983,6 +7991,8 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="PVExceptionAB178EmergencyArea"/>
          <xsd:enumeration value="PVExceptionEffectSolarAccess"/>
          <xsd:enumeration value="PVExceptionPriorSolarReadyZone"/>
+         <xsd:enumeration value="PVExceptionSection10_109k"/>
+         <xsd:enumeration value="PVExceptionSnowLoad"/>
          <xsd:enumeration value="PVExceptionSolarAccessAndHomeArea"/>
          <xsd:enumeration value="PVModuleTypePremium"/>
          <xsd:enumeration value="PVModuleTypeThinFilm"/>
@@ -8088,6 +8098,9 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
    </xsd:simpleType>
    <xsd:simpleType name="T24StandardsCodeYear">
       <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Code Cycle</dtyp:displayterm>
+         </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="2013">2013</dtyp:displayterm>
             <dtyp:displayterm value="2016">2016</dtyp:displayterm>
@@ -8236,6 +8249,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
             <dtyp:displayterm value="Compliance2016">Compliance 2016</dtyp:displayterm>
             <dtyp:displayterm value="Compliance2017">Compliance 2017</dtyp:displayterm>
             <dtyp:displayterm value="Compliance2019">Compliance 2019</dtyp:displayterm>
+            <dtyp:displayterm value="Compliance2022">Compliance 2022</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -8245,6 +8259,7 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
          <xsd:enumeration value="Compliance2016"/>
          <xsd:enumeration value="Compliance2017"/>
          <xsd:enumeration value="Compliance2019"/>
+         <xsd:enumeration value="Compliance2022"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="TotalContinuousAirflow">
@@ -8296,19 +8311,19 @@ Time Dependent Valuation (TDV) Gas Propane energy is calculated by multiplying t
       <xsd:annotation>
          <xsd:documentation>Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="UfactorProposedAllSkylightFenestration">
       <xsd:annotation>
          <xsd:documentation>Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="UfactorProposedAllWindowFenestration">
       <xsd:annotation>
          <xsd:documentation>Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="UseMinimumAirflowApprovedVerificationProcedure">
       <xsd:annotation>

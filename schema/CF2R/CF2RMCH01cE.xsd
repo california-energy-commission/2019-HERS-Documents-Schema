@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20210501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01cE"/>
       </xsd:complexType>
    </xsd:element>
@@ -482,13 +482,13 @@
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="C11_IndoorUnitsCount" type="hvac:IndoorUnitsCount" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Number of Indoor Units Connected to the System's Outdoor Unit</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Number of Indoor Units for this System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If C04 Or C05 ==  RoomAC, RoomHP, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, GasPackagedFurnace, CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC, CentralLargePackagedHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser result = N/A stored in NotApplicableMessage; Else If CF1R requires CFI IAQ Ventilation system, result = 1, Else result = 1 as default  but allow user to overwrite with integer GT 1 Or N/A stored as NotApplicable in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C11_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Number of Indoor Units Connected to the System's Outdoor Unit</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Number of Indoor Units for this System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If C04 Or C05 ==  RoomAC, RoomHP, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, GasPackagedFurnace, CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC, CentralLargePackagedHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser result = N/A stored in NotApplicableMessage; Else If CF1R requires CFI IAQ Ventilation system, result = 1, Else result = 1 as default  but allow user to overwrite with integer GT 1 Or N/A stored as NotApplicable in NotApplicableMessage</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH20bH" version="2019.1.004" xmlns="http://www.lmonte.com/besm/CF2RMCH20bH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RMCH20bH" version="2019.1.005" xmlns="http://www.lmonte.com/besm/CF2RMCH20bH" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -46,13 +46,29 @@
                   <xsd:element name="A05_VerifiedLowLeakageDuctsConditionedSpace" type="comp:VerifiedLowLeakageDuctsConditionedSpace">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verified Low Leakage Ducts in Conditioned Space (VLLDCS) Credit from CF1R?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from CF1R.  If Boolean value == true, display text  Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from CF1R.  If performance CF1R-PRF  Y02_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless Or  VCHP_IndoorUnitDuctless
+ result = true 
+Else calculated result depending on CF1R data
+End If
+
+If result == true, display text  Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="true">Low Leakage Ducts in Conditioned Space (LLDCS) method Mch20b should be used</dtyp:displayterm>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A06_VerifiedLowLeakageAirHandlingUnit" type="comp:VerifiedLowLeakageAirHandlingUnit">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Verified Low Leakage Air Handling Unit Credit from CF1R?</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Data from CF1R   If Boolean value == true, display text Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Data from CF1R  If performance CF1R-PRF  Y02_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless Or  VCHP_IndoorUnitDuctless
+ result = false 
+Else calculated result depending on CF1R data
+End If
+
+If result == true, display text Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</xsd:documentation>
+                        <xsd:appinfo source="displayterm">
+                           <dtyp:displayterm value="true">Low Leakage Air Handling Unit (LLAHU) method Mch20c should be used</dtyp:displayterm>
+                        </xsd:appinfo>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="A07_DuctSystemLeakageComplianceCategory" type="comp:DuctSystemLeakageComplianceCategory">
@@ -215,7 +231,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20190501"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20210501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH20bH"/>
       </xsd:complexType>
    </xsd:element>

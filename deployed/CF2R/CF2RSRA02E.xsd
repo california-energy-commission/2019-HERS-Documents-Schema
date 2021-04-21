@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RSRA02E" version="2019.1.004" xmlns="http://www.lmonte.com/besm/CF2RSRA02E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RSRA02E" version="2019.1.005" xmlns="http://www.lmonte.com/besm/CF2RSRA02E" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -160,13 +160,13 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
                   <xsd:choice maxOccurs="1">
                      <xsd:element name="C04_RoofAreaSteepSlope70PercentSolarAccess" type="comp:RoofAreaSteepSlope70PercentSolarAccess">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 90 and 300 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplipcableMessage.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
                      <xsd:element name="C04_NotApplicableMessage" type="comp:NotApplicableMessage">
                         <xsd:annotation>
-                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 110 and 270 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
+                           <xsd:documentation source="FieldText">What is the total area of steep-sloped roofs oriented between 90 and 300 degrees relative to true north, where the annual solar access is 70% or greater (ft<d:sup>2</d:sup>)?</xsd:documentation>
                            <xsd:documentation source="CalculationsAndRules">User input: either the numeric value stored in RoofAreaSteepSlope70PercentSolarAccess, or allow user to select N/A stored in the NotApplipcableMessage.</xsd:documentation>
                         </xsd:annotation>
                      </xsd:element>
@@ -359,7 +359,7 @@ or allow user to select N/A stored in the NotApplicableMessage .</xsd:documentat
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20191201"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20210501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RSRA02E"/>
       </xsd:complexType>
    </xsd:element>

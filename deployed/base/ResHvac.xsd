@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2019.1.004" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/hvac" version="2019.1.005" xmlns:com="http://www.lmonte.com/besm/com" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
+   <xsd:simpleType name="AOSmithCAHP120SimulationGroup">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Simulated Model Group A O Smith CAHP 120</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AOSmithCAHP120">AOSmithCAHP 120 (120 gal)</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AOSmithCAHP120"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="AOSmithHPTU50SimulationGroup">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Simulated Model Group A O Smith HPTU 50</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AmericanHPHE10250">HPHE10250H045DV 102  (50 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="AmericanHPHE10250N">HPHE10250H045DVN 102  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AmericanHPHE10250">HPHE10250H045DV 120  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AmericanHPHE10250N">HPHE10250H045DVN 120  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE6250">HPHE6250H045DV  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE650Res">HPHE650H045DV 120  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithFPTU50">FPTU 50 120  (50 gal)</dtyp:displayterm>
@@ -30,6 +43,8 @@
             <dtyp:displayterm value="WhirlpoolHPHE2K50">HPHE2K50HD045V 120 (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K50C">HPHE2K50HD045VC 120 (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K50N">HPHE2K50HD045VN 120 (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -55,6 +70,8 @@
          <xsd:enumeration value="WhirlpoolHPHE2K50"/>
          <xsd:enumeration value="WhirlpoolHPHE2K50C"/>
          <xsd:enumeration value="WhirlpoolHPHE2K50N"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithHPTU66SimulationGroup">
@@ -82,6 +99,8 @@
             <dtyp:displayterm value="USCraftmasterHPHE2K66UN">HPHE2K66HD045VUN 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K66">HPHE2K66HD045V 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K66C">HPHE2K66HD045VC 120 (66 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -104,6 +123,8 @@
          <xsd:enumeration value="USCraftmasterHPHE2K66UN"/>
          <xsd:enumeration value="WhirlpoolHPHE2K66"/>
          <xsd:enumeration value="WhirlpoolHPHE2K66C"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithHPTU80SimulationGroup">
@@ -133,6 +154,8 @@
             <dtyp:displayterm value="USCraftmasterHPHE2K80UN">HPHE2K80HD045VUN 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80">HPHE2K80HD045V 120 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80C">HPHE2K80HD045VC 120 (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -157,6 +180,8 @@
          <xsd:enumeration value="USCraftmasterHPHE2K80UN"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80C"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithPHPT60SimulationGroup">
@@ -202,6 +227,8 @@
             <dtyp:displayterm value="USCraftmasterHPE2F80U">HPE2F80HD045VU 102  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="USCraftmasterHPE2K80">HPE2K80HD045V  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPE2K80">HPE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -217,6 +244,8 @@
          <xsd:enumeration value="USCraftmasterHPE2F80U"/>
          <xsd:enumeration value="USCraftmasterHPE2K80"/>
          <xsd:enumeration value="WhirlpoolHPE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="AOSmithSHPT50SimulationGroup">
@@ -353,60 +382,42 @@
          <xsd:enumeration value="Supply"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="AirSystemCoolingFixedSupplyAirTemperature">
+   <xsd:simpleType name="AirSource">
       <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Air Source</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Attic">Attic</dtyp:displayterm>
+            <dtyp:displayterm value="Conditioned">Conditioned</dtyp:displayterm>
+            <dtyp:displayterm value="CrawlSpace">Crawl Space</dtyp:displayterm>
+            <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
+            <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
+            <dtyp:displayterm value="TankZone">Tank Zone</dtyp:displayterm>
+            <dtyp:displayterm value="Unconditioned">Unconditioned</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Attic"/>
+         <xsd:enumeration value="Conditioned"/>
+         <xsd:enumeration value="CrawlSpace"/>
+         <xsd:enumeration value="Garage"/>
+         <xsd:enumeration value="Outside"/>
+         <xsd:enumeration value="TankZone"/>
+         <xsd:enumeration value="Unconditioned"/>
+      </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="AirSystemCoolingSetPointScheduleName">
-      <xsd:restriction base="dtyp:ObjectNamePermissive"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemCoolingSizingRatio">
+   <xsd:simpleType name="AirSourceString">
       <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Air Source</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="AirSystemCoolingSupplyAirStageTemperatureDifference">
       <xsd:annotation>
          <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemDesignAirFlowMinimumRatio">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemDesignPrecoolHumidityRatio">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemDesignPrecoolTemperature">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemDesignPreheatHumidityRatio">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemDesignPreheatTemperature">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="AirSystemHeatingSizingRatio">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -614,15 +625,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="BoilerHasBypass">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
-   </xsd:simpleType>
    <xsd:simpleType name="BoilerName">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -696,40 +698,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="ChillerCondenserType">
-      <xsd:annotation>
-         <xsd:documentation>Defines the type condenser used for a chiller</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Chiller Condenser Type</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="Air">Air</dtyp:displayterm>
-            <dtyp:displayterm value="Fluid">Fluid</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="Air"/>
-         <xsd:enumeration value="Fluid"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="ChillerEvaporatorHasBypass">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ChillerKwPerTon">
-      <xsd:annotation>
-         <xsd:documentation>Units: kW per ton</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Chiller Kw Per Ton</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="ChillerName">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -758,18 +726,6 @@
          <xsd:enumeration value="Air"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="CoilCoolingAuxiliaryPower">
-      <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="CoilCoolingDXCrankcaseControlTemperature">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="CoilCoolingDX_EIR__fFlow_CurveName">
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
@@ -795,12 +751,6 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="CoilHeatingAuxilliaryPower">
-      <xsd:annotation>
-         <xsd:documentation>Units: W</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="CoilHeatingCondenserType">
       <xsd:annotation>
@@ -842,28 +792,6 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="CoilHeatingType">
-      <xsd:annotation>
-         <xsd:documentation>CoilHeatingType</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Coil Heating Type</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ElectricResistanceCoilHeating">Electric resistance</dtyp:displayterm>
-            <dtyp:displayterm value="FurnaceCoilHeating">Furnace</dtyp:displayterm>
-            <dtyp:displayterm value="HeatPumpCoilHeating">Heat pump</dtyp:displayterm>
-            <dtyp:displayterm value="HotWaterCoilHeating">Hot Water</dtyp:displayterm>
-            <dtyp:displayterm value="SteamCoilHeating">Steam</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="ElectricResistanceCoilHeating"/>
-         <xsd:enumeration value="FurnaceCoilHeating"/>
-         <xsd:enumeration value="HeatPumpCoilHeating"/>
-         <xsd:enumeration value="HotWaterCoilHeating"/>
-         <xsd:enumeration value="SteamCoilHeating"/>
-      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="CombustionEfficiency">
       <xsd:annotation>
@@ -931,6 +859,22 @@
          <xsd:enumeration value="SingleSpeed"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="CondenserType">
+      <xsd:annotation>
+         <xsd:documentation>Defines the type condenser used for a chiller</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Chiller Condenser Type</dtyp:displayterm>
+         </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Air">Air</dtyp:displayterm>
+            <dtyp:displayterm value="Fluid">Fluid</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Air"/>
+         <xsd:enumeration value="Fluid"/>
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ContinuousAirflowRateInstalled">
       <xsd:annotation>
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
@@ -976,24 +920,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="CoolingCapacityTotalNetRated">
-      <xsd:annotation>
-         <xsd:documentation>The total cooling capacity  of a coil at design conditions  Units: Btu per h</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Cooling Capacity Total Net Rated</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="CoolingCapacityTotalRated">
-      <xsd:annotation>
-         <xsd:documentation>The total cooling capacity of a coil at rated conditions  Units: Btu per h</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Cooling Capacity Total Rated</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="CoolingCapacityTotalRatedVerified">
       <xsd:annotation>
          <xsd:documentation>The total cooling capacity of a coil at rated conditions</xsd:documentation>
@@ -1007,11 +933,20 @@
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="CoolingDesignSizingFactor">
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="CoolingEquipmentRatedCapacity">
       <xsd:annotation>
          <xsd:documentation>This is the cooling or heating capacity of HVAC equipment at prescribed design conditions.  Units: Btu per h</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="CoolingFixedSupplyAirTemperature">
+      <xsd:annotation>
+         <xsd:documentation>Units: F</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="CoolingOversizingRatio">
       <xsd:annotation>
@@ -1565,6 +1500,15 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
+   <xsd:simpleType name="EfficiencyCEER">
+      <xsd:annotation>
+         <xsd:documentation>Units: Btu per W h</xsd:documentation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Efficiency CEER</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
    <xsd:simpleType name="EfficiencyCOP">
       <xsd:annotation>
          <xsd:documentation>ratio of useful heating or cooling provided to work required  Units: none</xsd:documentation>
@@ -1759,7 +1703,7 @@
             <dtyp:displayterm value="EnergyFactor">EF</dtyp:displayterm>
             <dtyp:displayterm value="HSPF">HSPF</dtyp:displayterm>
             <dtyp:displayterm value="IEER">IEER</dtyp:displayterm>
-            <dtyp:displayterm value="NEEA">NEEA</dtyp:displayterm>
+            <dtyp:displayterm value="NEEA">NEEA Rated</dtyp:displayterm>
             <dtyp:displayterm value="SCOP">SCOP</dtyp:displayterm>
             <dtyp:displayterm value="SEER">SEER</dtyp:displayterm>
             <dtyp:displayterm value="ThermalEfficiency">TE</dtyp:displayterm>
@@ -1800,7 +1744,6 @@
    </xsd:simpleType>
    <xsd:simpleType name="EvaporativeCoolerType">
       <xsd:annotation>
-         <xsd:documentation>Defines the type of EvaporativeCooler operation</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Evaporative Cooler Type</dtyp:displayterm>
          </xsd:appinfo>
@@ -1977,23 +1920,9 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:ObjectNamePermissive"/>
    </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemControlType">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Fluid System Control Type</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant"/>
-   </xsd:simpleType>
    <xsd:simpleType name="FluidSystemCoolingCapacity">
       <xsd:annotation>
          <xsd:documentation>Units: Btu per h</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemFixedSupplyTemperature">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -2003,54 +1932,9 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemResetOutdoorHigh">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemResetOutdoorLow">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemResetSupplyHigh">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemResetSupplyLow">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="FluidSystemTotalCapacityRatedCheck">
       <xsd:annotation>
          <xsd:documentation>Units: Btu per h</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemTotalStorageCapacityCheck">
-      <xsd:annotation>
-         <xsd:documentation>Units: gal</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FluidSystemWetBulbApproach">
-      <xsd:annotation>
-         <xsd:documentation>Units: F</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="FurnaceAfueRating">
-      <xsd:annotation>
-         <xsd:documentation>The Annual Fuel Utilization Efficiency (AFUE) season-long, average efficiency of that piece of equipment  Units: none</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Furnace AFUE Rating</dtyp:displayterm>
-         </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
@@ -2174,6 +2058,7 @@
             <dtyp:displayterm value="GE">GE</dtyp:displayterm>
             <dtyp:displayterm value="Kenmore">Kenmore</dtyp:displayterm>
             <dtyp:displayterm value="Lochinvar">Lochinvar</dtyp:displayterm>
+            <dtyp:displayterm value="Nyle">Nyle</dtyp:displayterm>
             <dtyp:displayterm value="Reliance">Reliance</dtyp:displayterm>
             <dtyp:displayterm value="Rheem">Rheem</dtyp:displayterm>
             <dtyp:displayterm value="Richmond">Richmond</dtyp:displayterm>
@@ -2194,6 +2079,7 @@
          <xsd:enumeration value="GE"/>
          <xsd:enumeration value="Kenmore"/>
          <xsd:enumeration value="Lochinvar"/>
+         <xsd:enumeration value="Nyle"/>
          <xsd:enumeration value="Reliance"/>
          <xsd:enumeration value="Rheem"/>
          <xsd:enumeration value="Richmond"/>
@@ -2205,14 +2091,17 @@
          <xsd:enumeration value="Whirlpool"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="HeatPumpWaterHeaterBrandModel">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="HeatPumpWaterHeaterModel">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AmericanHPE10260">HPE10260H045DV  (60 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPE10280">HPE10280H045DV  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPE6280">HPE6280H045DV 102  (80 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="AmericanHPHE10250">HPHE10250H045DV 102  (50 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="AmericanHPHE10250N">HPHE10250H045DVN 102  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AmericanHPHE10250">HPHE10250H045DV 120  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AmericanHPHE10250N">HPHE10250H045DVN 120  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE10266NRes">HPHE10266H045DVN 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE10266Res">HPHE10266H045DV 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE10280NRes">HPHE10280H045DVN 120  (80 gal)</dtyp:displayterm>
@@ -2221,6 +2110,7 @@
             <dtyp:displayterm value="AmericanHPHE6266Res">HPHE6266H045DV 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE6280Res">HPHE6280H045DV 120  (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE650Res">HPHE650H045DV 120  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AOSmithCAHP120">AOSmithCAHP 120 (120 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithFPTU50">FPTU 50 120  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithFPTU66">FPTU 66 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithFPTU80">FPTU 80 120  (80 gal)</dtyp:displayterm>
@@ -2422,6 +2312,8 @@
             <dtyp:displayterm value="WhirlpoolHPHE2K80C">HPHE2K80HD045VC 120 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPSE2K50">HPSE2K50HD045V 100 (WP) (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPSE2K50C">HPSE2K50HD045VC 100 (WP) (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -2438,6 +2330,7 @@
          <xsd:enumeration value="AmericanHPHE6266Res"/>
          <xsd:enumeration value="AmericanHPHE6280Res"/>
          <xsd:enumeration value="AmericanHPHE650Res"/>
+         <xsd:enumeration value="AOSmithCAHP120"/>
          <xsd:enumeration value="AOSmithFPTU50"/>
          <xsd:enumeration value="AOSmithFPTU66"/>
          <xsd:enumeration value="AOSmithFPTU80"/>
@@ -2639,7 +2532,12 @@
          <xsd:enumeration value="WhirlpoolHPHE2K80C"/>
          <xsd:enumeration value="WhirlpoolHPSE2K50"/>
          <xsd:enumeration value="WhirlpoolHPSE2K50C"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="HeatPumpWaterHeaterModelOther">
+      <xsd:restriction base="xsd:token"/>
    </xsd:simpleType>
    <xsd:simpleType name="HeatPumpWaterHeaterSimulationGroup">
       <xsd:annotation>
@@ -2647,6 +2545,7 @@
             <dtyp:displayterm>Heat Pump Water Heater Simulated Model Group</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="AOSmithCAHP120">AOSmithCAHP 120 (120 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithHPTU50">AO Smith HPTU 50</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithHPTU66">AO Smith HPTU 66</dtyp:displayterm>
             <dtyp:displayterm value="AOSmithHPTU80">AO Smith HPTU 80</dtyp:displayterm>
@@ -2697,6 +2596,7 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="AOSmithCAHP120"/>
          <xsd:enumeration value="AOSmithHPTU50"/>
          <xsd:enumeration value="AOSmithHPTU66"/>
          <xsd:enumeration value="AOSmithHPTU80"/>
@@ -2749,8 +2649,8 @@
    <xsd:simpleType name="HeatPumpWaterHeatersTier3NEEA">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AmericanHPHE10250">HPHE10250H045DV 102  (50 gal)</dtyp:displayterm>
-            <dtyp:displayterm value="AmericanHPHE10250N">HPHE10250H045DVN 102  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AmericanHPHE10250">HPHE10250H045DV 120  (50 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="AmericanHPHE10250N">HPHE10250H045DVN 120  (50 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE10266NRes">HPHE10266H045DVN 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE10266Res">HPHE10266H045DV 120  (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="AmericanHPHE10280NRes">HPHE10280H045DVN 120  (80 gal)</dtyp:displayterm>
@@ -2924,6 +2824,8 @@
             <dtyp:displayterm value="WhirlpoolHPHE2K66C">HPHE2K66HD045VC 120 (66 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80">HPHE2K80HD045V 120 (80 gal)</dtyp:displayterm>
             <dtyp:displayterm value="WhirlpoolHPHE2K80C">HPHE2K80HD045VC 120 (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80">HPSE2K80HD045V  (80 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="WhirlpoolHPSE2K80C">HPSE2K80HD045VC  (80 gal)</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -3102,16 +3004,9 @@
          <xsd:enumeration value="WhirlpoolHPHE2K66C"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80"/>
          <xsd:enumeration value="WhirlpoolHPHE2K80C"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80"/>
+         <xsd:enumeration value="WhirlpoolHPSE2K80C"/>
       </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="HeatRejectionAirFlowCapacity">
-      <xsd:annotation>
-         <xsd:documentation>Units: ft3 per min</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="HeatRejectionBypassClosedTowerChecks">
-      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="HeatRejectionWaterFlowCapacity">
       <xsd:annotation>
@@ -3173,15 +3068,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="HvacAutoSizing">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
-   </xsd:simpleType>
    <xsd:simpleType name="HvacSystemAreaServed">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -3195,15 +3081,6 @@
          <xsd:documentation>Conditioned floor area served by an HVAC system in lowrise residential building  Units: ft2</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>HVAC  System Conditioned Floor Area</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="HvacSystemCoolingCapacity">
-      <xsd:annotation>
-         <xsd:documentation>Nominal heating capacity of an HVAC system  Units: cooling ton (12,000 Btu per h)</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>HVAC System Cooling Capacity</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
@@ -3502,12 +3379,14 @@
    <xsd:simpleType name="LoopTankType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="CommercialHPWH">Commercial HPWH</dtyp:displayterm>
             <dtyp:displayterm value="ElectricResistance">Electric Resistance</dtyp:displayterm>
             <dtyp:displayterm value="LargeCompressor">Large Compressor</dtyp:displayterm>
             <dtyp:displayterm value="NEEA">NEEA</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="CommercialHPWH"/>
          <xsd:enumeration value="ElectricResistance"/>
          <xsd:enumeration value="LargeCompressor"/>
          <xsd:enumeration value="NEEA"/>
@@ -3614,13 +3493,10 @@
    </xsd:simpleType>
    <xsd:simpleType name="PipeLocation">
       <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Pipe Location</dtyp:displayterm>
-         </xsd:appinfo>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="ConditionedSpace">Conditioned Space</dtyp:displayterm>
-            <dtyp:displayterm value="SemiConditionedSpace">Semi-conditioned Space</dtyp:displayterm>
-            <dtyp:displayterm value="UnconditionedSpace">Unconditioned Space</dtyp:displayterm>
+            <dtyp:displayterm value="ConditionedSpace">Conditioned</dtyp:displayterm>
+            <dtyp:displayterm value="SemiConditionedSpace">Semi-conditioned</dtyp:displayterm>
+            <dtyp:displayterm value="UnconditionedSpace">Unconditioned</dtyp:displayterm>
             <dtyp:displayterm value="Underground">Underground</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -3805,15 +3681,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
-   <xsd:simpleType name="PumpImpellerEfficiency">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Pump Impeller Efficiency</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="PumpName">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -3827,15 +3694,6 @@
          <xsd:documentation>The power of the pump at FluidFlowCap  Units: kW</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Pump Power</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="PumpTotalHead">
-      <xsd:annotation>
-         <xsd:documentation>Units: ft</xsd:documentation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Pump Total Head</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
@@ -3859,7 +3717,9 @@
       <xsd:annotation>
          <xsd:documentation>Units: W</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
+      <xsd:restriction base="dtyp:DecimalNonnegative">
+         <xsd:fractionDigits value="0"/>
+      </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="RecoveryEfficiency">
       <xsd:annotation>
@@ -5041,6 +4901,9 @@
    <xsd:simpleType name="SizeRangeVariableRefrigerantFlow">
       <xsd:restriction base="dtyp:EnumerationConstant"/>
    </xsd:simpleType>
+   <xsd:simpleType name="SolarWHCollectorCertID">
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="SolarWaterHeatingCollectorAngleFromNorth">
       <xsd:annotation>
          <xsd:documentation>Units: deg arc</xsd:documentation>
@@ -5302,6 +5165,14 @@
          <xsd:enumeration value="Unconditioned"/>
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="TankLocationString">
+      <xsd:annotation>
+         <xsd:appinfo source="displaytermType">
+            <dtyp:displayterm>Air Source</dtyp:displayterm>
+         </xsd:appinfo>
+      </xsd:annotation>
+      <xsd:restriction base="xsd:token"/>
+   </xsd:simpleType>
    <xsd:simpleType name="ThermalEfficiency">
       <xsd:annotation>
          <xsd:documentation>The full load of a boiler or water heater or heating coil  efficiency calculated as the ratio of heat transferred to the water divided by the heat input of the fuel.  Units: none</xsd:documentation>
@@ -5309,15 +5180,6 @@
             <dtyp:displayterm>Thermal Efficiency</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ThermalZoneCoolingDesignFlow">
-      <xsd:annotation>
-         <xsd:documentation>Units: ft3 per min</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ThermalZoneCoolingDesignSizingFactor">
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="ThermalZoneDescription">
@@ -5338,15 +5200,6 @@
             <dtyp:displayterm>Thermal Zone Floor Area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ThermalZoneHeatingDesignFlow">
-      <xsd:annotation>
-         <xsd:documentation>Units: ft3 per min</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ThermalZoneHeatingDesignSizingFactor">
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="ThermalZoneName">
@@ -5402,15 +5255,6 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="VRF_HasHeatRecovery">
-      <xsd:annotation>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="true">Yes</dtyp:displayterm>
-            <dtyp:displayterm value="false">No</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
    <xsd:simpleType name="VentilationArea">
       <xsd:annotation>
@@ -5527,31 +5371,6 @@
       </xsd:annotation>
       <xsd:restriction base="dtyp:Decimal3Places"/>
    </xsd:simpleType>
-   <xsd:simpleType name="WaterHeaterAirSource">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Air Source</dtyp:displayterm>
-         </xsd:appinfo>
-         <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="Attic">Attic</dtyp:displayterm>
-            <dtyp:displayterm value="Conditioned">Conditioned</dtyp:displayterm>
-            <dtyp:displayterm value="CrawlSpace">Crawl Space</dtyp:displayterm>
-            <dtyp:displayterm value="Garage">Garage</dtyp:displayterm>
-            <dtyp:displayterm value="Outside">Outside</dtyp:displayterm>
-            <dtyp:displayterm value="TankZone">Tank Zone</dtyp:displayterm>
-            <dtyp:displayterm value="Unconditioned">Unconditioned</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="Attic"/>
-         <xsd:enumeration value="Conditioned"/>
-         <xsd:enumeration value="CrawlSpace"/>
-         <xsd:enumeration value="Garage"/>
-         <xsd:enumeration value="Outside"/>
-         <xsd:enumeration value="TankZone"/>
-         <xsd:enumeration value="Unconditioned"/>
-      </xsd:restriction>
-   </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterCount">
       <xsd:annotation>
          <xsd:documentation>The number of WaterHeaters in the water heating system that are identical.  Because all the features are the same in each unit, the Count can be used as a multiplier for calculating values like capacity of all the units  Units: none</xsd:documentation>
@@ -5643,12 +5462,6 @@
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="xsd:token"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="WaterHeaterMinimumCapacity">
-      <xsd:annotation>
-         <xsd:documentation>Units: Btu per h</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
    </xsd:simpleType>
    <xsd:simpleType name="WaterHeaterModelNumber">
       <xsd:annotation>
@@ -5774,12 +5587,6 @@
          <xsd:enumeration value="Unconditioned"/>
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="ZoneCount">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:IntegerNonnegative"/>
-   </xsd:simpleType>
    <xsd:simpleType name="ZoneMeasuredAirflow">
       <xsd:annotation>
          <xsd:documentation>Units: ft3 per min</xsd:documentation>
@@ -5791,20 +5598,5 @@
          <xsd:documentation>Units: W</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:IntegerNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ZoneSystemCoolingSizingRatio">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ZoneSystemHeatingSizingRatio">
-      <xsd:annotation>
-         <xsd:documentation>Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative"/>
-   </xsd:simpleType>
-   <xsd:simpleType name="ZoneSystemOptimumStart">
-      <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
 </xsd:schema>

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -46,7 +46,7 @@
             </xsd:element>
             <xsd:element name="Report" type="xsd:base64Binary"/>
          </xsd:sequence>
-         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20200901"/>
+         <xsd:attribute name="revision" use="required" type="xsd:string" fixed="rev 20210501"/>
          <xsd:attribute name="doc" use="required" type="comp:ComplianceDocumentTag" fixed="CF2RMCH01dE"/>
       </xsd:complexType>
    </xsd:element>
@@ -223,7 +223,13 @@ End If</xsd:documentation>
                                        <xsd:element name="B06_DuctSystemTypePerf" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R; Allow N/A</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive CF1R
+Auto filled text referenced from CF1R
+Else If performance CF1R-PRF  Then 
+If Y02_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless Or  VCHP_IndoorUnitDuctless
+result = NotApplicable stored in NotApplicableMessage
+Else Auto filled text: referenced from CF1R-PRF
+End If</xsd:documentation>
                                           </xsd:annotation>
                                           <xsd:simpleType>
                                              <xsd:restriction base="hvac:DuctSystemTypePerf">
@@ -243,7 +249,13 @@ End If</xsd:documentation>
                                        <xsd:element name="B06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Distribution System Type</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">Auto filled text: referenced from CF1R; Allow N/A</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive CF1R
+Auto filled text referenced from CF1R
+Else If performance CF1R-PRF  Then 
+If Y02_ResidentialHeatingSystemType == VCHP_IndoorUnitDucted Or VCHP_IndoorUnitDuctedAndDuctless Or  VCHP_IndoorUnitDuctless
+result = NotApplicable stored in NotApplicableMessage
+Else Auto filled text: referenced from CF1R-PRF
+End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -305,15 +317,18 @@ result = false display term None
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
-                                    <xsd:element name="B11_EAA_SpaceConditionSystemStatus" type="comp:EAA_SpaceConditionSystemStatus" >
+                                    <xsd:element name="B11_StatusEAA" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">SC System Status</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Auto filled reference value from CF1R for this system; Values are: New display text New, ExistingAlteration display text Altered, ExistingUnchanged display text Existing</xsd:documentation>
-                                          <xsd:appinfo source="displayterm">
-                                             <dtyp:displayterm value="ExistingAlteration">Altered</dtyp:displayterm>
-                                          </xsd:appinfo>
-                                          
+                                          <xsd:documentation source="CalculationsAndRules">Auto filled reference value from CF1R for this system; Values are: New display text New, Altered display text Altered, Existing  display text Existing</xsd:documentation>
                                        </xsd:annotation>
+                                       <xsd:simpleType>
+                                          <xsd:restriction base="com:StatusEAA">
+                                             <xsd:enumeration value="Altered"/>
+                                             <xsd:enumeration value="Existing"/>
+                                             <xsd:enumeration value="New"/>
+                                          </xsd:restriction>
+                                       </xsd:simpleType>
                                     </xsd:element>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="B12_EAA_DuctSystemStatus" type="comp:EAA_DuctSystemStatus" >
@@ -625,13 +640,13 @@ End If</xsd:documentation>
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="D06_IndoorUnitsCount" type="hvac:IndoorUnitsCount" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Number of Indoor Units Connected to the System's Outdoor Unit</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Number of Indoor Units for this System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If  D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == RoomHP, RoomAC, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, GasPackagedFurnace, CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC, CentralLargePackagedHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser result = N/A stored in NotApplicableMessage; Else If B05_CFVCS_Type == FixedCFVCS Or VariableCFVCS result = 1 Else If CF1R ResidentialIAQ_StandaloneFanType == CentralFanIntegrated And IAQ_VentilationVerificationRequired == true, result = 1, Else result = 1 as default  but allow user to overwrite with integer GT 1 Or N/A</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="D06_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Number of Indoor Units Connected to the System's Outdoor Unit</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Number of Indoor Units for this System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If  D04_ResidentialHeatingSystemType Or D05_ResidentialCoolingSystemType == RoomHP, RoomAC, GasWallFurnace , GasSpaceHeater, Electric, WoodHeat, GasPackagedFurnace, CentralPackagedAC, CentralPackagedHP, CentralLargePackagedAC, CentralLargePackagedHP, EvaporativeDirect, EvaporativeIndirect, EvaporativeIndirectDirect, EvaporativelyCooledCondenser result = N/A stored in NotApplicableMessage; Else If B05_CFVCS_Type == FixedCFVCS Or VariableCFVCS result = 1 Else If CF1R ResidentialIAQ_StandaloneFanType == CentralFanIntegrated And IAQ_VentilationVerificationRequired == true, result = 1, Else result = 1 as default  but allow user to overwrite with integer GT 1 Or N/A</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -736,13 +751,13 @@ Flag non-default values and report in project status notes field; a revised CF1R
                                     <xsd:choice maxOccurs="1">
                                        <xsd:element name="D13_DuctedIndoorUnitsCount" type="hvac:DuctedIndoorUnitsCount" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Number of Ducted Indoor Units Connected to the System's Outdoor Unit</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Number of Ducted Indoor Units for this System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated field:  If D07_DuctSystemTypePerf == Ductless then result is N/A stored in the NotApplicableMessage Else If D07_DuctSystemTypePerf == UnconditionedAttic, UnconditionedGarage, Outdoor, UnconditionedCrawlSpace, ConditionedSpaceExcept12ft ConditionedSpace, ConditionedSpaceDuctsVLL, Or   DuctsInMultipleLocations, result = D06_IndoorUnitsCount; Else If  D07_DuctSystemTypePerf == DuctedAndDuctlessIndoorUnits then user input numeric integer that must be LTE D06__IndoorUnitsCount</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="D13_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">Number of Ducted Indoor Units Connected to the System's Outdoor Unit</xsd:documentation>
+                                             <xsd:documentation source="FieldText">Number of Ducted Indoor Units for this System</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">Calculated field:  If D07_DuctSystemTypePerf == Ductless then result is N/A stored in the NotApplicableMessage Else If D07_DuctSystemTypePerf == UnconditionedAttic, UnconditionedGarage, Outdoor, UnconditionedCrawlSpace, ConditionedSpaceExcept12ft ConditionedSpace, ConditionedSpaceDuctsVLL, Or   DuctsInMultipleLocations, result = D06_IndoorUnitsCount; Else If  D07_DuctSystemTypePerf == DuctedAndDuctlessIndoorUnits then user input numeric integer that must be LTE D06__IndoorUnitsCount</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -1506,7 +1521,7 @@ result = false.  Allow user to override default and select from list: Yes (true 
                                        </xsd:element>
                                        <xsd:element name="J08_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
-                                             <xsd:documentation source="FieldText">System Rated Cooling Efficiency EER/CEER</xsd:documentation>
+                                             <xsd:documentation source="FieldText">System Rated Cooling Efficiency EER</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If value in C07 == N/A then result = N/A stored in NotApplicableMessage; Else user input numeric xx.x.   For all systems except D04__ResidentialHeatingSystemType Or D05__ResidentialCoolingSystemType == VCHP_IndoorUnitDucted, VCHP_IndoorUnitDuctless or VCHP_IndoorUnitDuctedAndDuctless, Check:  If result  GTE C07_EfficiencyMinimumValueEER/CEER result complies Else flag the non-compliant value and do not allow registration to proceed.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
@@ -2250,7 +2265,10 @@ Compliance check: If result == CanNotTest  then report in project status notes f
                                     <xsd:element name="O05_DuctLeakageTestRequired" type="comp:DuctLeakageTestRequired" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-20  [d:line3/]Duct Leakage Test</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If O04_DuctLeakageTestExemption != NoExemptions  result = false display term No;   Else If the CF1R flags the requirement for HERS verification of duct leakage of system ID/name in O01 result = true display term Yes,  Else If Section E applies, then determine the result for this field by the user responses in E03, E04, E05 , E06, E07, E08, and use of Logic Table (inserted below section E); constrain user input for fields E03-E08 to allow only the available combinations of responses given in the Logic Table in rows a through t, and determine result for this field as follows:  If the term DctLk appears in the HERS column, then result = true, else result = false.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If O04_DuctLeakageTestExemption != NoExemptions  result = false display term No; 
+Else If D04_ResidentialHeatingSystemType  Or D05_ResidentialCoolingSystemType  == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless And D11_EAA_SpaceConditionSystemStatus  == New result = true display term Yes;
+ 
+Else If the CF1R flags the requirement for HERS verification of duct leakage of system ID/name in O01 result = true display term Yes,  Else If Section E applies, then determine the result for this field by the user responses in E03, E04, E05 , E06, E07, E08, and use of Logic Table (inserted below section E); constrain user input for fields E03-E08 to allow only the available combinations of responses given in the Logic Table in rows a through t, and determine result for this field as follows:  If the term DctLk appears in the HERS column, then result = true, else result = false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O06_DuctsInConditionedSpaceVerification" type="comp:DuctsInConditionedSpaceVerification" >
@@ -2293,7 +2311,8 @@ result is false.</xsd:documentation>
                                     <xsd:element name="O10_SupplyDuctSurfaceBuriedRValueVerificationRequired" type="comp:SupplyDuctSurfaceBuriedRValueVerificationRequired" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">MCH-29 [d:line1/]Supply Duct Surface Area R-Value Buried Ducts</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:  If  the CF1R flags the requirement for HERS verified duct design ( Supply Duct Surface Area R-Value or Buried Ducts) then result = true; else result = false.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field: If D04_ResidentialHeatingSystemType  Or D05_ResidentialCoolingSystemType  == VCHP_IndoorUnitDucted Or  VCHP_IndoorUnitDuctedAndDuctless And D11_EAA_SpaceConditionSystemStatus  == New result = false display term No;
+Else If  the CF1R flags the requirement for HERS verified duct design ( Supply Duct Surface Area R-Value or Buried Ducts) then result = true; else result = false.</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="O11_VentilationCoolingCreditVerificationRequired" type="comp:VentilationCoolingCreditVerificationRequired" >

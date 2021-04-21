@@ -6,7 +6,7 @@
    xmlns:hvac="http://www.lmonte.com/besm/hvac"
    xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.004">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AccessoryDwellingUnitIncluded">
@@ -144,6 +144,15 @@
          <xsd:documentation>  Units: none</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:ItemCount">
+      </xsd:restriction>
+   </xsd:simpleType>
+   <xsd:simpleType name="BuildingAzimuth">
+      <xsd:annotation>
+         <xsd:documentation>the angle between the model Y axis and True North, measured clockwise from the Y Axis in Degrees  Units: deg arc</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal">
+         <xsd:maxInclusive value="360"/>
+         <xsd:minInclusive value="0"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="BuildingName">
@@ -428,8 +437,126 @@
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Climate Zone County</dtyp:displayterm>
          </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Alameda">Alameda</dtyp:displayterm>
+            <dtyp:displayterm value="Alpine">Alpine</dtyp:displayterm>
+            <dtyp:displayterm value="Amador">Amador</dtyp:displayterm>
+            <dtyp:displayterm value="Butte">Butte</dtyp:displayterm>
+            <dtyp:displayterm value="Calaveras">Calaveras</dtyp:displayterm>
+            <dtyp:displayterm value="Colusa">Colusa</dtyp:displayterm>
+            <dtyp:displayterm value="ContraCosta">Contra Costa</dtyp:displayterm>
+            <dtyp:displayterm value="DelNorte">Del Norte</dtyp:displayterm>
+            <dtyp:displayterm value="ElDorado">El Dorado</dtyp:displayterm>
+            <dtyp:displayterm value="Fresno">Fresno</dtyp:displayterm>
+            <dtyp:displayterm value="Glenn">Glenn</dtyp:displayterm>
+            <dtyp:displayterm value="Humboldt">Humboldt</dtyp:displayterm>
+            <dtyp:displayterm value="Imperial">Imperial</dtyp:displayterm>
+            <dtyp:displayterm value="Inyo">Inyo</dtyp:displayterm>
+            <dtyp:displayterm value="Kern">Kern</dtyp:displayterm>
+            <dtyp:displayterm value="Kings">Kings</dtyp:displayterm>
+            <dtyp:displayterm value="Lake">Lake</dtyp:displayterm>
+            <dtyp:displayterm value="Lassen">Lassen</dtyp:displayterm>
+            <dtyp:displayterm value="LosAngeles">Los Angeles</dtyp:displayterm>
+            <dtyp:displayterm value="Madera">Madera</dtyp:displayterm>
+            <dtyp:displayterm value="Marin">Marin</dtyp:displayterm>
+            <dtyp:displayterm value="Mariposa">Mariposa</dtyp:displayterm>
+            <dtyp:displayterm value="Mendocino">Mendocino</dtyp:displayterm>
+            <dtyp:displayterm value="Merced">Merced</dtyp:displayterm>
+            <dtyp:displayterm value="Modoc">Modoc</dtyp:displayterm>
+            <dtyp:displayterm value="Mono">Mono</dtyp:displayterm>
+            <dtyp:displayterm value="Monterey">Monterey</dtyp:displayterm>
+            <dtyp:displayterm value="Napa">Napa</dtyp:displayterm>
+            <dtyp:displayterm value="Nevada">Nevada</dtyp:displayterm>
+            <dtyp:displayterm value="Orange">Orange</dtyp:displayterm>
+            <dtyp:displayterm value="Placer">Placer</dtyp:displayterm>
+            <dtyp:displayterm value="Plumas">Plumas</dtyp:displayterm>
+            <dtyp:displayterm value="Riverside">Riverside</dtyp:displayterm>
+            <dtyp:displayterm value="Sacramento">Sacramento</dtyp:displayterm>
+            <dtyp:displayterm value="SanBenito">San Benito</dtyp:displayterm>
+            <dtyp:displayterm value="SanBernardino">San Bernardino</dtyp:displayterm>
+            <dtyp:displayterm value="SanDiego">San Diego</dtyp:displayterm>
+            <dtyp:displayterm value="SanFrancisco">San Francisco</dtyp:displayterm>
+            <dtyp:displayterm value="SanJoaquin">San Joaquin</dtyp:displayterm>
+            <dtyp:displayterm value="SanLuisObispo">San Luis Obispo</dtyp:displayterm>
+            <dtyp:displayterm value="SanMateo">San Mateo</dtyp:displayterm>
+            <dtyp:displayterm value="SantaBarbara">Santa Barbara</dtyp:displayterm>
+            <dtyp:displayterm value="SantaClara">Santa Clara</dtyp:displayterm>
+            <dtyp:displayterm value="SantaCruz">Santa Cruz</dtyp:displayterm>
+            <dtyp:displayterm value="Shasta">Shasta</dtyp:displayterm>
+            <dtyp:displayterm value="Sierra">Sierra</dtyp:displayterm>
+            <dtyp:displayterm value="Siskiyou">Siskiyou</dtyp:displayterm>
+            <dtyp:displayterm value="Solano">Solano</dtyp:displayterm>
+            <dtyp:displayterm value="Sonoma">Sonoma</dtyp:displayterm>
+            <dtyp:displayterm value="Stanislaus">Stanislaus</dtyp:displayterm>
+            <dtyp:displayterm value="Sutter">Sutter</dtyp:displayterm>
+            <dtyp:displayterm value="Tehama">Tehama</dtyp:displayterm>
+            <dtyp:displayterm value="Trinity">Trinity</dtyp:displayterm>
+            <dtyp:displayterm value="Tulare">Tulare</dtyp:displayterm>
+            <dtyp:displayterm value="Tuolumne">Tuolumne</dtyp:displayterm>
+            <dtyp:displayterm value="Ventura">Ventura</dtyp:displayterm>
+            <dtyp:displayterm value="Yolo">Yolo</dtyp:displayterm>
+            <dtyp:displayterm value="Yuba">Yuba</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Alameda"/>
+         <xsd:enumeration value="Alpine"/>
+         <xsd:enumeration value="Amador"/>
+         <xsd:enumeration value="Butte"/>
+         <xsd:enumeration value="Calaveras"/>
+         <xsd:enumeration value="Colusa"/>
+         <xsd:enumeration value="ContraCosta"/>
+         <xsd:enumeration value="DelNorte"/>
+         <xsd:enumeration value="ElDorado"/>
+         <xsd:enumeration value="Fresno"/>
+         <xsd:enumeration value="Glenn"/>
+         <xsd:enumeration value="Humboldt"/>
+         <xsd:enumeration value="Imperial"/>
+         <xsd:enumeration value="Inyo"/>
+         <xsd:enumeration value="Kern"/>
+         <xsd:enumeration value="Kings"/>
+         <xsd:enumeration value="Lake"/>
+         <xsd:enumeration value="Lassen"/>
+         <xsd:enumeration value="LosAngeles"/>
+         <xsd:enumeration value="Madera"/>
+         <xsd:enumeration value="Marin"/>
+         <xsd:enumeration value="Mariposa"/>
+         <xsd:enumeration value="Mendocino"/>
+         <xsd:enumeration value="Merced"/>
+         <xsd:enumeration value="Modoc"/>
+         <xsd:enumeration value="Mono"/>
+         <xsd:enumeration value="Monterey"/>
+         <xsd:enumeration value="Napa"/>
+         <xsd:enumeration value="Nevada"/>
+         <xsd:enumeration value="Orange"/>
+         <xsd:enumeration value="Placer"/>
+         <xsd:enumeration value="Plumas"/>
+         <xsd:enumeration value="Riverside"/>
+         <xsd:enumeration value="Sacramento"/>
+         <xsd:enumeration value="SanBenito"/>
+         <xsd:enumeration value="SanBernardino"/>
+         <xsd:enumeration value="SanDiego"/>
+         <xsd:enumeration value="SanFrancisco"/>
+         <xsd:enumeration value="SanJoaquin"/>
+         <xsd:enumeration value="SanLuisObispo"/>
+         <xsd:enumeration value="SanMateo"/>
+         <xsd:enumeration value="SantaBarbara"/>
+         <xsd:enumeration value="SantaClara"/>
+         <xsd:enumeration value="SantaCruz"/>
+         <xsd:enumeration value="Shasta"/>
+         <xsd:enumeration value="Sierra"/>
+         <xsd:enumeration value="Siskiyou"/>
+         <xsd:enumeration value="Solano"/>
+         <xsd:enumeration value="Sonoma"/>
+         <xsd:enumeration value="Stanislaus"/>
+         <xsd:enumeration value="Sutter"/>
+         <xsd:enumeration value="Tehama"/>
+         <xsd:enumeration value="Trinity"/>
+         <xsd:enumeration value="Tulare"/>
+         <xsd:enumeration value="Tuolumne"/>
+         <xsd:enumeration value="Ventura"/>
+         <xsd:enumeration value="Yolo"/>
+         <xsd:enumeration value="Yuba"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ComplianceBuilding">
@@ -586,7 +713,7 @@
       <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="DesignDBRange">
+   <xsd:simpleType name="DesignDryBulbRange">
       <xsd:annotation>
          <xsd:documentation>  Units: F</xsd:documentation>
       </xsd:annotation>
@@ -787,9 +914,9 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
    </xsd:simpleType>
    <xsd:simpleType name="FenestrationConstructionUFactor">
       <xsd:annotation>
-         <xsd:documentation>The overall coefficient of thermal transmittance through a layer or construction assembly. It includes air film resistance at both surfaces.  Units: Btu per h ft2 F</xsd:documentation>
+         <xsd:documentation>  Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="FenestrationOrientation">
@@ -963,13 +1090,13 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       <xsd:annotation>
          <xsd:documentation>Method used for modeling uncontrolled air leakage or infiltration.</xsd:documentation>
          <xsd:appinfo source="displayterm">
-            <dtyp:displayterm value="AirChangesPerHour_Infiltration">Infiltration air changes per hour</dtyp:displayterm>
-            <dtyp:displayterm value="FlowAreaInfiltration">Infiltration flow area</dtyp:displayterm>
+            <dtyp:displayterm value="AirChangesPerHour">Infiltration air changes per hour</dtyp:displayterm>
+            <dtyp:displayterm value="FlowArea">Infiltration flow area</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
-         <xsd:enumeration value="AirChangesPerHour_Infiltration"/>
-         <xsd:enumeration value="FlowAreaInfiltration"/>
+         <xsd:enumeration value="AirChangesPerHour"/>
+         <xsd:enumeration value="FlowArea"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="InteriorLightingSystemNonRegulatedPower">
@@ -1217,15 +1344,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="FlowPerArea"/>
          <xsd:enumeration value="FlowPerPerson"/>
          <xsd:enumeration value="FlowPerZone"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="NorthAngle">
-      <xsd:annotation>
-         <xsd:documentation>the angle between the model Y axis and True North, measured clockwise from the Y Axis in Degrees  Units: deg arc</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:Decimal">
-         <xsd:maxInclusive value="360"/>
-         <xsd:minInclusive value="0"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="OA_SpaceRequiredMin">
@@ -1770,8 +1888,126 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:appinfo source="displaytermType">
             <dtyp:displayterm>Site County</dtyp:displayterm>
          </xsd:appinfo>
+         <xsd:appinfo source="displayterm">
+            <dtyp:displayterm value="Alameda">Alameda</dtyp:displayterm>
+            <dtyp:displayterm value="Alpine">Alpine</dtyp:displayterm>
+            <dtyp:displayterm value="Amador">Amador</dtyp:displayterm>
+            <dtyp:displayterm value="Butte">Butte</dtyp:displayterm>
+            <dtyp:displayterm value="Calaveras">Calaveras</dtyp:displayterm>
+            <dtyp:displayterm value="Colusa">Colusa</dtyp:displayterm>
+            <dtyp:displayterm value="ContraCosta">Contra Costa</dtyp:displayterm>
+            <dtyp:displayterm value="DelNorte">Del Norte</dtyp:displayterm>
+            <dtyp:displayterm value="ElDorado">El Dorado</dtyp:displayterm>
+            <dtyp:displayterm value="Fresno">Fresno</dtyp:displayterm>
+            <dtyp:displayterm value="Glenn">Glenn</dtyp:displayterm>
+            <dtyp:displayterm value="Humboldt">Humboldt</dtyp:displayterm>
+            <dtyp:displayterm value="Imperial">Imperial</dtyp:displayterm>
+            <dtyp:displayterm value="Inyo">Inyo</dtyp:displayterm>
+            <dtyp:displayterm value="Kern">Kern</dtyp:displayterm>
+            <dtyp:displayterm value="Kings">Kings</dtyp:displayterm>
+            <dtyp:displayterm value="Lake">Lake</dtyp:displayterm>
+            <dtyp:displayterm value="Lassen">Lassen</dtyp:displayterm>
+            <dtyp:displayterm value="LosAngeles">Los Angeles</dtyp:displayterm>
+            <dtyp:displayterm value="Madera">Madera</dtyp:displayterm>
+            <dtyp:displayterm value="Marin">Marin</dtyp:displayterm>
+            <dtyp:displayterm value="Mariposa">Mariposa</dtyp:displayterm>
+            <dtyp:displayterm value="Mendocino">Mendocino</dtyp:displayterm>
+            <dtyp:displayterm value="Merced">Merced</dtyp:displayterm>
+            <dtyp:displayterm value="Modoc">Modoc</dtyp:displayterm>
+            <dtyp:displayterm value="Mono">Mono</dtyp:displayterm>
+            <dtyp:displayterm value="Monterey">Monterey</dtyp:displayterm>
+            <dtyp:displayterm value="Napa">Napa</dtyp:displayterm>
+            <dtyp:displayterm value="Nevada">Nevada</dtyp:displayterm>
+            <dtyp:displayterm value="Orange">Orange</dtyp:displayterm>
+            <dtyp:displayterm value="Placer">Placer</dtyp:displayterm>
+            <dtyp:displayterm value="Plumas">Plumas</dtyp:displayterm>
+            <dtyp:displayterm value="Riverside">Riverside</dtyp:displayterm>
+            <dtyp:displayterm value="Sacramento">Sacramento</dtyp:displayterm>
+            <dtyp:displayterm value="SanBenito">San Benito</dtyp:displayterm>
+            <dtyp:displayterm value="SanBernardino">San Bernardino</dtyp:displayterm>
+            <dtyp:displayterm value="SanDiego">San Diego</dtyp:displayterm>
+            <dtyp:displayterm value="SanFrancisco">San Francisco</dtyp:displayterm>
+            <dtyp:displayterm value="SanJoaquin">San Joaquin</dtyp:displayterm>
+            <dtyp:displayterm value="SanLuisObispo">San Luis Obispo</dtyp:displayterm>
+            <dtyp:displayterm value="SanMateo">San Mateo</dtyp:displayterm>
+            <dtyp:displayterm value="SantaBarbara">Santa Barbara</dtyp:displayterm>
+            <dtyp:displayterm value="SantaClara">Santa Clara</dtyp:displayterm>
+            <dtyp:displayterm value="SantaCruz">Santa Cruz</dtyp:displayterm>
+            <dtyp:displayterm value="Shasta">Shasta</dtyp:displayterm>
+            <dtyp:displayterm value="Sierra">Sierra</dtyp:displayterm>
+            <dtyp:displayterm value="Siskiyou">Siskiyou</dtyp:displayterm>
+            <dtyp:displayterm value="Solano">Solano</dtyp:displayterm>
+            <dtyp:displayterm value="Sonoma">Sonoma</dtyp:displayterm>
+            <dtyp:displayterm value="Stanislaus">Stanislaus</dtyp:displayterm>
+            <dtyp:displayterm value="Sutter">Sutter</dtyp:displayterm>
+            <dtyp:displayterm value="Tehama">Tehama</dtyp:displayterm>
+            <dtyp:displayterm value="Trinity">Trinity</dtyp:displayterm>
+            <dtyp:displayterm value="Tulare">Tulare</dtyp:displayterm>
+            <dtyp:displayterm value="Tuolumne">Tuolumne</dtyp:displayterm>
+            <dtyp:displayterm value="Ventura">Ventura</dtyp:displayterm>
+            <dtyp:displayterm value="Yolo">Yolo</dtyp:displayterm>
+            <dtyp:displayterm value="Yuba">Yuba</dtyp:displayterm>
+         </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
+         <xsd:enumeration value="Alameda"/>
+         <xsd:enumeration value="Alpine"/>
+         <xsd:enumeration value="Amador"/>
+         <xsd:enumeration value="Butte"/>
+         <xsd:enumeration value="Calaveras"/>
+         <xsd:enumeration value="Colusa"/>
+         <xsd:enumeration value="ContraCosta"/>
+         <xsd:enumeration value="DelNorte"/>
+         <xsd:enumeration value="ElDorado"/>
+         <xsd:enumeration value="Fresno"/>
+         <xsd:enumeration value="Glenn"/>
+         <xsd:enumeration value="Humboldt"/>
+         <xsd:enumeration value="Imperial"/>
+         <xsd:enumeration value="Inyo"/>
+         <xsd:enumeration value="Kern"/>
+         <xsd:enumeration value="Kings"/>
+         <xsd:enumeration value="Lake"/>
+         <xsd:enumeration value="Lassen"/>
+         <xsd:enumeration value="LosAngeles"/>
+         <xsd:enumeration value="Madera"/>
+         <xsd:enumeration value="Marin"/>
+         <xsd:enumeration value="Mariposa"/>
+         <xsd:enumeration value="Mendocino"/>
+         <xsd:enumeration value="Merced"/>
+         <xsd:enumeration value="Modoc"/>
+         <xsd:enumeration value="Mono"/>
+         <xsd:enumeration value="Monterey"/>
+         <xsd:enumeration value="Napa"/>
+         <xsd:enumeration value="Nevada"/>
+         <xsd:enumeration value="Orange"/>
+         <xsd:enumeration value="Placer"/>
+         <xsd:enumeration value="Plumas"/>
+         <xsd:enumeration value="Riverside"/>
+         <xsd:enumeration value="Sacramento"/>
+         <xsd:enumeration value="SanBenito"/>
+         <xsd:enumeration value="SanBernardino"/>
+         <xsd:enumeration value="SanDiego"/>
+         <xsd:enumeration value="SanFrancisco"/>
+         <xsd:enumeration value="SanJoaquin"/>
+         <xsd:enumeration value="SanLuisObispo"/>
+         <xsd:enumeration value="SanMateo"/>
+         <xsd:enumeration value="SantaBarbara"/>
+         <xsd:enumeration value="SantaClara"/>
+         <xsd:enumeration value="SantaCruz"/>
+         <xsd:enumeration value="Shasta"/>
+         <xsd:enumeration value="Sierra"/>
+         <xsd:enumeration value="Siskiyou"/>
+         <xsd:enumeration value="Solano"/>
+         <xsd:enumeration value="Sonoma"/>
+         <xsd:enumeration value="Stanislaus"/>
+         <xsd:enumeration value="Sutter"/>
+         <xsd:enumeration value="Tehama"/>
+         <xsd:enumeration value="Trinity"/>
+         <xsd:enumeration value="Tulare"/>
+         <xsd:enumeration value="Tuolumne"/>
+         <xsd:enumeration value="Ventura"/>
+         <xsd:enumeration value="Yolo"/>
+         <xsd:enumeration value="Yuba"/>
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SiteFuelType">
@@ -1786,24 +2022,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="Electricity"/>
          <xsd:enumeration value="NaturalGas"/>
          <xsd:enumeration value="Propane"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="SkylightRequirementException">
-      <xsd:restriction base="dtyp:EnumerationConstant">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="SkylightRequirementExceptionArea">
-      <xsd:annotation>
-         <xsd:documentation>  Units: ft2</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="SkylightRequirementExceptionFraction">
-      <xsd:annotation>
-         <xsd:documentation>  Units: none</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SkylitDaylightingControlledLightingPower">
@@ -2112,7 +2330,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:annotation>
          <xsd:documentation>  Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="UFactorLimit">
@@ -2126,7 +2344,7 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
       <xsd:annotation>
          <xsd:documentation>This is the regulatory limit for the UFactor of a Skylight fenestration  Units: Btu per h ft2 F</xsd:documentation>
       </xsd:annotation>
-      <xsd:restriction base="dtyp:DecimalNonnegative">
+      <xsd:restriction base="dtyp:Decimal3PlacesNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="UFactorMassWallTotal">
@@ -2212,13 +2430,6 @@ NOTE: For roofs, differentiate between the initial Solar Reflectance value and t
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="WeatherPath">
-      <xsd:annotation>
-         <xsd:documentation>Directory path where design day weather files are located on the user's computer.</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="xsd:token">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="WeatherShieldingFactor">
