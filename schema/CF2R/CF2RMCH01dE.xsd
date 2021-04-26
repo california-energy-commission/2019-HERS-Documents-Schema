@@ -1101,7 +1101,7 @@ End If
  
  Check if result complies:  
 If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, 
-result must be InclusiveRange (11, 12.2) to comply; 
+result must be GTE 11 And GTE  C07_ EfficiencyMinimumValueEER to comply;  
  
 Else If B04_ResidentialCoolingSystemType == CentralSplitAC 
 If G10_CondenserRatedCoolingCapacity LT 45000  

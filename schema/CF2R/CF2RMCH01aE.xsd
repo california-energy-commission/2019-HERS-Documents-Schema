@@ -912,7 +912,7 @@ End If
  
 Check that result is compliant: 
 If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, then 
-result must be in InclusiveRange (11, 12.2) to comply; 
+result must be GTE 11 And GTE  C07_ EfficiencyMinimumValueEER to comply; 
  
 Else If B04_ResidentialCoolingSystemType == CentralSplitAC 
 If F10_CondenserRatedCoolingCapacity LT 45000 then 
