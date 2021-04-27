@@ -868,7 +868,23 @@ Flag non-default values and report in project status notes field; a revised CF1R
                                        <xsd:element name="F04_EfficiencyInstalledValueEER" type="hvac:EfficiencyInstalledValueEER">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Cooling Efficiency EER/CEER</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If value for C07_NotApplicableMessage == NotApplicable result = N/A stored in the  NotAppplicableMessage; Else user input numeric xx.x.   Check that result is compliant: If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, then result must be in InclusiveRange (11, 12.2) to comply; Else If B04_ResidentialCoolingSystemType == CentralSplitAC And F10_CondenserRatedCoolingCapacity LT 45000 then result must be GTE 12.2 to comply; Else result must be GTE C07_ EfficiencyMinimumValueEER to comply;   If result is a non-compliant value, flag it and do not let registration proceed.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If value for C07_NotApplicableMessage == NotApplicable result = N/A stored in the  NotAppplicableMessage; 
+Else user input numeric xx.x.   
+End If
+ 
+Check that result is compliant: 
+If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, then 
+result must be GTE 11 And GTE  C07_ EfficiencyMinimumValueEER to comply; 
+ 
+Else If B04_ResidentialCoolingSystemType == CentralSplitAC 
+If F10_CondenserRatedCoolingCapacity LT 45000 then 
+result must be GTE 12.2 And GTE C07_ EfficiencyMinimumValueEER to comply
+Else If F10_CondenserRatedCoolingCapacity GTE 45000 then 
+result must be GTE 11.7 And GTE C07_ EfficiencyMinimumValueEER to comply
+ 
+Else for all other systems result must be GTE C07_ EfficiencyMinimumValueEER to comply;  
+End If
+ If result is a non-compliant value, flag it and do not let registration proceed.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="F04_EfficiencyInstalledValueCEER" type="hvac:EfficiencyInstalledValueCEER">
