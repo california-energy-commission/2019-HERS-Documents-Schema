@@ -1,0 +1,39 @@
+name: Call reusable workflow from Scripts repo
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: california-energy-commission/scripts@main
+        with:
+          github-ref: ${{ github.ref }}
+          repository-name: ${{ github.event.repository.name }}
+          access-token: ${{ secrets.CROSS_REPO_ACCESS_TOKEN }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test]
+    
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download deployed schema folder
+        uses: actions/download-artifact@v2
+        with:
+          name: ${{ github.event.repository.name }}-deployed
+          path: deployed
+
+      - name: Setup git config
+        run: |
+          git config user.name "RasentBot"
+          git config user.email "scripts-bot@rasentsolutions.com"
+
+      - name: Commit to PR
+        run: |
+          git add .
+          git commit -m "Run deploy-schema script"
+          git push origin ${{ github.ref }}
+        continue-on-error: true
