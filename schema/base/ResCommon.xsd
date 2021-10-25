@@ -6,7 +6,7 @@
    xmlns:hvac="http://www.lmonte.com/besm/hvac"
    xmlns:d="http://www.lmonte.com/besm/d"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.006">
    <xsd:import namespace="http://www.lmonte.com/besm/hvac" schemaLocation="ResHvac.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
    <xsd:simpleType name="AccessoryDwellingUnitIncluded">
@@ -778,7 +778,7 @@
       <xsd:restriction base="dtyp:DecimalNonnegative">
       </xsd:restriction>
    </xsd:simpleType>
-   <xsd:simpleType name="ResidentialDwellingUnitName">
+   <xsd:simpleType name="DwellingUnitName">
       <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
    </xsd:simpleType>
@@ -1557,6 +1557,10 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
       <xsd:restriction base="xsd:string">
       </xsd:restriction>
    </xsd:simpleType>
+   <xsd:simpleType name="ResidentialDwellingUnitName">
+      <xsd:restriction base="dtyp:ObjectNamePermissive">
+      </xsd:restriction>
+   </xsd:simpleType>
    <xsd:simpleType name="ResidentialLowriseBuildingType">
       <xsd:annotation>
          <xsd:appinfo source="displayterm">
@@ -1569,13 +1573,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:enumeration value="LowRiseMultiFamily"/>
          <xsd:enumeration value="MultiFamilyCentralWH"/>
          <xsd:enumeration value="SingleFamily"/>
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="InteriorLightingSystemResidentialSpaceName">
-      <xsd:annotation>
-         <xsd:documentation>This is the residential space that is served by the interior lighting system</xsd:documentation>
-      </xsd:annotation>
-      <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="ResidentialSpaceName">
@@ -1797,10 +1794,6 @@ ExtFlr/IntFlr: 0.8  Units: none</xsd:documentation>
          <xsd:documentation>  Units: W</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative">
-      </xsd:restriction>
-   </xsd:simpleType>
-   <xsd:simpleType name="SecondarySideDaylightingControlName">
-      <xsd:restriction base="dtyp:ObjectNamePermissive">
       </xsd:restriction>
    </xsd:simpleType>
    <xsd:simpleType name="SecondarySideDaylightingControls">

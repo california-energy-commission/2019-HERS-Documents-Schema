@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/comp" version="2019.1.005" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/comp" version="2019.1.006" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/dtyp" schemaLocation="DataTypes.xsd"/>
@@ -1077,6 +1077,18 @@
       </xsd:annotation>
       <xsd:restriction base="xsd:boolean"/>
    </xsd:simpleType>
+   <xsd:simpleType name="CompactFactor">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="CompactFactorCalculated">
+      <xsd:annotation>
+         <xsd:documentation>Units: none</xsd:documentation>
+      </xsd:annotation>
+      <xsd:restriction base="dtyp:Decimal"/>
+   </xsd:simpleType>
    <xsd:simpleType name="Company">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -1138,7 +1150,6 @@ Document Data</dtyp:displayterm>
          <xsd:element name="CF2R3R_ComplianceDocument" type="comp:CF2R3R_ComplianceDocument"/>
          <xsd:element name="DocumentAuthor" type="comp:DocumentAuthor"/>
          <xsd:element name="Footer" type="comp:Footer"/>
-         <xsd:element name="HeaderNRCA" type="comp:HeaderNRCA"/>
          <xsd:element name="HeaderNRCV" type="comp:HeaderNRCV"/>
          <xsd:element name="Payload" type="comp:Payload"/>
          <xsd:element name="ResponsiblePersonNRCV" type="comp:ResponsiblePersonNRCV"/>
@@ -1601,13 +1612,13 @@ Document Data</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH31bH">CF3RMCH31bH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH31cH">CF3RMCH31cH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH31dH">CF3RMCH31dH</dtyp:displayterm>
+            <dtyp:displayterm value="CF3RMCH31H">CF3RMCH31H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH32H">CF3RMCH32H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RMCH33H">CF3RMCH33H</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB21aH">CF3RPLB21aH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB21bH">CF3RPLB21bH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB22aH">CF3RPLB22aH</dtyp:displayterm>
             <dtyp:displayterm value="CF3RPLB22bH">CF3RPLB22bH</dtyp:displayterm>
-            <dtyp:displayterm value="NotApplicable">N/A</dtyp:displayterm>
             <dtyp:displayterm value="NRCVMCH04aH">NRCVMCH04aH</dtyp:displayterm>
             <dtyp:displayterm value="NRCVMCH04cH">NRCVMCH04cH</dtyp:displayterm>
             <dtyp:displayterm value="NRCVMCH04dH">NRCVMCH04dH</dtyp:displayterm>
@@ -1774,13 +1785,13 @@ Document Data</dtyp:displayterm>
          <xsd:enumeration value="CF3RMCH31bH"/>
          <xsd:enumeration value="CF3RMCH31cH"/>
          <xsd:enumeration value="CF3RMCH31dH"/>
+         <xsd:enumeration value="CF3RMCH31H"/>
          <xsd:enumeration value="CF3RMCH32H"/>
          <xsd:enumeration value="CF3RMCH33H"/>
          <xsd:enumeration value="CF3RPLB21aH"/>
          <xsd:enumeration value="CF3RPLB21bH"/>
          <xsd:enumeration value="CF3RPLB22aH"/>
          <xsd:enumeration value="CF3RPLB22bH"/>
-         <xsd:enumeration value="NotApplicable"/>
          <xsd:enumeration value="NRCVMCH04aH"/>
          <xsd:enumeration value="NRCVMCH04cH"/>
          <xsd:enumeration value="NRCVMCH04dH"/>
@@ -2401,7 +2412,7 @@ Document Data</dtyp:displayterm>
          </xsd:appinfo>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="AdobeStrawbaleLog">Adobe / Strawbale / Log</dtyp:displayterm>
-            <dtyp:displayterm value="FloorSlab">Basement (underground) Floor</dtyp:displayterm>
+            <dtyp:displayterm value="UndergroundFloor">Basement (underground) Floor</dtyp:displayterm>
             <dtyp:displayterm value="BuiltupRoof">Built-up Roof</dtyp:displayterm>
             <dtyp:displayterm value="ConcreteBrickICF">Concrete / ICF / Brick</dtyp:displayterm>
             <dtyp:displayterm value="FloorSlab">Floor Slab</dtyp:displayterm>
@@ -2420,7 +2431,7 @@ Document Data</dtyp:displayterm>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
          <xsd:enumeration value="AdobeStrawbaleLog"/>
-         <xsd:enumeration value="FloorSlab"/>
+         <xsd:enumeration value="UndergroundFloor"/>
          <xsd:enumeration value="BuiltupRoof"/>
          <xsd:enumeration value="ConcreteBrickICF"/>
          <xsd:enumeration value="FloorSlab"/>
@@ -2467,7 +2478,7 @@ Document Data</dtyp:displayterm>
             <dtyp:displayterm value="RadiantBarrier">Buildings with a radiant barrier in the attic meeting the requirements of Section 150.1(c)2</dtyp:displayterm>
             <dtyp:displayterm value="RoofDeckInsulationAbove">R-2 or greater insulation above the roof deck</dtyp:displayterm>
             <dtyp:displayterm value="RoofDeckInsulationLowSlope">Roof deck insulation</dtyp:displayterm>
-            <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product;</dtyp:displayterm>
+            <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product</dtyp:displayterm>
             <dtyp:displayterm value="SolarOnRoof">Roof area with PV panels or solar thermal panels</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
@@ -4640,19 +4651,6 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:element name="header04_InputFilenameEXC" type="comp:BuildingInputFileName"/>
       </xsd:sequence>
    </xsd:complexType>
-   <xsd:complexType name="HeaderNRCA">
-      <xsd:annotation>
-         <xsd:appinfo source="displaytermType">
-            <dtyp:displayterm>Compliance Document Header</dtyp:displayterm>
-         </xsd:appinfo>
-      </xsd:annotation>
-      <xsd:sequence>
-         <xsd:element name="header01_ProjectName" type="comp:ProjectName"/>
-         <xsd:element name="header02_EnforcementAgency" type="comp:EnforcementAgency"/>
-         <xsd:element name="header03_PermitNumber" type="comp:PermitNumber"/>
-         <xsd:element name="header04_ProjectAddressNRPresc" type="comp:ProjectStreetAddress"/>
-      </xsd:sequence>
-   </xsd:complexType>
    <xsd:complexType name="HeaderNRCV">
       <xsd:annotation>
          <xsd:appinfo source="displaytermType">
@@ -6116,7 +6114,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
             <dtyp:displayterm value="MAH_InstalledAsRequired">MAH installed and labeled consistent with Figure 3.2-1</dtyp:displayterm>
             <dtyp:displayterm value="MAH_NotInstalledFailsToComply">MAH is not installed. System does not comply</dtyp:displayterm>
             <dtyp:displayterm value="MAH_NotRequired">Return side of system is located entirely within conditioned space such that an accurate return air dry-bulb temperature can be taken at the return grille</dtyp:displayterm>
-            <dtyp:displayterm value="MAH_NotRequiredWeighIn">The airflow rate measurement procedures in RA3.3 or RA3.2.2.7 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1); and compliance with MAH installation shall not be required</dtyp:displayterm>
+            <dtyp:displayterm value="MAH_NotRequiredWeighIn">The airflow rate measurement procedures in RA3.3 or RA3.2.2.7 are not applicable to this system, therefore compliance shall use HERS Rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1) and compliance with MAH installation shall not be required</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -6196,7 +6194,7 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:appinfo source="displayterm">
             <dtyp:displayterm value="SystemComplies">System complies with minimum airflow rate requirements</dtyp:displayterm>
             <dtyp:displayterm value="SystemCompliesUsingAlternativeRemedialActions">System complies using the alternative remedial actions specified in RA3.3.3.1.5. This System does not qualify for group sampling</dtyp:displayterm>
-            <dtyp:displayterm value="SystemCompliesUsingObservationOfWeighIn">The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1);</dtyp:displayterm>
+            <dtyp:displayterm value="SystemCompliesUsingObservationOfWeighIn">The airflow rate measurement procedures in RA3.3 or RA3.3.3 are not applicable to this system, therefore compliance shall use HERS rater observation (RA3.2.3.2) of the installer's weigh-in charging procedure (RA3.2.3.1)</dtyp:displayterm>
             <dtyp:displayterm value="SystemCompliesUsingTable150BC">System complies using Table 150.0-B or C alternative return duct design criteria</dtyp:displayterm>
             <dtyp:displayterm value="SystemDoesNotComplyCF2RMCH23Required">System does not comply. A registered CF2R-MCH-23 for this system is required  (do not allow this MCH-25 to be registered)</dtyp:displayterm>
             <dtyp:displayterm value="SystemDoesNotComplyCF2RMCH28Required">System does not comply.  A registered CF2R-MCH-28 is required (do not allow this MCH-25 to be registered)</dtyp:displayterm>
@@ -6508,10 +6506,11 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
       </xsd:sequence>
       <xsd:attribute name="complianceDocumentGUID" type="comp:ComplianceDocumentGUID" use="required"/>
       <xsd:attribute name="complianceDocumentSchemaVersion" type="comp:ComplianceDocumentSchemaVersion" use="required"/>
-      <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="optional"/>
+      <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="required"/>
       <xsd:attribute name="displayTag" type="comp:ComplianceDocumentDisplayTag" use="required"/>
       <xsd:attribute name="payloadDocument" type="comp:ComplianceDocumentTag" use="required"/>
       <xsd:attribute name="processedDate" type="comp:ComplianceApplicationDate" use="required"/>
+      <xsd:attribute name="projectID" type="comp:ProjectID" use="required"/>
       <xsd:attribute name="reportRequestor" type="comp:ReportRequestor" use="required"/>
       <xsd:attribute name="reportRequestorIP_Address" type="comp:ReportRequestorIP_Address" use="required"/>
       <xsd:attribute name="revision" type="comp:Revision" use="required"/>
@@ -6827,6 +6826,9 @@ Builders, Manufacturers, And Suppliers</xsd:documentation>
          <xsd:documentation>Units: ft2</xsd:documentation>
       </xsd:annotation>
       <xsd:restriction base="dtyp:DecimalNonnegative"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="ProjectID">
+      <xsd:restriction base="xsd:string"/>
    </xsd:simpleType>
    <xsd:simpleType name="ProjectName">
       <xsd:restriction base="xsd:token"/>
@@ -7510,7 +7512,7 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="R38Insulation">Buildings with at least R-38 ceiling insulation</dtyp:displayterm>
             <dtyp:displayterm value="RadiantBarrier">Buildings with a radiant barrier in the attic meeting the requirements of Section 150.1(c)2</dtyp:displayterm>
             <dtyp:displayterm value="RoofDeckInsulationAbove">R-2 or greater insulation above the roof deck</dtyp:displayterm>
-            <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product;</dtyp:displayterm>
+            <dtyp:displayterm value="RoofingProductException">The installed roofing product has a profile ratio of rise to width of 1 to 5 for 50 percent or greater of the width of the roofing product</dtyp:displayterm>
          </xsd:appinfo>
       </xsd:annotation>
       <xsd:restriction base="dtyp:EnumerationConstant">
@@ -7903,7 +7905,9 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
             <dtyp:displayterm value="HeatedSlab">Heated slab</dtyp:displayterm>
             <dtyp:displayterm value="HeatPumpWaterHeaterNEEA">NEEA rated heat pump water heater or equivalent must be installed</dtyp:displayterm>
             <dtyp:displayterm value="IAQVentilationFanEfficacy">IAQ Ventilation System: low W/CFM</dtyp:displayterm>
+            <dtyp:displayterm value="IAQVentilationFID">IAQ Ventilation System: fault indicator display</dtyp:displayterm>
             <dtyp:displayterm value="IAQVentilationHRV_SRE_ASRE">IAQ Ventilation System: HRV via SRE and ASRE</dtyp:displayterm>
+            <dtyp:displayterm value="IAQVentilationSupplyAccessibility">IAQ Ventilation System: supply outside air inlet, filter, and H/ERV cores accessible per RACM Reference Manual</dtyp:displayterm>
             <dtyp:displayterm value="InsulationAboveRoofDeck">Insulation above roof deck</dtyp:displayterm>
             <dtyp:displayterm value="InsulationBelowRoofDeck">Insulation below roof deck</dtyp:displayterm>
             <dtyp:displayterm value="InsulationCeiling">Ceiling has high level of insulation</dtyp:displayterm>
@@ -7969,7 +7973,9 @@ the inside surface of gable ends or other exterior vertical surfaces in attics t
          <xsd:enumeration value="HeatedSlab"/>
          <xsd:enumeration value="HeatPumpWaterHeaterNEEA"/>
          <xsd:enumeration value="IAQVentilationFanEfficacy"/>
+         <xsd:enumeration value="IAQVentilationFID"/>
          <xsd:enumeration value="IAQVentilationHRV_SRE_ASRE"/>
+         <xsd:enumeration value="IAQVentilationSupplyAccessibility"/>
          <xsd:enumeration value="InsulationAboveRoofDeck"/>
          <xsd:enumeration value="InsulationBelowRoofDeck"/>
          <xsd:enumeration value="InsulationCeiling"/>

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.006">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -750,31 +750,72 @@
                                     <xsd:element name="G03_WaterHeaterToBath" type="comp:WaterHeaterToBath" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Master Bath distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G04_WaterHeaterToKitchen" type="comp:WaterHeaterToKitchen" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Kitchen distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G05_WaterHeaterToFurthest3rdFixture" type="comp:WaterHeaterToFurthest3rdFixture" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet (Avg for multiple water heaters)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM (PRODUCT (G03_WaterHeaterToBath, 0.4),  PRODUCT (G04_WaterHeaterToKitchen, 0.4),  PRODUCT ( G05_WaterHeaterToFurthest3rdFixture, 0.2)); Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = G05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  
+Else If prescriptive compliance or not available in XML,  Then
+If  A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
+result =  (G03_WaterHeaterToBath x 0.4) + (G04_WaterHeaterToKitchen x 0.4) +  ( G05_WaterHeaterToFurthest3rdFixture x 0.2)); 
+Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl 
+result = G05_WaterHeaterToFurthest3rdFixture
+End If
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="G07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result =  SUM(CompactDistCoefA, PRODUCT (CompactDistCoefB, CFA)) / A05_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; 
+Else If prescriptive compliance or not available in XML
+result =  ((CompactDistCoefA + CompactDistCoefB x CFA) / A05_WaterHeaterTotalSystemCount);
+Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="G08_CompactFactor" type="comp:CompactFactor" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance CF1R 
+reference value from CF1R-PRF and store in CompactFactor
+Else If prescriptive 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="G08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive CF1R
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="G09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:
+result = 0.3 + 0.4 x (G06_WaterHeaterWeightedDistance / G07_WaterHeaterQualificationDistance)
+ 
+If performance CF1R, result must be LTE G08_CompactFactor
+Else If prescriptive CF1R result must be LTE 0.7
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
@@ -862,31 +903,71 @@
                                     <xsd:element name="H03_WaterHeaterToBath" type="comp:WaterHeaterToBath" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Master Bath distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H04_WaterHeaterToKitchen" type="comp:WaterHeaterToKitchen" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Kitchen distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H05_WaterHeaterToFurthest3rdFixture" type="comp:WaterHeaterToFurthest3rdFixture" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet (Avg for multiple water heaters)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM ( PRODUCT (H03_WaterHeaterToBath, 0.4),  PRODUCT (H04_WaterHeaterToKitchen, 0.4),  PRODUCT (H05_WaterHeaterToFurthest3rdFixture, 0.2)); Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = H05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; 
+Else If prescriptive compliance or not available in XML, Then
+  If A10_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
+result = (H03_WaterHeaterToBath x 0.4) + (H04_WaterHeaterToKitchen x 0.4) +   (H05_WaterHeaterToFurthest3rdFixture x 0.2)); 
+Else If A10_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl 
+result = H05_WaterHeaterToFurthest3rdFixture
+End If
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="H07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance" >
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result =  SUM(CompactDistCoefA, PRODUCT (CompactDistCoefB, CFA)) / A05_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else If prescriptive compliance or not available in XML 
+result =  ((CompactDistCoefA + CompactDistCoefB x CFA) / A05_WaterHeaterTotalSystemCount); 
+Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section H.  Value for CFA (conditioned floor area) comes  parent CF1R.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="H08_CompactFactor" type="comp:CompactFactor" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance CF1R 
+reference value from CF1R-PRF and store in CompactFactor
+Else If prescriptive 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="H08_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive CF1R
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="H09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:
+result = 0.3 + 0.4 x (H06_WaterHeaterWeightedDistance / H07_WaterHeaterQualificationDistance)
+ 
+If performance CF1R, result must be LTE H08_CompactFactor
+Else If prescriptive CF1R result must be LTE 0.7
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>

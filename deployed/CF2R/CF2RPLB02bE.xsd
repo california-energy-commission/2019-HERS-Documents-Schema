@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB02bE" version="2019.1.005" xmlns="http://www.lmonte.com/besm/CF2RPLB02bE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.lmonte.com/besm/CF2RPLB02bE" version="2019.1.006" xmlns="http://www.lmonte.com/besm/CF2RPLB02bE" xmlns:altova="http://www.altova.com/xml-schema-extensions" xmlns:bld="http://www.lmonte.com/besm/bld" xmlns:com="http://www.lmonte.com/besm/com" xmlns:comp="http://www.lmonte.com/besm/comp" xmlns:d="http://www.lmonte.com/besm/d" xmlns:dtyp="http://www.lmonte.com/besm/dtyp" xmlns:env="http://www.lmonte.com/besm/env" xmlns:hvac="http://www.lmonte.com/besm/hvac" xmlns:lit="http://www.lmonte.com/besm/lit" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/comp" schemaLocation="../base/ResCompliance.xsd"/>
@@ -366,6 +366,30 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Stiebel220E list = Stiebel220ESimulationGroup values.</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="B03_Tier3Generic40" type="hvac:Tier3Generic40">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Tier3Generic40 list = Tier3Generic40  values.</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Tier3Generic50" type="hvac:Tier3Generic50">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Tier3Generic50 list = Tier3Generic50  values.</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Tier3Generic65" type="hvac:Tier3Generic65">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Tier3Generic65 list = Tier3Generic65  values.</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_Tier3Generic80" type="hvac:Tier3Generic80">
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: Tier3Generic80 list = Tier3Generic80  values.</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                       </xsd:choice>
                                                    </xsd:sequence>
                                                 </xsd:complexType>
@@ -649,31 +673,72 @@ End If</xsd:documentation>
                                     <xsd:element name="D03_WaterHeaterToBath" type="comp:WaterHeaterToBath">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Master Bath distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D04_WaterHeaterToKitchen" type="comp:WaterHeaterToKitchen">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Kitchen distance of furthest fixture to Water Heater in feet</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D05_WaterHeaterToFurthest3rdFixture" type="comp:WaterHeaterToFurthest3rdFixture">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Furthest Third furthest fixture to Water Heater in feet (Avg for multiple water heaters)</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else user input</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  Else If prescriptive compliance or not available in XML,   user input</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D06_WaterHeaterWeightedDistance" type="comp:WaterHeaterWeightedDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Weighted Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else  If A07_ResidentialDHWDwellingUnitDistributionType == StandardDistribution result = SUM( PRODUCT (D03_WaterHeaterToBath, 0.4),  PRODUCT (D04_WaterHeaterToKitchen, 0.4),  PRODUCT ( D05_WaterHeaterToFurthest3rdFixture, 0.2)); Else If A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl result = D05</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value;  
+Else If prescriptive compliance or not available in XML, Then  
+ If A07_ResidentialDHWDwellingUnitDistributionType == StandardDistribution 
+result =  (D03_WaterHeaterToBath x 0.4) +   (D04_WaterHeaterToKitchen x 0.4) + ( D05_WaterHeaterToFurthest3rdFixture x  0.2); 
+Else If A07_ResidentialDHWDwellingUnitDistributionType == DemandRecirculationManualControl 
+result = D05_WaterHeaterToFurthest3rdFixture
+End If
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                     <xsd:element name="D07_WaterHeaterQualificationDistance" type="comp:WaterHeaterQualificationDistance">
                                        <xsd:annotation>
                                           <xsd:documentation source="FieldText">Qualification Distance</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; Else result = SUM(CompactDistCoefA, PRODUCT (CompactDistCoefB, CFA)) / A04_WaterHeaterTotalSystemCount; Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section D.  Value for CFA comes  from parent CF1R.</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = CF1R-PRF value; 
+Else If prescriptive compliance or not available in XML, 
+result = (CompactDistCoefA + CompactDistCoefB x CFA) / A04_WaterHeaterTotalSystemCount); 
+Values for CompactDistCoefA,CompactDistCoefB are found in the Table  4.4.6-2 Coefficients for the Qualification Distance Calculation following section D.  Value for CFA comes  from parent CF1R.</xsd:documentation>
+                                       </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D08_CompactFactor" type="comp:CompactFactor">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If performance CF1R 
+reference value from CF1R-PRF and store in CompactFactor
+Else If prescriptive CF1R 
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D08_NotApplicableMessage" type="comp:NotApplicableMessage">
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Design Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive CF1R
+result = NotApplicable stored in NotApplicableMessage
+End If</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
+                                    <xsd:element name="D09_CompactFactorCalculated" type="comp:CompactFactorCalculated">
+                                       <xsd:annotation>
+                                          <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                          <xsd:documentation source="CalculationsAndRules">Calculated field:
+result = 0.3 + 0.4 x (D06_WaterHeaterWeightedDistance / D07_WaterHeaterQualificationDistance)
+ 
+If performance CF1R, result must be LTE D08_CompactFactor
+Else If prescriptive CF1R result must be LTE 0.7
+End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
                                  </xsd:sequence>
