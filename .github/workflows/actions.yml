@@ -1,6 +1,11 @@
 name: Call reusable workflow from Scripts repo
 
-on: [push]
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    types: [labeled]
 
 jobs:
   test:
@@ -12,6 +17,7 @@ jobs:
           github-ref: ${{ github.ref }}
           repository-name: ${{ github.event.repository.name }}
           access-token: ${{ secrets.CROSS_REPO_ACCESS_TOKEN }}
+          version: ${{ github.event.label.name }}
 
   deploy:
     runs-on: ubuntu-latest
