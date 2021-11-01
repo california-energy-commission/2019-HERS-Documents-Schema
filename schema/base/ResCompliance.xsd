@@ -9513,11 +9513,11 @@ Document Data</dtyp:displayterm>
       </xsd:sequence>
       <xsd:attribute name="complianceDocumentGUID" type="comp:ComplianceDocumentGUID" use="required"></xsd:attribute>
       <xsd:attribute name="complianceDocumentSchemaVersion" type="comp:ComplianceDocumentSchemaVersion" use="required"></xsd:attribute>
-      <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="required"></xsd:attribute>
+      <xsd:attribute name="compMgrVersion" type="comp:CompMgrVersion" use="optional"></xsd:attribute>
       <xsd:attribute name="displayTag" type="comp:ComplianceDocumentDisplayTag" use="required"></xsd:attribute>
       <xsd:attribute name="payloadDocument" type="comp:ComplianceDocumentTag" use="required"></xsd:attribute>
       <xsd:attribute name="processedDate" type="comp:ComplianceApplicationDate" use="required"></xsd:attribute>
-      <xsd:attribute name="projectID" type="comp:ProjectID" use="required"></xsd:attribute>
+      <xsd:attribute name="projectID" type="comp:ProjectID" use="optional"></xsd:attribute>
       <xsd:attribute name="reportRequestor" type="comp:ReportRequestor" use="required"></xsd:attribute>
       <xsd:attribute name="reportRequestorIP_Address" type="comp:ReportRequestorIP_Address" use="required"></xsd:attribute>
       <xsd:attribute name="revision" type="comp:Revision" use="required"></xsd:attribute>
