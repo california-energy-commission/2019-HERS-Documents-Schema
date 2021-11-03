@@ -739,13 +739,13 @@
                                        <xsd:element name="G02_TotalStoryCount" type="com:TotalStoryCount">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Number of Stories</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = N/A stored in NotApplicableMessage; Else user input limited to 1,2 or 3</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for G03/G04/G05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="G02_NotApplicableMessage" type="comp:NotApplicableMessage">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Number of Stories</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent CF1R = CF1R-PRF result = N/A stored in NotApplicableMessage; Else user input limited to 1,2 or 3</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for G03/G04/G05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>

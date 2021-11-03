@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.002">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.006">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -751,7 +751,7 @@
          <xsd:element name="Section_G" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
                <xsd:documentation source="FieldText">Roofing Products (Cool Roof)  (Section 150.1(c).11)</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">This section is applicable If A13_ProjectScopeAddition includes at least one of the following: AdditionLTE300, AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000,  AdditionLTE300ADU, AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, Or AdditionGT700LTE1000ADU.  If A13_ProjectScopeAddition == AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is applicable If A13_ProjectScopeAddition includes at least one of the following: AdditionGT300LTE400, AdditionGT400LTE700, AdditionGT700LTE1000,  AdditionGT300LTE400ADU, AdditionGT400LTE700ADU, Or AdditionGT700LTE1000ADU.  If A13_ProjectScopeAddition == AdditionGT700LTE1000ADU, display section but  entry is optional.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
