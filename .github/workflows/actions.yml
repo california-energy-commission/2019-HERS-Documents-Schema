@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   pull_request:
-    types: [labeled]
+    types: [push, labeled]
 
 jobs:
   call-reusable-workflow:
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: california-energy-commission/scripts@main
         with:
-          github-ref: ${{ github.head_ref }}
+          github-ref: ${GITHUB_REF##*/}
           repository-name: ${{ github.event.repository.name }}
           access-token: ${{ secrets.CROSS_REPO_ACCESS_TOKEN }}
           version: ${{ github.event.label.name }}
