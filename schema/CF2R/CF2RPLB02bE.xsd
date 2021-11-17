@@ -741,17 +741,24 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field:
 result = 0.3 + 0.4 x (D06_WaterHeaterWeightedDistance / D07_WaterHeaterQualificationDistance)
  
 If performance CF1R, result must be LTE D08_CompactFactor
 Else If prescriptive CF1R result must be LTE 0.7
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>

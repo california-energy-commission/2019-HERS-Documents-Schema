@@ -243,7 +243,7 @@ Else  value from CF1R-PRF</xsd:documentation>
                                           <xsd:documentation source="CalculationsAndRules">If A04_ComplianceCertificateType == Performance Then
 result = CF1R-PRF Da12_AnnualSolarAccess
 Else 
-result = 100
+result = 98
 End If</xsd:documentation>
                                        </xsd:annotation>
                                     </xsd:element>
@@ -395,13 +395,13 @@ End If</xsd:documentation>
                                              <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
                                              <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then 
 result = value from B08_Tilt or B08_RoofRise; 
-Else user input value for the measurement type in C05. Value must be GT 0 and LT 10.</xsd:documentation>
+Else user input value for the measurement type in C05. Value must be GTE 0 and LT 10.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="C06_RoofRise" type="env:RoofRise">
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Angle/Tilt</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then result = value from B08_Tilt or B08_RoofRise; Else user input value for the measurement type in C05. Value must be GT 0 and LT 10.</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If B05_CFI_PV == false then result = value from B08_Tilt or B08_RoofRise; Else user input value for the measurement type in C05. Value must be GTE 0 and LT 10.</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>

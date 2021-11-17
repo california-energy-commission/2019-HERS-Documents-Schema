@@ -643,13 +643,13 @@
                                        <xsd:element name="D02_TotalStoryCount" type="com:TotalStoryCount" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Number of Stories</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for G03/G04/G05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for D03/D04/D05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="D02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Number of Stories</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for G03/G04/G05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for D03/D04/D05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -711,17 +711,24 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="D09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="D09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field:
 result = 0.3 + 0.4 x (D06_WaterHeaterWeightedDistance / D07_WaterHeaterQualificationDistance)
  
 If performance CF1R, result must be LTE D08_CompactFactor
 Else If prescriptive CF1R result must be LTE 0.7
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="D09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
@@ -806,13 +813,13 @@ End If</xsd:documentation>
                                        <xsd:element name="E02_TotalStoryCount" type="com:TotalStoryCount" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Number of Stories</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = N/A stored in NotApplicableMessage; Else If parent == prescriptive CF1R user input limited to 1,2 or 3</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for E03/E04/E05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                        <xsd:element name="E02_NotApplicableMessage" type="comp:NotApplicableMessage" >
                                           <xsd:annotation>
                                              <xsd:documentation source="FieldText">Number of Stories</xsd:documentation>
-                                             <xsd:documentation source="CalculationsAndRules">If parent == CF1R-PRF result = N/A stored in NotApplicableMessage; Else If parent == prescriptive CF1R user input limited to 1,2 or 3</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">If prescriptive path or data for E03/E04/E05 are not in performance file, user select from list:  1,2 or 3; Else result = N/A stored in NotApplicableMessage;</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
@@ -874,17 +881,24 @@ End If</xsd:documentation>
                                           </xsd:annotation>
                                        </xsd:element>
                                     </xsd:choice>
-                                    <xsd:element name="E09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
-                                       <xsd:annotation>
-                                          <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
-                                          <xsd:documentation source="CalculationsAndRules">Calculated field:
+                                    <xsd:choice maxOccurs="1">
+                                       <xsd:element name="E09_CompactFactorCalculated" type="comp:CompactFactorCalculated" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                             <xsd:documentation source="CalculationsAndRules">Calculated field:
 result = 0.3 + 0.4 x (E06_WaterHeaterWeightedDistance / E07_WaterHeaterQualificationDistance)
  
 If performance CF1R, result must be LTE E08_CompactFactor
 Else If prescriptive CF1R result must be LTE 0.7
 End If</xsd:documentation>
-                                       </xsd:annotation>
-                                    </xsd:element>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                       <xsd:element name="E09_NotApplicableMessage" type="comp:NotApplicableMessage" >
+                                          <xsd:annotation>
+                                             <xsd:documentation source="FieldText">Calculated Compactness Factor</xsd:documentation>
+                                          </xsd:annotation>
+                                       </xsd:element>
+                                    </xsd:choice>
                                  </xsd:sequence>
                               </xsd:complexType>
                            </xsd:element>
