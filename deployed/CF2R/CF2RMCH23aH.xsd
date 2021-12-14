@@ -229,7 +229,21 @@
                   <xsd:element name="D01_AirflowPerUnitCoolingCapacity" type="hvac:AirflowPerUnitCoolingCapacity">
                      <xsd:annotation>
                         <xsd:documentation source="FieldText">Required Minimum System Airflow Rate (cfm/ton)</xsd:documentation>
-                        <xsd:documentation source="CalculationsAndRules">Calculated field: For any parent Mch01: If ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or  SmallDuctHighVelocityHP  result = 250 Else If  A04_ImprovementStatus == Alteration,  result = 300; Else for MCH-01a parent only:  If B10_ResidentialCoolingZoneType != D09_ResidentialCoolingZoneType result = 350 Else If C08 != N/A then result = MCH-01a C08_AirflowPerUnitCoolingCapacity;   Else result = 350.</xsd:documentation>
+                        <xsd:documentation source="CalculationsAndRules">Calculated field: 
+For any parent Mch01: 
+If ResidentialCoolingSystemType == SmallDuctHighVelocityAC Or  SmallDuctHighVelocityHP  result = 250 
+Else If  A04_ImprovementStatus == Alteration,  result = 300; 
+Else for MCH-01a parent only:  
+If B10_ResidentialCoolingZoneType != D09_ResidentialCoolingZoneType result = 350 
+Else If C08 != N/A then result = MCH-01a C08_AirflowPerUnitCoolingCapacity; 
+End If
+Else for MCH01d parent only:
+If B08_ResidentialCoolingZoneType != D09_ResidentialCoolingZoneType result = 350
+Else If   C08 != N/A then result = MCH-01d C08_AirflowPerUnitCoolingCapacity; 
+End If
+
+Else result = 350.
+End If</xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
                   <xsd:element name="D02_AirflowRequiredMinimumTarget" type="hvac:AirflowRequiredMinimumTarget">

@@ -12,7 +12,7 @@
    xmlns:dtyp="http://www.lmonte.com/besm/dtyp"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:altova="http://www.altova.com/xml-schema-extensions"
-   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.005">
+   elementFormDefault="qualified" attributeFormDefault="unqualified" version="2019.1.006">
    <xsd:import namespace="http://www.lmonte.com/besm/com" schemaLocation="../base/ResCommon.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/bld" schemaLocation="../base/ResBuilding.xsd"/>
    <xsd:import namespace="http://www.lmonte.com/besm/env" schemaLocation="../base/ResEnvelope.xsd"/>
@@ -2355,11 +2355,12 @@ Else If  the CF1R flags the requirement for HERS verified duct design ( Supply D
                </xsd:sequence>
             </xsd:complexType>
          </xsd:element>
-         <xsd:element name="Section_P" minOccurs="1">
+         <xsd:element name="Section_P" minOccurs="0">
             <xsd:annotation>
                <xsd:documentation source="FieldText">HERS Verification Requirements For Space Conditioning Equipment</xsd:documentation>
-               <xsd:documentation source="CalculationsAndRules">Require one row of data for each SC System listed in G01_ResidentialSpaceConditioningSystemName and I01_ResidentialSpaceConditioningSystemName ALSO If section E applies enter one row of data for SC systems for which D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And E04 == true</xsd:documentation>
-               <xsd:documentation source="MinOccurs">This section is required.</xsd:documentation>
+               <xsd:documentation source="CalculationsAndRules">This section is required If Section G has data Or If Section I has data. 
+Require one row of data for each SC System listed in G01_ResidentialSpaceConditioningSystemName and I01_ResidentialSpaceConditioningSystemName ALSO If section E applies enter one row of data for SC systems for which D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And E04 == true</xsd:documentation>
+               <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
                <xsd:sequence>
