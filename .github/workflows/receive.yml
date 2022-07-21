@@ -1,0 +1,17 @@
+name: Remote Dispatch Action Receiver
+
+on: [repository_dispatch]
+
+jobs:
+  receive_response:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking response from Scripts repo
+        if: ${{ github.event.client_payload.message.stylesheet != 'success' }}
+        run: |
+          echo "Workflow has failed."
+          exit 1
+
+      - name: Receive response from Scripts repo
+        run: 'echo "Workflow finished successfully!"'
