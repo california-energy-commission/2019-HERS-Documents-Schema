@@ -1558,7 +1558,9 @@ E. require one row of data for each of the indoor units in F03_SpaceConditioning
  
 F. require one row of data for each of the indoor units in H03_SpaceConditioningIndoorUnitName for which H05_IndoorUnitDucts == DuctsLTE10Ft  Or DuctsGT10Ft;   
  
-G.  require one row of data for each indoor unit in the quantity specified by D13 _DuctedIndoorUnitsCount for  systems where D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And D13 GTE 1 .</xsd:documentation>
+G.  require one row of data for each indoor unit in the quantity specified by D13 _DuctedIndoorUnitsCount for  systems where D11_EAA_SpaceConditionSystemStatus == ExistingUnchanged And D13 GTE 1;
+               
+H. require one row of data for each space conditioning system in section E field E02 for which E09_ResidentialHvacAlterationType == DuctSystemExistingExtended and both E10 == NoHeatingComponentsAltered and E11 == NoCoolingComponentsAltered.</xsd:documentation>
                <xsd:documentation source="MinOccurs">If this section doesn't apply, display only the section FieldText and the statement 'This section does not apply to this project.'</xsd:documentation>
             </xsd:annotation>
             <xsd:complexType>
