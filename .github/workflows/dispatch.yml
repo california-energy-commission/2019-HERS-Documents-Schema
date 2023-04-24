@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Dispatch to Scripts repo
-        uses: california-energy-commission/Scripts@main
+        uses: NORESCO/Scripts@main
         with:
           access-token: ${{ secrets.CROSS_REPO_ACCESS_TOKEN }}
           github-ref: ${{ github.event.pull_request.head.ref }}
