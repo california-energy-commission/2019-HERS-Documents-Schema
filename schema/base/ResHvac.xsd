@@ -11167,6 +11167,7 @@
             <dtyp:displayterm value="RheemCanCXE40T10H22U0">Rheem Canada CXE40T10H22UO (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemCanCXE40T10H45U0">Rheem Canada CXE40T10H45UO (40 gal)</dtyp:displayterm>
             <dtyp:displayterm value="RheemCanCXE40T10HS45U0">Rheem Canada CXE40T10HS45UO (40 gal)</dtyp:displayterm>
+            <dtyp:displayterm value="RheemHPLD401RH">Rheem HPLD40-1RH</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH40T2RH37515">PROPH40 T2 RH37515  (40 gal, JA13)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH40T2RH37530">PROPH40 T2 RH37530  (40 gal, JA13)</dtyp:displayterm>
             <dtyp:displayterm value="RheemPROPH40T2RH375SO">PROPH40 T2 RH375SO  (40 gal, JA13)</dtyp:displayterm>
@@ -11192,6 +11193,7 @@
          <xsd:enumeration value="RheemCanCXE40T10H22U0"/>
          <xsd:enumeration value="RheemCanCXE40T10H45U0"/>
          <xsd:enumeration value="RheemCanCXE40T10HS45U0"/>
+         <xsd:enumeration value="RheemHPLD401RH"/>
          <xsd:enumeration value="RheemPROPH40T2RH37515"/>
          <xsd:enumeration value="RheemPROPH40T2RH37530"/>
          <xsd:enumeration value="RheemPROPH40T2RH375SO"/>
