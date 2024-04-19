@@ -914,8 +914,10 @@ Check that result is compliant:
 If B04_ResidentialCoolingSystemType ==  CentralPackagedAC, then 
 result must be GTE 11 And GTE  C07_ EfficiencyMinimumValueEER to comply; 
  
-Else If B04_ResidentialCoolingSystemType == CentralSplitAC 
-If F10_CondenserRatedCoolingCapacity LT 45000 then 
+Else If B04_ResidentialCoolingSystemType == CentralSplitAC
+If F03_EfficiencyInstalledValueSEER GTE 16.0 then
+result must be GTE 10.2 And GTE C07_ EfficiencyMinimumValueEER to comply;  
+Else If F10_CondenserRatedCoolingCapacity LT 45000 then 
 result must be GTE 12.2 And GTE C07_ EfficiencyMinimumValueEER to comply
 Else If F10_CondenserRatedCoolingCapacity GTE 45000 then 
 result must be GTE 11.7 And GTE C07_ EfficiencyMinimumValueEER to comply
