@@ -390,6 +390,42 @@ End If</xsd:documentation>
                                                                <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemHBDR4580 list = RheemHBDR4580SimulationGroup values;</xsd:documentation>
                                                             </xsd:annotation>
                                                          </xsd:element>
+                                                         <xsd:element name="B03_RheemPlugInShared40SimulationGroup" type="hvac:RheemPlugInShared40SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemPlugInShared40 list = RheemPlugInShared40SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemPlugInShared50SimulationGroup" type="hvac:RheemPlugInShared50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemPlugInShared50 list = RheemPlugInShared50SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemPlugInShared65SimulationGroup" type="hvac:RheemPlugInShared65SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemPlugInShared65 list = RheemPlugInShared65SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemPlugInShared80SimulationGroup" type="hvac:RheemPlugInShared80SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemPlugInShared80 list = RheemPlugInShared80SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemPlugInDedicated40SimulationGroup" type="hvac:RheemPlugInDedicated40SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemPlugInDedicated40 list = RheemPlugInDedicated40SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
+                                                         <xsd:element name="B03_RheemPlugInDedicated50SimulationGroup" type="hvac:RheemPlugInDedicated50SimulationGroup" >
+                                                            <xsd:annotation>
+                                                               <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
+                                                               <xsd:documentation source="CalculationsAndRules">Reference value from A03_HeatPumpWaterHeaterModel as default and allow user to override with an equivalent system based on the simulated equipment in A09 as follows: Switch (A09_HeatPumpWaterHeaterSimulationGroup) case: RheemPlugInDedicated50 list = RheemPlugInDedicated50SimulationGroup values;</xsd:documentation>
+                                                            </xsd:annotation>
+                                                         </xsd:element>
                                                          <xsd:element name="B03_Sanden40SimulationGroup" type="hvac:Sanden40SimulationGroup" >
                                                             <xsd:annotation>
                                                                <xsd:documentation source="FieldText">Make and Model</xsd:documentation>
